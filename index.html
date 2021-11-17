@@ -7,11 +7,13 @@
 	
 </head>
 <body onscroll="show();lengthen()">
-	<h1><a href="#">First-Game </a> <p id="titledes"> Play simple game like your childhood memories.</p></h1>
+	<h1 id="fgtitle"><a href="#">First-Game </a> <p id="titledes"> Play simple game like your childhood memories.</p></h1>
+
+
 	<div id="menu">
 		<a href="#">My Games</a>
 		<p>|</p>
-		<a href="http://www.4399.com">Other Game Website</a>
+		<a href="http://www.4399.com" target="_blank">Other Game Website</a>
 		<form method="GET" target="_blank" id="search" action="http://www.google.com/search">
 			<select id="searchOps" onchange="searchchange()">
 				<option>Google</option>
@@ -24,10 +26,14 @@
 			<input type="submit" value="Google" id="searchBtn">
 		</form>
 	</div>
+
+
 	<div>
 		<button onclick="totop()" id="topBtn" class="TBbutton">TOP</button>
 		<button onclick="tobottom()" id="bottomBtn" class="TBbutton">BOTTOM</button>
 	</div>
+
+
 	<div id="content">
 		<div id="gamelist">
 			<p class="gamename">Avoid Being Caught</p>
@@ -130,7 +136,17 @@
 				<div class="taskbar2"></div>
 			</div>
 		</div>
+
+
+		<div id="introduction">
+			<div>
+				<p>This website is created to show the simple games designed by different net friends.</p>
+				<p>These games are just like </p>
+			</div>
+		</div>
+
 	</div>
+	
 
 	<div id="blankarea"></div>
 	<script type="text/javascript" src="./FirstGame.js"></script>
