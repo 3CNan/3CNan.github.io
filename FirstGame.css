@@ -85,7 +85,7 @@ a {
 	position: fixed;
 	width: calc(25% - 60px);
 	height: calc(100vh);
-	overflow: auto;
+	/*overflow: auto;*/
 	background-color: lightgray;
 	font-size: 20px;
 	float: left;
@@ -344,25 +344,3 @@ a {
 #comesoon {
 	height: 210px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
