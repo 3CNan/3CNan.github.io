@@ -34,11 +34,20 @@ function searchchange() {
 var dis;
 function lengthen() {
 	var gamelistObj = document.getElementById("gamelist");
+	var fgtitleObj = document.getElementById("fgtitle");
+	var menuObj = document.getElementById("menu");
+	var bodyObj = document.getElementsByTagName("body");
+	var bodytop = parseInt(getComputedStyle(bodyObj[0]).paddingTop);
+	var fgheight = Calcheight(fgtitleObj);
+	var menuheight = Calcheight(menuObj);
+	var above = bodytop + fgheight + menuheight;
+
 	dis = document.body.scrollTop || document.documentElement.scrollTop;
-	var top = 197 - dis;
-	if(dis > 197) {
+	
+	var top = above - dis;
+	if(dis > above) {
 		gamelistObj.style.top = "0px";
-	} else if(dis < 197) {
+	} else if(dis < above) {
 		gamelistObj.style.top = top + "px";	
 	}
 }
@@ -54,7 +63,13 @@ function show() {
 		bottomBtnObj.style.display = "none";
 	}
 }
-
+function Calcheight(obj) {
+	var height = parseInt(getComputedStyle(obj).height);
+	var padding = parseInt(getComputedStyle(obj).paddingTop) + parseInt(getComputedStyle(obj).paddingBottom);
+	var border =  parseInt(getComputedStyle(obj).borderTop) +  parseInt(getComputedStyle(obj).borderBottom);
+	var margin = parseInt(getComputedStyle(obj).marginTop) + parseInt(getComputedStyle(obj).marginBottom);
+	return height + padding + border + margin;
+}
 
 
 var Ttimer, Btimer;
@@ -225,9 +240,9 @@ function abc_timestart() {
 			return;
 		}
 		time++;
-		var ms = partadd(time%60);
-		var sec = partadd(parseInt((time/60)%60));
-		var min = partadd(parseInt(time/60/60));
+		var ms = partadd("00", time%60);
+		var sec = partadd("00", parseInt((time/60)%60));
+		var min = partadd("00", parseInt(time/60/60));
 		abcMsecObj.innerHTML = ms;
 		abcSecObj.innerHTML = sec;
 		abcMinObj.innerHTML = min;
@@ -246,11 +261,10 @@ function abc_timestart() {
 	}, 16.5);
 }
 var abcTimer, scoreTimer;
-function partadd(number) {
-	if(number < 10) {
-		return "0" + number;
-	}
-	return number;
+function partadd(digit, number) {
+	number += "";
+	var zeropre = digit.length - number.length;
+	return digit.substr(0, zeropre) + parseInt(number) + digit.substr(zeropre + number.length);
 }
 
 function abc_reset() {
@@ -306,19 +320,8 @@ function abc_start() {
 				si = 0;
 			}
 		}
-		scoretextObj.innerHTML = "Score: " + partadd2(score);
+		scoretextObj.innerHTML = "Score: " + partadd("0000", score);
 	}, 1000)
-}
-function partadd2(number) {
-	if(number == 0) {
-		return "000" + number;
-	} else if(number > 0 && number < 100) {
-		return "00" + number;
-	} else if(number >= 100 && number < 1000){
-		return "0" + number;
-	} else {
-		return number;
-	}
 }
 
 
@@ -337,7 +340,7 @@ gamenameObjs[1].onclick = function() {
 		gameareaObjs[i].style.display = "none";
 	}
 	gameareaObjs[1].style.display = "block";
-	scoretextObj2.innerHTML = "All your scores: " + partadd3(scorecombine);
+	scoretextObj2.innerHTML = "All your scores: " + partadd("00000", scorecombine);
 }
 gamenameObjs[2].onclick = function() {
 	for(var i = 0; i < gameareaObjs.length; i++) {
@@ -348,23 +351,6 @@ gamenameObjs[2].onclick = function() {
 
 window.onload = function() {
 	gameareaObjs[0].style.display = "block";
-}
-
-
-
-
-function partadd3(number) {
-	if(number == 0) {
-		return "0000" + number;
-	} else if(number > 0 && number < 100) {
-		return "000" + number;
-	} else if(number >= 100 && number < 1000){
-		return "00" + number;
-	} else if(number >= 1000 && number < 10000) {
-		return "0" + number;
-	} else {
-		return number;
-	}
 }
 
 
@@ -414,7 +400,7 @@ function lotrandom() {
 		Dn = Di;
 		text0Obj.innerHTML = "Congratulations, you get " + lotteryBox2Objs[0].title + "！";
 		scorecombine += parseInt(lotteryBox2Objs[0].title);
-		scoretextObj2.innerHTML = "All your scores: " + partadd3(scorecombine);
+		scoretextObj2.innerHTML = "All your scores: " + partadd("00000", scorecombine);
 	} 
 }
 
@@ -494,22 +480,3 @@ function turnstopping() {
 		cancelAnimationFrame(TRtimer2);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
