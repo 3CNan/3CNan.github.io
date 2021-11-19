@@ -51,7 +51,7 @@ function boxnumbers() {
 			hint = "Mathematics, Business and Accounting can be helpful to increase your sensitivity to numbers and can develop your logical thinking. <br>English can also be important for communication and understanding."
 			break;
 		case 2:
-			count = 2 + 3;
+			count = 1 + 3;
 			hint = "There's no hint for this part.";
 			break;
 		case 3:
