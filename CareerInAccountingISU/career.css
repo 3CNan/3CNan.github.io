@@ -75,7 +75,7 @@ body {
 	font-style: italic;
 }
 #dcsnpart {
-	height: 82%;
+	height: calc(82% - 5px);
 	overflow: scroll;
 }
 .decision {
@@ -84,7 +84,7 @@ body {
 }
 #HScourse label {
 	font-family: cursive;
-	line-height: 40px;
+	line-height: 37px;
 }
 #hintpart {
 	width: calc(100% - 26px);
