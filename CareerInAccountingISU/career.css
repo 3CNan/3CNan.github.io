@@ -2,15 +2,110 @@
 	font-family: serif;
 }
 html {
-	background-color: whitesmoke;
+	background-image: url(./1009034.jpg);
+	background-size: cover;
+	background-repeat: horizontal;
 }
 body {
 	background-color: white;
 	margin: 0 auto;
 	max-width: 800px;
-	padding: 40px 40px 40px;
+	padding: 40px 40px 0px 40px;
 	text-align: center;
+	/*height: 100vh;*/
 }
 #screen {
-	
+	background-color: lightgray;
+	width: 100%;
+	height: 550px;
+	overflow: hidden;
+}
+#textarea {
+	width: 65%;
+	height: 100%;
+	float: left;
+}
+#textpart {
+	width: calc(100% - 30px);
+	height: calc(80% - 30px);
+	padding: 15px;
+}
+#clickpart {
+	width: 100%;
+	height: 20%;
+	background-color: gray;
+	color: white;
+	display: table;
+}
+.textbox {
+	width: calc(100% - 13px);
+	height: 35px;
+	text-align: left;
+	border: 3px solid darkgray;
+	background-color: whitesmoke;
+	display: none;
+	padding: 3px 5px;
+	margin: 10px 0;
+}
+.textbox p, #clickpart p {
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0;
+	font-family: monospace;
+}
+#decidearea {
+	width: 35%;
+	height: 100%;
+	background-color: whitesmoke;
+	float: left;
+	text-align: left;
+}
+#hintbtn, #mapbtn {
+	float: right;
+	margin: 0 5px 0 0;
+	background-color: dimgray;
+	color: white;
+}
+#datapart {
+	height: 18%;
+}
+#datapart p {
+	padding: 0 10px;
+	margin: 5px;
+	font-style: italic;
+}
+#dcsnpart {
+	height: 82%;
+	overflow: scroll;
+}
+.decision {
+	display: none;
+	padding: 10px;
+}
+#HScourse label {
+	font-family: cursive;
+	line-height: 40px;
+}
+#hintpart {
+	width: calc(100% - 26px);
+	padding: 10px;
+	position: relative;
+	bottom: 0;
+	background-color: lightgray;
+	border: 3px solid darkgray;
+}
+#hinttext {
+	/*display: none;*/
+	margin: 0;
+	color: white;
+}
+#footer {
+	width: calc(100% + 80px);
+	height: 17vh;
+	margin: 30px -40px 0 -40px;
+	background-color: lightseagreen;
+	line-height: 17vh;
+}
+#footer p {
+	font-family: fantasy;
 }

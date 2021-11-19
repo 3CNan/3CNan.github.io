@@ -9,7 +9,90 @@
 	<h2>Welcome to Accounting Simulator!</h2>
 	<h4>Our goal is to ---- <i>Be an Accountant!</i></h4> 
 	<div id="screen">
-		
+		<audio src="click.mp3" id="clickaudio">Your browser does not support the audio element.</audio>
+
+		<div id="textarea">
+			<div id="textpart">
+				<div id="intro">
+					<div class="textbox">
+						<p>You are a high school student.</p>
+					</div>
+					<div class="textbox">
+						<p>You want to become an accountant in the future.</p>
+					</div>
+					<div class="textbox">
+						<p>Let's start your journey!</p>
+					</div>
+				</div>
+
+				<div id="dialogue1">
+					<div class="textbox">
+						<p>First, you need to choose some subjects on the right side which can be helpful for your future accounting.</p>
+					</div>
+				</div>
+			</div>
+			<div id="clickpart">
+				<p id="clicktext">Click here to start</p>
+			</div>
+		</div>
+
+
+		<div id="decidearea">
+			<div id="datapart">
+				<div id="hint">
+					<button id="hintbtn">Hint</button>
+				</div>
+				<div id="map">
+					<button id="mapbtn">Map</button>
+				</div>
+				<p id="sensitivity">Sensitivity: </p>
+				<p id="ability_coefficient">Ability coefficient: </p>
+				<p id="age">Age: </p>
+				<hr>
+			</div>
+
+			<div id="dcsnpart">
+				<div class="decision" id="hsc">
+					<form id="HScourse">
+						<label>Here are some of the high school courses: </label>
+						<br>
+						<input type="checkbox" name="mathemetics">
+						<label>Mathemetics</label>
+						<br>
+						<input type="checkbox" name="foodculture">
+						<label>Food and Culture</label>
+						<br>
+						<input type="checkbox" name="accounting">
+						<label>Accounting</label>
+						<br>
+						<input type="checkbox" name="business">
+						<label>Business</label>
+						<br>
+						<input type="checkbox" name="history">
+						<label>History</label>
+						<br>
+						<input type="checkbox" name="art">
+						<label>Art</label>
+						<br>
+						<input type="checkbox" name="english">
+						<label>English</label>
+						<br>
+					</form>
+				</div>
+
+				<div id="hintpart">
+				<p id="hinttext">Hint</p>
+			</div>
+			</div>
+
+
+			
+		</div>
 	</div>
+
+	<div id="footer">
+		<p>This page is made by Nancy Wu for the Accounting Unit 1 ISU.</p>
+	</div>
+	<script type="text/javascript" src="./career.js"></script>
 </body>
 </html>
