@@ -82,9 +82,9 @@ body {
 	display: none;
 	padding: 10px;
 }
-#HScourse label {
+#HScourses label {
 	font-family: cursive;
-	line-height: 37px;
+	line-height: 30px;
 }
 #hintpart {
 	width: calc(100% - 26px);
