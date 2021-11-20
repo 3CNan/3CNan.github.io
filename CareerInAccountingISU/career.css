@@ -86,11 +86,14 @@ body {
 	font-family: cursive;
 	line-height: 30px;
 }
+#UCcourses label {
+	font-family: cursive;
+	font-size: 15.64px;
+}
 #hintpart {
 	width: calc(100% - 26px);
 	padding: 10px;
-	position: relative;
-	bottom: 0;
+	margin-top: 10px;
 	background-color: lightgray;
 	border: 3px solid darkgray;
 }
@@ -109,3 +112,14 @@ body {
 #footer p {
 	font-family: fantasy;
 }
+#ucc {
+	display: block;
+}
+
+
+
+
+
+
+
+

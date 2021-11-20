@@ -37,8 +37,10 @@ hintbtnObj.onclick = function() {
 	boxnumbers();
 	if(hinttxtObj.innerHTML == "Hint") {
 		hinttxtObj.innerHTML = hint;
+		hinttxtObj.style.color = "black";
 	} else if(hinttxtObj.innerHTML != "Hint") {
 		hinttxtObj.innerHTML = "Hint";
+		hinttxtObj.style.color = "white";
 	}
 }
 
@@ -54,19 +56,19 @@ function boxnumbers() {
 			break;
 		case 2:
 			count = 4 + 1 + 3;
-			hint = "There's no hint for this part.";
+			hint = "Introductory Financial Accounting, Intermediate Financial Reporting 1, Intermediate Financial Reporting 2, Advanced Financial Reporting, Introductory Management Accounting, Intermediate Management Accounting, Corporate Finance, Audit and Assurance, Taxation, Performance Management, Economics, Statistics, Business Law, and Information Technology are all CPA preparatory courses. <br><br>Among them, Intermediate Financial Reporting 1, Intermediate Financial Reporting 2, Advanced Financial Reporting, Corporate Finance, Audit and Assurance, Taxation,  Intermediate Management Accounting, and Performance Management are all core courses. <br><br>Else are all non-core courses.";
 			break;
 		case 3:
 			count = 5 + 4 + 1 + 3;
-			hint = "There's no hint for this part.";
+			hint = "Introductory Financial Accounting, Intermediate Financial Reporting 1, Intermediate Financial Reporting 2, Advanced Financial Reporting, Introductory Management Accounting, Intermediate Management Accounting, Corporate Finance, Audit and Assurance, Taxation, Performance Management, Economics, Statistics, Business Law, and Information Technology are all CPA preparatory courses. <br><br>Among them, Intermediate Financial Reporting 1, Intermediate Financial Reporting 2, Advanced Financial Reporting, Corporate Finance, Audit and Assurance, Taxation,  Intermediate Management Accounting, and Performance Management are all core courses. <br><br>Else are all non-core courses.";
 			break;
 		case 4:
 			count = 4 + 5 + 4 + 1 + 3;
-			hint = "There's no hint for this part.";
+			hint = "Introductory Financial Accounting, Intermediate Financial Reporting 1, Intermediate Financial Reporting 2, Advanced Financial Reporting, Introductory Management Accounting, Intermediate Management Accounting, Corporate Finance, Audit and Assurance, Taxation, Performance Management, Economics, Statistics, Business Law, and Information Technology are all CPA preparatory courses. <br><br>Among them, Intermediate Financial Reporting 1, Intermediate Financial Reporting 2, Advanced Financial Reporting, Corporate Finance, Audit and Assurance, Taxation,  Intermediate Management Accounting, and Performance Management are all core courses. <br><br>Else are all non-core courses.";
 			break;
 		case 5:
 			count = 4 + 4 + 5 + 4 + 1 + 3;
-			hint = "There's no hint for this part.";
+			hint = "Introductory Financial Accounting, Intermediate Financial Reporting 1, Intermediate Financial Reporting 2, Advanced Financial Reporting, Introductory Management Accounting, Intermediate Management Accounting, Corporate Finance, Audit and Assurance, Taxation, Performance Management, Economics, Statistics, Business Law, and Information Technology are all CPA preparatory courses. <br><br>Among them, Intermediate Financial Reporting 1, Intermediate Financial Reporting 2, Advanced Financial Reporting, Corporate Finance, Audit and Assurance, Taxation,  Intermediate Management Accounting, and Performance Management are all core courses. <br><br>Else are all non-core courses.";
 			break;
 	}
 }
@@ -81,6 +83,7 @@ function nextstep() {
 		sentence += 1;
 		if(hinttxtObj.innerHTML != "Hint") {
 			hinttxtObj.innerHTML = "Hint";
+			hinttxtObj.style.color = "white";
 		}
 	}
 }
