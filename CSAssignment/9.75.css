@@ -4,6 +4,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	background-color: lightgoldenrodyellow;
 }
 
 
@@ -30,7 +31,7 @@ body {
 #menu a {
 	text-decoration: none;
 	color: black;
-	width: 110px;
+	width: 120px;
 	height: 35px;
 	padding: 10px 0;
 	text-align: center;
@@ -55,7 +56,7 @@ body {
 }
 #search input {
 	position: relative;
-	left: 23%;
+	left: 20%;
 	top: 6px;
 }
 #search #text {
@@ -103,11 +104,7 @@ body {
 	font-size:17px;
 	color: #333333;
 	margin-bottom: 20px;
-	/*margin-left: 20px;*/
 	float: left;
-}
-.box img {
-	width: 100%;
 }
 .circle {
 	border-radius: 100%;
@@ -126,11 +123,10 @@ body {
 	width: 100%;
 }
 #content {
-	background-color: lightgoldenrodyellow;
-	/*height: 1500px;*/
+	background-color: rgb(220, 224, 177);
 	z-index: 1;
 	font-size: 20px;
-	padding-top: 60px;
+	padding-top: 30px;
 }
 h1 {
 	color: rgb(250, 160, 25);
@@ -140,7 +136,6 @@ h1 {
 	font-family: fantasy;
 	margin: 0;
 }
-
 #hpcircle {
 	width:250px;
 	height:250px;
@@ -158,12 +153,13 @@ h1 {
 #recommend {
 	width: 100%;
 	height: 400px;
-	background-color: whitesmoke;
+	background: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201810%2F05%2F20181005114422_fstjt.thumb.700_0.gif&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622831608&t=fca4a1aa54d2d540edb6481b88686722);
+	/*background-size: cover;*/
 	float: left;
 }
 .recommend-area {
 	width: 864px;
-	height: 360px;
+	height: 400px;
 	position: relative;
 	top: 50%;
 	left: 50%;
@@ -172,7 +168,7 @@ h1 {
 }
 .recommend-set {
 	width: 4320px;
-	height: 360px;
+	height: 400px;
 	animation: recommend 13s linear infinite;
 }
 @keyframes recommend{
@@ -188,7 +184,7 @@ h1 {
 }
 .recommend-content {
 	width: 864px;
-	height: 365px;
+	height: 400px;
 	float: left;
 }
 .recommend-content img {
@@ -196,34 +192,38 @@ h1 {
 	margin-top: -5%;
 }
 
-#hptext {
-	padding: 0 10%;
+#hptext .box {
+	margin: 5% 10% 2% 10%;
 	width: 80%;
-	height: 600px;
-	margin-top: 33%;
+	height:400px;
+	background-color: white;
+	overflow: hidden;
 }
-#repo {
-	width: 35%;
-	height:500px;
-	columns: 20px 1;
-	border: black;
-	box-sizing: border-box;
-	margin-right: 10%;
+#hptext .box .hpimg img {
+	height: 100%;
 }
-#regist {
-	width: 50%;
-	height:350px;
-	columns: 20px 1;
-	border: black;
-	box-sizing: border-box;
+.hptitle {
+	width: 40%;
+	margin: 0;
+	height: 100%;
+	float: left;
+}
+.hpimg {
+	width: 60%;
+	height: 100%;
+	float: right;
+}
+#hptitle1, #hptitle2, #hptitle3 {
+	font-size: 47px;
+	color: rgb(250, 160, 25);
+}
+
+#paddingblank1{
+	padding: 1000px 0;
 }
 
 
 /* Ranking list */
-#ranklist_body {
-	background-color: lightgoldenrodyellow;
-}
-
 #adareal {
 	position: absolute;
 	width: 300px;
@@ -271,16 +271,18 @@ h1 {
 	background-size: cover;
 }
 #popad4 {
-	background: url(676681.jpg);
+	background: url(https://img1.kuwo.cn/star/albumcover/500/53/74/1792680470.jpg);
 	background-size: cover;
 }
 #popad5 {
-	background: url(676681.jpg);
+	background: url(https://img3.kuwo.cn/star/albumcover/500/72/43/2501543604.jpg);
 	background-size: cover;
+	background-position: 0 50%;
 }
 #popad6 {
-	background: url(676681.jpg);
+	background: url(https://img3.kuwo.cn/star/starheads/500/10/30/1462570556.jpg);
 	background-size: cover;
+	background-position: 0 10%;
 }
 .popad:hover {
 	font-size: 25px;
@@ -312,18 +314,16 @@ h1 {
 .carousel-set {
 	width: 4320px;
 	height: 360px;
-	animation: carousel 15s linear infinite;
+	animation: carousel 11s linear infinite;
 }
 @keyframes carousel{
 	0% {margin-left:0px;}
-	10% {margin-left:0px;}
-	20% {margin-left:-864px;}
-	40% {margin-left:-864px;}
-	50% {margin-left:-1728px;}
-	70% {margin-left:-1728px;}
-	80% {margin-left:-2592px;}
-	90% {margin-left:-2592px;}
-	100% {margin-left:-3456px;}
+	22% {margin-left:0px;}
+	33% {margin-left:-864px;}
+	55% {margin-left:-864px;}
+	66% {margin-left:-1728px;}
+	88% {margin-left:-1728px;}
+	100% {margin-left:-2592px;}
 }
 
 .carousel-content {
@@ -333,6 +333,7 @@ h1 {
 }
 .carousel-content img {
 	width: 100%;
+	margin-top: -10%;
 }
 
 #ranklist {
@@ -343,16 +344,17 @@ h1 {
 	background-color: white;
 }
 #list1, #list3 {
-	margin: 40px 0;
+	margin: 100px 0;
 }
 #list2 {
-	margin: 40px 5%;
+	margin: 100px 5%;
 }
 .box ol li {
 	font-size: 25px;
-	padding: 5px;
+	padding: 10px;
 }
 .listimg {
+	width: 100%;
 	padding-top: 60px;
 	padding-bottom: 40px;
 }
@@ -364,35 +366,48 @@ h1 {
 	font-size: 30px;
 	text-align: center;
 	text-shadow: 2px 2px 1px black;
-	background-color: rgba(78, 17, 100, 0.5);
+	background-color: rgba(78, 17, 100, 0.4);
 }
 .box ol li:hover {
 	font-size: 28px;
 	font-weight: 700;
-	padding-bottom: 0;
-	padding-top: 4px;
+	padding-bottom: 7px;
+	padding-top: 7px;
 }
 .box #img1 {
-	background: url(676681.jpg);
+	background: url(https://y.gtimg.cn/music/photo_new/T001R300x300M000003SfUmh0P2tVN.jpg?max_age=2592000);
 	background-size: cover;
 }
-
+.box #img2 {
+	background: url(https://img2.kuwo.cn/star/albumcover/500/45/30/1225067440.jpg);
+	background-size: cover;
+}
+.box #img3 {
+	background: url(https://img3.kuwo.cn/star/albumcover/500/40/18/962612681.jpg);
+	background-size: cover;
+}
 #paddingblank2 {
-	padding: 700px;
+	padding: 650px;
 }
 
 
 /* Stars */
-
+#description {
+	width: 100%;
+	height: 1200px;
+	overflow: hidden;
+	left: 100px;
+}
 #OhWonder {
-	width:190px;
- 	height:190px;
- 	border-radius: 100%;
- 	background: url("Ohwonder2.jpg");
- 	background-size: cover;
- 	position: absolute;
- 	top:120px;
- 	float: right;
+	width:200px;
+	height:200px;
+	border-radius: 100%;
+	background: url("Ohwonder2.jpg");
+	background-size: cover;
+	position: absolute;
+	top:15%;
+	left: 5%;
+	float: left;
 }
 #OhWonderbox {
 	background-color: whitesmoke;
@@ -400,18 +415,14 @@ h1 {
 	height:180px;
 	columns: 20px 1;
 	border: black;
-	box-sizing: border-box;
-	position: absolute;
-	margin-top: 150px;
-	left: 200px;
-	top: -20px;
-	border-radius: 3% 3% 3% 3%;
+	position: relative;
+	left: 23%;
+	top: 7%;
 	animation: box1 2s linear;
-	animation-iteration-count: 1;
 }
 @keyframes box1{
 	from{margin-left: 900px;}
-	to{margin-left: 10px}
+	to{margin-left: 0px}
 }
 #Hyukoh{
 	width: 200px;
@@ -420,8 +431,10 @@ h1 {
 	background: url(Hyukoh2.jpg);
 	background-size: cover;
 	position: absolute;
-	top: 380px;
-	left: 1000px;
+	top: 50%;
+	right: 5%;
+	float: right;
+	
 }
 #Hyukohbox{
 	background-color: whitesmoke;
@@ -429,17 +442,14 @@ h1 {
 	height:180px;
 	columns: 20px 1;
 	border: black;
-	box-sizing: border-box;
-	margin-top: 150px;
-	position: absolute;
-	left: 100px;
-	top: 240px;
+	position: relative;
+	left: 18%;
+	top: 13%;
 	animation: box2 2s linear;
-	animation-iteration-count: 1;
 }
 @keyframes box2{
 	from{margin-left: -800px;}
-	to{margin-left: 40px;}
+	to{margin-left: 0px;}
 }
 #juzihai{
 	width: 200px;
@@ -448,25 +458,23 @@ h1 {
 	background: url(juzihai2.png);
 	background-size: cover;
 	position: absolute;
-	top: 630px;
+	top: 85%;
+	left: 5%;
+	float: left;
 }
 #juzihaibox{
 	background-color: whitesmoke;
 	width: 850px;
-	height:170px;
-	columns: 20px 1;
+	height:180px;
 	border: black;
-	box-sizing: border-box;
-	margin-top: 150px;
-	position: absolute;
-	top: 490px;
-	left: 200px;
+	position: relative;
+	top: 20%;
+	left: 23%;
 	animation: box3 2s linear;
-	animation-iteration-count: 1;
 }
 @keyframes box3{
 	from{margin-left: 850px;}
-	to{margin-left: 10px;}
+	to{margin-left: 0px;}
 }
 #yo{
 	width: 200px;
@@ -476,62 +484,126 @@ h1 {
 	background-size: cover;
 	border: 1px solid black;
 	position: absolute;
-	top: 870px;
-	left: 1000px;
+	top: 120%;
+	right: 5%;
+	float: right;
 }
 #yobox{
 	background-color: whitesmoke;
 	width: 850px;
-	height:170px;
+	height:180px;
 	columns: 20px 1;
 	border: black;
-	box-sizing: border-box;
-	margin-top: 150px;
-	position: absolute;
-	top: 740px;
-	left: 100px;
+	position: relative;
+	top: 26%;
+	left: 18%;
 	animation: box4 2s linear;
-	animation-iteration-count: 1;
 }
 @keyframes box4{
 	from{margin-left: -800px;}
-	to{margin-left: 50px;}
+	to{margin-left: 0px;}
 }
 
 #st{
-	position: absolute;
-	top: 1140px;
-	left: 40px;
+	text-align: center;
+}
+#paddingblank3 {
+	padding: 10px 0;
 }
 
+
 /* About us */
-#aboutus_body {
-	background-color: lightgoldenrodyellow;
+#regist {
+	width: calc(100% - 220px);
+	margin: 70px 110px;
+	background-color: white;
+}
+#recordarea {
+	width: 57%;
+	float: left;
+}
+#cirmiddle {
+	border: 20px double white;
+	width:230px;
+	height:230px;
+	border-radius:100%;
+	position: relative;
+	left: 337px;
+	top: 240px;
+	background-color: yellow;
+	overflow: hidden;
+	z-index: 2000;
+	float: left;
+}
+#road {
+	border-bottom: 5px solid black;
+	position: relative;
+	width: 250px;
+	height: 150px;
+}
+
+#movearea {
+	width: 160px;
+	height: 30px;
+	position: relative;
+	top: 120px;
+	left: 30px;
+	animation: jump 3s linear infinite paused;
+}
+@keyframes jump{
+	0% {transform: translateY(0px);}
+	25% {transform: translateY(-130px);}
+	50% {transform: translateY(0px);}
+	100% {transform: translateY(0px);}
+}
+
+#square {
+	width: 30px;
+	height: 30px;
+	background-color: black;
+	animation-fill-mode: forwards;
+	animation: moving 3s linear infinite paused;}
+@keyframes moving{
+	0% {transform: rotate(0deg); margin-left: 0px;}
+	50% {transform: rotate(360deg); margin-left: 130px;}
+	100% {transform: rotate(360deg); margin-left: 0px;}
+}
+
+#road:hover #square{
+	animation-play-state: running;
+}
+#road:active #movearea{
+	animation-play-state: running;
+}
+#road:active #square{
+	animation-play-state: paused;
+}
+#road:active #musicnote{
+	animation-play-state: running;
 }
 
 #circle1 {
-	width: 750px;
-	height: 750px;
+	width: 740px;
+	height: 740px;
 	background: url("record.jpg");
 	background-size: cover;
-	background-position: 45% 0;
-	float: left;
-	margin-left: 70px;
-	position: relative;
+	/*position: relative;*/
 	animation: run 10s linear infinite;
+	z-index: -500;
+	margin-left:100px;
 }
-#circle1, #information {
-	margin-top: 70px;
-}
+
+
 #information {
 	width: 30%;
 	float: right;
-	margin-right: 150px;
+	margin-right: 110px;
+	margin-bottom: 40px;
 	background-color: white;
 }
 #survey {
 	float: right;
-	margin-right: 150px;
+	margin-right: 110px;
 	width: 30%;
 	background-color: gray;
 	color: white;
@@ -551,10 +623,12 @@ label, input, select, textarea {
 }
 textarea {
 	resize: vertical;
+	width: calc(100% - 20px);
 	min-height: 100px;
 	max-height: 320px;
 }
 
 #paddingblank4 {
-	padding: 500px;
+	top: 0;
+	padding: 600px;
 }
