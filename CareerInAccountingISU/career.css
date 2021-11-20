@@ -21,7 +21,7 @@ body {
 	overflow: hidden;
 }
 #textarea {
-	width: 65%;
+	width: 60%;
 	height: 100%;
 	float: left;
 }
@@ -54,7 +54,7 @@ body {
 	font-family: monospace;
 }
 #decidearea {
-	width: 35%;
+	width: 40%;
 	height: 100%;
 	background-color: whitesmoke;
 	float: left;
@@ -67,7 +67,7 @@ body {
 	color: white;
 }
 #datapart {
-	height: 18%;
+	height: 22%;
 }
 #datapart p {
 	padding: 0 10px;
@@ -75,7 +75,7 @@ body {
 	font-style: italic;
 }
 #dcsnpart {
-	height: calc(82% - 5px);
+	height: calc(78% - 5px);
 	overflow: scroll;
 }
 .decision {

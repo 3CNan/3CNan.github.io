@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h2>Welcome to Accountant Simulator!</h2>
-	<h4>Our goal is to ---- <i>Be an Accountant!</i></h4> 
+	<h4>Our goal is to ---- <i>Be a CPA(Certified Public Accountant)!</i></h4> 
 	<div id="screen">
 		<audio src="click.mp3" id="clickaudio">Your browser does not support the audio element.</audio>
 
@@ -18,7 +18,7 @@
 						<p>You are a high school student.</p>
 					</div>
 					<div class="textbox">
-						<p>You want to become an accountant in the future.</p>
+						<p>You want to become a CPA in the future.</p>
 					</div>
 					<div class="textbox">
 						<p>Let's start your journey!</p>
@@ -39,18 +39,81 @@
 						<p>And you successfully graduated from hight school.</p>
 					</div>
 					<div class="textbox">
-						<p>Now it's time to choose your </p>
+						<p>Now it's time to choose the courses in CPA preparatpry courses.</p>
+					</div>
+					<div class="textbox">
+						<p>And then distribute your effort energy to the core courses in your selection.</p>
 					</div>
 				</div>
 
-				<div id="dialogue2">
+				<div id="dialogue3">
 					<div class="textbox">
 						<p>After your hardwork, your sensitivity to accounting increase.</p>
 					</div>
 					<div class="textbox">
+						<p>And you successfully graduated from hight school.</p>
+					</div>
+					<div class="textbox">
 						<p>But because you're trying too hard in all your subjects, your sensitivity decrease 2 point.</p>
 					</div>
+					<div class="textbox">
+						<p>Now it's time to choose the courses in CPA preparatpry courses.</p>
+					</div>
+					<div class="textbox">
+						<p>And then distribute your effort energy to the core courses in your selection.</p>
+					</div>
 				</div>
+
+				<div id="dialogue4">
+					<div class="textbox">
+						<p>You didn't choose any of the above courses, so there's no change in your status.</p>
+					</div>
+					<div class="textbox">
+						<p>You successfully graduated from hight school.</p>
+					</div>
+					<div class="textbox">
+						<p>Now it's time to choose the courses in CPA preparatpry courses.</p>
+					</div>
+					<div class="textbox">
+						<p>And then distribute your effort energy to the core courses in your selection.</p>
+					</div>
+				</div>
+
+				<div id="dialogue4">
+					<div class="textbox">
+						<p>You didn't choose right course(s) which is(are) helpful for future accounting, so there's no change in your status.</p>
+					</div>
+					<div class="textbox">
+						<p>You successfully graduated from hight school.</p>
+					</div>
+					<div class="textbox">
+						<p>Now it's time to choose the courses in CPA preparatpry courses.</p>
+					</div>
+					<div class="textbox">
+						<p>And then distribute your effort energy to the core courses in your selection.</p>
+					</div>
+				</div>
+
+				<div id="dialogue5">
+					<div class="textbox">
+						<p>You didn't choose right course(s) which is(are) helpful for future accounting, so there's no change in your status.</p>
+					</div>
+					<div class="textbox">
+						<p>You successfully graduated from hight school.</p>
+					</div>
+					<div class="textbox">
+						<p>Now it's time to choose the courses in CPA preparatpry courses.</p>
+					</div>
+					<div class="textbox">
+						<p>And then distribute your effort energy to the core courses in your selection.</p>
+					</div>
+				</div>
+
+
+
+
+
+
 			</div>
 			<div id="clickpart">
 				<p id="clicktext">Click here to start</p>
@@ -68,6 +131,7 @@
 				</div>
 				<p id="sensitivity">Sensitivity: </p>
 				<p id="ability_coefficient">Ability coefficient: </p>
+				<p id="effort_energy">Effort Energy: </p>
 				<p id="age">Age: </p>
 				<hr>
 			</div>
@@ -98,6 +162,31 @@
 						<input type="checkbox" name="hscs">
 						<label>English</label>
 						<br>
+					</form>
+				</div>
+
+				<div class="decision" id="ucc">
+					<form id="UCcourses">
+						<label>Here are some College/University courses you can choose</label><br>
+						<label>(Click the 1st checkbox to choose CPA preparatory courses, click the 2nd checkbox to choose the core courses.)</label>
+						<br>
+						<input type="checkbox" name="ucc">
+						<label>Introductory Financial Accounting</label>
+						<input type="checkbox" name="ucccr">
+						<br>
+						<input type="checkbox" name="ucc">
+						<label>Intermediate Financial Reporting 1</label>
+						<input type="checkbox" name="ucccr">
+						<br>
+						<input type="checkbox" name="ucc">
+						<label>Intermediate Financial Reporting 2</label>
+						<input type="checkbox" name="ucccr">
+						<br>
+						<input type="checkbox" name="ucc">
+						<label>Computerized Accounting</label>
+						<input type="checkbox" name="ucccr">
+						<br>
+						
 					</form>
 				</div>
 
