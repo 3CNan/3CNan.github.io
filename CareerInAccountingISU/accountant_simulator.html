@@ -11,6 +11,7 @@
 	<h3>And then have a good career path.</h3> 
 	<div id="screen">
 		<audio src="click.mp3" id="clickaudio">Your browser does not support the audio element.</audio>
+		<audio src="success.mp3" id="successaudio">Your browser does not support the audio element.</audio>
 
 		<div id="textarea">
 			<div id="textpart">
@@ -211,7 +212,7 @@
 						<p><b>4. CPA Mentorship</b> <br><br>(You will meet with your CPA mentor at least semi-annually to review your progress against set required competencies.)</p>
 					</div>
 					<div class="textbox">
-						<p>5. Review by Profession <br><br>(At key milestones, the experience report must be reviewed by your provincial/regional body.) <span class="END">(END)</span></p>
+						<p><b>5. Review by Profession</b> <br><br>(At key milestones, the experience report must be reviewed by your provincial/regional body.) <span class="END">(END)</span></p>
 					</div>
 				</div>
 				<!-- 44 45 46 47 48 49 -->
@@ -221,7 +222,7 @@
 						<p>You complete the CPA PEP and CPA PER, and successfully pass the CFE(Common Final Examination).</p>
 					</div>
 					<div class="textbox">
-						<p>Now you are already a CPA!.</p>
+						<p><b>Now you are already a CPA!</b></p>
 					</div>
 					<div class="textbox">
 						<p>But as a CPA, what you are going to do?</p>
@@ -332,6 +333,9 @@
 				</div>
 				<div id="map">
 					<button id="mapbtn">Map</button>
+				</div>
+				<div id="bgm">
+					<button id="bgmbtn" onclick="if_bgm_ing()">Bgm</button>
 				</div>
 				<p id="sensitivity">Sensitivity: </p>
 				<p id="ability_coefficient">Ability coefficient: </p>
@@ -446,27 +450,43 @@
 					</form>
 				</div>
 
-				<div class="decision" id="salary">
-					<form id="PathSalary">
-						<label>CPAs play key roles within diverse segments of the economy including industry, public accounting, government, education and the not-for-profit sector.</label>
-						<br>
-						<label>Click on the dot before options to see the salary of each.</label>
-						<br>
-						<input type="radio" name="path">
-						<label>In industry</label>
-						<br>
-						<input type="radio" name="path">
-						<label>Professional services</label>
-						<br>
-						<input type="radio" name="path">
-						<label></label>
-						<br>
-						<input type="radio" name="path">
-						<label></label>
-						<br>
-						<input type="radio" name="path">
-						<label></label>
-					</form>
+				<div class="decision" id="pthslry">
+					<!-- <form id="PathSalary"> -->
+					<p>CPAs play key roles within diverse segments of the economy including industry, public accounting, government, education and the not-for-profit sector.</p>
+					<p>Accountants work in different sectors in Canada (Click on the dot before options to see the salary of each):</p>
+					<div>
+						<input type="radio" name="path" onchange="selectshow()">
+						<p class="sector">Industry</p>
+						<p class="salary"> -- $163,000</p>
+					</div>
+					<div>
+						<input type="radio" name="path" onchange="selectshow()">
+						<p class="sector">Professional Services</p>
+						<p class="salary"> -- $142,000</p>
+					</div>
+					<div>
+						<input type="radio" name="path" onchange="selectshow()">
+						<p class="sector">Mining</p>
+						<p class="salary"> -- $194,000</p>
+					</div>
+					<div>
+						<input type="radio" name="path" onchange="selectshow()">
+						<p class="sector">Oil and Gas</p>
+						<p class="salary"> -- $203,000</p>
+					</div>
+					<p>Contrast group:</p>
+					<div>
+						<input type="radio" name="avg" onchange="selectshow()">
+						<p class="sector">Average(all professional accountants)</p>
+						<p class="salary"> -- $141,000</p>
+					</div>
+					<br class="salary"><br class="salary">
+					<div>
+						<input type="radio" name="avg" onchange="selectshow()">
+						<p class="sector">Average yearly earnings in Canada</p>
+						<p class="salary"> -- $47,000</p>
+					</div>
+					<br>
 				</div>
 
 				<div id="hintpart">

@@ -27,6 +27,10 @@ clickpartObj.onclick = function() {
 	clickObj.play();
 	var clicktextObj = document.getElementById("clicktext");
 	clicktextObj.innerHTML = "Click here to continue <br> Until (END) appear";
+	var successObj = document.getElementById("successaudio");
+	if(sentence == 51) {
+		successObj.play();
+	}
 	nextstep();
 	// nextdcsn();
 	freshdata();
@@ -102,6 +106,10 @@ function boxnumbers() {
 			count = 5 + (6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
 			hint = "There's no hint for this part.";
 			break;
+		case 14:
+			count = 2 + (5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
+			hint = "Just choose what you want to do.";
+			break;
 		
 	}
 }
@@ -167,12 +175,12 @@ function nextdcsn() {
 	}
 	if(sentence == 3) {
 		decisionObjs[0].style.display = "block";
-		// hsc = true;
-		// currentstep += 1;
 	}
 	if(currentstep == 2 || currentstep == 3 || currentstep == 4 || currentstep == 5) {
 		decisionObjs[1].style.display = "block";
-		// ucc = true;
+	}
+	if(currentstep == 13) {
+		decisionObjs[2].style.display = "block";
 	}
 	hsc = ucc = false;
 	hscdcsn();
@@ -357,9 +365,41 @@ function is_all_core() {
 		}
 	}
 }
+function selectshow() {
+	var pathsObjs = document.getElementsByName("path");
+	var avgObjs = document.getElementsByName("avg");
+	var salaryObjs = document.getElementsByClassName("salary");
+	for(var i = 0; i < pathsObjs.length; i++) {
+		if(pathsObjs[i].checked) {
+			salaryObjs[i].style.display = "inline-block";
+		} else {
+			salaryObjs[i].style.display = "none";
+		}
+	}
+	for(var i = 0; i < avgObjs.length; i++) {
+		if(avgObjs[i].checked) {
+			if(i == 0) {
+				salaryObjs[4].style.display = "inline-block";
+				salaryObjs[5].style.display = "inline-block";
+				salaryObjs[6].style.display = "inline-block";
+			} else if(i == 1) {
+				salaryObjs[7].style.display = "inline-block";
+			}
+		} else {
+			if(i == 0) {
+				salaryObjs[4].style.display = "none";
+				salaryObjs[5].style.display = "none";
+				salaryObjs[6].style.display = "none";
+			} else if(i == 1) {
+				salaryObjs[7].style.display = "none";
+			}
+		}
+	}
+}
 
-
-
+function if_bgm_ing() {
+	console.log();
+}
 
 
 

@@ -61,7 +61,7 @@ body {
 	float: left;
 	text-align: left;
 }
-#hintbtn, #mapbtn {
+#hintbtn, #mapbtn, #bgmbtn {
 	float: right;
 	margin: 0 5px 0 0;
 	background-color: dimgray;
@@ -125,10 +125,25 @@ body {
 .textbox b {
 	font-family: monospace;
 }
-#salary {
-	display: block;
+#pthslry {
+	/*display: block;*/
+}
+.sector {
+	display: inline-block;
+	margin: 2px;
+	word-wrap: break-word;
+}
+.salary {
+	float: right;
+	margin: 2px 10px 0 0;
+	display: none;
+	/*display: inline-block;*/
 }
 
+/*#avpa {
+	height: 20px;
+	width: 100%;
+}*/
 
 
 
