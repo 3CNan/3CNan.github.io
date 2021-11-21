@@ -119,6 +119,12 @@ body {
 .ucccr {
 	display: none;
 }
+.END {
+	/*display: table-cell;*/
+	font-size: 17px;
+	font-family: monospace;
+	float: right;
+}
 
 
 
