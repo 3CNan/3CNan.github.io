@@ -39,7 +39,7 @@ body {
 	display: table;
 }
 .textbox {
-	width: calc(100% - 13px);
+	width: calc(100% - 16px);
 	height: 35px;
 	text-align: left;
 	border: 3px solid darkgray;
@@ -113,9 +113,6 @@ body {
 #footer p {
 	font-family: fantasy;
 }
-/*#ucc {
-	display: block;
-}*/
 .ucccr {
 	display: none;
 }
@@ -125,7 +122,12 @@ body {
 	font-family: monospace;
 	float: right;
 }
-
+.textbox b {
+	font-family: monospace;
+}
+#salary {
+	display: block;
+}
 
 
 

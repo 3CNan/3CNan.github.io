@@ -79,27 +79,27 @@ function boxnumbers() {
 			hint = "There's no hint for this part.";
 			break;
 		case 8:
-			count = 3 + (5 + 2 + 4 + 4 + 5 + 4 + 1 + 3);
+			count = 4 + (5 + 2 + 4 + 4 + 5 + 4 + 1 + 3);
 			hint = "Core Courses:<br>• Intermediate Financial Reporting 1<br>• Intermediate Financial Reporting 2<br>• Advanced Financial Reporting<br>• Corporate Finance<br>• Audit and Assurance<br>• Taxation<br>• Intermediate Management Accounting<br>• Performance Management<br><br>Non-core Courses:<br>• Introductory Financial Accounting<br>• Introductory Management Accounting<br>• Economics<br>• Statistics<br>• Business Law<br>• Information Technology";
 			break;
 		case 9:
-			count = 3 + (3 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3);
+			count = 4 + (4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3);
 			hint = "Core Courses:<br>• Intermediate Financial Reporting 1<br>• Intermediate Financial Reporting 2<br>• Advanced Financial Reporting<br>• Corporate Finance<br>• Audit and Assurance<br>• Taxation<br>• Intermediate Management Accounting<br>• Performance Management<br><br>Non-core Courses:<br>• Introductory Financial Accounting<br>• Introductory Management Accounting<br>• Economics<br>• Statistics<br>• Business Law<br>• Information Technology";
 			break;
 		case 10:
-			count = 2 + (3 + 3 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3);
+			count = 3 + (4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3);
 			hint = "Core Courses:<br>• Intermediate Financial Reporting 1<br>• Intermediate Financial Reporting 2<br>• Advanced Financial Reporting<br>• Corporate Finance<br>• Audit and Assurance<br>• Taxation<br>• Intermediate Management Accounting<br>• Performance Management<br><br>Non-core Courses:<br>• Introductory Financial Accounting<br>• Introductory Management Accounting<br>• Economics<br>• Statistics<br>• Business Law<br>• Information Technology";
 			break;
 		case 11:
-			count = 5 + (2 + 3 + 3 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3); ;
+			count = 5 + (3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3); ;
 			hint = "There's no hint for this part.";
 			break;
 		case 12:
-			count = 6 + (5 + 2 + 3 + 3 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
+			count = 6 + (5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
 			hint = "There's no hint for this part.";
 			break;
 		case 13:
-			count = 3 ;
+			count = 5 + (6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
 			hint = "There's no hint for this part.";
 			break;
 		
@@ -142,14 +142,14 @@ function nextdialogue() {
 		sentence = 21;
 		console.log(3);
 		nextstep();
-	} else if(currentstep == 9 && sentence == 34 && ucc == false) {
+	} else if(currentstep == 9 && sentence == 36 && ucc == false) {
 		currentstep = 11;
-		sentence = 36;
+		sentence = 39;
 		console.log(1);
 		nextstep();
-	} else if(currentstep == 8 && sentence == 31 && ucc == false) {
+	} else if(currentstep == 8 && sentence == 32 && ucc == false) {
 		currentstep = 11;
-		sentence = 36;
+		sentence = 39;
 		console.log(2);
 		nextstep();
 	} else if(if_decide == false) {
@@ -303,7 +303,11 @@ function checktoshow() {
 function uccdcsn() {
 	var option;
 	if(sentence == 21) {
-		age += 4;
+		if(currentstep == 5) {
+
+		} else {
+			age += 4;
+		}
 	}
 	if(currentstep == 7 && sentence == 28) {
 		if(not_all_ucc() == true) {
@@ -313,12 +317,12 @@ function uccdcsn() {
 		} else if(is_all_core() == false) {
 			ability_coefficient += 40 + (sensitivity * 5);
 			currentstep += 1;
-			sentence += 3;
+			sentence += 4;
 			console.log(2);
 		} else{
 			ability_coefficient += 50 + (sensitivity * 5);
 			currentstep += 2;
-			sentence += 3 + 3;
+			sentence += 4 + 4;
 			console.log(3);
 		}
 		ucc = true;
