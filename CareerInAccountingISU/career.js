@@ -91,14 +91,14 @@ function boxnumbers() {
 			hint = "Core Courses:<br>• Intermediate Financial Reporting 1<br>• Intermediate Financial Reporting 2<br>• Advanced Financial Reporting<br>• Corporate Finance<br>• Audit and Assurance<br>• Taxation<br>• Intermediate Management Accounting<br>• Performance Management<br><br>Non-core Courses:<br>• Introductory Financial Accounting<br>• Introductory Management Accounting<br>• Economics<br>• Statistics<br>• Business Law<br>• Information Technology";
 			break;
 		case 11:
-			count = 3 ;
+			count = 5 + (2 + 3 + 3 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3); ;
 			hint = "There's no hint for this part.";
 			break;
-		case 10:
-			count = 3 ;
+		case 12:
+			count = 6 + (5 + 2 + 3 + 3 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
 			hint = "There's no hint for this part.";
 			break;
-		case 10:
+		case 13:
 			count = 3 ;
 			hint = "There's no hint for this part.";
 			break;
@@ -142,6 +142,16 @@ function nextdialogue() {
 		sentence = 21;
 		console.log(3);
 		nextstep();
+	} else if(currentstep == 9 && sentence == 34 && ucc == false) {
+		currentstep = 11;
+		sentence = 36;
+		console.log(1);
+		nextstep();
+	} else if(currentstep == 8 && sentence == 31 && ucc == false) {
+		currentstep = 11;
+		sentence = 36;
+		console.log(2);
+		nextstep();
 	} else if(if_decide == false) {
 		currentstep += 1;
 		nextstep();
@@ -164,7 +174,7 @@ function nextdcsn() {
 		decisionObjs[1].style.display = "block";
 		// ucc = true;
 	}
-	hsc = false;
+	hsc = ucc = false;
 	hscdcsn();
 	uccdcsn();
 }
@@ -291,24 +301,28 @@ function checktoshow() {
 }
 
 function uccdcsn() {
+	var option;
 	if(sentence == 21) {
 		age += 4;
 	}
-	if(currentstep == 7 && sentence == 23) {
+	if(currentstep == 7 && sentence == 28) {
 		if(not_all_ucc() == true) {
 			age += 1;
 			ability_coefficient += 45 + (sensitivity * 5);
+			console.log(1);
 		} else if(is_all_core() == false) {
 			ability_coefficient += 40 + (sensitivity * 5);
 			currentstep += 1;
 			sentence += 3;
+			console.log(2);
 		} else{
 			ability_coefficient += 50 + (sensitivity * 5);
 			currentstep += 2;
 			sentence += 3 + 3;
+			console.log(3);
 		}
+		ucc = true;
 	}
-	
 }
 
 function not_all_ucc() {
@@ -326,7 +340,7 @@ function not_all_ucc() {
 function is_all_core() {
 	for(var i = 0; i < ucccrObjs.length; i++) {
 		if(ucccrObjs[i].checked == true) {
-			if(i != 1 || i != 2 || i != 4 || i != 7 || i != 8 || i != 9 || i != 10 || i != 11) {
+			if(i == 0 || i == 3 || i == 5 || i == 6 || i == 12 || i == 13 || i == 14 || i == 15 || i == 16) {
 				return false;
 			}
 		} else if(ucccrObjs[i].checked == false){
@@ -334,7 +348,7 @@ function is_all_core() {
 				return false
 			}
 		}
-		if(i == 11 && ucccrObjs[i].checked == true) {
+		if(i == ucccrObjs.length - 1 && ucccrObjs[i].checked == false) {
 			return true;
 		}
 	}
