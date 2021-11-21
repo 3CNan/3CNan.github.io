@@ -26,7 +26,7 @@ clickpartObj.onclick = function() {
 	var clickObj = document.getElementById("clickaudio");
 	clickObj.play();
 	var clicktextObj = document.getElementById("clicktext");
-	clicktextObj.innerHTML = "Click here to continue <br> Until (END) appear <>";
+	clicktextObj.innerHTML = "Click here to continue <br> Until (END) appear";
 	nextstep();
 	// nextdcsn();
 	freshdata();
