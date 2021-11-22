@@ -38,6 +38,9 @@ body {
 	color: white;
 	display: table;
 }
+#clicktext {
+	user-select: none;
+}
 .textbox {
 	width: calc(100% - 16px);
 	height: 35px;

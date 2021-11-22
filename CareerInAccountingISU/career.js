@@ -49,7 +49,6 @@ clickpartObj.onclick = function() {
 		}
 	}
 	nextstep();
-	// nextdcsn();
 	freshdata();
 }
 hintbtnObj.onclick = function() {
@@ -59,7 +58,7 @@ hintbtnObj.onclick = function() {
 	if(hinttxtObj.innerHTML == "Hint") {
 		hinttxtObj.innerHTML = hint;
 		hinttxtObj.style.color = "black";
-	} else if(hinttxtObj.innerHTML != "Hint") {
+	} else {
 		hinttxtObj.innerHTML = "Hint";
 		hinttxtObj.style.color = "white";
 	}
@@ -270,8 +269,7 @@ function nextdialogue() {
 		decisionObjs[3].style.display = "none";
 		textboxObjs[89].style.display = "table";
 		return;
-	}
-	else {
+	} else {
 		currentstep += 1;
 		nextstep();
 		console.log(0);
@@ -406,8 +404,9 @@ function uccdcsn() {
 }
 
 function not_all_ucc() {
+	var array = [0, 1, 2, 4, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16];
 	for(var i = 0; i < uccObjs.length; i++) {
-		if(i == 0 || i == 1 || i == 2 || i == 4 || i == 6 || i == 7 || i == 8 || i == 9 || i == 10 || i == 11 || i == 13 || i == 14 || i == 15 || i == 16) {
+		if(array.includes(i)) {
 			if(uccObjs[i].checked == false) {
 				return true;
 			}
@@ -418,13 +417,15 @@ function not_all_ucc() {
 	}
 }
 function is_all_core() {
+	var falsearray = [0, 3, 5, 6, 12, 13, 14, 15, 16];
+	var truearray = [1, 2, 4, 7, 8, 9, 10, 11];
 	for(var i = 0; i < ucccrObjs.length; i++) {
 		if(ucccrObjs[i].checked == true) {
-			if(i == 0 || i == 3 || i == 5 || i == 6 || i == 12 || i == 13 || i == 14 || i == 15 || i == 16) {
+			if(falsearray.includes(i)) {
 				return false;
 			}
 		} else if(ucccrObjs[i].checked == false){
-			if(i == 1 || i == 2 || i == 4 || i == 7 || i == 8 || i == 9 || i == 10 || i == 11) {
+			if(truearray.includes(i)) {
 				return false
 			}
 		}
