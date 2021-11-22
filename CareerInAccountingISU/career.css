@@ -139,12 +139,23 @@ body {
 	display: none;
 	/*display: inline-block;*/
 }
-
-/*#avpa {
-	height: 20px;
-	width: 100%;
-}*/
-
+.jobbtn {
+	border: 1px solid royalblue;
+	background-color: royalblue;
+	color: white;
+	padding: 10px;
+	margin: 5px;
+	font-size: 15px;
+	width: calc(100% - 10px);
+}
+.jobbtn:hover{
+	border: 1px solid skyblue;
+	background-color: skyblue;
+}
+/*#jobchc {
+	display: block;
+}
+*/
 
 
 

@@ -22,6 +22,9 @@ var clickpartObj = document.getElementById("clickpart");
 var hintbtnObj = document.getElementById("hintbtn");
 var hinttxtObj = document.getElementById("hinttext");
 
+var bgmObj = document.getElementById("bgmaudio");
+bgmObj.volume = 0.5;
+
 clickpartObj.onclick = function() {
 	var clickObj = document.getElementById("clickaudio");
 	clickObj.play();
@@ -29,7 +32,17 @@ clickpartObj.onclick = function() {
 	clicktextObj.innerHTML = "Click here to continue <br> Until (END) appear";
 	var successObj = document.getElementById("successaudio");
 	if(sentence == 51) {
+		bgmObj.pause();
+		bgmstate = false;
 		successObj.play();
+	} else if(sentence == 0) {
+		bgmObj.play();
+		bgmstate = true;
+	}
+	if(currentstep == 14 && sentence == 56) {
+		if(if_job_choose() == false) {
+			return;
+		}
 	}
 	nextstep();
 	// nextdcsn();
@@ -52,7 +65,7 @@ function boxnumbers() {
 	switch(currentstep) {
 		case 0:
 			count = 3;
-			hint = "There's no hint for this part.";
+			hint = "Hello! I'm Hint, nice to meet you, but there's no need for hint at this part.";
 			break;
 		case 1:
 			count = 1 + 3;
@@ -76,11 +89,11 @@ function boxnumbers() {
 			break;
 		case 6:
 			count = 2 + (4 + 4 + 5 + 4 + 1 + 3);
-			hint = "There's no hint for this part.";
+			hint = "There's no need for hint at this part.";
 			break;
 		case 7:
 			count = 5 + (2 + 4 + 4 + 5 + 4 + 1 + 3);
-			hint = "There's no hint for this part.";
+			hint = "There's no need for hint at this part.";
 			break;
 		case 8:
 			count = 4 + (5 + 2 + 4 + 4 + 5 + 4 + 1 + 3);
@@ -96,15 +109,15 @@ function boxnumbers() {
 			break;
 		case 11:
 			count = 5 + (3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3); ;
-			hint = "There's no hint for this part.";
+			hint = "There's no need for hint at this part.";
 			break;
 		case 12:
 			count = 6 + (5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
-			hint = "There's no hint for this part.";
+			hint = "There's no need for hint at this part.";
 			break;
 		case 13:
 			count = 5 + (6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
-			hint = "There's no hint for this part.";
+			hint = "It's not a question at this part.";
 			break;
 		case 14:
 			count = 2 + (5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
@@ -160,7 +173,22 @@ function nextdialogue() {
 		sentence = 39;
 		console.log(2);
 		nextstep();
-	} else if(if_decide == false) {
+	} else if(currentstep == 12 && sentence == 50) {
+		if(ability_coefficient <= 45) {
+			age += 6;
+		} else if(ability_coefficient <= 55) {
+			age += 5;
+		} else if(ability_coefficient <= 60) {
+			age += 4;
+		} else if(ability_coefficient <= 65) {
+			age += 3;
+		} else if(ability_coefficient <= 70) {
+			age += 2;
+		}
+		currentstep += 1;
+		nextstep();
+		console.log(0);
+	} else {
 		currentstep += 1;
 		nextstep();
 		console.log(0);
@@ -181,6 +209,9 @@ function nextdcsn() {
 	}
 	if(currentstep == 13) {
 		decisionObjs[2].style.display = "block";
+	}
+	if(currentstep == 14) {
+		decisionObjs[3].style.display = "block";
 	}
 	hsc = ucc = false;
 	hscdcsn();
@@ -224,53 +255,6 @@ function hscdcsn() {
 	}
 }
 
-
-// 	if(if_hscdcsn_occur() == true) {
-// 		if(hscsObjs[0].checked == false && hscsObjs[2].checked == false && hscsObjs[3].checked == false && hscsObjs[6].checked == false) {
-// 			currentstep += 2;
-// 			sentence += 4 + 4 + 5;
-// 		} else {
-// 			if(hscsObjs[0].checked) {
-// 				sensitivity += 1;
-// 			}
-// 			if(hscsObjs[2].checked) {
-// 				sensitivity += 1;
-// 			}
-// 			if(hscsObjs[3].checked) {
-// 				sensitivity += 1;
-// 			}
-// 			if(hscsObjs[6].checked) {
-// 				sensitivity += 1;
-// 			}
-// 		}
-// 		for(var i = 0; i < textboxObjs.length; i++) {
-// 			textboxObjs[i].style.display = "none";
-// 		}
-// 		currentstep -= 1;
-// 		age += 3;
-// 		hsc = false;
-// 	} else if(is_choose_all() == true) {
-// 		// currentstep += 1;
-// 		age += 3;
-// 		sensitivity += 2;
-// 		sentence += 4;
-// 		hsc = false;
-// 		for(var i = 0; i < textboxObjs.length; i++) {
-// 			textboxObjs[i].style.display = "none";
-// 		}
-// 	} else if(decisionObjs[0].style.display == "none" && hsc == true) {
-// 		currentstep += 1;
-// 		age += 3;
-// 		sentence += 4 + 5;
-// 		hsc = false;
-// 		for(var i = 0; i < textboxObjs.length; i++) {
-// 			textboxObjs[i].style.display = "none";
-// 		}
-// 	}
-// 	for(var i = 0; i < hscsObjs.length; i++) {
-// 		hscsObjs[i].checked = false;
-// 	}
-// }
 function if_hscdcsn_occur() {
 	for(var i = 0; i < hscsObjs.length; i++) {
 		if(hscsObjs[i].checked) {
@@ -397,9 +381,76 @@ function selectshow() {
 	}
 }
 
+var bgmObj = document.getElementById("bgmaudio");
+var bgmstate = false;
+
 function if_bgm_ing() {
-	console.log();
+	if(bgmstate == false) {
+		bgmObj.play();
+		bgmstate = true;
+	} else {
+		bgmObj.pause();	
+		bgmstate = false;	
+	}
 }
+function bgmplay() {
+	bgmObj.play();
+	bgmstate = true;
+}
+
+var jobbtnObjs = document.getElementsByClassName("jobbtn");
+var pcstate = false; afstate = false; gstate = false;
+
+function PCshow() {
+	if(sentence != 57) {
+		return;
+	}
+	if(pcstate == false) {
+		textboxObjs[58].style.display = "none";
+		textboxObjs[59].style.display = "none";
+		afstate = gstate = false;
+		textboxObjs[57].style.display = "table";
+		pcstate = true;
+	}
+}
+function AFshow() {
+	if(sentence != 57) {
+		return;
+	}
+	if(afstate == false) {
+		textboxObjs[57].style.display = "none";
+		textboxObjs[59].style.display = "none";
+		pcstate = gstate = false;
+		textboxObjs[58].style.display = "table";
+		afstate = true;
+	}
+}
+function Gshow() {
+	if(sentence != 57) {
+		return;
+	}
+	if(gstate == false) {
+		textboxObjs[57].style.display = "none";
+		textboxObjs[58].style.display = "none";
+		pcstate = afstate = false;
+		textboxObjs[59].style.display = "table";
+		gstate = true;
+	}
+}
+
+var jobObjs = document.getElementsByName("job");
+function if_job_choose() {
+	for(var i = 0; i < jobObjs.length; i++) {
+		if(jobObjs[i].checked) {
+			return true;
+		} else if(i == jobObjs.length - 1) {
+			return false;
+		}
+	}
+}
+
+
+
 
 
 

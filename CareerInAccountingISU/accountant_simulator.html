@@ -11,7 +11,8 @@
 	<h3>And then have a good career path.</h3> 
 	<div id="screen">
 		<audio src="click.mp3" id="clickaudio">Your browser does not support the audio element.</audio>
-		<audio src="success.mp3" id="successaudio">Your browser does not support the audio element.</audio>
+		<audio src="success.mp3" id="successaudio" onended="bgmplay()">Your browser does not support the audio element.</audio>
+		<audio src="bgm.mp3" id="bgmaudio" onended="bgmplay()">Your browser does not support the audio element.</audio>
 
 		<div id="textarea">
 			<div id="textpart">
@@ -219,13 +220,13 @@
 
 				<div id="dialogue13">
 					<div class="textbox">
-						<p>You complete the CPA PEP and CPA PER, and successfully pass the CFE(Common Final Examination).</p>
+						<p>After several years, finally, you complete the CPA PEP and CPA PER, and successfully pass the CFE(Common Final Examination).</p>
 					</div>
 					<div class="textbox">
 						<p><b>Now you are already a CPA!</b></p>
 					</div>
 					<div class="textbox">
-						<p>But as a CPA, what you are going to do?</p>
+						<p>But as a CPA, are you really clear about what a CPA represents?</p>
 					</div>
 					<div class="textbox">
 						<p>Here are some possible career paths and salary opportunities list on the right side.</p>
@@ -293,7 +294,7 @@
 							<b>Position title:</b> Executive Assistant to the Deputy City Manager/Chief Financial Officer & Treasurer<br><br>
 
 							<b>Company description:</b> <br>
-							&nbsp; &nbsp; Toronto is Canada’s largest city, the fourth largest in North America, and home to a diverse population of about 2.8 million people. Consistently ranked one of the world’s most livable cities, we are a global center for business, finance, arts and culture. Join the award-winning Toronto Public Service as Executive Assistant to Deputy City Manager/Chief Financial Officer & Treasurer. <br><br>
+							&nbsp; &nbsp; We are the corporation of City of Toronto. Consistently ranked one of the world’s most livable cities, Toronto is a global center for business, finance, arts and culture. Join the award-winning Toronto Public Service as Executive Assistant to Deputy City Manager/Chief Financial Officer & Treasurer. <br><br>
 
 							<b>Job description:</b> <br>
 							&nbsp; &nbsp; As Executive Assistant to the Deputy City Manager/Chief Financial Officer & Treasurer, you will act as the primary contact for the Office, providing liaison between the Deputy City Manager/Chief Financial Officer & Treasurer and General Managers/Executive Directors, Agencies, Boards, Commissions and Committees. <br><br>
@@ -308,7 +309,20 @@
 							<b>Potential salary ranges:</b> $82,410 - $96,806 a year<br>
 						</p>
 					</div>
-					<!-- - - 57 58 59 -->
+				<!-- - - 57 58 59 -->
+
+				<div id="dialogue15">
+					<div class="textbox">
+						<p>You become a Private Equity Fund Accountant in Pinnacle(Pinnacle Fund Services) </p>
+						<!-- += "at xx(age)."" -->
+					</div>
+					<div class="textbox">
+						<p>Your ability coefficient of accounting has increased.</p>
+					</div>
+					<div class="textbox">
+						<p>You successfully start your CPA Professional Education Program. <span class="END">(END)</span></p>
+					</div>
+				</div>
 
 				</div>
 
@@ -488,6 +502,17 @@
 					</div>
 					<br>
 				</div>
+
+				<div class="decision" id="jobchc">
+					<button class="jobbtn" onclick="PCshow()">Private Company</button><br>
+					<button class="jobbtn" onclick="AFshow()">Accounting Firm</button><br>
+					<button class="jobbtn" onclick="Gshow()">Government</button><br>
+					<p>Choose one of them as your final choice:</p>
+					<input type="radio" name="job"><label>Private Company Job</label><br>
+					<input type="radio" name="job"><label>Accounting Firm Job</label><br>
+					<input type="radio" name="job"><label>Government Job</label>
+				</div>
+
 
 				<div id="hintpart">
 					<p id="hinttext">Hint</p>
