@@ -28,6 +28,7 @@ var hinttxtObj = document.getElementById("hinttext");
 var bgmObj = document.getElementById("bgmaudio");
 bgmObj.volume = 0.5;
 var completeObj = document.getElementById("completeaudio");
+completeObj.volume = 0.9;
 
 clickpartObj.onclick = function() {
 	var clickObj = document.getElementById("clickaudio");
@@ -35,6 +36,7 @@ clickpartObj.onclick = function() {
 	var clicktextObj = document.getElementById("clicktext");
 	clicktextObj.innerHTML = "Click here to continue <br> Until (END) appear";
 	var successObj = document.getElementById("successaudio");
+	successObj.volume = 0.7;
 	if(sentence == 51) {
 		bgmObj.pause();
 		bgmstate = false;
