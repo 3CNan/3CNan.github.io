@@ -204,15 +204,15 @@ function nextdialogue() {
 		nextstep();
 	} else if(currentstep == 12 && sentence == 50) {
 		if(ability_coefficient <= 45) {
-			age += 6;
+			age += 7;
 		} else if(ability_coefficient <= 55) {
-			age += 5;
+			age += 6;
 		} else if(ability_coefficient <= 60) {
-			age += 4;
+			age += 5;
 		} else if(ability_coefficient <= 65) {
-			age += 3;
+			age += 4;
 		} else if(ability_coefficient <= 70) {
-			age += 2;
+			age += 3;
 		}
 		currentstep += 1;
 		nextstep();
