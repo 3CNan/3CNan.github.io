@@ -1,14 +1,17 @@
-var currentstep = 0, sentence = 0, if_decide = false;
+var currentstep = 0, sentence = 0, complete = false;
 var sensitivity = 0, ability_coefficient = 0, age = 15, effort_energy = 8;
 var count, hint = "There's no hint for this part.";
-var hsc = false; ucc = false; cp = false; jop = false;
+var hsc = false; ucc = false; job = false;
 
 var sensitivityObj = document.getElementById("sensitivity");
 var ability_coefficientObj = document.getElementById("ability_coefficient");
 var effort_energyObj = document.getElementById("effort_energy");
 var ageObj = document.getElementById("age");
 
-window.onload = freshdata();
+window.onload = function() {
+	freshdata();
+	bgmObj.load();
+}
 
 function freshdata() {
 	sensitivityObj.innerHTML = "Sensitivity: " + sensitivity;
@@ -24,6 +27,7 @@ var hinttxtObj = document.getElementById("hinttext");
 
 var bgmObj = document.getElementById("bgmaudio");
 bgmObj.volume = 0.5;
+var completeObj = document.getElementById("completeaudio");
 
 clickpartObj.onclick = function() {
 	var clickObj = document.getElementById("clickaudio");
@@ -39,7 +43,7 @@ clickpartObj.onclick = function() {
 		bgmObj.play();
 		bgmstate = true;
 	}
-	if(currentstep == 14 && sentence == 56) {
+	if(currentstep == 14 && sentence == 57) {
 		if(if_job_choose() == false) {
 			return;
 		}
@@ -123,7 +127,30 @@ function boxnumbers() {
 			count = 2 + (5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
 			hint = "Just choose what you want to do.";
 			break;
-		
+		case 15:
+			count = 5 + (5 + 5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
+			hint = "There's no hint for your own life.";
+			break;
+		case 16:
+			count = 4 + (5 + 5 + 5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
+			hint = "There's no hint for your own life.";
+			break;
+		case 17:
+			count = 5 + (4 + 5 + 5 + 5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
+			hint = "There's no hint for your own life.";
+			break;
+		case 18:
+			count = 5 + (5 + 4 + 5 + 5 + 5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
+			hint = "There's no hint for your own life.";
+			break;
+		case 19:
+			count = 5 + (5 + 5 + 4 + 5 + 5 + 5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
+			hint = "There's no hint for your own life.";
+			break;
+		case 20:
+			count = 5 + (5 + 5 + 5 + 4 + 5 + 5 + 5 + 6 + 5 + 3 + 4 + 4 + 5 + 2 + 4 + 4 + 5 + 4 + 1 + 3) ;
+			hint = "There's no hint for your own life.";
+			break;
 	}
 }
 
@@ -144,6 +171,7 @@ function nextstep() {
 
 function nextdialogue() {
 	// 调一个别的判断式
+
 	for(var i = 0; i < textboxObjs.length; i++) {
 		textboxObjs[i].style.display = "none";
 	}
@@ -188,7 +216,62 @@ function nextdialogue() {
 		currentstep += 1;
 		nextstep();
 		console.log(0);
-	} else {
+	} else if(currentstep == 15 && sentence == 65 && job == false) {
+		if(complete == false) {
+			bgmObj.pause();
+			completeObj.play()
+			complete = true;
+		}
+		decisionObjs[3].style.display = "none";
+		textboxObjs[89].style.display = "table";
+		return;
+	} else if(currentstep == 16 && sentence == 69 && job == false) {
+		if(complete == false) {
+			bgmObj.pause();
+			completeObj.play()
+			complete = true;
+		}
+		decisionObjs[3].style.display = "none";
+		textboxObjs[89].style.display = "table";
+		return;
+	} else if(currentstep == 17 && sentence == 74 && job == false) {
+		if(complete == false) {
+			bgmObj.pause();
+			completeObj.play()
+			complete = true;
+		}
+		decisionObjs[3].style.display = "none";
+		textboxObjs[89].style.display = "table";
+		return;
+	} else if(currentstep == 18 && sentence == 79 && job == false) {
+		if(complete == false) {
+			bgmObj.pause();
+			completeObj.play()
+			complete = true;
+		}
+		decisionObjs[3].style.display = "none";
+		textboxObjs[89].style.display = "table";
+		return;
+	} else if(currentstep == 19 && sentence == 84 && job == false) {
+		if(complete == false) {
+			bgmObj.pause();
+			completeObj.play()
+			complete = true;
+		}
+		decisionObjs[3].style.display = "none";
+		textboxObjs[89].style.display = "table";
+		return;
+	} else if(currentstep == 20 && sentence == 89 && job == false) {
+		if(complete == false) {
+			bgmObj.pause();
+			completeObj.play()
+			complete = true;
+		}
+		decisionObjs[3].style.display = "none";
+		textboxObjs[89].style.display = "table";
+		return;
+	}
+	else {
 		currentstep += 1;
 		nextstep();
 		console.log(0);
@@ -213,9 +296,10 @@ function nextdcsn() {
 	if(currentstep == 14) {
 		decisionObjs[3].style.display = "block";
 	}
-	hsc = ucc = false;
+	hsc = ucc = job = false;
 	hscdcsn();
 	uccdcsn();
+	jobdcsn();
 }
 
 var hscsObjs = document.getElementsByName("hscs");
@@ -448,8 +532,56 @@ function if_job_choose() {
 		}
 	}
 }
+function which_job_choose() {
+	for(var i = 0; i < jobObjs.length; i++) {
+		if(jobObjs[i].checked) {
+			return i;
+		}
+	}
+}
 
-
+function jobdcsn() {
+	var plusageObjs = document.getElementsByClassName("plusage");
+	if(currentstep == 14 && sentence == 57) {
+		if(which_job_choose() == 0) {
+			if(ability_coefficient > 55) {
+				plusageObjs[0].innerHTML += "at " + age + ".";
+				sentence += 3;
+				job = true;
+			} else {
+				plusageObjs[1].innerHTML += "at " + age + ".";
+				currentstep += 1;
+				sentence += 5 + 3;
+				job = true;
+			}
+		} else if(which_job_choose() == 1) {
+			if(ability_coefficient > 55) {
+				plusageObjs[2].innerHTML += "at " + age + ".";
+				currentstep += 2;
+				sentence += 4 + 5 + 3;
+				job = true;
+			} else {
+				plusageObjs[3].innerHTML += "at " + age + ".";
+				currentstep += 3;
+				sentence += 5 + 4 + 5 + 3;
+				job = true;
+			}
+		} else if(which_job_choose() == 2) {
+			if(ability_coefficient > 60) {
+				plusageObjs[4].innerHTML += "at " + age + ".";
+				currentstep += 4;
+				sentence += 5 + 5 + 4 + 5 + 3;
+				job = true;
+			} else {
+				age += 1;
+				plusageObjs[5].innerHTML += "at " + age + ".";
+				currentstep += 5;
+				sentence += 5 + 5 + 5 + 4 + 5 + 3;
+				job = true;
+			}
+		}
+	}
+}
 
 
 
