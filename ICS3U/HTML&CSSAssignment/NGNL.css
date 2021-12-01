@@ -229,6 +229,22 @@ body {
 	color: whitesmoke;
 	text-shadow: 1px 1px 2px black;
 }
+#exceedbox table *{
+	border: 1px solid black;
+}
+#exceedbox b {
+	border: none;
+}
+#exceedbox table {
+	border-collapse: collapse;
+	width: 70%;
+	height: 40vh;
+	margin: 0 auto;
+	text-align: center;
+	vertical-align: middle;
+	table-layout: fixed;
+	overflow-wrap: break-word;
+}
 
 
 
