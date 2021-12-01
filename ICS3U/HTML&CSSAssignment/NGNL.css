@@ -62,11 +62,9 @@ body {
 	background-color: skyblue;
 }
 #footer {
-	/*height: 170px;*/
 	background-color: lightslategray;
 	color: white;
 	text-align: center;
-	margin-top: -20px;
 	padding: 5px 5px 20px 5px;
 	z-index: 800;
 }
@@ -168,7 +166,69 @@ body {
 
 
 
-
+/* CharacterPage */
+#characintro {
+	margin: 0 7vw;
+	padding: 1vw 3.5vw;
+	background-color: whitesmoke;
+	/*background-color: purple;*/
+}
+#characboxs {
+	width: 100%;
+	height: 82vw;
+}
+.box {
+	width: calc(33.3% - 2vw);
+	height: 38.5vw;
+	background-color: white;
+	box-shadow: 0 0 3px grey;
+	margin: 1vw;
+	padding: 1vw;
+	float: left;
+	box-sizing: border-box;
+}
+.box h3 {
+	text-align: center;
+	font-size: 1.6vw;
+}
+#role_blank {
+	background-image: url(./「」.jpeg);
+}
+#role_dola {
+	background-image: url(./Dola.jpg);
+}
+#role_jibril {
+	background-image: url(./Jibril1.jpg);
+}
+#role_izuna {
+	background-image: url(./Izuna.jpg);
+}
+#role_chlammy {
+	background-image: url(./Kurami.jpg);
+}
+#role_fiel {
+	background-image: url(./Fiel1.jpg);
+}
+.characimg {
+	background-size: cover;
+	width: 100%;
+	height: 31vw;
+}
+.box:hover .characinfo {
+	display: block;
+	background-color: rgba(78, 17, 100, 0.4);
+}
+.characinfo {
+	width: calc(100% - 2vw);
+	height: calc(100% - 1vw);
+	padding: 0.5vw 1vw;
+	font-size: 1.2vw;
+	font-weight: 600;
+	display: none;
+	float: left;
+	color: whitesmoke;
+	text-shadow: 1px 1px 2px black;
+}
 
 
 
@@ -216,7 +276,7 @@ body {
 }
 #sgssbmtbtn {
 	margin-left: calc(50% + 2vw);
-	margin-bottom: 2vw;
+	/*margin-bottom: 2vw;*/
 	font-size: 18px;
 	width: 15vw;
 	background-color: whitesmoke;
