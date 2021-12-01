@@ -1,0 +1,249 @@
+/* All */
+* {
+	font-family: serif;
+}
+body {
+	margin: 0;
+}
+#navigationBar {
+	height: 60px;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	z-index: 9999;
+}
+.menubtn {
+	text-decoration: none;
+	color: white;
+	width: 9vw;
+	height: 100%;
+	padding: calc(30px - 0.8vw);
+	background-color: lightsteelblue;
+	text-align: center;
+	float: left;
+	border-left: 3px solid white;
+}
+.menubtn:first-child {
+	border: none;
+}
+.menubtn:hover {
+	background-color: steelblue;
+}
+.menubtn p {
+	margin: 0 auto;
+	font-size: 1.6vw;
+	line-height: 100%;
+}
+#searchpart {
+	float: right;
+	height: 40px;
+	margin: 10px 0;
+}
+#searchpart * {
+	float: left;
+}
+#searchbox {
+	width: 15vw;
+	height: calc(40px - 10px);
+	padding: 3px;
+	border-radius: 0;
+}
+#googlebtn, #bingbtn {
+	height: 40px;
+	width: 7vw;
+	border: none;
+	font-size: 1.3vw;
+	color: white;
+}
+#googlebtn {
+	background-color: lightseagreen;
+}
+#bingbtn {
+	background-color: skyblue;
+}
+#footer {
+	height: 170px;
+	background-color: lightslategray;
+	color: white;
+	text-align: center;
+	margin-top: -20px;
+	padding: 5px 0;
+	z-index: 800;
+}
+#footer img {
+	width: 50px;
+	height: 50px;
+}
+
+
+
+/* HomePage */
+#head {
+	font-family: fantasy;
+	font-size: 10vw;
+	margin: 16vw 0;
+	text-align: center;
+	color: white;
+}
+#headimg {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: -1;
+}
+#content {
+	width: 100%;
+	background-color: whitesmoke;
+	padding-bottom: 20px;
+}
+#content hr {
+	width: calc(100% - 40px);
+}
+#carousel {
+	width: 80vw;
+	height: 45vw;
+	/*float: left;*/
+	overflow: hidden;
+	margin-left: calc(10vw - 20px);
+	background-color: grey;
+}
+#photo {
+	width: 720vw;
+	height: 100%;
+	animation: scorllRL 40s linear infinite;
+}
+@keyframes scorllRL {
+	0% {margin-left: 0vw;}
+	7.5% {margin-left: 0vw;}
+	12.5% {margin-left: -80vw;}
+	20% {margin-left: -80vw;}
+	25% {margin-left: -160vw;}
+	32.5% {margin-left: -160vw;}
+	37.5% {margin-left: -240vw;}
+	45% {margin-left: -240vw;}
+	50% {margin-left: -320vw;}
+	57.5% {margin-left: -320vw;}
+	62.5% {margin-left: -400vw;}
+	70% {margin-left: -400vw;}
+	75% {margin-left: -480vw;}
+	82.5% {margin-left: -480vw;}
+	87.5% {margin-left: -560vw;}
+	95% {margin-left: -560vw;}
+	100% {margin-left: -640vw;}
+}
+.carouselimg {
+	width: 80vw;
+	height: 100%;
+	background-color: black;
+	text-align: center;
+	float: left;
+}
+.carouselimg img {
+	height: 45vw;
+	margin: 0 auto;
+}
+#introduction {
+	width: 80vw;
+	margin-left: calc(10vw - 20px);
+}
+#introduction p {
+	text-indent: 4em;
+}
+#ngnlintroimg {
+	width: 35vw;
+	float: right;
+	margin: 0 0 10px 10px;
+}
+#ngnl0introimg {
+	width: 33vw;
+	float: left;
+	margin: 0 10px 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* AboutUsPage */
+#photowall {
+	width: 100vw;
+	overflow: hidden;
+	transform-style: preserve-3d;
+	position: fixed;
+	top: 0;
+	filter: blur(1px);
+	/*float: left;*/
+	z-index: -1;
+}
+#photowallimg {
+	opacity: 0.8;
+	margin-top: -6vw;
+	margin-left: -6vw;
+	width: 160vw;
+	transform: skewY(20deg);
+	z-index: -1;
+}
+#photowallimg img {
+	width: calc(20vw - 0.5vw);
+	height: 25vh;
+	float: left;
+	border: 0.25vw solid white;
+	z-index: -1;
+}
+#suggestion {
+	width: 45vw;
+	padding: 2vw;
+	margin-left: 50vw;
+	box-shadow: 0 0 100px 110px rgba(245, 245, 245, 0.9);
+	background-color: rgba(245, 245, 245, 0.9);
+	z-index: 100;
+}
+#abusintro {
+
+}
+#sgsform {
+	line-height: 2.5vw;
+	padding: 0 5vw;
+}
+#sgsform textarea {
+	width: 34vw;
+	height: 7vw;
+	resize: vertical;
+}
+#sgssbmtbtn {
+	margin-left: calc(50% - 3vw);
+	margin-bottom: 2vw;
+	font-size: 18px;
+	width: 20vw;
+	background-color: whitesmoke;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
