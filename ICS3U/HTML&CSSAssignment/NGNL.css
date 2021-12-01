@@ -176,8 +176,7 @@ body {
 	transform-style: preserve-3d;
 	position: fixed;
 	top: 0;
-	filter: blur(1px);
-	/*float: left;*/
+	filter: blur(0.7px);
 	z-index: -1;
 }
 #photowallimg {
@@ -199,12 +198,9 @@ body {
 	width: 45vw;
 	padding: 2vw;
 	margin-left: 50vw;
-	box-shadow: 0 0 100px 110px rgba(245, 245, 245, 0.9);
+	box-shadow: 0 0 88px 88px rgba(245, 245, 245, 0.9);
 	background-color: rgba(245, 245, 245, 0.9);
 	z-index: 100;
-}
-#abusintro {
-
 }
 #sgsform {
 	line-height: 2.5vw;
@@ -216,10 +212,10 @@ body {
 	resize: vertical;
 }
 #sgssbmtbtn {
-	margin-left: calc(50% - 3vw);
+	margin-left: calc(50% + 2vw);
 	margin-bottom: 2vw;
 	font-size: 18px;
-	width: 20vw;
+	width: 15vw;
 	background-color: whitesmoke;
 }
 
