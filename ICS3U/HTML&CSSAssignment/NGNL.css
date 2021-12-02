@@ -253,7 +253,7 @@ body {
 }
 .trvdetail {
 	width: calc(100% - 4vw);
-	height: 13vw;
+	height: 15vw;
 	margin: 1vh 1vw;
 	padding: 1vh 1vw;
 	display: table;
@@ -267,14 +267,21 @@ body {
 	border-radius: 20px;
 	vertical-align: middle;
 	overflow: hidden;
-	background-size: 36% 101%;
+	background-size: 40% 101%;
 	background-repeat: no-repeat;
+	animation: trvshow 1.5s linear alternate;
+}
+@keyframes trvshow {
+	from {opacity: 0;}
+	to {opacity: 1;}
+	/*from {background-color: blue;}
+	to {background-color: white;}*/
 }
 .trvps {
-	width: 60%;
+	width: 55%;
 	padding: 1vw;
 	background-color: white;
-	box-shadow: 0 0 40px 60px white;
+	box-shadow: 0 0 40px 100px white;
 }
 .trvboxs div:nth-child(odd){
 	float: left;
@@ -290,6 +297,10 @@ body {
 	background-image: url(./trk-2.png);
 	background-position: left;
 }
+#trv3 {
+	background-image: url(./trk-3.png);
+	background-position: right;
+}
 #trv4 {
 	background-image: url(./trk-4.png);
 	background-position: left;
@@ -297,6 +308,10 @@ body {
 #trv5 {
 	background-image: url(./trk-5.png);
 	background-position: right;
+}
+#trv6 {
+	background-image: url(./trk-6.png);
+	background-position: left;
 }
 
 /* AboutUsPage */
