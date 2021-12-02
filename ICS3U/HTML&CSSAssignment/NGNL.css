@@ -151,12 +151,12 @@ body {
 	text-indent: 4em;
 }
 #ngnlintroimg {
-	width: 35vw;
+	width: 30vw;
 	float: right;
 	margin: 0 0 10px 10px;
 }
 #ngnl0introimg {
-	width: 33vw;
+	width: 30vw;
 	float: left;
 	margin: 0 10px 10px 0;
 }
@@ -225,11 +225,8 @@ body {
 	color: whitesmoke;
 	text-shadow: 1px 1px 2px black;
 }
-#exceedbox table *{
+#exceedbox table * {
 	border: 1px solid black;
-}
-#exceedbox b {
-	border: none;
 }
 #exceedbox table {
 	border-collapse: collapse;
@@ -240,9 +237,13 @@ body {
 	vertical-align: middle;
 	table-layout: fixed;
 	overflow-wrap: break-word;
+	background-image: url(./XVI.png);
+	background-size: cover;
+	font-size: 1.5vw;
 }
-
-
+#exceedbox tbody {
+	background-color: rgba(245, 245, 245, 0.5);
+}
 /* TricksPage */
 #coveintro ol {
 	list-style-type: upper-roman;
@@ -250,10 +251,9 @@ body {
 	text-indent: 1em;
 	margin-left: 4vw;
 }
-
 .trvdetail {
 	width: calc(100% - 4vw);
-	/*height: 11vw;*/
+	height: 13vw;
 	margin: 1vh 1vw;
 	padding: 1vh 1vw;
 	display: table;
@@ -263,26 +263,41 @@ body {
 	display: table-cell;
 	width: calc(100% - 4vw);
 	background-color: white;
-	box-shadow: 0 2px 3px grey;
+	box-shadow: 0 3px 3px grey;
 	border-radius: 20px;
 	vertical-align: middle;
-	padding: 1vw;
+	overflow: hidden;
+	background-size: 36% 101%;
+	background-repeat: no-repeat;
 }
-.trvboxs div {
+.trvps {
 	width: 60%;
-	/*display: table-cell;*/
-	/*vertical-align: middle;*/
+	padding: 1vw;
+	background-color: white;
+	box-shadow: 0 0 40px 60px white;
 }
-/*.trvboxs:nth-child(odd) div {
-	width: 80%;
+.trvboxs div:nth-child(odd){
 	float: left;
 }
-.trvboxs:nth-child(even) div {
-	width: 80%;
+.trvboxs div:nth-child(even){
 	float: right;
 }
-*/
-
+#trv1 {
+	background-image: url(./trk-1.png);
+	background-position: right;
+}
+#trv2 {
+	background-image: url(./trk-2.png);
+	background-position: left;
+}
+#trv4 {
+	background-image: url(./trk-4.png);
+	background-position: left;
+}
+#trv5 {
+	background-image: url(./trk-5.png);
+	background-position: right;
+}
 
 /* AboutUsPage */
 #photowall {
