@@ -244,17 +244,24 @@ body {
 
 
 /* TricksPage */
+#coveintro ol {
+	list-style-type: upper-roman;
+	line-height: 35px;
+	text-indent: 1em;
+	margin-left: 4vw;
+}
+
 .trvdetail {
-	width: 100%;
+	width: calc(100% - 4vw);
 	/*height: 11vw;*/
-	margin: 1vh -1vw;
+	margin: 1vh 1vw;
 	padding: 1vh 1vw;
 	display: table;
 	overflow: hidden;
 }
 .trvboxs {
 	display: table-cell;
-	width: calc(100% - 2vw);
+	width: calc(100% - 4vw);
 	background-color: white;
 	box-shadow: 0 2px 3px grey;
 	border-radius: 20px;
