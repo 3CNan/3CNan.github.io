@@ -188,22 +188,22 @@ body {
 	font-size: 1.6vw;
 }
 #role_blank {
-	background-image: url(./「」.jpeg);
+	background-image: url("./「」.jpeg");
 }
 #role_dola {
-	background-image: url(./Dola.jpg);
+	background-image: url("./Dola.jpg");
 }
 #role_jibril {
-	background-image: url(./Jibril1.jpg);
+	background-image: url("./Jibril1.jpg");
 }
 #role_izuna {
-	background-image: url(./Izuna.jpg);
+	background-image: url("./Izuna.jpg");
 }
 #role_chlammy {
-	background-image: url(./Kurami.jpg);
+	background-image: url("./Kurami.jpg");
 }
 #role_fiel {
-	background-image: url(./Fiel1.jpg);
+	background-image: url("./Fiel1.jpg");
 }
 .characimg {
 	background-size: cover;
@@ -237,7 +237,7 @@ body {
 	vertical-align: middle;
 	table-layout: fixed;
 	overflow-wrap: break-word;
-	background-image: url(./XVI.png);
+	background-image: url("./XVI.png");
 	background-size: cover;
 	font-size: 1.5vw;
 }
@@ -290,27 +290,27 @@ body {
 	float: right;
 }
 #trv1 {
-	background-image: url(./trk-1.png);
+	background-image: url("./trk-1.png");
 	background-position: right;
 }
 #trv2 {
-	background-image: url(./trk-2.png);
+	background-image: url("./trk-2.png");
 	background-position: left;
 }
 #trv3 {
-	background-image: url(./trk-3.png);
+	background-image: url("./trk-3.png");
 	background-position: right;
 }
 #trv4 {
-	background-image: url(./trk-4.png);
+	background-image: url("./trk-4.png");
 	background-position: left;
 }
 #trv5 {
-	background-image: url(./trk-5.png);
+	background-image: url("./trk-5.png");
 	background-position: right;
 }
 #trv6 {
-	background-image: url(./trk-6.png);
+	background-image: url("./trk-6.png");
 	background-position: left;
 }
 

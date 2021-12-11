@@ -37,16 +37,16 @@ clickpartObj.onclick = function() {
 	clicktextObj.innerHTML = "Click here to continue <br> Until (END) appear";
 	var successObj = document.getElementById("successaudio");
 	successObj.volume = 0.7;
-	if(sentence == 51) {
+	if (sentence == 51) {
 		bgmObj.pause();
 		bgmstate = false;
 		successObj.play();
-	} else if(sentence == 0) {
+	} else if (sentence == 0) {
 		bgmObj.play();
 		bgmstate = true;
 	}
-	if(currentstep == 14 && sentence == 57) {
-		if(if_job_choose() == false) {
+	if (currentstep == 14 && sentence == 57) {
+		if (if_job_choose() == false) {
 			return;
 		}
 	}
@@ -57,7 +57,7 @@ hintbtnObj.onclick = function() {
 	var clickObj = document.getElementById("clickaudio");
 	clickObj.play();
 	boxnumbers();
-	if(hinttxtObj.innerHTML == "Hint") {
+	if (hinttxtObj.innerHTML == "Hint") {
 		hinttxtObj.innerHTML = hint;
 		hinttxtObj.style.color = "black";
 	} else {
@@ -158,12 +158,12 @@ function boxnumbers() {
 function nextstep() {
 	nextdcsn();
 	boxnumbers();
-	if(sentence == count) {
+	if (sentence == count) {
 		nextdialogue();
-	} else if(sentence < count) {
+	} else if (sentence < count) {
 		textboxObjs[sentence].style.display = "table";
 		sentence += 1;
-		if(hinttxtObj.innerHTML != "Hint") {
+		if (hinttxtObj.innerHTML != "Hint") {
 			hinttxtObj.innerHTML = "Hint";
 			hinttxtObj.style.color = "white";
 		}
@@ -177,48 +177,48 @@ function nextdialogue() {
 		textboxObjs[i].style.display = "none";
 	}
 	
-	if(currentstep == 4 && sentence == 17 && hsc == false) {
+	if (currentstep == 4 && sentence == 17 && hsc == false) {
 		currentstep = 6;
 		sentence = 21;
 		console.log(1);
 		nextstep();
-	} else if(currentstep == 3 && sentence == 13 && hsc == false) {
+	} else if (currentstep == 3 && sentence == 13 && hsc == false) {
 		currentstep = 6;
 		sentence = 21;
 		console.log(2);
 		nextstep();
-	} else if(currentstep == 2 && sentence == 8 && hsc == false) {
+	} else if (currentstep == 2 && sentence == 8 && hsc == false) {
 		currentstep = 6;
 		sentence = 21;
 		console.log(3);
 		nextstep();
-	} else if(currentstep == 9 && sentence == 36 && ucc == false) {
+	} else if (currentstep == 9 && sentence == 36 && ucc == false) {
 		currentstep = 11;
 		sentence = 39;
 		console.log(1);
 		nextstep();
-	} else if(currentstep == 8 && sentence == 32 && ucc == false) {
+	} else if (currentstep == 8 && sentence == 32 && ucc == false) {
 		currentstep = 11;
 		sentence = 39;
 		console.log(2);
 		nextstep();
-	} else if(currentstep == 12 && sentence == 50) {
-		if(ability_coefficient <= 45) {
+	} else if (currentstep == 12 && sentence == 50) {
+		if (ability_coefficient <= 45) {
 			age += 7;
-		} else if(ability_coefficient <= 55) {
+		} else if (ability_coefficient <= 55) {
 			age += 6;
-		} else if(ability_coefficient <= 60) {
+		} else if (ability_coefficient <= 60) {
 			age += 5;
-		} else if(ability_coefficient <= 65) {
+		} else if (ability_coefficient <= 65) {
 			age += 4;
-		} else if(ability_coefficient <= 70) {
+		} else if (ability_coefficient <= 70) {
 			age += 3;
 		}
 		currentstep += 1;
 		nextstep();
 		console.log(0);
-	} else if(currentstep == 15 && sentence == 65 && job == false) {
-		if(complete == false) {
+	} else if (currentstep == 15 && sentence == 65 && job == false) {
+		if (complete == false) {
 			bgmObj.pause();
 			completeObj.play()
 			complete = true;
@@ -226,8 +226,8 @@ function nextdialogue() {
 		decisionObjs[3].style.display = "none";
 		textboxObjs[89].style.display = "table";
 		return;
-	} else if(currentstep == 16 && sentence == 69 && job == false) {
-		if(complete == false) {
+	} else if (currentstep == 16 && sentence == 69 && job == false) {
+		if (complete == false) {
 			bgmObj.pause();
 			completeObj.play()
 			complete = true;
@@ -235,8 +235,8 @@ function nextdialogue() {
 		decisionObjs[3].style.display = "none";
 		textboxObjs[89].style.display = "table";
 		return;
-	} else if(currentstep == 17 && sentence == 74 && job == false) {
-		if(complete == false) {
+	} else if (currentstep == 17 && sentence == 74 && job == false) {
+		if (complete == false) {
 			bgmObj.pause();
 			completeObj.play()
 			complete = true;
@@ -244,8 +244,8 @@ function nextdialogue() {
 		decisionObjs[3].style.display = "none";
 		textboxObjs[89].style.display = "table";
 		return;
-	} else if(currentstep == 18 && sentence == 79 && job == false) {
-		if(complete == false) {
+	} else if (currentstep == 18 && sentence == 79 && job == false) {
+		if (complete == false) {
 			bgmObj.pause();
 			completeObj.play()
 			complete = true;
@@ -253,8 +253,8 @@ function nextdialogue() {
 		decisionObjs[3].style.display = "none";
 		textboxObjs[89].style.display = "table";
 		return;
-	} else if(currentstep == 19 && sentence == 84 && job == false) {
-		if(complete == false) {
+	} else if (currentstep == 19 && sentence == 84 && job == false) {
+		if (complete == false) {
 			bgmObj.pause();
 			completeObj.play()
 			complete = true;
@@ -262,8 +262,8 @@ function nextdialogue() {
 		decisionObjs[3].style.display = "none";
 		textboxObjs[89].style.display = "table";
 		return;
-	} else if(currentstep == 20 && sentence == 89 && job == false) {
-		if(complete == false) {
+	} else if (currentstep == 20 && sentence == 89 && job == false) {
+		if (complete == false) {
 			bgmObj.pause();
 			completeObj.play()
 			complete = true;
@@ -284,16 +284,16 @@ function nextdcsn() {
 	for(var i = 0; i < decisionObjs.length; i++) {
 		decisionObjs[i].style.display = "none";
 	}
-	if(sentence == 3) {
+	if (sentence == 3) {
 		decisionObjs[0].style.display = "block";
 	}
-	if(currentstep == 2 || currentstep == 3 || currentstep == 4 || currentstep == 5) {
+	if (currentstep == 2 || currentstep == 3 || currentstep == 4 || currentstep == 5) {
 		decisionObjs[1].style.display = "block";
 	}
-	if(currentstep == 13) {
+	if (currentstep == 13) {
 		decisionObjs[2].style.display = "block";
 	}
-	if(currentstep == 14) {
+	if (currentstep == 14) {
 		decisionObjs[3].style.display = "block";
 	}
 	hsc = ucc = job = false;
@@ -305,23 +305,23 @@ function nextdcsn() {
 var hscsObjs = document.getElementsByName("hscs");
 
 function hscdcsn() {
-	if(currentstep == 1 && textboxObjs[3].style.display == "table") {
-		if(if_hscdcsn_occur()) {
-			if(is_choose_all()) {
+	if (currentstep == 1 && textboxObjs[3].style.display == "table") {
+		if (if_hscdcsn_occur()) {
+			if (is_choose_all()) {
 				sensitivity += 2;
 				sentence += 4;
 				currentstep += 1;
-			} else if(hscsObjs[0].checked || hscsObjs[2].checked || hscsObjs[3].checked || hscsObjs[6].checked) {
-				if(hscsObjs[0].checked) {
+			} else if (hscsObjs[0].checked || hscsObjs[2].checked || hscsObjs[3].checked || hscsObjs[6].checked) {
+				if (hscsObjs[0].checked) {
 					sensitivity += 1;
 				}
-				if(hscsObjs[2].checked) {
+				if (hscsObjs[2].checked) {
 					sensitivity += 1;
 				}
-				if(hscsObjs[3].checked) {
+				if (hscsObjs[3].checked) {
 					sensitivity += 1;
 				}
-				if(hscsObjs[6].checked) {
+				if (hscsObjs[6].checked) {
 					sensitivity += 1;
 				}
 			} else {
@@ -341,20 +341,20 @@ function hscdcsn() {
 
 function if_hscdcsn_occur() {
 	for(var i = 0; i < hscsObjs.length; i++) {
-		if(hscsObjs[i].checked) {
+		if (hscsObjs[i].checked) {
 			return true;
 		}
-		if(i == hscsObjs.length - 1 && hscsObjs[i].checked == false) {
+		if (i == hscsObjs.length - 1 && hscsObjs[i].checked == false) {
 			return false;
 		}
 	}
 }
 function is_choose_all() {
 	for(var i = 0; i < hscsObjs.length; i++) {
-		if(hscsObjs[i].checked == false) {
+		if (hscsObjs[i].checked == false) {
 			return false;
 		}
-		if(i == hscsObjs.length - 1 && hscsObjs[i].checked == true) {
+		if (i == hscsObjs.length - 1 && hscsObjs[i].checked == true) {
 			return true;
 		}
 	}
@@ -366,10 +366,10 @@ var ucccrObjs = document.getElementsByName("ucccr");
 function checktoshow() {
 	var a;
 	for(var i = 0; i < uccObjs.length; i++) {
-		if(uccObjs[i].checked == true) {
+		if (uccObjs[i].checked == true) {
 			ucccrObjs[i].style.display = "inline-block";
 		}
-		if(uccObjs[i].checked == false) {
+		if (uccObjs[i].checked == false) {
 			ucccrObjs[i].style.display = "none";
 			ucccrObjs[i].checked = false;
 		}
@@ -378,19 +378,19 @@ function checktoshow() {
 
 function uccdcsn() {
 	var option;
-	if(sentence == 21) {
-		if(currentstep == 5) {
+	if (sentence == 21) {
+		if (currentstep == 5) {
 
 		} else {
 			age += 4;
 		}
 	}
-	if(currentstep == 7 && sentence == 28) {
-		if(not_all_ucc() == true) {
+	if (currentstep == 7 && sentence == 28) {
+		if (not_all_ucc() == true) {
 			age += 1;
 			ability_coefficient += 45 + (sensitivity * 5);
 			console.log(1);
-		} else if(is_all_core() == false) {
+		} else if (is_all_core() == false) {
 			ability_coefficient += 40 + (sensitivity * 5);
 			currentstep += 1;
 			sentence += 4;
@@ -408,12 +408,12 @@ function uccdcsn() {
 function not_all_ucc() {
 	var array = [0, 1, 2, 4, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16];
 	for(var i = 0; i < uccObjs.length; i++) {
-		if(array.includes(i)) {
-			if(uccObjs[i].checked == false) {
+		if (array.includes(i)) {
+			if (uccObjs[i].checked == false) {
 				return true;
 			}
 		}
-		if(i == uccObjs.length - 1 && uccObjs[i].checked == true) {
+		if (i == uccObjs.length - 1 && uccObjs[i].checked == true) {
 			return false;
 		}
 	}
@@ -422,16 +422,16 @@ function is_all_core() {
 	var falsearray = [0, 3, 5, 6, 12, 13, 14, 15, 16];
 	var truearray = [1, 2, 4, 7, 8, 9, 10, 11];
 	for(var i = 0; i < ucccrObjs.length; i++) {
-		if(ucccrObjs[i].checked == true) {
-			if(falsearray.includes(i)) {
+		if (ucccrObjs[i].checked == true) {
+			if (falsearray.includes(i)) {
 				return false;
 			}
-		} else if(ucccrObjs[i].checked == false){
-			if(truearray.includes(i)) {
+		} else if (ucccrObjs[i].checked == false){
+			if (truearray.includes(i)) {
 				return false
 			}
 		}
-		if(i == ucccrObjs.length - 1 && ucccrObjs[i].checked == false) {
+		if (i == ucccrObjs.length - 1 && ucccrObjs[i].checked == false) {
 			return true;
 		}
 	}
@@ -441,27 +441,27 @@ function selectshow() {
 	var avgObjs = document.getElementsByName("avg");
 	var salaryObjs = document.getElementsByClassName("salary");
 	for(var i = 0; i < pathsObjs.length; i++) {
-		if(pathsObjs[i].checked) {
+		if (pathsObjs[i].checked) {
 			salaryObjs[i].style.display = "inline-block";
 		} else {
 			salaryObjs[i].style.display = "none";
 		}
 	}
 	for(var i = 0; i < avgObjs.length; i++) {
-		if(avgObjs[i].checked) {
-			if(i == 0) {
+		if (avgObjs[i].checked) {
+			if (i == 0) {
 				salaryObjs[4].style.display = "inline-block";
 				salaryObjs[5].style.display = "inline-block";
 				salaryObjs[6].style.display = "inline-block";
-			} else if(i == 1) {
+			} else if (i == 1) {
 				salaryObjs[7].style.display = "inline-block";
 			}
 		} else {
-			if(i == 0) {
+			if (i == 0) {
 				salaryObjs[4].style.display = "none";
 				salaryObjs[5].style.display = "none";
 				salaryObjs[6].style.display = "none";
-			} else if(i == 1) {
+			} else if (i == 1) {
 				salaryObjs[7].style.display = "none";
 			}
 		}
@@ -472,7 +472,7 @@ var bgmObj = document.getElementById("bgmaudio");
 var bgmstate = false;
 
 function if_bgm_ing() {
-	if(bgmstate == false) {
+	if (bgmstate == false) {
 		bgmObj.play();
 		bgmstate = true;
 	} else {
@@ -489,10 +489,10 @@ var jobbtnObjs = document.getElementsByClassName("jobbtn");
 var pcstate = false; afstate = false; gstate = false;
 
 function PCshow() {
-	if(sentence != 57) {
+	if (sentence != 57) {
 		return;
 	}
-	if(pcstate == false) {
+	if (pcstate == false) {
 		textboxObjs[58].style.display = "none";
 		textboxObjs[59].style.display = "none";
 		afstate = gstate = false;
@@ -501,10 +501,10 @@ function PCshow() {
 	}
 }
 function AFshow() {
-	if(sentence != 57) {
+	if (sentence != 57) {
 		return;
 	}
-	if(afstate == false) {
+	if (afstate == false) {
 		textboxObjs[57].style.display = "none";
 		textboxObjs[59].style.display = "none";
 		pcstate = gstate = false;
@@ -513,10 +513,10 @@ function AFshow() {
 	}
 }
 function Gshow() {
-	if(sentence != 57) {
+	if (sentence != 57) {
 		return;
 	}
-	if(gstate == false) {
+	if (gstate == false) {
 		textboxObjs[57].style.display = "none";
 		textboxObjs[58].style.display = "none";
 		pcstate = afstate = false;
@@ -528,16 +528,16 @@ function Gshow() {
 var jobObjs = document.getElementsByName("job");
 function if_job_choose() {
 	for(var i = 0; i < jobObjs.length; i++) {
-		if(jobObjs[i].checked) {
+		if (jobObjs[i].checked) {
 			return true;
-		} else if(i == jobObjs.length - 1) {
+		} else if (i == jobObjs.length - 1) {
 			return false;
 		}
 	}
 }
 function which_job_choose() {
 	for(var i = 0; i < jobObjs.length; i++) {
-		if(jobObjs[i].checked) {
+		if (jobObjs[i].checked) {
 			return i;
 		}
 	}
@@ -545,9 +545,9 @@ function which_job_choose() {
 
 function jobdcsn() {
 	var plusageObjs = document.getElementsByClassName("plusage");
-	if(currentstep == 14 && sentence == 57) {
-		if(which_job_choose() == 0) {
-			if(ability_coefficient > 55) {
+	if (currentstep == 14 && sentence == 57) {
+		if (which_job_choose() == 0) {
+			if (ability_coefficient > 55) {
 				plusageObjs[0].innerHTML += "at " + age + ".";
 				sentence += 3;
 				job = true;
@@ -557,8 +557,8 @@ function jobdcsn() {
 				sentence += 5 + 3;
 				job = true;
 			}
-		} else if(which_job_choose() == 1) {
-			if(ability_coefficient > 55) {
+		} else if (which_job_choose() == 1) {
+			if (ability_coefficient > 55) {
 				plusageObjs[2].innerHTML += "at " + age + ".";
 				currentstep += 2;
 				sentence += 4 + 5 + 3;
@@ -569,8 +569,8 @@ function jobdcsn() {
 				sentence += 5 + 4 + 5 + 3;
 				job = true;
 			}
-		} else if(which_job_choose() == 2) {
-			if(ability_coefficient > 60) {
+		} else if (which_job_choose() == 2) {
+			if (ability_coefficient > 60) {
 				plusageObjs[4].innerHTML += "at " + age + ".";
 				currentstep += 4;
 				sentence += 5 + 5 + 4 + 5 + 3;
