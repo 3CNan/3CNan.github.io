@@ -6,7 +6,7 @@
 	<title>Ranking List</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body onresize="adjust_screen_width()">
+<body>
 	<div id="navigation_bar">
 		<a href="">Home Page</a>
 		<a href="">History</a>
@@ -20,6 +20,15 @@
 		<img id="btn_l_speed" src="./left_speed_btn.png" onmousedown="backward_bgm()">
 		<img id="btn_play_pause" src="./play_btn.png" onclick="start_pause_bgm()">
 		<img id="btn_r_speed" src="./right_speed_btn.png" onmousedown="forward_bgm()">
+		<select id="speed_select" onchange="change_select_style()">
+			<option>Speed</option>
+			<option>0.5</option>
+			<option>0.75</option>
+			<option>1.0</option>
+			<option>1.25</option>
+			<option>1.5</option>
+			<option>2.0</option>
+		</select>
 		<audio id="audio_bgm" src="./bgm.mp3">Your Browser does not support this audio</audio>
 	</div>
 
@@ -46,14 +55,14 @@
 					<div>List 1</div>
 				</div>
 				<div class="list_text_part">
-					<p>Song 1Song 1Song 1Song 1Song 1Song 1</p>
-					<p>Song 2</p>
-					<p>Song 3</p>
-					<p>Song 4</p>
-					<p>Song 5</p>
-					<p>Song 6</p>
-					<p>Song 7</p>
-					<p>Song 8</p>
+					<p class="list_text">Song 1Song 1Song 1Song 1Song 1Song 1</p>
+					<p class="list_text">Song 2</p>
+					<p class="list_text">Song 3</p>
+					<p class="list_text">Song 4</p>
+					<p class="list_text">Song 5</p>
+					<p class="list_text">Song 6</p>
+					<p class="list_text">Song 7</p>
+					<p class="list_text">Song 8</p>
 				</div>
 			</div>
 		</div>
@@ -62,7 +71,6 @@
 				<div class="list_title_shade">
 					<div>List 2</div>
 				</div>
-				
 			</div>
 		</div>
 		<div class="list_box">
@@ -100,34 +108,31 @@
 		<p>If you have any Questions, click <a href="mailto:">HERE</a> to send a email to us.</p>
 		<p>You can also go to <a href="">About Us</a> page to submit you ideas to us.</p>
 		<p>Here are our social media accounts</p>
-		<img src="holder.jpg">
-		<img src="holder.jpg">
-		<img src="holder.jpg">
+		<a href="https://www.instagram.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/800px-Instagram_logo_2016.svg.png"></a>
+		<a href="https://twitter.com"><img src="https://upload.wikimedia.org/wikipedia/zh/thumb/9/9f/Twitter_bird_logo_2012.svg/1200px-Twitter_bird_logo_2012.svg.png"></a>
+		<a href="https://www.facebook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1200px-2021_Facebook_icon.svg.png"></a>
 	</div>
 
 	<script type="text/javascript">
 		var img_carouselObjs = document.getElementsByClassName("img_carousel");
 		window.onload = function() {
-			var img_src_array = ["./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png"]
+			var img_src_array = ["./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png"]
+			// 12 34 12 order
 			for (var i = 0; i < img_carouselObjs.length; i++) {
 				img_carouselObjs[i].style.backgroundImage = "url(" + img_src_array[i] + ")";
-				img_carouselObjs[i].style.backgroundSize = "100%";
-				img_carouselObjs[i].style.backgroundPosition = "center";
-				img_carouselObjs[i].style.backgroundRepeat = "no-repeat";
+			}
+
+			var list_textObjs = document.getElementsByClassName("list_text");
+			for(var i = 0; i < list_textObjs.length; i++) {
+				list_textObjs[i].title = list_textObjs[i].innerHTML;
 			}
 		}
-
-		function adjust_screen_width() {
-			var body_width = document.body.offsetWidth;
-		}
-
+		
 		var play_state = false;
 		var bgmObj = document.getElementById("audio_bgm");
 		var play_btnObj = document.getElementById("btn_play_pause");
 
-
 		function start_pause_bgm() {
-			// bgmObj.playbackRate = 1;
 			if (play_state == false) {
 				if (bgmObj.currentTime == bgmObj.duration) {
 					bgmObj.currentTime = 0;
@@ -191,6 +196,11 @@
 				clearInterval(forward_timer);
 			}
 		}
+		function change_select_style() {
+			var selectObj = document.getElementById("speed_select");
+			selectObj.style.boxShadow = "none";
+			selectObj.style.color = "red";
+		}
 
 		var carousel_screen = document.getElementById("carousel");
 		var carousel_img_rowObj = document.getElementById("carousel_img_row");
@@ -215,24 +225,21 @@
 		})
 		btn_r_carouselObj.addEventListener("mouseout", function() {
 			clearInterval(carousel_timer);
-			carousel_timer = setInterval(scroll_carousel_to_left, 4000);
+			carousel_timer = setInterval(scroll_carousel_to_right, 4000);
 		})
 
-		function turn_page_left() {
-			carousel_img_rowObj.style.marginLeft = img_count + "00%" ;
-		}
-		function turn_page_right() {
+		function turn_page() {
 			carousel_img_rowObj.style.marginLeft = img_count + "00%" ;
 		}
 		function back_to_left() {
 			img_count = -1;
 			carousel_img_rowObj.style.transition = "none";
-			turn_page_left();
+			turn_page();
 		}
 		function back_to_right() {
-			img_count = -1;
+			img_count = -4;
 			carousel_img_rowObj.style.transition = "none";
-			turn_page_right();
+			turn_page();
 		}
 
 		function scroll_carousel_to_left() {
@@ -240,20 +247,21 @@
 			carousel_img_rowObj.style.transition = "all linear 1.5s";
 			if (-(img_count) >= img_carouselObjs.length - 1) {
 				img_count = -(img_carouselObjs.length - 1);
-				turn_page_left();
+				turn_page();
 				setTimeout(back_to_left, 1500);
 			} else {
-				turn_page_left();
+				turn_page();
 			}
 		}
 		function scroll_carousel_to_right() {
+			img_count++;
 			carousel_img_rowObj.style.transition = "all linear 1.5s";
-			if (img_count >= img_carouselObjs.length - 1) {
-				img_count = img_carouselObjs.length - 1;
-				turn_page_right();
+			if (img_count >= 0) {
+				img_count = 0;
+				turn_page();
 				setTimeout(back_to_right, 1500);
 			} else {
-				turn_page_right();
+				turn_page();
 			}
 		}
 	</script>
