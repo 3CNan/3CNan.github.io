@@ -10,7 +10,7 @@
 	<div id="navigation_bar">
 		<a href="">Home Page</a>
 		<a href="">History</a>
-		<a href="">Cassification</a>
+		<a href="">Classification</a>
 		<a href="">Ranking List</a>
 		<a href="">Celebrities</a>
 		<a href="">About Us</a>
@@ -20,7 +20,7 @@
 		<img id="btn_l_speed" src="./left_speed_btn.png" onmousedown="backward_bgm()">
 		<img id="btn_play_pause" src="./play_btn.png" onclick="start_pause_bgm()">
 		<img id="btn_r_speed" src="./right_speed_btn.png" onmousedown="forward_bgm()">
-		<select id="speed_select" onchange="change_select_style()">
+		<select id="speed_select" onchange="change_bgm_speed()">
 			<option>Speed</option>
 			<option>0.5</option>
 			<option>0.75</option>
@@ -123,9 +123,12 @@
 			}
 
 			var list_textObjs = document.getElementsByClassName("list_text");
-			for(var i = 0; i < list_textObjs.length; i++) {
+			for (var i = 0; i < list_textObjs.length; i++) {
 				list_textObjs[i].title = list_textObjs[i].innerHTML;
 			}
+
+			var footerObj = document.getElementById("footer");
+			footerObj.style.marginBottom = "5vw";
 		}
 		
 		var play_state = false;
@@ -183,7 +186,7 @@
 			}
 		}
 		function forward_bgm() {
-			if(bgmObj.currentTime >= bgmObj.duration) {
+			if (bgmObj.currentTime >= bgmObj.duration) {
 				bgmObj.pause();
 				play_btnObj.src = "./play_btn.png";
 				play_state = false;
@@ -196,10 +199,27 @@
 				clearInterval(forward_timer);
 			}
 		}
-		function change_select_style() {
+		function change_bgm_speed() {
 			var selectObj = document.getElementById("speed_select");
-			selectObj.style.boxShadow = "none";
-			selectObj.style.color = "red";
+			for (var i = 0; i < selectObj.options.length; i++) {
+				if (selectObj.options[0].selected) {
+					bgmObj.playbackRate = 1.0;
+				} else if (selectObj.value == 0.5) {
+					bgmObj.playbackRate = 0.5;
+				} else if (selectObj.value == 0.75) {
+					bgmObj.playbackRate = 0.75;
+				} else if (selectObj.value == 1.0) {
+					bgmObj.playbackRate = 1.0;
+				} else if (selectObj.value == 1.25) {
+					bgmObj.playbackRate = 1.25;
+				} else if (selectObj.value == 1.5) {
+					bgmObj.playbackRate = 1.5;
+				} else if (selectObj.value == 2.0) {
+					bgmObj.playbackRate = 2.0;
+				}
+			}
+			// selectObj.style.boxShadow = "none";
+			// selectObj.style.color = "red";
 		}
 
 		var carousel_screen = document.getElementById("carousel");

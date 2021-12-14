@@ -1,34 +1,177 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>About Us</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	<div id="navigation_bar">
-		<a href="">Home Page</a>
-		<a href="">History</a>
-		<a href="">Cassification</a>
-		<a href="">Ranking List</a>
-		<a href="">Celebrities</a>
-		<a href="">About Us</a>
-	</div>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>About Us</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div id="navigation_bar">
+			<a href="">Home Page</a>
+			<a href="">History</a>
+			<a href="">Classification</a>
+			<a href="">Ranking List</a>
+			<a href="">Celebrities</a>
+			<a href="">About Us</a>
+		</div>
 
-	
-	<div id="footer">
-		<hr>
-		<p>If you have any Questions, click <a href="mailto:">HERE</a> to send a email to us.</p>
-		<p>You can also go to <a href="">About Us</a> page to submit you ideas to us.</p>
-		<p>Here are our social media accounts</p>
-		<a href="https://www.instagram.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/800px-Instagram_logo_2016.svg.png"></a>
-		<a href="https://twitter.com"><img src="https://upload.wikimedia.org/wikipedia/zh/thumb/9/9f/Twitter_bird_logo_2012.svg/1200px-Twitter_bird_logo_2012.svg.png"></a>
-		<a href="https://www.facebook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1200px-2021_Facebook_icon.svg.png"></a>
-	</div>
+		<div id="small_game">
+			<div id="game_road">
+				<p id="text_score">Score: </p>
+				<img id="game_character" src="./game_character.png">
+			</div>
+			<!-- <div id="note_line"> -->
+			<img class="imgs_note" src="./note_1.png">
+			<img class="imgs_note" src="./note_2.png">
+			<img class="imgs_note" src="./note_3.png">
+			<!-- </div> -->
+			<button id="btn_stop_game" onclick="stop_game()">Stop</button>
+			<button id="btn_play_game" onclick="start_game()">Start</button>
+		</div>
 
-	<script type="text/javascript">
+		<div id="about_us_main">
+			<h1>About the Website</h1>
+			<!-- <hr> -->
+			<div id="about_website">
+				<div class="column_box">
+					<h3>Why we divide Classification as this way?</h3>
+					<p>The ones which are chose are the most popular and mainstream music types.</p>
+				</div>
+				<div class="column_box">
+					<div>
+						<h3>Why we divide Classification as this way?</h3>
+						<p>The ones which are chose are the most popular and mainstream music types.</p>
+					</div>
+				</div>
+				<div class="column_box">
+					<h3>Is there any thing want to add in the future</h3>
+					<p>If we learn and know more knowledge about instruments, we would add an addition page about the information of instruments. For example, what roles does the instruments play in the development of music industry, or, how different instruments in difference music types or styles sound like.</p>
+				</div>
+			</div>
+
+			<h1>About the Designers</h1>
+			<div id="about_the_designers">
+				<div class="column_box">
+					<div>
+						<h3>Why we divide Classification as this way?</h3>
+						<p>The ones which are chose are the most popular and mainstream music types.</p>
+					</div>
+				</div>
+				<div class="column_box">
+					<h3>Why we divide Classification as this way?</h3>
+					<p>The ones which are chose are the most popular and mainstream music types.</p>
+				</div>
+				<div class="column_box">
+					<div>
+						<h3>Nancy</h3>
+						<p>Allocation: </p>
+						<p>Write "Ranking List" page and "About Us" page.</p>
+						<p>Punchline: </p>
+						<ul>
+							<li>Play bar at the bottom of Ranking List page</li>
+							<li>Carousel at the top of the same page</li>
+							<li>Carousel at the top of the same page</li>
+							<li>A simple game at the top of the About Us page</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 		
-	</script>
-</body>
+		<div id="footer">
+			<hr>
+			<p>If you have any Questions, click <a href="mailto:">HERE</a> to send a email to us.</p>
+			<p>You can also go to <a href="">About Us</a> page to submit you ideas to us.</p>
+			<p>Here are our social media accounts</p>
+			<a href="https://www.instagram.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/800px-Instagram_logo_2016.svg.png"></a>
+			<a href="https://twitter.com"><img src="https://upload.wikimedia.org/wikipedia/zh/thumb/9/9f/Twitter_bird_logo_2012.svg/1200px-Twitter_bird_logo_2012.svg.png"></a>
+			<a href="https://www.facebook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1200px-2021_Facebook_icon.svg.png"></a>
+		</div>
+
+		<script type="text/javascript">
+			function add_zeroes(digits, number) {
+				var text = "0";
+				var turns = digits - String(number).length;
+				for (var i = 0; i < turns - 1; i++) {
+					text += "0";
+				}
+				text += number;
+				return text;
+			}
+
+			var game_state = false, score = 0;
+
+			function start_game() {
+				var text_scoreObj = document.getElementById("text_score");
+				var characterObj = document.getElementById("game_character");
+				var margin_top_jump = 149;
+				// if (game_state) {
+				// 	return;
+				// }
+				// var style_character = window.getComputedStyle(characterObj, null);
+				game_state = true;
+				characterObj.style.transition = "all linear 0.2s";
+				// margin_top_jump = parseInt(style_character.marginTop);
+				margin_top_jump -= 14;
+				characterObj.style.marginTop = margin_top_jump + "px";
+				setTimeout(function() {
+					margin_top_jump += 14;
+					characterObj.style.marginTop = margin_top_jump + "px";
+				}, 200);
+				setTimeout(function() {
+					margin_top_jump -= 19;
+					characterObj.style.marginTop = margin_top_jump + "px";
+				}, 400);
+				setTimeout(function() {
+					margin_top_jump += 19;
+					characterObj.style.marginTop = margin_top_jump + "px";
+				}, 600);
+				text_scoreObj.innerHTML = "Score: ";
+				text_scoreObj.innerHTML += add_zeroes(4, score);
+				playing_game();
+			}
+
+			var img_note_Obj = document.getElementsByClassName("imgs_note");
+			var note_height = Math.floor(Math.random() * 50) + 150;
+			var note_number = Math.floor(Math.random() * 3);
+			var note_count = [0, 1, 2];
+			var note_left = [100, 100, 100];
+			var moving_note_timer;
+
+			function playing_game() {
+				var number = Math.floor(Math.random() * 3);
+				var height = Math.floor(Math.random() * 50) + 150;
+				while (height == note_height) {
+					height = Math.floor(Math.random() * 50) + 150;
+				}
+				note_height = height;
+				while (number == note_number) {
+					number = Math.floor(Math.random() * 3);
+				}
+				note_number = number;
+				img_note_Obj[note_number].style.top = "-" + note_height + "px";
+				// for (var i = 0; i < img_note_Obj.length; i++) {
+				// 	img_note_Obj[i].style.display = "none";
+				// }
+				img_note_Obj[note_number].style.display = "inline-block";
+				clearInterval(moving_note_timer);
+				moving_note_timer = setInterval(moving_note, 100);
+			}
+			function moving_note() {
+				clearInterval(moving_note_timer);
+				moving_note_timer = setInterval(moving_note, 100);
+				// console.log(window.getComputedStyle(img_note_Obj[0], null).left);
+				note_left[note_number] -= 2;
+				img_note_Obj[note_number].style.transition = "all linear 0.1s";
+				img_note_Obj[note_number].style.left = note_left[note_number] + "%";
+				if (note_left[note_number] < 50) {
+					playing_game();
+				}
+				if (note_left[note_number] == 0) {
+					clearInterval(moving_note_timer);
+				}
+			}
+		</script>
+	</body>
 </html>
