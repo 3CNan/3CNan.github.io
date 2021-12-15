@@ -11,9 +11,9 @@
 			<a href="">Home Page</a>
 			<a href="">History</a>
 			<a href="">Classification</a>
-			<a href="">Ranking List</a>
+			<a href="RankingList.html">Ranking List</a>
 			<a href="">Celebrities</a>
-			<a href="">About Us</a>
+			<a href="AboutUs.html">About Us</a>
 		</div>
 
 		<div id="small_game">
@@ -22,9 +22,9 @@
 				<img id="game_character" src="./game_character.png">
 			</div>
 			<!-- <div id="note_line"> -->
-			<img class="imgs_note" src="./note_1.png">
+			<!-- <img class="imgs_note" src="./note_1.png">
 			<img class="imgs_note" src="./note_2.png">
-			<img class="imgs_note" src="./note_3.png">
+			<img class="imgs_note" src="./note_3.png"> -->
 			<!-- </div> -->
 			<button id="btn_stop_game" onclick="stop_game()">Stop</button>
 			<button id="btn_play_game" onclick="start_game()">Start</button>
@@ -54,8 +54,16 @@
 			<div id="about_the_designers">
 				<div class="column_box">
 					<div>
-						<h3>Why we divide Classification as this way?</h3>
-						<p>The ones which are chose are the most popular and mainstream music types.</p>
+						<h3>John</h3>
+						<p>Allocation: </p>
+						<p>Write "Home Page" page and "Classification" page.</p>
+						<p>Punchline: </p>
+						<ul>
+							<li>Adding different opacity on images.</li>
+							<li>Select suitable background image which is corresponding to the theme.</li>
+							<li>Different source of information.</li>
+							<li>Use footer to make the website more interactive.</li>
+						</ul>
 					</div>
 				</div>
 				<div class="column_box">
@@ -109,10 +117,8 @@
 				// if (game_state) {
 				// 	return;
 				// }
-				// var style_character = window.getComputedStyle(characterObj, null);
 				game_state = true;
 				characterObj.style.transition = "all linear 0.2s";
-				// margin_top_jump = parseInt(style_character.marginTop);
 				margin_top_jump -= 14;
 				characterObj.style.marginTop = margin_top_jump + "px";
 				setTimeout(function() {
@@ -129,48 +135,75 @@
 				}, 600);
 				text_scoreObj.innerHTML = "Score: ";
 				text_scoreObj.innerHTML += add_zeroes(4, score);
-				playing_game();
+				get_new_note();
+
 			}
 
-			var img_note_Obj = document.getElementsByClassName("imgs_note");
-			var note_height = Math.floor(Math.random() * 50) + 150;
-			var note_number = Math.floor(Math.random() * 3);
-			var note_count = [0, 1, 2];
-			var note_left = [100, 100, 100];
+			var note_height = Math.floor(Math.random() * 70) + 130;
+			var note_number = Math.floor(Math.random() * 3) + 1;
+			// var note_count = [0, 1, 2];
+			var note_left = [];
 			var moving_note_timer;
+			var note_array = [];
+			var note_index = 0;
+			var small_gameObj = document.getElementById("small_game");
+			var img_note = small_gameObj.getElementsByTagName("img");
+			var note = document.createElement("img");
+			note_array.push(note);
+			note_left.push(100);
+			small_gameObj.appendChild(note_array[0]);
+			// note_array[index - 2].addEventListening("")
+			
 
-			function playing_game() {
-				var number = Math.floor(Math.random() * 3);
-				var height = Math.floor(Math.random() * 50) + 150;
+			function get_new_note() {
+				note_index++;
+				// note.parentNode.removeChild(note);
+				note = document.createElement("img");
+				note_array.push(note);
+				note_left.push(100);
+				// console.log(img_note.length);
+				var number = Math.floor(Math.random() * 3) + 1;
+				var height = Math.floor(Math.random() * 70) + 130;
 				while (height == note_height) {
-					height = Math.floor(Math.random() * 50) + 150;
+					height = Math.floor(Math.random() * 70) + 130;
 				}
 				note_height = height;
 				while (number == note_number) {
-					number = Math.floor(Math.random() * 3);
+					number = Math.floor(Math.random() * 3) + 1;
 				}
 				note_number = number;
-				img_note_Obj[note_number].style.top = "-" + note_height + "px";
-				// for (var i = 0; i < img_note_Obj.length; i++) {
-				// 	img_note_Obj[i].style.display = "none";
-				// }
-				img_note_Obj[note_number].style.display = "inline-block";
-				clearInterval(moving_note_timer);
-				moving_note_timer = setInterval(moving_note, 100);
+				note.src = "./note_" + note_number + ".png";
+				note.style.width = "40px";
+				note.style.height = "45px";
+				note.style.position = "relative";
+				// note.style.top = "-200px";
+				note.style.left = "100%";
+				note.style.display = "inline-block";
+				note.style.transition = "all linear 4.5s";
+				note.style.top = "-" + note_height + "px";
+				note_to_moving(note_index);
+				if (img_note.length > 3) {
+					note_array[note_index - 3].parentNode.removeChild(note_array[note_index - 3]);
+					delete note_array[note_index - 3];
+					delete note_left[note_index - 3];
+				}
+				console.log(note_array);
+				console.log(note_left);
+				small_gameObj.appendChild(note_array[note_index]);
 			}
-			function moving_note() {
-				clearInterval(moving_note_timer);
-				moving_note_timer = setInterval(moving_note, 100);
-				// console.log(window.getComputedStyle(img_note_Obj[0], null).left);
-				note_left[note_number] -= 2;
-				img_note_Obj[note_number].style.transition = "all linear 0.1s";
-				img_note_Obj[note_number].style.left = note_left[note_number] + "%";
-				if (note_left[note_number] < 50) {
-					playing_game();
+			function note_to_moving(index) {
+				if (img_note.length > 3) {
+					var note_style_3 = window.getComputedStyle(note_array[index], null);
+					var note_style_2 = window.getComputedStyle(note_array[index - 1], null);
+					var note_style_1 = window.getComputedStyle(note_array[index - 2], null);
+					// note_left[index] -= 100;
+					note_left[index - 1] -= 110;
+					note_left[index - 2] -= 110;
+					note_array[index].style.left = note_left[index] + "%";
+					note_array[index - 1].style.left = note_left[index - 1] + "%";
+					note_array[index - 2].style.left = note_left[index - 2] + "%";
 				}
-				if (note_left[note_number] == 0) {
-					clearInterval(moving_note_timer);
-				}
+				
 			}
 		</script>
 	</body>

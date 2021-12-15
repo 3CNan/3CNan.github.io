@@ -11,9 +11,9 @@
 		<a href="">Home Page</a>
 		<a href="">History</a>
 		<a href="">Classification</a>
-		<a href="">Ranking List</a>
+		<a href="RankingList.html">Ranking List</a>
 		<a href="">Celebrities</a>
-		<a href="">About Us</a>
+		<a href="AboutUs.html">About Us</a>
 	</div>
 
 	<div id="play_bar">
@@ -52,52 +52,62 @@
 		<div class="list_box">
 			<div id="img_list_1" class="list_img">
 				<div class="list_title_shade">
-					<div>List 1</div>
+					<div>Electronic</div>
 				</div>
 				<div class="list_text_part">
-					<p class="list_text">Song 1Song 1Song 1Song 1Song 1Song 1</p>
-					<p class="list_text">Song 2</p>
-					<p class="list_text">Song 3</p>
-					<p class="list_text">Song 4</p>
-					<p class="list_text">Song 5</p>
-					<p class="list_text">Song 6</p>
-					<p class="list_text">Song 7</p>
-					<p class="list_text">Song 8</p>
+					<p class="list_text">Outside of your lifetime – Astrid Sonne</p>
+					<p class="list_text">War Bride EP – Amazondotcom</p>
+					<p class="list_text">Chameleon – Anthony Naples</p>
+					<p class="list_text">All Hours EP – Anz</p>
+					<p class="list_text">im hole – aya</p>
+					<p class="list_text">Fire – The Bug</p>
+					<p class="list_text">“Dark Gethsemane” – Burial</p>
+					<p class="list_text">“Boing Beat” – Danny L Harle</p>
 				</div>
 			</div>
 		</div>
 		<div class="list_box">
 			<div id="img_list_2" class="list_img">
 				<div class="list_title_shade">
-					<div>List 2</div>
+					<div>Jazz</div>
+				</div>
+				<div class="list_text_part">
+					<p class="list_text">Take the A Train – Duke Ellington</p>
+					<p class="list_text">So What – Miles Davis</p>
+					<p class="list_text">Giant Steps - John Coltrane</p>
+					<p class="list_text">All The Things You Are – Charlie Parker</p>
+					<p class="list_text">Mack the Knife – Ella Fitzgerald</p>
+					<p class="list_text">One O’Clock Jump – Count Basie and his Orchestra</p>
+					<p class="list_text">Strange Fruit – Billie Holiday</p>
+					<p class="list_text">What A Wonderful World – Louis Armstrong</p>
 				</div>
 			</div>
 		</div>
 		<div class="list_box">
 			<div id="img_list_3" class="list_img">
 				<div class="list_title_shade">
-					<div>List 3</div>
+					<div>Rock</div>
 				</div>
 			</div>
 		</div>
 		<div class="list_box">
 			<div id="img_list_4" class="list_img">
 				<div class="list_title_shade">
-					<div>List 4</div>
+					<div>Pop</div>
 				</div>
 			</div>
 		</div>
 		<div class="list_box">
 			<div id="img_list_5" class="list_img">
 				<div class="list_title_shade">
-					<div>List 5</div>
+					<div>Rap</div>
 				</div>
 			</div>
 		</div>
 		<div class="list_box">
 			<div id="img_list_6" class="list_img">
 				<div class="list_title_shade">
-					<div>List 6</div>
+					<div>Absolute Music</div>
 				</div>
 			</div>
 		</div>
@@ -116,10 +126,10 @@
 	<script type="text/javascript">
 		var img_carouselObjs = document.getElementsByClassName("img_carousel");
 		window.onload = function() {
-			var img_src_array = ["./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png"]
+			var img_carousel_src = ["./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png"]
 			// 12 34 12 order
 			for (var i = 0; i < img_carouselObjs.length; i++) {
-				img_carouselObjs[i].style.backgroundImage = "url(" + img_src_array[i] + ")";
+				img_carouselObjs[i].style.backgroundImage = "url(" + img_carousel_src[i] + ")";
 			}
 
 			var list_textObjs = document.getElementsByClassName("list_text");
@@ -129,6 +139,12 @@
 
 			var footerObj = document.getElementById("footer");
 			footerObj.style.marginBottom = "5vw";
+
+			var img_list_src = ["https://i.scdn.co/image/ab67616d00001e02af477184d9a7b37f49f565f3", "https://d24jnm9llkb1ub.cloudfront.net/icpn/842840112112/842840112112-cover-zoom.jpg", "", "", "", ""];
+			var img_listObjs = document.getElementsByClassName("list_img");
+			for (var i = 0; i < img_listObjs.length; i++) {
+				img_listObjs[i].style.backgroundImage = "url(" + img_list_src[i] + ")";
+			}
 		}
 		
 		var play_state = false;
