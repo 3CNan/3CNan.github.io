@@ -385,6 +385,22 @@ body {
 	margin-right: 20px;
 	float: right;
 }
+#text_game_over {
+	width: 20vw;
+	height: 3vw;
+	color: white;
+	font-size: 2vw;
+	text-align: center;
+	font-family: cursive;
+	border: 3px outset white;
+	box-shadow: 2px 2px 5px grey;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, -25%);
+	display: none;
+}
 #about_us_main {
 	padding: 1vw;
 }
