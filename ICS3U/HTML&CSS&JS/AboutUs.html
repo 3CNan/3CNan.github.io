@@ -244,8 +244,10 @@
 
 				set_note_origin();
 				// note_to_moving(note_index);
-				note_left[note_index - 1] -= 120;
-				note_array[note_index - 1].style.left = note_left[note_index - 1] + "%";
+				if (note_array.length - game_score/100 <= 2) {
+					note_left[note_index - 1] -= 120;
+					note_array[note_index - 1].style.left = note_left[note_index - 1] + "%";
+				}
 				if (img_note.length > 3) {
 					small_gameObj.removeChild(note_array[note_index - 3]);
 					delete note_array[note_index - 3];
@@ -254,7 +256,8 @@
 				console.log(note_array);
 				console.log(note_left);
 				small_gameObj.appendChild(note_array[note_index]);
-				// console.log(note_array.length, game_score/100);
+				console.log(note_array.length, game_score/100);
+				console.log("")
 				if (note_array.length - game_score/100 > 2) {
 					var class_note = document.getElementsByClassName("class_note");
 					for (var i = 0; i < class_note.length; i++) {
