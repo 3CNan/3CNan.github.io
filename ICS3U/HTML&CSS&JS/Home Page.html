@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+	* {
+		font-family: serif;
+	}
+	body {
+		background-image: url(https://img2.goodfon.com/original/2560x1600/b/7a/grammofon-muzyka-fon-2077.jpg);
+		background-repeat:repeat-y;
+	}
+	#homepage{
+		color: yellow;
+		text-shadow:6px 3px 3px grey;
+	}
+	button{
+		border: 3px solid gold;
+		color: grey;
+		font-size: 0.25em;
+	}
+	button h1:hover{
+		color: red;
+	}
+	#content {
+		height: 1000px;
+	}
+  #footer {
+  background-color: black;
+  border-radius: 30px;
+  border: 3px solid white;
+  margin-top: 60px;
+  color: grey;
+  }
+</style>
+</head>
+<body>
+<center><h1 id="homepage"; style="font-size: 5em; font-family: Oswald;"> Music (Home Page) <button onclick="button()"; style="background-color: whitesmoke; color:grey;">Click Here</button> </h1></center>
+<div id="navigation_bar">
+  <a href="Home Page.html">Home Page</a>
+  <a href="HISTORY.html">History</a>
+  <a href="Classification.html">Classification</a>
+  <a href="RankingList.html">Ranking List</a>
+  <a href="famous person.html">Celebrities</a>
+  <a href="AboutUs.html">About Us</a>
+</div>
+<div id='content'>
+<b><div id="purpose1" class="purposebox" style="font-size:3em; font-family: Oswald; color: grey">Our Group Purpose</div></b>
+<b><div id="purpose2"	class="purposebox" style="font-size:2em; font-family: Oswald; color: grey">Our purpose to create this website is to make people learn more about music and feel the joy of listening to the music.</div></b><br>
+<b><div id="purpose3"	class="purposebox" style="font-size:3em; font-family: Oswald; color: grey">Catalog</div></b>
+<b><div id="purpose4"	 class="purposebox"style="font-size:2em; font-family: Oswald; color: grey"> History<br> classification<br> ranking list<br> singers<br> about us<br></div></b>
+</div>
+<div id="footer">
+  <p>If you have any Questions, click <a href="mailto:">HERE</a> to send a email to us.</p>
+  <p>You can also go to <a href="">About Us</a> page to submit you ideas to us.</p>
+  <p>Here are our social media accounts</p>
+  <a href="https://www.instagram.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/800px-Instagram_logo_2016.svg.png"></a>
+  <a href="https://twitter.com"><img src="https://upload.wikimedia.org/wikipedia/zh/thumb/9/9f/Twitter_bird_logo_2012.svg/1200px-Twitter_bird_logo_2012.svg.png"></a>
+  <a href="https://www.facebook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1200px-2021_Facebook_icon.svg.png"></a>
+</div>
+ <script>
+ 	function button(){
+ 		var a=prompt('what is your name?');
+ 		alert("Hello "+a);
+ 	}
+	window.onload = function() {
+		var a = new Date().getHours();
+		if(a>6&&a<12){
+			alert('good morning');
+		}
+		else if(a<18&&a>12){
+			alert('good night');
+		}
+		else{
+			alert('good afternoon');
+		}
+	}
+ </script>
+</body>
+</html>

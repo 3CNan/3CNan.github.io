@@ -10,9 +10,8 @@
 	<div id="navigation_bar">
 		<a href="">Home Page</a>
 		<a href="">History</a>
-		<a href="">Classification</a>
 		<a href="RankingList.html">Ranking List</a>
-		<a href="">Celebrities</a>
+		<a href="famous person.html">Celebrities</a>
 		<a href="AboutUs.html">About Us</a>
 	</div>
 
@@ -40,9 +39,11 @@
 			<div class="img_carousel"></div>
 			<div class="img_carousel"></div>
 			<div class="img_carousel"></div>
+			<div class="img_carousel"></div>
+			<div class="img_carousel"></div>
 		</div>
-		<div id="btn_l_carousel" onclick="scroll_carousel_to_left()"></div>
-		<div id="btn_r_carousel" onclick="scroll_carousel_to_right()"></div>
+		<div id="btn_l_carousel" onclick="scroll_carousel_to_right()"></div>
+		<div id="btn_r_carousel" onclick="scroll_carousel_to_left()"></div>
 		<ul>
 			<li></li>
 		</ul>
@@ -88,6 +89,16 @@
 				<div class="list_title_shade">
 					<div>Rock</div>
 				</div>
+				<div class="list_text_part">
+					<p class="list_text">Purple Haze – Jimi Hendrix</p>
+					<p class="list_text">Whole Lotta Love – Led Zeppelin</p>
+					<p class="list_text">Sympathy for the Devil – The Rolling Stones</p>
+					<p class="list_text">Under Pressure – Queen & David Bowie</p>
+					<p class="list_text">Baba O’Riley – The Who</p>
+					<p class="list_text">Rockin’ in the Free World – Neil Young</p>
+					<p class="list_text">Comfortably Numb – Pink Floyd</p>
+					<p class="list_text">Funk #49 – the James Gang</p>
+				</div>
 			</div>
 		</div>
 		<div class="list_box">
@@ -95,26 +106,55 @@
 				<div class="list_title_shade">
 					<div>Pop</div>
 				</div>
+				<div class="list_text_part">
+					<p class="list_text">Single Ladies (Put a Ring on It) – Beyoncé</p>
+					<p class="list_text">Umbrella – Rihanna featuring Jay-Z</p>
+					<p class="list_text">Shake it Off – Taylor Swift</p>
+					<p class="list_text">Toxic – Britney Spears</p>
+					<p class="list_text">Rolling in the Deep – Adele</p>
+					<p class="list_text">Firework – Katy Perry</p>
+					<p class="list_text">ReHab – Amy Winehouse</p>
+					<p class="list_text">Blinding Lights – The Weeknd</p>
+				</div>
 			</div>
 		</div>
 		<div class="list_box">
 			<div id="img_list_5" class="list_img">
 				<div class="list_title_shade">
-					<div>Rap</div>
+					<div>Hip-Hop</div>
+				</div>
+				<div class="list_text_part">
+					<p class="list_text">The Message – Grandmaster Flash and the Furious Five</p>
+					<p class="list_text">Rapper's Delight – Sugarhill Gang</p>
+					<p class="list_text">Planet Rock – Afrika Bambaataa and the Soulsonic Force</p>
+					<p class="list_text">Sucker M.C.'s – Run-DMC</p>
+					<p class="list_text">Mind Playing Tricks on Me – Geto Boys</p>
+					<p class="list_text">Nuthin' but a 'G' Thang – Dr. Dre feat. Snoop Doggy Dogg</p>
+					<p class="list_text">Fight the Power – Public Enemy</p>
+					<p class="list_text">Juicy – The Notorious B.I.G.</p>
 				</div>
 			</div>
 		</div>
 		<div class="list_box">
 			<div id="img_list_6" class="list_img">
 				<div class="list_title_shade">
-					<div>Absolute Music</div>
+					<div>Folk</div>
+				</div>
+				<div class="list_text_part">
+					<p class="list_text">This Land Is Your Land – Woody Guthrie</p>
+					<p class="list_text">Blowin' in the Wind – Bob Dylan</p>
+					<p class="list_text">City of New Orleans – Steve Goodman</p>
+					<p class="list_text">If I Had a Hammer – Pete Seeger</p>
+					<p class="list_text">Where Have All the Flowers Gone – The Kingston Trio</p>
+					<p class="list_text">Early Morning Rain – Gordon Lightfoot</p>
+					<p class="list_text">Suzanne – Leonard Cohen</p>
+					<p class="list_text">We Shall Overcome – Pete Seeger</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<div id="footer">
-		<hr>
 		<p>If you have any Questions, click <a href="mailto:">HERE</a> to send a email to us.</p>
 		<p>You can also go to <a href="">About Us</a> page to submit you ideas to us.</p>
 		<p>Here are our social media accounts</p>
@@ -126,10 +166,24 @@
 	<script type="text/javascript">
 		var img_carouselObjs = document.getElementsByClassName("img_carousel");
 		window.onload = function() {
-			var img_carousel_src = ["./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./c_holder.png"]
+			var htmlObj = document.getElementsByTagName("html");
+			htmlObj[0].style.backgroundImage = "url('./img_RL_background.jpg')";
+			htmlObj[0].style.backgroundSize = "cover";
+			htmlObj[0].style.backgroundRepeat = "repeat-y";
+			htmlObj[0].style.backgroundAttachment = "fixed";
+
+			// var img_carousel_src = ["./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./holder.jpg", "./c_holder.png"];
+			var img_carousel_src = ["https://graphicriver.img.customer.envatousercontent.com/files/287304558/preview.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=c99e96b6d2fd82b92f53ee41959530a0", "https://guides.ticketmaster.co.uk/wp-content/uploads/2019/08/Guide_Electronic_Guide_Header_1170x440_rev1-1170x440.jpg", "https://i.ytimg.com/vi/c8YIlU_30Kk/maxresdefault.jpg", "https://images.vexels.com/media/users/3/70538/raw/9607c4774b09b6d400fbcdf6400dfa95-rock-band-grunge-silhouette.jpg", "https://scontent.fymy1-1.fna.fbcdn.net/v/t1.6435-9/39760649_1778483058933993_4683298950206193664_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=00fENII1mgQAX-h2fNs&_nc_ht=scontent.fymy1-1.fna&oh=00_AT9t2DUNfD2LMxVmBpG7iVEC6ROpiRXEBbg3yJmWKM_cFA&oe=61DDB68B", "https://www.kindpng.com/picc/m/166-1660356_rap-y-hip-hop-png-download-hip-hop.png", "https://graphicriver.img.customer.envatousercontent.com/files/287304558/preview.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=c99e96b6d2fd82b92f53ee41959530a0", "https://guides.ticketmaster.co.uk/wp-content/uploads/2019/08/Guide_Electronic_Guide_Header_1170x440_rev1-1170x440.jpg"];
 			// 12 34 12 order
+			var img_size_special = [1, 7]
 			for (var i = 0; i < img_carouselObjs.length; i++) {
+				if (img_size_special.indexOf(i) != -1) {
+					img_carouselObjs[i].style.backgroundSize = "100%";
+				} else {
+					img_carouselObjs[i].style.backgroundSize = "auto 100%";
+				}
 				img_carouselObjs[i].style.backgroundImage = "url(" + img_carousel_src[i] + ")";
+
 			}
 
 			var list_textObjs = document.getElementsByClassName("list_text");
@@ -140,7 +194,7 @@
 			var footerObj = document.getElementById("footer");
 			footerObj.style.marginBottom = "5vw";
 
-			var img_list_src = ["https://i.scdn.co/image/ab67616d00001e02af477184d9a7b37f49f565f3", "https://d24jnm9llkb1ub.cloudfront.net/icpn/842840112112/842840112112-cover-zoom.jpg", "", "", "", ""];
+			var img_list_src = ["https://i.scdn.co/image/ab67616d00001e02af477184d9a7b37f49f565f3", "https://d24jnm9llkb1ub.cloudfront.net/icpn/842840112112/842840112112-cover-zoom.jpg", "https://www.beachamjournal.com/.a/6a01053653b3c7970b026bdeb0dd03200c-600wi", "https://c2.staticflickr.com/4/3397/4612789043_fef7ed558a_z.jpg", "https://m.media-amazon.com/images/M/MV5BNWJiYWI4ZTAtN2ZkOS00ZjliLTkzODgtODExMGQ2N2U4YWFmXkEyXkFqcGdeQXVyODQ1NTk5OQ@@._V1_.jpg", "https://images-na.ssl-images-amazon.com/images/I/81ZaJJYAQAL.jpg"];
 			var img_listObjs = document.getElementsByClassName("list_img");
 			for (var i = 0; i < img_listObjs.length; i++) {
 				img_listObjs[i].style.backgroundImage = "url(" + img_list_src[i] + ")";
@@ -273,7 +327,7 @@
 			turn_page();
 		}
 		function back_to_right() {
-			img_count = -4;
+			img_count = -6;
 			carousel_img_rowObj.style.transition = "none";
 			turn_page();
 		}

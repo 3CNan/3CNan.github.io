@@ -42,15 +42,21 @@ body {
 	border-left: none;
 	margin-left: 10vw;
 }
-
 #footer {
+	color: black;
+	/*margin: 0 1.5vw;*/
 	text-align: center;
-	background-color: plum;
-	/*margin-bottom: 5vw;*/
+	border-radius: 25px;
+	border: 3px solid white;
+	background-color: rgba(255, 255, 255, 0.5);
 }
 #footer p {
 	margin: 0;
 	font-size: 20px;
+}
+#footer a {
+	color: white;
+	text-shadow: 1px 1px 4px black;
 }
 #footer img {
 	width: 50px;
@@ -67,7 +73,7 @@ body {
 	text-shadow:6px 3px 3px white;
 }
 .purposebox{
-	border: 3px solid black;
+	border: 3px solid white;
 	background-color: white;
 	float: right;
 	padding-right: 40px;
@@ -79,7 +85,7 @@ body {
 	margin-bottom: 80px;
 }
 #purpose1{
-	padding-bottom: 240px;
+	padding-bottom: 236px;
 	background-color: lightyellow;
 	margin-left: 30px;
 }
@@ -90,18 +96,14 @@ body {
 #purpose3{
 	padding-bottom: 295px;
 	background-color: lightyellow;
-	margin-left: 30px;
+	margin-left: 40px;
 	margin-bottom: 40px;
 }
 #purpose4{
 	padding-bottom: 130px;
 	background-color: lightyellow;
-	margin-right: 30px;
+	margin-right: 15px;
 }
-#content {
-	height: 1000px;
-}
-
 
 
 
@@ -148,6 +150,9 @@ body {
 	float: left;
 	width: 33.33%;
 }
+#two p:hover{
+	color: red;
+}
 #three{
 	list-style-type: none;
 	margin: 0;
@@ -174,12 +179,11 @@ body {
 
 
 
-
 /* Ranking List */
 #carousel {
-	width: calc(100% - 50px);
+	width: 100%;
 	height: 500px;
-	margin: 25px 25px 0 25px;
+	/*margin: 0 25px;*/
 	overflow: hidden;
 	background-color: lightgrey;
 }
@@ -194,9 +198,10 @@ body {
 	height: 100%;
 	float: left;
 	text-align: center;
-	background-size: 100%;
+	background-size: auto;
 	background-position: center;
 	background-repeat: no-repeat;
+	background-color: rgb(40, 40, 40);
 }
 #btn_l_carousel, #btn_r_carousel {
 	width: 10%;
@@ -226,12 +231,12 @@ body {
 	height: 1100px;
 }
 .list_box {
-	width: calc(33% - 50px);
+	width: calc(33.333% - 30px);
 	height: 500px;
 	float: left;
 	/*padding: 5px;*/
 	overflow: hidden;
-	margin: 20px 25px;
+	margin: 20px 15px;
 	border-radius: 5px;
 	box-sizing: border-box;
 	background-color: white;
@@ -337,20 +342,23 @@ body {
 /* About Us */
 #small_game {
 	width: 100%;
-	height: 300px;
+	height: 340px;
+	border: 2px solid rgba();
+	border-radius: 15px;
 	overflow: hidden;
 	background-color: lightgoldenrodyellow;
 }
 #game_road {
 	/*width: 100%;*/
-	height: 240px;
+	height: 280px;
 	border-bottom: 6px double black;
 	vertical-align: bottom;
 }
 #game_character {
 	height: 100px;
-	margin-top: 149px;
+	margin-top: 189px;
 	margin-left: 120px;
+	transition: all linear 1s;
 }
 
 /*.imgs_note {
@@ -381,22 +389,24 @@ body {
 	padding: 1vw;
 }
 #about_us_main h1 {
+	color: white;
 	text-align: center;
+	font-family: fantasy;
 	text-transform: uppercase;
-	font-family: monospace;
+	text-shadow: 2px 2px 5px black;
 }
 #about_website, #about_the_designers {
-	height: 20vw;
+	/*height: 20vw;*/
 }
 .column_box {
 	width: 33.3%;
-	height: 20vw;
+	/*height: 20vw;*/
 	/*margin: 0.3vw;*/
 	float: left;
 	box-sizing: border-box;
-	background-color: white;
+	background-color: rgb(253, 253, 253);
 }
-.column_box h3, .column_box p {
+.column_box h3, .column_box p, .column_box ul {
 	margin: 0 1vw 1vw 1vw;
 }
 .column_box p, .column_box ul {
@@ -408,8 +418,10 @@ body {
 	text-align: center;
 }
 #about_website .column_box:nth-child(even) {
-	background-image: url("./c_holder.png");
+	background-image: url("https://images4.alphacoders.com/756/thumbbig-75674.webp");
 	background-size: cover;
+	background-position: center;
+	background-repeat: repeat-y;
 }
 .column_box div {
 	width: 100%;
@@ -417,7 +429,7 @@ body {
 	background-color: rgba(255, 255, 255, 0.7);
 }
 #about_the_designers .column_box:nth-child(odd) {
-	background-image: url("./c_holder.png");
+	background-image: url("https://images.alphacoders.com/709/thumbbig-70991.webp");
 	background-size: cover;
 }
 
