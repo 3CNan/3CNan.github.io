@@ -334,6 +334,15 @@
 				// Left Up Right Down
 			}
 
+			var game_roadObj = document.getElementById("game_road");
+			game_roadObj.onclick = function() {
+				if (game_state == false) {
+					return;
+				}
+				jump_character();
+				console.log("click road");
+			}
+
 			var check_score = 0;
 
 			function jump_character() {
