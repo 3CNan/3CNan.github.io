@@ -45,9 +45,6 @@
 		</div>
 		<div id="btn_l_carousel" onclick="scroll_carousel_to_right()"></div>
 		<div id="btn_r_carousel" onclick="scroll_carousel_to_left()"></div>
-		<ul>
-			<li></li>
-		</ul>
 	</div>
 
 	<div id="rank_list_self">
@@ -176,15 +173,17 @@
 			// var img_carousel_src = ["./holder.jpg", "./c_holder.png", "./c_holder.png", "./c_holder.png", "./holder.jpg", "./c_holder.png"];
 			var img_carousel_src = ["https://graphicriver.img.customer.envatousercontent.com/files/287304558/preview.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=c99e96b6d2fd82b92f53ee41959530a0", "https://guides.ticketmaster.co.uk/wp-content/uploads/2019/08/Guide_Electronic_Guide_Header_1170x440_rev1-1170x440.jpg", "https://i.ytimg.com/vi/c8YIlU_30Kk/maxresdefault.jpg", "https://images.vexels.com/media/users/3/70538/raw/9607c4774b09b6d400fbcdf6400dfa95-rock-band-grunge-silhouette.jpg", "https://scontent.fymy1-1.fna.fbcdn.net/v/t1.6435-9/39760649_1778483058933993_4683298950206193664_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=00fENII1mgQAX-h2fNs&_nc_ht=scontent.fymy1-1.fna&oh=00_AT9t2DUNfD2LMxVmBpG7iVEC6ROpiRXEBbg3yJmWKM_cFA&oe=61DDB68B", "https://www.kindpng.com/picc/m/166-1660356_rap-y-hip-hop-png-download-hip-hop.png", "https://graphicriver.img.customer.envatousercontent.com/files/287304558/preview.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=c99e96b6d2fd82b92f53ee41959530a0", "https://guides.ticketmaster.co.uk/wp-content/uploads/2019/08/Guide_Electronic_Guide_Header_1170x440_rev1-1170x440.jpg"];
 			// 12 34 12 order
-			var img_size_special = [1, 7]
+			var img_size_special = [1, 7];
 			for (var i = 0; i < img_carouselObjs.length; i++) {
 				if (img_size_special.indexOf(i) != -1) {
 					img_carouselObjs[i].style.backgroundSize = "100%";
 				} else {
 					img_carouselObjs[i].style.backgroundSize = "auto 100%";
 				}
+				if (document.body.offsetWidth < 650) {
+					img_carouselObjs[i].style.backgroundSize = "100%";
+				}
 				img_carouselObjs[i].style.backgroundImage = "url(" + img_carousel_src[i] + ")";
-
 			}
 
 			var list_textObjs = document.getElementsByClassName("list_text");
