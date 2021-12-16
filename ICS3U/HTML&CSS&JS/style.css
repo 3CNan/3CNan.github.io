@@ -434,7 +434,7 @@ body {
 	text-align: center;
 }
 #about_website .column_box:nth-child(even) {
-	background-image: url("https://images4.alphacoders.com/756/thumbbig-75674.webp");
+	background-image: url("https://images2.alphacoders.com/633/thumb-1920-63380.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: repeat-y;
@@ -445,7 +445,7 @@ body {
 	background-color: rgba(255, 255, 255, 0.7);
 }
 #about_the_designers .column_box:nth-child(odd) {
-	background-image: url("https://images.alphacoders.com/709/thumbbig-70991.webp");
+	background-image: url("https://images7.alphacoders.com/431/thumb-1920-431427.jpg");
 	background-size: cover;
 }
 
