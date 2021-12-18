@@ -193,7 +193,6 @@
 			var small_gameObj = document.getElementById("small_game");
 			var img_note = small_gameObj.getElementsByTagName("img");
 			var note = document.createElement("img");
-			note.class = "class_note";
 			note_array.push(note);
 			note_left.push(100);
 			small_gameObj.appendChild(note_array[0]);
@@ -257,13 +256,7 @@
 				console.log(note_left);
 				small_gameObj.appendChild(note_array[note_index]);
 				console.log(note_array.length, game_score/100);
-				console.log("")
-				if (note_array.length - game_score/100 > 2) {
-					var class_note = document.getElementsByClassName("class_note");
-					for (var i = 0; i < class_note.length; i++) {
-						class_note.style.display = "none";
-					}
-				}
+				console.log("");
 			}
 			function set_game_origin() {
 				note_height = 170;
@@ -305,9 +298,6 @@
 			function isCrash(p1,p2) {
 				var p1Dis = p1.getBoundingClientRect();
 				var p2Dis = p2.getBoundingClientRect();
-
-				// console.log(p1Dis.left)
-				// console.log(p2Dis.left)
 
 				if (p1Dis.right < p2Dis.left || p1Dis.bottom < p2Dis.top || p1Dis.left > p2Dis.right || p1Dis.top > p2Dis.bottom) {
 					return false;
@@ -397,8 +387,8 @@
 			function end_game() {
 				stop_game();
 				text_game_overObj.style.display = "block";
-				var endbgmObj = document.getElementById("audio_game_over");
-				endbgmObj.play();
+				var end_bgmObj = document.getElementById("audio_game_over");
+				end_bgmObj.play();
 			}
 		</script>
 	</body>
