@@ -1,9 +1,17 @@
 import pygame
 import sys
+import os
 import random
 import datetime
 from threading import Timer
 from pygame import mixer
+
+if getattr(sys, 'frozen', False):
+    if getattr(sys, 'frozen', False):
+        application_path = os.path.dirname(os.path.realpath(sys.executable))
+    elif __file__:
+        application_path = os.path.dirname(__file__)
+
 
 BLACK = pygame.Color(0, 0, 0)
 WHITE = pygame.Color(255, 255, 255)
@@ -291,13 +299,14 @@ def life():
 
 
 def history():
-    global hs_status, l_count, text_max_score
+    global hs_status, l_count, text_max_score, application_path
+    filepath = application_path
     current = datetime.datetime.now()
-    f = open("history.txt", "a")
+    f = open(filepath + "/src/history_score.txt", "a")
     f.write(str(score) + " " +
             str(current.date()) + " " +
             str(current.time())[:8] + "\n")
-    f = open("history.txt", "r")
+    f = open(filepath + "/src/history_score.txt", "r")
     for line in f.readlines():
         h_score.append(line.split())
         h_score[l_count][0] = int(h_score[l_count][0])
@@ -312,7 +321,7 @@ screen.blit(text_start, [200, 100])
 
 # Main loop
 while True:
-    pygame.time.Clock().tick(50)
+    pygame.time.Clock().tick(45)
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if (event.key == pygame.K_SPACE or event.key == pygame.K_UP) and game_status:
@@ -327,7 +336,6 @@ while True:
                 fight()
                 item()
                 gameover.stop()
-
         key = pygame.key.get_pressed()
         if event.type == pygame.QUIT or key[pygame.K_ESCAPE]:
             game_status = False
