@@ -293,11 +293,11 @@ def life():
 def history():
     global hs_status, l_count, text_max_score
     current = datetime.datetime.now()
-    f = open("./history.txt", "a")
+    f = open("history.txt", "a")
     f.write(str(score) + " " +
             str(current.date()) + " " +
             str(current.time())[:8] + "\n")
-    f = open("./history.txt", "r")
+    f = open("history.txt", "r")
     for line in f.readlines():
         h_score.append(line.split())
         h_score[l_count][0] = int(h_score[l_count][0])
@@ -312,7 +312,7 @@ screen.blit(text_start, [200, 100])
 
 # Main loop
 while True:
-    pygame.time.Clock().tick(45)
+    pygame.time.Clock().tick(50)
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if (event.key == pygame.K_SPACE or event.key == pygame.K_UP) and game_status:
