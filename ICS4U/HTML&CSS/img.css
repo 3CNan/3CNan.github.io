@@ -1,9 +1,9 @@
 #per_1 .img_persona:nth-child(1) {
-	background: url("https://img.moegirl.org.cn/common/thumb/5/5f/Arcana_0_fool.jpg/150px-Arcana_0_fool.jpg");	
+	background-image: url("https://img.moegirl.org.cn/common/thumb/5/5f/Arcana_0_fool.jpg/150px-Arcana_0_fool.jpg");	
 	background-size: cover;
 }
 #per_1 .img_persona:nth-child(2) {
-	background: url("https://img.moegirl.org.cn/common/thumb/3/33/Arcana_1_magician.jpg/150px-Arcana_1_magician.jpg");
+	background-image: url("https://img.moegirl.org.cn/common/thumb/3/33/Arcana_1_magician.jpg/150px-Arcana_1_magician.jpg");
 	background-size: cover;
 }
 #per_1 .img_persona:nth-child(3) {
