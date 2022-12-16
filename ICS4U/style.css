@@ -1,0 +1,60 @@
+* {
+	font-family: cursive;
+}
+html {
+	background: url("973678.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+body {
+	margin: 0 auto;
+	max-width: 1000px;
+	background: white;
+}
+
+#navigation {
+	width: 100%;
+	display: flex;
+}
+#navigation a {
+	color: white;
+	background: grey;
+	text-decoration: none;
+	margin: 0;
+	padding: 20px 0;
+	width: 100%;
+	text-align: center;
+
+}
+#navigation a:hover {
+	color: black;
+	background: lightgrey;
+}
+
+
+
+#header {
+	text-align: center;
+	color: white;
+	font-size: 80px;
+	font-family: 'Diplomata SC';
+	background: lightseagreen;
+	margin: 0;
+	padding: 50px 0;
+}
+#form1 {
+	border: 1px solid grey;
+	padding: 20px;
+	line-height: 30px;
+}
+#form1 input, #form1 textarea {
+	margin-left: 40px;
+}
+.starlabel:before {
+	content: "* ";
+	color: red;
+}
+
+#header:hover {
+	background: lightgreen;
+}
