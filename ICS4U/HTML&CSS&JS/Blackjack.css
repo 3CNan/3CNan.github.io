@@ -69,7 +69,7 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	background: white;
-	display: inline-block;
+/* 	display: inline-block; */
 	background-image: url("https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/0a.png");
 	border-radius: 5%;
 	background-size: cover;
@@ -97,4 +97,18 @@ body {
 	display: inline;
 /*  	display: none;  */
 	margin: 0 10px;
+}
+.card {
+	aspect-ratio: 2 / 3;
+	width: 5%;
+	margin: 0 5px;
+	text-align: center;
+	background: white;
+	display: inline-block;
+	background-image: url("https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/0a.png");
+	border-radius: 5%;
+	background-size: cover;
+	background-position: center;
+/*  	display:none;  */
+	z-index: 1;
 }
