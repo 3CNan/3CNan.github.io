@@ -6,6 +6,21 @@
 	<title>Website</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Diplomata+SC">
+	<script type="text/javascript">
+		is_bulb_on = false;
+		function light_on_off() {
+			var bulbObj = document.getElementById("bulb");
+			var srcs = ["https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940171g57vp25a8k.png", "https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940208oq66nq8jew.png"]
+			is_bulb_on = !is_bulb_on;
+			bulbObj.src = srcs[+is_bulb_on];
+		}
+
+		function calculate() {
+			var num1 = parseFloat(prompt("First Number: "));
+			var num2 = parseFloat(prompt("Second Number: "));
+			alert(num1 + " + " + num2 + " = " + (num1 + num2));
+		}
+	</script>
 </head>
 <body>
 	<h1 id="header">ICS4U Practice</h1>
@@ -16,6 +31,17 @@
 		<a href="#202301">2023.01</a>
 		<a href="#202302">2023.02</a>
 	</div>
+
+	<h2 id="202301">2023 January</h2>
+	<p>2023.01.05</p>
+	<button onclick="calculate()">Click</button>
+
+	<hr>
+	<p id="20230103">2023.01.03</p>
+	<img id="bulb" src="https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940208oq66nq8jew.png" width="200px">
+	<button onclick="light_on_off()">Switch</button>
+
+
 	<h2 id="202212">2022 December</h2>
 	<p id="20221212">2022.12.12</p>
 	<form action="sub.php" id="form1">

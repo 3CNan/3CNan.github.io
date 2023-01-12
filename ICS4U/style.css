@@ -30,9 +30,6 @@ body {
 	color: black;
 	background: lightgrey;
 }
-
-
-
 #header {
 	text-align: center;
 	color: white;
@@ -58,3 +55,5 @@ body {
 #header:hover {
 	background: lightgreen;
 }
+
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript Assignment</title>
+	<script type="text/javascript" src="JS.js"></script>
+	<style>
+		* {
+			font-family: cursive;
+			text-align: center;
+		}
+		html {
+			background: lightblue;
+		}
+		body {
+			max-width: 1000px;
+			margin: 0 auto;
+			background: white;
+		}
+		h3 {
+			margin: 0;
+		}
+		input {
+			width: 40%;
+			margin: 30px 0;
+		}
+		#header {
+			margin-top: 0;
+			padding: 100px;
+		}
+		#txt2 {
+			text-align: left;
+			font-family: monospace;
+		}
+		.row {
+			display: flex;
+			margin: 10px;
+		}
+		.row div {
+			aspect-ratio : 1 / 1;
+			width: 100%;
+			box-shadow: 0 0 5px grey;
+			margin: 10px;
+			padding: 10px;
+		}
+		.row div img {
+			aspect-ratio : 1 / 1;
+			width: calc(100% - 30px);
+		}
+	</style>
+</head>
+<body onkeydown="alert('hello')">
+	<h1 id="header">JavaScript Assignment</h1>
+	<hr>
+	<div class="row">
+		<div>
+			<h3>Hover to switch image</h3>
+			<img id="face" onmouseover="to_happy()" onmouseout="to_sad()" src="https://thumbs.dreamstime.com/b/sad-smiley-face-6335284.jpg">
+		</div>
+		<div>
+			<h3>Click to change text</h3>
+			<p id="txt1" onclick="change_txt()">This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.</p>
+		</div>
+		<div>
+			<h3>Click to add style</h3>
+			<p id="txt2" onclick="change_style()">This is a line of text.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div>
+			<h3>20 °F to °C</h3>
+			<h1 id="txt3" onclick="f2c()">Click Result</h1>
+		</div>
+		<div>
+			<h3>Calculator Simulator</h3>
+			<input type="text" id="fnum" placeholder="1st number">
+			<span> + </span>
+			<input type="text" id="snum" placeholder="2nd number">
+			<br>
+			<button onclick="add()">Calculate</button>
+			<br>
+			<p>Result: <span id="txt4"></span></p>
+		</div>
+		<div>
+			<h3>Greeting</h3>
+			<input type="text" id="fname" placeholder="First Name">
+			<input type="text" id="lname" placeholder="Last Name">
+			<button onclick="greet()">Click</button>
+			<p id="txt5"></p>
+		</div>
+	</div>
+</body>
+</html>
