@@ -1,23 +1,31 @@
-var card;
+var cards;
 var players = [];
 var unface = [];
 var win = [];
 var lose = [];
 var num_dict = {"A": "Ace", "K": "King", "Q": "Queen", "J": "Jack"};
 var color_dict = {"a": " of Spades", "b": " of Hearts", "c": " of Clubs", "d": " of Diamonds"};
+var name_dict = {"comp": "Computer", "user": "You"};
 var is_start = false;
+var message = document.getElementById("message");
 var player_num = parseInt(document.getElementById("player_num").value) + 1;
-var txtObj = document.getElementById("txt_start");
-
-function sleep(time){
-    var now = new Date().getTime();
-    while(new Date().getTime() < now + time){}
-}
+// console.log(typeof player_num);
+var txt_startObj = document.getElementById("txt_start");
+var user_cardObjs = document.getElementsByClassName("card_user");
+var user_card_num = 0;
+var comp_cardObjs = document.getElementsByClassName("card_comp");
+var compObjs = document.getElementsByClassName("comp");
+var comp_card_num = 0;
+var txt_gameObj = document.getElementById("txt_game");
+var txt_resObj = document.getElementById("txt_result");
+var txt_winObj = document.getElementById("txt_win");
+var boardObj = document.getElementById("board");
+txt_gameObj.style.top = boardObj.offsetHeight / 2 + "px";
+txt_resObj.style.top = boardObj.offsetHeight / 2 + "px";
+// var is_hit = true;
 
 function get_card(num) {
-	var poker = [];
-	for (var i = 0; i < num; i++) {
-		poker.push('Aa', 'Ab', 'Ac', 'Ad',
+	var poker = ['Aa', 'Ab', 'Ac', 'Ad',
 				   'Ka', 'Kb', 'Kc', 'Kd',
 				   'Qa', 'Qb', 'Qc', 'Qd',
 				   'Ja', 'Jb', 'Jc', 'Jd',
@@ -29,12 +37,11 @@ function get_card(num) {
 				   '5a', '5b', '5c', '5d',
 				   '4a', '4b', '4c', '4d',
 				   '3a', '3b', '3c', '3d',
-				   '2a', '2b', '2c', '2d');
-	}
+				   '2a', '2b', '2c', '2d'];
 	for (var i = poker.length -1; i > 0; i--) {
-		var j = Math.floor(Math.random() * i)
-		var k = poker[i]
-		poker[i] = poker[j]
+		var j = Math.floor(Math.random() * i);
+		var k = poker[i];
+		poker[i] = poker[j];
 		poker[j] = k;
 	}
 	console.log(poker);
@@ -86,73 +93,97 @@ function get_card_name(arr) {
 
 function deal_card(player, num) {
 	for (var i = 0; i < num; i++) {
-		var ran = Math.floor(Math.random() * card.length);
-		player["card"].push(card[ran]);
-		card.splice[ran, 1];
+		var ran = Math.floor(Math.random() * cards.length);
+		player["card"].push(cards[ran]);
+		cards.splice[ran, 1];
 	}
 	player["score"] = get_score(player["card"]);
 }
+
+// function get_choice(b) {
+// 	return b;
+// }
+
 
 function game_start() {
 	if (is_start) {
 		return;
 	}
-	card = get_card(player_num);
+	cards = get_card(player_num);
 	players = [];
-	// unface = [];
 	for (var i = 0; i < player_num; i++) {
 		players.push({"id": "", "card": [], "score": 0});
 		players[i]["id"] = "comp" + (i + 1);
-		// unface.push({"id": "", "card": []});
-		// unface[i]["id"] = "comp" + (i + 1);
 	}
 	players[players.length - 1]["id"] = "user";
-	// console.log(players);
 
-	var message = document.getElementById("message");
-	message.innerHTML = "Dealing 2 reviewed cards to the players";
 	for (var i = 0; i < player_num; i++) {
 		deal_card(players[i], 2);
-		// deal_card(unface[i], 1);
-		// console.log(players[i]["card"]);
 		console.log(players[i]["id"], get_card_name(players[i]["card"]));
 	}
+
 	is_start = true;
-	txtObj.style.display = "none";
-	setTimeout(gameplay, 300);
+	txt_startObj.style.display = "none";
+	message.innerHTML = "Dealing 2 reviewed cards to the players";
+
+	for (var i = 0; i < 2 * 600; i += 600) {
+		setTimeout(function() {
+			user_cardObjs[user_card_num].style.display = "inline-block";
+			user_cardObjs[user_card_num].style.background = "url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ players[player_num - 1]["card"][user_card_num]+ ".png')";
+			user_cardObjs[user_card_num].style.backgroundSize = "cover";
+			user_cardObjs[user_card_num].style.backgroundPosition = "center";
+			user_card_num++;
+		}, 400+i);
+	}
+	
+	for (var i = 0; i < player_num - 1; i++) {
+		compObjs[i].style.display = "inline";
+	}
+	for (var i = 0; i < 1000; i += 500 / (player_num - 1)) {
+		setTimeout(function() {
+			comp_cardObjs[comp_card_num].style.display = "inline-block";
+			comp_cardObjs[comp_card_num].style.background = "url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ players[Math.floor(comp_card_num / 2)]["card"][comp_card_num % 2]+ ".png')";
+			comp_cardObjs[comp_card_num].style.backgroundSize = "cover";
+			comp_cardObjs[comp_card_num].style.backgroundPosition = "center";
+			comp_card_num++;
+		}, i);
+	}
+	setTimeout(function() {
+		txt_gameObj.style.display = "block";
+		message.innerHTML = "Dealing unface cards to the players";
+	}, 1400);
 }
 
-function gameplay() {
-	for (var i = player_num - 1; i >= 0; i--) {
-		console.log("Current: ", players[i]["id"]);
-		if (players[i]["id"] == "user") {
-			while(true) {
-				alert("Current cards: ", get_card_name(players[i]["card"]));
-				// sleep(1000);
-				// console.log(, get_card_name(players[i]["card"]));
-				var input = prompt("Ask for new card? (y/n)");
-				if (input == "y") {
-					deal_card(players[i], 1);
-					alert("New card: ", get_card_name(players[i]["card"]));
-					// break;
-				} else if (input == "n") {
-					break;
-				} else {
-					input = prompt("Ask for new card? (y/n)");
-				}
-				// sleep(1000);
-			}
-		} else {
-			while (true) {
-				if (players[i]["score"] < players[players.length - 1]["score"] && players[i]["score"] + 5 <= 21) {
-					deal_card(players[i], 1);
-					console.log(players[i]["id"], "yes");
-					// creak;
-				} else {
-					console.log(players[i]["id"], "no");
-					break;
-				}
-				// setTimeout(function(){}, 500);
+function gameplay_user(bool) {
+	if (bool) {
+		console.log("y");
+		deal_card(players[players.length - 1], 1);
+		txt_gameObj.style.display = "none";
+		setTimeout(function() {
+			user_cardObjs[user_card_num].style.display = "inline-block";
+			user_cardObjs[user_card_num].style.background = "url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ players[player_num - 1]["card"][user_card_num]+ ".png')";
+			user_cardObjs[user_card_num].style.backgroundSize = "cover";
+			user_cardObjs[user_card_num].style.backgroundPosition = "center";
+			user_card_num++;
+		}, 600);
+		setTimeout(function() {
+			txt_gameObj.style.display = "block";
+		}, 1000);
+	} else {
+		txt_gameObj.style.display = "none";
+		gameplay_comp();
+	}
+}
+
+function gameplay_comp() {
+	for (var i = 0; i < player_num - 1; i++) {
+		while (true) {
+			if (players[i]["score"] < players[players.length - 1]["score"] && players[i]["score"] + 5 <= 21) {
+				deal_card(players[i], 1);
+				console.log(players[i]["id"], "yes");
+			} else {
+				console.log(players[i]["id"], "no");
+				break;
 			}
 		}
 	}
@@ -185,5 +216,9 @@ function is_win() {
 		}
 		console.log("Win:", win);
 		console.log("Lose:", lose);
+	}
+	txt_winObj.innerHTML = "Winner: "
+	for (var i = 0; i < win.length; i++) {
+		txt_winObj.innerHTML += name_dict[win[i]["id"].slice(0, 4)];
 	}
 }

@@ -3,7 +3,7 @@ body {
 }
 #board {
 	background: green;
-	aspect-ratio: 12 / 6;
+	aspect-ratio: 24 / 11;
 	width: calc(100% - 20px);
 	border: 10px solid rgba(0, 0, 0, 0.5);
 	overflow: hidden;
@@ -19,16 +19,30 @@ body {
 	font-family: cursive;
 	box-shadow: 0 0 10px grey;
 }
-#txt_start {
+#txt_game, #txt_start, #txt_result {
 	background: rgba(255, 255, 255, 0.5);
 	text-align: center;
 	padding: 20px 0;
 	margin: 0 auto;
 	width: 80%;
+}
+#txt_start {
 	position: relative;
 	top: 50%;
 	transform: translate(0, -50%);
-	display:none;
+/* 	display: none; */
+}
+#txt_game {
+	position: absolute;
+	transform: translate(10%, -50%);
+ 	display: none; 
+	z-index: 999;
+}
+#txt_result {
+	position: absolute;
+	transform: translate(10%, -50%);
+ 	display: none; 
+	z-index: 999;
 }
 #btn_start {
 	margin-top: 20px;
@@ -37,27 +51,50 @@ body {
 	font-size: 100%;
 	font-family: fantasy;
 }
-.card {
+#btn_hit, #btn_stand {
+	margin-top: 20px;
+	aspect-ratio: 3 / 1;
+	width: 250px;
+	font-size: 200%;
+	font-family: fantasy;
+	margin: 0;
+}
+#txt_win{
+	font-size: 200%;
+	font-family: cursive;
+}
+.card_user, .card_comp {
 	aspect-ratio: 2 / 3;
 	width: 10%;
 	margin: 0 auto;
 	text-align: center;
 	background: white;
 	display: inline-block;
-	background-image: url("poker/0a.png");
-	border-radius: 15px;
+	background-image: url("https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/0a.png");
+	border-radius: 5%;
 	background-size: cover;
 	background-position: center;
+ 	display:none; 
+	z-index: 1;
 }
 .card_unface {
-	background: rgba(0, 0 , 0, 0.5);
+	background: rgba(0, 0 , 0, 0.2);
 	width: 100%;
 	height: 100%;
-	border-radius: 15px;
+	border-radius: 5%;
 }
+
 #area_user {
 	position: relative;
-	top: 90%;
+	top: 50%;
 	transform: translate(0%, -50%);
 	text-align: center;
+}
+#area_comp {
+	text-align: center;
+}
+.comp {
+	display: inline;
+/*  	display: none;  */
+	margin: 0 10px;
 }
