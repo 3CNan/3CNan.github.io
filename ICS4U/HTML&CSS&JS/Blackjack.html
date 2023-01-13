@@ -11,8 +11,10 @@
 	<div id="board">
 		<div id="txt_start">
 			<label>Please enter number of computers(1-4): </label>
-			<input type="number" id="player_num" value="3" min="1" max="4"><br>
-			<button onclick="game_start()" id="btn_start">Start</button>
+			<input type="number" id="player_num" min="1" max="4" required><br>
+			<label>Please enter number of decks(1-100): </label>
+			<input type="number" id="deck_num" min="1" max="100" required><br>
+			<button onclick="init()" id="btn_start">Start</button>
 		</div>
 		<div id="txt_game">
 			<button id="btn_hit" onclick="gameplay_user(true)">Hit</button>
@@ -23,7 +25,11 @@
 		</div>
 		<div id="txt_result">
 			<p id="txt_win"></p>
-			<button onclick="restart()" id="btn_restart">Restart</button>
+			<button onclick="restart(false)" id="btn_continue">Continue</button>
+			<button onclick="restart(true)" id="btn_restart">Restart</button>
+		</div>
+		<div id="txt_end">
+			<p>You have used all the cards in the this round</p>
 		</div>
 		<div id="area_comp">
 			<div class="comp">
@@ -57,5 +63,6 @@
 		<!--<br><br><br><br> -->
 	</div>
 	<div id="message">Here is your message box</div>
+	<div id="txt_score">Here is your score box</div>
 </body>
 </html>
