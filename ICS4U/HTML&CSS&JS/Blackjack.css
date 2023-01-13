@@ -19,12 +19,13 @@ body {
 	font-family: cursive;
 	box-shadow: 0 0 10px grey;
 }
-#txt_game, #txt_start, #txt_result {
+#txt_game, #txt_start, #txt_comp, #txt_result {
 	background: rgba(255, 255, 255, 0.5);
 	text-align: center;
 	padding: 20px 0;
 	margin: 0 auto;
 	width: 80%;
+	font-size: 20px;
 }
 #txt_start {
 	position: relative;
@@ -32,11 +33,24 @@ body {
 	transform: translate(0, -50%);
 /* 	display: none; */
 }
+#player_message {
+	font-size: 20px;
+	height: 20px;
+}
 #txt_game {
 	position: absolute;
 	transform: translate(10%, -50%);
  	display: none; 
 	z-index: 999;
+}
+#txt_comp {
+	position: absolute;
+	transform: translate(10%, -50%);
+ 	display: none; 
+	z-index: 999;
+}
+#txt_comp p {
+	display: inline;
 }
 #txt_result {
 	position: absolute;
@@ -44,7 +58,7 @@ body {
  	display: none; 
 	z-index: 999;
 }
-#btn_start {
+#btn_start, #btn_restart {
 	margin-top: 20px;
 	aspect-ratio: 3 / 1;
 	width: 100px;
@@ -94,8 +108,8 @@ body {
 	text-align: center;
 }
 .comp {
-	display: inline;
-/*  	display: none;  */
+/* 	display: inline; */
+ 	display: none; 
 	margin: 0 10px;
 }
 .card {

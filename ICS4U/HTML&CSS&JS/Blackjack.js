@@ -1,28 +1,55 @@
 var cards;
 var players = [];
-var unface = [];
 var win = [];
 var lose = [];
 var num_dict = {"A": "Ace", "K": "King", "Q": "Queen", "J": "Jack", "0": "10"};
 var color_dict = {"a": " of Spades", "b": " of Hearts", "c": " of Clubs", "d": " of Diamonds"};
-var name_dict = {"comp": "Computer", "user": "You"};
-var is_start = false;
+var name_dict = {"comp": "Computer ", "user": "You"};
 var message = document.getElementById("message");
-var player_num = parseInt(document.getElementById("player_num").value) + 1;
-// console.log(typeof player_num);
+var player_num;
 var txt_startObj = document.getElementById("txt_start");
 var user_cardObjs = document.getElementsByClassName("card_user");
 var user_card_num = 0;
 var comp_cardObjs = document.getElementsByClassName("card_comp");
 var compObjs = document.getElementsByClassName("comp");
 var comp_card_num = 0;
+var comp_time = 0;
 var txt_gameObj = document.getElementById("txt_game");
+var txt_compObj = document.getElementById("txt_comp");
+var txt_curObj = document.getElementById("txt_cur");
+var txt_hsObj = document.getElementById("txt_hs");
 var txt_resObj = document.getElementById("txt_result");
 var txt_winObj = document.getElementById("txt_win");
 var boardObj = document.getElementById("board");
 txt_gameObj.style.top = boardObj.offsetHeight / 2 + "px";
 txt_resObj.style.top = boardObj.offsetHeight / 2 + "px";
-// var is_hit = true;
+txt_compObj.style.top = boardObj.offsetHeight / 2 + "px";
+
+function restart() {
+	for (var i = 0; i < player_num; i++) {
+		if (i == player_num - 1) {
+			for (var j = 0; j < players[i]["card"].length; j++) {
+				user_cardObjs[j].style.display = "none";
+			}
+		} else {
+			for (var j = 0; j < 8; j++) {
+				comp_cardObjs[j].style.display = "none";
+			}
+			compObjs[i].style.display = "none";
+		}
+	}
+	players = [];
+	win = [];
+	lose = [];
+	user_card_num = 0;
+	comp_card_num = 0;
+	comp_time = 0;
+	txt_curObj.innerHTML = "";
+	txt_hsObj.innerHTML = "";
+	txt_resObj.style.display = "none";
+	txt_startObj.style.display = "block";
+	message.innerHTML = "Here is your message box";
+}
 
 function get_card(num) {
 	var poker = ['Aa', 'Ab', 'Ac', 'Ad',
@@ -47,6 +74,8 @@ function get_card(num) {
 	console.log(poker);
 	return poker;
 }
+
+
 
 function get_score(arr) {
 	var card = arr.slice();
@@ -78,6 +107,8 @@ function get_score(arr) {
 	return sum;
 }
 
+
+
 function get_card_name(arr) {
 	var card = arr.slice();
 	for (var i = 0; i < card.length; i++) {
@@ -91,24 +122,21 @@ function get_card_name(arr) {
 	return card;
 }
 
+
+
 function deal_card(player, num) {
 	for (var i = 0; i < num; i++) {
 		var ran = Math.floor(Math.random() * cards.length);
 		player["card"].push(cards[ran]);
-		cards.splice[ran, 1];
+		cards.splice(ran, 1);
 	}
 	player["score"] = get_score(player["card"]);
 }
 
-// function get_choice(b) {
-// 	return b;
-// }
 
 
 function game_start() {
-	if (is_start) {
-		return;
-	}
+	player_num = parseInt(document.getElementById("player_num").value) + 1;
 	cards = get_card(player_num);
 	players = [];
 	for (var i = 0; i < player_num; i++) {
@@ -121,8 +149,6 @@ function game_start() {
 		deal_card(players[i], 2);
 		console.log(players[i]["id"], get_card_name(players[i]["card"]));
 	}
-
-	is_start = true;
 	txt_startObj.style.display = "none";
 	message.innerHTML = "Dealing 2 reviewed cards to the players";
 
@@ -154,6 +180,8 @@ function game_start() {
 	}, 1400);
 }
 
+
+
 function gameplay_user(bool) {
 	if (bool) {
 		console.log("y");
@@ -171,53 +199,68 @@ function gameplay_user(bool) {
 		}, 1000);
 	} else {
 		txt_gameObj.style.display = "none";
-		gameplay_comp();
+		txt_compObj.style.display = "block";
+		gameplay_comp(0);
 	}
 }
 
-function gameplay_comp() {
-	for (var i = 0; i < player_num - 1; i++) {
-		while (true) {
-			if (players[i]["score"] < players[players.length - 1]["score"] && players[i]["score"] + 5 <= 21) {
-				deal_card(players[i], 1);
-				console.log(players[i]["id"], "yes");
-			} else {
-				console.log(players[i]["id"], "no");
-				break;
-			}
+
+
+function gameplay_comp(i) {
+	comp_time += 350;
+	setTimeout(function() {
+		if (i == player_num - 1) {
+			txt_compObj.style.display = "none";
+			is_win();
+			return;
 		}
-	}
-	is_win();
+		txt_curObj.innerHTML = "Current: Computer " + players[i]["id"].slice(4) + " || ";
+		if (players[i]["score"] < players[players.length - 1]["score"] && players[i]["score"] + 5 <= 21) {
+			deal_card(players[i], 1);
+			txt_hsObj.innerHTML = "'Hit'";
+			console.log(players[i]["id"], "Hit");
+			gameplay_comp(i);
+		} else {
+			txt_hsObj.innerHTML = "'Stand'";
+			console.log(players[i]["id"], "Stand");
+			gameplay_comp(i+1);
+		}
+	}, comp_time);
+	setTimeout(function(){
+		if (i != player_num - 1) {
+			txt_hsObj.innerHTML = "";
+		}
+	}, comp_time - 10);
 }
+
 
 function is_win() {
 	var winner = 0;
 	for (var i = 0; i < player_num; i++) {
-		if (players[i]["score"] > 21) {
-			lose.push(players[i]);
-		} else {
-			if (players[winner]["score"] < players[i]["score"]) {
-				winner = i;
-			}
+		if (players[i]["score"] <= 21) {
 			win.push(players[i]);
+			if (players[winner]["score"] < players[i]["score"] || players[winner]["score"] > 21) {
+				winner = i; 
+			}
+		} else {
+			lose.push(players[i]);
 		}
 	}
-	// win.push(players[winner]);
 	console.log(players);
 	for (var i = 0; i < win.length; i++) {
-		if (win[i]["score"] != players[winner]["score"]) {
+		if (win[i]["score"] < players[winner]["score"]) {
 			lose.push(win[i]);
 			win.splice(i, 1);
 			i--;
 		}	
 	}
+	txt_resObj.style.display = "block";
 	if (win.length == 0) {
 		txt_winObj.innerHTML = "All players are bust";
 	} else {
-		txt_resObj.style.display = "block";
 		txt_winObj.innerHTML = "Winner:";
 		for (var i = 0; i < win.length; i++) {
-			txt_winObj.innerHTML += " " + name_dict[win[i]["id"].slice(0, 4)] + " " + win[i]["id"].slice(4) + "!";
+			txt_winObj.innerHTML += " " + name_dict[win[i]["id"].slice(0, 4)] + win[i]["id"].slice(4) + "!";
 		}
 	}
 	message.innerHTML = "";
@@ -226,10 +269,8 @@ function is_win() {
 	var card_num = 0;
 	var cardObj = document.getElementsByClassName("card");
 	for (var i = 0; i < player_num; i++) {
-		var name = name_dict[players[i]["id"].slice(0, 4)] + " " + players[i]["id"].slice(4) + ":";
+		var name = name_dict[players[i]["id"].slice(0, 4)] + players[i]["id"].slice(4) + ":";
 		message.innerHTML += name;
-		// var card_name = get_card_name(lose[i]["card"]);
-		// console.log(card_name);
 		var card = "";
 		for (var j = 0; j < players[i]["card"].length; j++) {
 			message.innerHTML += "<div class='card'></div>";
@@ -238,7 +279,7 @@ function is_win() {
 			cardObj[card_num].style.backgroundPosition = "center";
 			card_num++;
 		}
-		if (i != player_num - 1) {
+		if (i % 2 == 1) {
 			message.innerHTML += "<br>";
 		}
 	}
