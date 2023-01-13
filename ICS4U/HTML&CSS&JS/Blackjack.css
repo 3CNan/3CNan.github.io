@@ -92,7 +92,7 @@ body {
 	z-index: 1;
 }
 .card_unface {
-	background: rgba(0, 0 , 0, 0.2);
+	background: rgba(0, 0 , 0, 0.3);
 	width: 100%;
 	height: 100%;
 	border-radius: 5%;
