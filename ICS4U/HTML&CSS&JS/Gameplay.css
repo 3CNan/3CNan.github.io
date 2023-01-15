@@ -3,12 +3,10 @@
 	font-family: cursive;
 }
 .opaq1 {
-/*	background: red;*/
 	height: 700px;
 }
 .opaq2 {
 	background: rgb(0, 50, 50);
-/*	background: #996b1f;*/
 	height: 200px;
 }
 #header {
@@ -25,7 +23,6 @@
 	padding-right: 30px;
 }
 .opaq2 h1 {
-/*	font-family: fantasy;*/
 	font-size: 100px;
 	margin: 0;
 	color: white;
@@ -37,7 +34,6 @@
 	transform: translate(0, -50%);
 }
 .box_opaq {
-/*	text-align: center;*/
 	text-align: justify;
 	width: 80%;
 	height: 50%;
@@ -73,16 +69,11 @@ figcaption {
 	margin-left: -190px;
 }
 
-
-
-
-
-
 @keyframes in {
 	from {opacity: 0;}
 	to {opacity: 1;}
 }
 .fade_in {
-	animation: in 1.5s linear alternate;
+	animation: in 1s linear alternate;
 }
 

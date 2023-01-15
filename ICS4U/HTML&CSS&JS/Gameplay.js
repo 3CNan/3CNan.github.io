@@ -13,16 +13,16 @@ var is_start1 = true, is_start2 = true, is_start3 = true, is_start4 = true;
 document.addEventListener("scroll", function(){
 	var i = document.documentElement.scrollTop;
 	// console.log(i);
-	if (is_start1 && i > 500) {
+	if (is_start1 && i > 400) {
 		box_opaqObjs[0].classList.add("fade_in");
 		is_start1 = false;
-	} else if (is_start2 && i > 1400) {
+	} else if (is_start2 && i > 1300) {
 		box_opaqObjs[1].classList.add("fade_in");
 		is_start2 = false;
-	} else if (is_start3 && i > 2300) {
+	} else if (is_start3 && i > 2200) {
 		box_opaqObjs[2].classList.add("fade_in");
 		is_start3 = false;
-	} else if (is_start4 && i > 3200) {
+	} else if (is_start4 && i > 3100) {
 		box_opaqObjs[3].classList.add("fade_in");
 		is_start4 = false;
 	}
