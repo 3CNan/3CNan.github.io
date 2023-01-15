@@ -1,0 +1,88 @@
+.opaq1 * {
+	margin: 0;
+	font-family: cursive;
+}
+.opaq1 {
+/*	background: red;*/
+	height: 700px;
+}
+.opaq2 {
+	background: rgb(0, 50, 50);
+/*	background: #996b1f;*/
+	height: 200px;
+}
+#header {
+	font-family: 'Diplomata SC';
+	color: yellow;
+	line-height: 170px;
+	padding: 200px 0 0 50px;
+	font-size: 120px;
+	text-shadow: 10px 10px darkseagreen;
+}
+#header span {
+	font-family: 'Diplomata SC';
+	float: right;
+	padding-right: 30px;
+}
+.opaq2 h1 {
+/*	font-family: fantasy;*/
+	font-size: 100px;
+	margin: 0;
+	color: white;
+	text-shadow: 0 0 5px black;
+	font-family: 'Alex Brush', cursive;
+	text-align: center;
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+.box_opaq {
+/*	text-align: center;*/
+	text-align: justify;
+	width: 80%;
+	height: 50%;
+	background: rgba(255, 255, 255, 0.5);
+	margin: 0 auto;
+	padding: 50px;
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+	font-size: 130%;
+	opacity: 0;
+}
+.box_opaq p, .box_opaq ol li{
+	line-height: 35px;
+
+}
+.box_opaq p b {
+	font-weight: 800;
+}
+figure {
+	height: 100%;
+	float: right;
+}
+figcaption {
+	text-align: center;
+}
+.img_bj, .img_po, .img_fk{
+	aspect-ratio: 2 / 3;
+	height: 100%;
+	float: right;
+}
+.img_bj:nth-child(1), .img_po:nth-child(1), .img_fk:nth-child(1), .img_fk:nth-child(2) {
+	margin-left: -190px;
+}
+
+
+
+
+
+
+@keyframes in {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+.fade_in {
+	animation: in 1.5s linear alternate;
+}
+

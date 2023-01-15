@@ -1,0 +1,40 @@
+#nav2{
+	position: sticky; 
+	background: url('https://static.vecteezy.com/system/resources/previews/010/567/843/large_2x/card-suits-seamless-pattern-background-for-casino-poker-free-vector.jpg');
+	background-size:580px;
+	background-position-y: 19px;
+	padding: 5px 10px 5px 10px;
+	top: 0;
+	right: 0;
+	z-index: 9990;
+	display: flex;
+}
+.f{
+	font-size: 50px;
+	text-shadow: 0 2px 2px #000;
+	font-family: 'Asap',cursive;
+	text-decoration: none;
+	color: white;
+	font-size: 25px;
+	width: 100%;
+	padding: 0 30px 0 0;
+	text-align: center;
+}
+.f:hover{
+	color:red;
+}
+.a2{
+	text-decoration: none; color: #E8E3DF; padding-left: 10px;
+}
+body {
+	margin: 0;
+}
+a {
+	text-decoration: none;
+	color: initial;
+}
+footer {
+   background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/554660/e49407d4966c2fdb9a737c9914957e5882b6b37b.jpg");
+   padding-top: 15px;
+   padding-bottom: 15px;
+}

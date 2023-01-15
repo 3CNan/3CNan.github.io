@@ -1,0 +1,590 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia Sans Extra Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bakbak One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+#one{
+   margin-top: -110px;
+   color:white;
+   font-weight:bold;
+   font-size: 120px;
+   font-family:'Oswald', cursive
+}
+#two{
+   margin-top:-150px;
+   color:white;
+   font-weight:bold;
+   font-size: 120px;
+   font-family:'Oswald', cursive;
+}
+#three{
+   margin-top:-70px;
+   font-family:'Inconsolata', cursive;
+   color:white;
+   font-size:50px;
+}
+#onep{
+   margin-top:100px;
+   background-color: rgba(255, 255, 255, 0.5);
+   padding-top:80px;
+   color: whitesmoke;
+   border:50px;
+   font-size: 50px;
+   font-family: 'OSwald',cursive;
+   text-decoration: none;
+}
+#onep:hover{
+   color:rgba(0, 0, 0, 0.5);
+}
+#twop{
+   text-decoration: none;
+   background-color: rgba(255, 255, 255, 0.5);
+   color: whitesmoke;
+   padding-top:20px;
+   padding-right:50px;
+   padding-left:50px;
+   padding-bottom:80px;
+   margin-top:-50px;
+   margin-bottom:70px;
+   font-size: 30px;
+  font-family: 'OSwald',cursive;
+}
+
+#twop:hover{
+   color: rgba(0, 0, 0, 0.5);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body { 
+  margin:0;
+  padding:0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+.slide {
+  position: relative;
+  padding: 25vh 10%;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+  transform-style: inherit;
+}
+
+.kuang {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 320px;
+  height: 240px;
+  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.kuang:last-of-type {
+  transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+}
+
+.titlea {
+  width: 50%;
+  padding: 5%;
+  margin-right: Auto;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+.titleb {
+  width: 90%;
+  padding: 5%;
+  margin-right: Auto;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+.title {
+  width: 50%;
+  padding: 5%;
+  margin-left: Auto;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.slide:nth-child(2n) .title {
+  margin-left: 0;
+  margin-left: auto;
+}
+
+.slide:nth-child(2n+1) .title {
+
+  margin-right: 0;
+}
+
+.slide, .slide:before {
+  background: 75% 90% / cover;  
+}
+
+.header {
+  text-align: center;
+  font-size: 175%;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+}
+
+#title {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/016/125/547/non_2x/poker-and-casino-playing-card-background-with-four-aces-vector.jpg");
+  padding: 25vh 0%;
+  z-index:2;
+}
+
+#title h1 {
+ transform: translateZ(.25px) scale(.75);
+ transform-origin: 50% 100%;
+
+}
+
+#slide1:before {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/002/127/667/non_2x/luxury-black-poker-card-symbols-background-illustration-free-vector.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide2 {
+  background-image: url("https://img.freepik.com/premium-vector/poker-table-background-green-color_47243-1068.jpg?w=360");
+  z-index:2;
+}
+
+#slide3:before {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/016/124/733/large_2x/poker-and-casino-playing-card-black-background-vector.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide4 {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/016/119/721/large_2x/poker-and-casino-playing-card-background-vector.jpg");
+  z-index:2;
+}
+
+#slide5:before {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/003/520/134/non_2x/dark-poker-background-of-spades-and-clubs-free-vector.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide6 {
+  background-image: url("https://wallpaperaccess.com/full/1900851.png");
+  background-position-y: -70px;
+  z-index:2;
+}
+
+#p1{
+   text-decoration: none;
+   font-family:'Nunito',cursive;
+   font-size:30px;
+   color:black;
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.imgo:hover{
+   opacity: 0.7;
+}
+
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.7);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+
+.poker {
+    bottom: 0;
+    height: 100vh;
+    left: 75%;
+    margin-left: -50vh;
+    position: absolute;
+    transform: scale(0.9);
+    transform-origin: 50% 100%;
+    width: 100vh;
+}
+
+.hand {
+    bottom: -1vh;
+    left: 0;
+    position: absolute;
+}
+
+.finger,
+.card {
+    animation: creep 3s ease-in-out 0s infinite alternate backwards;
+    background: no-repeat url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/59639/poker.png') 0 0;
+    background-size: 200vh 200vh;
+    position: absolute;
+    transform-origin: 50% 90%;
+}
+
+.pinky {
+    animation-delay: 0.7s;
+    bottom: 0;
+    height: 36vh;
+    left: 42.8vh;
+    transform-origin: 50% 100%;
+    width: 36.6vh;
+}
+
+.ring {
+    animation-delay: 4s;
+    background-position: -37vh 0;
+    bottom: 0.8vh;
+    height: 47vh;
+    left: 35.7vh;
+    width: 47.4vh;
+}
+
+.middle {
+    animation-delay: 0.2s;
+    background-position: -85vh 0;
+    bottom: 5.6vh;
+    height: 62.5vh;
+    left: 31.7vh;
+    width: 47.2vh;
+}
+
+.index {
+    background-position: -133vh 0;
+    bottom: 16.6vh;
+    height: 53.6vh;
+    left: 25.6vh;
+    width: 33.5vh;
+}
+
+.cards {
+    animation: creep 3s ease-in-out 0s infinite alternate;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform-origin: 40% 65%;
+    width: 100%;
+}
+
+.ten {
+    animation-delay: 0.2s;
+    background-position: -0.1vh -65vh;
+    bottom: 29.8vh;
+    height: 61.2vh;
+    left: 37.8vh;
+    transform-origin: 5% 70%;
+    width: 60.6vh;
+}
+
+.jack {
+    animation-delay: 0.8s;
+    background-position: -62vh -65vh;
+    bottom: 44vh;
+    height: 52.4vh;
+    left: 34.2vh;
+    transform-origin: 15% 90%;
+    width: 47.8vh;
+}
+
+.queen {
+    animation-delay: 1.1s;
+    background-position: -111vh -65vh;
+    bottom: 39.2vh;
+    height: 52.7vh;
+    left: 26.9vh;
+    transform-origin: 50% 95%;
+    width: 25vh;
+}
+
+.king {
+    animation-delay: 1.2s;
+    background-position: -137vh -65vh;
+    bottom: 38vh;
+    height: 58.1vh;
+    left: 13.6vh;
+    transform-origin: 60% 95%;
+    width: 36.3vh;
+}
+
+.ace {
+    animation-delay: 1.3s;
+    background-position: 0vh -127vh;
+    bottom: 27.9vh;
+    height: 55.8vh;
+    left: 3.6vh;
+    transform-origin: 90% 100%;
+    width: 39.6vh;
+}
+@keyframes creep {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+}
+.lastn{
+   margin: 0;
+   padding: 15px;
+   color: white;
+}
+#opps{
+   background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/554660/e49407d4966c2fdb9a737c9914957e5882b6b37b.jpg");
+   padding-top: 15px;
+   padding-bottom: 15px;
+}
