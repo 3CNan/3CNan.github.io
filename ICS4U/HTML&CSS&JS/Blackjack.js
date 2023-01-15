@@ -23,9 +23,9 @@ var txt_hsObj = document.getElementById("txt_hs");
 var txt_resObj = document.getElementById("txt_result");
 var txt_winObj = document.getElementById("txt_win");
 var boardObj = document.getElementById("board");
-txt_gameObj.style.top = boardObj.offsetHeight / 2 + "px";
-txt_resObj.style.top = boardObj.offsetHeight / 2 + "px";
-txt_compObj.style.top = boardObj.offsetHeight / 2 + "px";
+txt_gameObj.style.top = boardObj.offsetTop + boardObj.offsetHeight / 2 + "px";
+txt_resObj.style.top = boardObj.offsetTop + boardObj.offsetHeight / 2 + "px";
+txt_compObj.style.top = boardObj.offsetTop + boardObj.offsetHeight / 2 + "px";
 
 function restart(bool) {
 	for (var i = 0; i < player_num; i++) {
@@ -50,13 +50,32 @@ function restart(bool) {
 	txt_resObj.style.display = "none";
 	if (bool) {
 		txt_endObj.style.display = "none";
+		txt_endObj.innerHTML = "You have used all the cards in the this round.";
 		txt_startObj.style.display = "block";
 		message.innerHTML = "Here is your message box";
 		scoreObj.innerHTML = "Here is your score box";
 	} else {
 		if (cards.length < player_num * 4) {
 			txt_endObj.style.display = "block";
-			setTimeout(function() {restart(true)}, 2500);
+			setTimeout(function() {
+				var max = 0;
+				for (var i = 0; i < player_num; i++) {
+					if (score[max]["score"] < score[i]["score"]) {
+						max = i;
+					}
+				}
+				txt_endObj.innerHTML = "The final winner(s)  is(are)  ";
+				txt_endObj.innerHTML += name_dict[score[max]["id"].slice(0, 4)] + score[max]["id"].slice(4);
+				for (var i = 0; i < player_num; i++) {
+					if (score[i]["score"] == score[max]["score"] && i != max) {
+						txt_endObj.innerHTML += ", " + name_dict[score[i]["id"].slice(0, 4)] + score[i]["id"].slice(4);
+					}
+					
+				}
+				txt_endObj.innerHTML += "!";
+				console.log(score);
+			}, 2500);
+			setTimeout(function() {restart(true)}, 5000);
 		} else {
 			game_start();
 		}

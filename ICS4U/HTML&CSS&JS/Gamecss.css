@@ -17,34 +17,6 @@
 #cdiv1{
 	background-image: src="https://media.wired.com/photos/5fbe703e534553a88817f988/16:9/w_2400,h_1350,c_limit/Sec_poker_914262206.jpg";
 }
-
-/*shared nav part*/
-.f{
-   font-size: 50px;
-   text-shadow: 0 2px 2px #000;
-   font-family: 'Asap',cursive;
-   text-decoration: none;
-   color:white;
-   font-size:30px;
-   margin: 10px;
-}
-.f:hover{
-   color:red;
-}
-#nav2{
-   position: sticky;
-   background: url('https://static.vecteezy.com/system/resources/previews/010/567/843/large_2x/card-suits-seamless-pattern-background-for-casino-poker-free-vector.jpg');
-   background-size:580px;
-   background-position-y: 19px;
-/*   opacity: 0.7;*/
-   padding: 5px 10px 5px 10px;
-   top: 0;
-   right: 0;
-   z-index: 9990;
-}
-.a2{
-   text-decoration: none; color: #E8E3DF; padding-left: 10px;
-}
 #cchand,#cphand{
   height: 300px;
   width:200px;

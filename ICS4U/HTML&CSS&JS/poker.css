@@ -1,8 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sofia Sans Extra Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bakbak One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
 #one{
    margin-top: -110px;
    color:white;
@@ -577,14 +572,4 @@ body {
 @keyframes creep {
     0% { transform: rotate(-2deg); }
     100% { transform: rotate(0deg); }
-}
-.lastn{
-   margin: 0;
-   padding: 15px;
-   color: white;
-}
-#opps{
-   background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/554660/e49407d4966c2fdb9a737c9914957e5882b6b37b.jpg");
-   padding-top: 15px;
-   padding-bottom: 15px;
 }
