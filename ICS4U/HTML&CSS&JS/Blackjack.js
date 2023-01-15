@@ -64,7 +64,7 @@ function restart(bool) {
 						max = i;
 					}
 				}
-				txt_endObj.innerHTML = "The final winner(s)  is(are)  ";
+				txt_endObj.innerHTML = "Final winner(s): ";
 				txt_endObj.innerHTML += name_dict[score[max]["id"].slice(0, 4)] + score[max]["id"].slice(4);
 				for (var i = 0; i < player_num; i++) {
 					if (score[i]["score"] == score[max]["score"] && i != max) {

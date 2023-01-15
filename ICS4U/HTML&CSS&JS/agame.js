@@ -113,13 +113,9 @@ function add(u1, u2, p){
 
 function theend(bool){
    if (bool){
-    document.getElementById('winner').innerHTML="You are Win!";
-    document.getElementById('restart').innerHTML="Click to restart";
-    // endtxtObj.innerHTML="win";
-  }   
-   else{
-    document.getElementById('winner').innerHTML="You are Lose!";
-    document.getElementById('restart').innerHTML="Click to restart";
-    // endtxtObj.innerHTML="fail";
+    document.getElementById('winner').innerHTML="You Win!";
+  } else{
+    document.getElementById('winner').innerHTML="You Lose...";
   }
+  document.getElementById('restart').innerHTML="Click to restart";
 }

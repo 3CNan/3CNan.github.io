@@ -1,3 +1,4 @@
+/*Crane js*/
 var poker = ['Aa', 'Ab', 'Ac', 'Ad',
              'Ka', 'Kb', 'Kc', 'Kd',
              'Qa', 'Qb', 'Qc', 'Qd',
@@ -25,7 +26,8 @@ var cphands = document.getElementById('cphand');
 var cchands = document.getElementById('cchand');
 var cpnum = cplayer.length;
 var ccnum = ccom.length;
-// document.getElementById('bt3').style.display='none';
+var rdcount = 0;
+document.getElementById('crd').innerHTML='Round: '+rdcount;
 function csplit(){
     for (var i = cpoker.length -1; i > 0; i--) {
         var j = Math.floor(Math.random() * i);
@@ -44,8 +46,8 @@ function csplit(){
     document.getElementById('ccard1').style.backgroundImage="url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ cplayer[0] + ".png')";
     cctops.innerHTML = "<div id='ccard2'></div>"
     document.getElementById('ccard2').style.backgroundImage="url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ ccom[0] + ".png')";
-    document.getElementById('cphand').innerHTML='player'+cpnum;
-    document.getElementById('cchand').innerHTML='com'+ccnum;
+    document.getElementById('cphand').innerHTML='Player'+cpnum;
+    document.getElementById('cchand').innerHTML='Com'+ccnum;
     document.getElementById('bt1').style.display='none';
     document.getElementById('bt2').style.display='inline';
 }
@@ -92,8 +94,18 @@ function cview(){
             document.getElementsByClassName('ccard')[i].style.backgroundImage="url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ ctab[i] + ".png')";
         }
     }
+    if(cptopcard.slice(0,1)=='J'){
+            cplayer = cplayer.concat(ctab);
+            ctab = [];
+            cnum = [];
+            document.getElementById('cstack').innerHTML = '';
+                for(var i = 0; i<ctab.length; i++){
+                    document.getElementById('cstack').innerHTML += "<div class='ccard'></div>";
+                    document.getElementsByClassName('ccard')[i].style.backgroundImage="url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ ctab[i] + ".png')";
+                }
+        }
     cpnum = cplayer.length;
-    document.getElementById('cphand').innerHTML='player'+cpnum;
+    document.getElementById('cphand').innerHTML='Player'+cpnum;
     console.log("\n");
 
 
@@ -130,14 +142,26 @@ function cview(){
                 document.getElementsByClassName('ccard')[i].style.backgroundImage="url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ ctab[i] + ".png')";
             }
         }
+        if(cctopcard.slice(0,1)=='J'){
+                ccom=ccom.concat(ctab);
+                ctab = [];
+                cnum = [];
+                document.getElementById('cstack').innerHTML = '';
+                for(var i = 0; i<ctab.length; i++){
+                    document.getElementById('cstack').innerHTML += "<div class='ccard'></div>";
+                    document.getElementsByClassName('ccard')[i].style.backgroundImage="url('https://3cnan.github.io/ICS4U/HTML&CSS&JS/poker/"+ ctab[i] + ".png')";
+                }
+            }
         ccnum = ccom.length;//determine hand length
-        document.getElementById('cchand').innerHTML='com'+ccnum;//counter
-        if (cplayer.length==0) {
-            alert('Gameover.you lose, refresh to restart');
+        document.getElementById('cchand').innerHTML='Com'+ccnum;//counter
+        rdcount++;
+        document.getElementById('crd').innerHTML='Round: '+rdcount;
+        if (rdcount==20&&cplayer.length<ccom.length) {
+            alert('Gameover.you lose, refresh to restart')
         }
-        else if (ccom.length==0) {
-            alert('Gameover.you win, refresh to restart');
-        }    
-        console.log("end");
+        else if (rdcount==20&&ccom.length<cplayer.length) {
+            alert('Gameover.you win, refresh to restart')
+        }
     }, 200);
 }
+/*Crane JS ends here*/

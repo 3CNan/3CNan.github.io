@@ -22,9 +22,6 @@ document.addEventListener("scroll", function(){
 	} else if (is_start3 && i > 2200) {
 		box_opaqObjs[2].classList.add("fade_in");
 		is_start3 = false;
-	} else if (is_start4 && i > 3100) {
-		box_opaqObjs[3].classList.add("fade_in");
-		is_start4 = false;
 	}
 });
 box_opaqObjs[0].addEventListener("animationend", function(){
@@ -36,6 +33,4 @@ box_opaqObjs[1].addEventListener("animationend", function(){
 box_opaqObjs[2].addEventListener("animationend", function(){
 	box_opaqObjs[2].style.opacity = "1";
 });
-box_opaqObjs[3].addEventListener("animationend", function(){
-	box_opaqObjs[3].style.opacity = "1";
-});
+

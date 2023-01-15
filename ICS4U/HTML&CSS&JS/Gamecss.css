@@ -1,18 +1,23 @@
+/*game page*/
 #cbody{
-	background-image: url("https://img.freepik.com/premium-vector/poker-table-background-green-color_47243-1067.jpg");
+	background-image: url("https://www.urdesignmag.com/wp-content/uploads/2020/09/12-reasons-why-you-should-have-ponds-in-your-home-1.jpg");
 	background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: 100%;
 }
 #ctitle{
-	font-size: 50px; text-align: center; color: #489e37;
+	font-size: 50px; text-align: center; color: #729fd8;
+	text-shadow: 3px 3px 5px black;
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: 0;
+	padding: 25px;
 }
 #cpic1{
 	width: 100%; border-radius: 20px;
 }
-#crule{
-
+#bt1,#bt2{
+	font-size: 40px;
 }
 #cdiv1{
 	background-image: src="https://media.wired.com/photos/5fbe703e534553a88817f988/16:9/w_2400,h_1350,c_limit/Sec_poker_914262206.jpg";
@@ -58,11 +63,71 @@
 	transform: translate(0,-50%);
 	text-align: center;
 }
-#bt2 {
-   display: none;
+#crd{
+	color: white;
+	text-shadow: 2px 3px black;
+}
+#cphand,#cchand{
+	color: salmon;
+	text-shadow: 2px 3px 3px red;
 }
 
 
-
-
-
+/*history page*/
+#ctitle2{
+	font-style: italic;
+	color: whitesmoke;
+	text-shadow: 2px 3px 4px saddlebrown;
+}
+#cbody2{
+	background-color: #171310;
+	background-size: cover;
+	background-repeat: no-repeats;
+	background-attachment: fixed ;
+	margin: 0;
+	background: linear-gradient(#171310,#111b24);
+}
+.cp{
+	color: white;
+	font-size: 30px;
+	text-shadow: 2px 2px 3px #4aa8bd;
+	text-align: center;
+	margin: 0px;
+	padding: 20px;
+	line-height: 50px;
+	background-color: rgba(0, 0, 0, .5);
+}
+#cimg{
+	text-align: center; margin-bottom: 20px; border-radius: 20px;
+}
+#cimg img{
+	border-radius: 20px;
+}
+#ccontainer{
+	background-color: rgba(0, 0, 0, .8);
+}
+#cimg2{
+	width: 30%; margin: 20px 0px 20px 0px;
+}
+#ctxt1{
+	background-image: url('https://i.pinimg.com/originals/c1/7b/dd/c17bdd791f5b35e9390ea4bd1c49d74d.jpg');
+	background-position: center;
+	background-size: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+#ctxt2{
+	background-image: url('https://bnetcmsus-a.akamaihd.net/cms/ad_200x200/yn/YNZRY3F22IEE1551336054550.jpg');
+	background-position: center;
+	background-size: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+#cend{
+	background-image: url('https://image.cnbcfm.com/api/v1/image/107166237-1671042380233-gettyimages-1440700615-2t4a9933.jpeg?v=1671116091&w=1920&h=1080');
+	background-position: center;
+	background-size: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	padding: 0;
+}
