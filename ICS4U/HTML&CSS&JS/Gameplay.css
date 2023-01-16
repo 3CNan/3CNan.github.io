@@ -45,6 +45,7 @@
 	transform: translate(0, -50%);
 	font-size: 130%;
 	opacity: 0;
+	box-shadow: 0 0 5px grey;
 }
 .box_opaq p, .box_opaq ol li{
 	line-height: 35px;
