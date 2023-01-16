@@ -6,16 +6,11 @@ body{
   background-size: 100%;
   margin: 0;
 }
-.card_me{
+.card_me, .card_ai{
   width:50px;
   height:75px;
   background-size:cover;
-  display:inline-block;
-}
-.card_ai{
-  width:50px;
-  height:75px;
-  background-size:cover;
+  background-position: center;
   display:inline-block;
 }
 #area_me{

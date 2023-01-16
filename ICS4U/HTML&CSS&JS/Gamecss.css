@@ -2,9 +2,10 @@
 #cbody{
 	background-image: url("https://www.urdesignmag.com/wp-content/uploads/2020/09/12-reasons-why-you-should-have-ponds-in-your-home-1.jpg");
 	background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: 100%;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: 100%;
+	font-family: cursive;
 }
 #ctitle{
 	font-size: 50px; text-align: center; color: #729fd8;
@@ -18,6 +19,10 @@
 }
 #bt1,#bt2{
 	font-size: 40px;
+	font-family: cursive;
+}
+#bt2{
+	display: none;
 }
 #cdiv1{
 	background-image: src="https://media.wired.com/photos/5fbe703e534553a88817f988/16:9/w_2400,h_1350,c_limit/Sec_poker_914262206.jpg";
@@ -78,6 +83,7 @@
 	font-style: italic;
 	color: whitesmoke;
 	text-shadow: 2px 3px 4px saddlebrown;
+	font-size: 100px;
 }
 #cbody2{
 	background-color: #171310;
@@ -86,16 +92,22 @@
 	background-attachment: fixed ;
 	margin: 0;
 	background: linear-gradient(#171310,#111b24);
+	font-family: cursive;
 }
 .cp{
 	color: white;
 	font-size: 30px;
 	text-shadow: 2px 2px 3px #4aa8bd;
-	text-align: center;
-	margin: 0px;
-	padding: 20px;
+	text-align: justify;
+	margin: 0 auto;
+	padding: 20px 100px;
 	line-height: 50px;
 	background-color: rgba(0, 0, 0, .5);
+	width: 70%;
+}
+#cend .cp{
+	padding: 200px 100px;
+	text-align: center;
 }
 #cimg{
 	text-align: center; margin-bottom: 20px; border-radius: 20px;
