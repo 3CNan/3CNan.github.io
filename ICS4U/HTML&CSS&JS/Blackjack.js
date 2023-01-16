@@ -1,3 +1,4 @@
+// Nancy
 var cards, player_num, deck_num = 1;
 var players = [];
 var win = [];

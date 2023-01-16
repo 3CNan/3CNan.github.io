@@ -1,4 +1,4 @@
-/*Crane js*/
+// Crane
 var poker = ['Aa', 'Ab', 'Ac', 'Ad',
              'Ka', 'Kb', 'Kc', 'Kd',
              'Qa', 'Qb', 'Qc', 'Qd',
@@ -165,4 +165,3 @@ function cview(){
         }}, 200);
     }, 200);
 }
-/*Crane JS ends here*/
