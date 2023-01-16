@@ -4,7 +4,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
-	background-size: 100%;
+	background-size: 100% 100%;
 	font-family: cursive;
 }
 #ctitle{
@@ -23,9 +23,6 @@
 }
 #bt2{
 	display: none;
-}
-#cdiv1{
-	background-image: src="https://media.wired.com/photos/5fbe703e534553a88817f988/16:9/w_2400,h_1350,c_limit/Sec_poker_914262206.jpg";
 }
 #cchand,#cphand{
   height: 300px;
