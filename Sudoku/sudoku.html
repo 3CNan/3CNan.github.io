@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<title>Nancy's Sudoku</title>
+		<link rel="stylesheet" type="text/css" href="sudoku.css">
+		<script type="text/javascript" src="sudoku.js" defer></script>
+	</head>
+	<body>
+		<div id="box"><center>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			<div>
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+				<input type="number" min="1" max="9" class="grid">
+			</div>
+			</center></div>
+		<br>
+		<div id="opt">
+			<select id="dif">
+				<option value="0">simple</option>
+				<option value="1">middle</option>
+				<option value="2">hard</option>
+			</select>
+			<button onclick="game_start()" id="btn_start">Start</button>
+			<button onclick="check()" id="btn_submit">Submit</button>
+			<div id="notice">
+				<p id="txt_sucs">You get all the numbers right!</p>
+				<p id="txt_fail">Might need more progress...</p>
+			</div>
+		</div>
+	</body>
+</html>

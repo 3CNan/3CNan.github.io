@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+}
+#box {
+	padding: 10px;
+}
+#box div {
+	display:flex;
+	width: 700px;
+}
+input {
+	aspect-ratio: 1 / 1;
+	width: calc(100%/9);
+	margin: 0;
+	border: none;
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+	text-align: center;
+}
+
+#opt {
+	text-align: center;
+}
+#btn_submit, #btn_start {
+/* 	margin: 10px; */
+}
+#btn_submit {
+	display: none;
+}
+#txt_sucs {
+	background: rgb(200,255,200);
+	padding: 20px;
+	display:none;
+}
+#txt_fail {
+	background: rgb(255,140,115);
+	padding: 20px;
+/* 	color: white; */
+	display:none;
+}
