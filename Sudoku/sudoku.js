@@ -3,13 +3,15 @@ var board = new Array(9);
 for (var i = 0; i < 9; i++){
 	board[i] = new Array(9).fill(0);
 }
+let sub_board = structuredClone(board);
 var btn_start = document.getElementById("btn_start");
 var btn_submit = document.getElementById("btn_submit");
 var txt_sucs = document.getElementById("txt_sucs");
 var txt_fail = document.getElementById("txt_fail");
 var boxObj = document.getElementById("box");
 var noteObj = document.getElementById("notebox");
-let sub_board = structuredClone(board);
+var trials = 0;
+
 
 window.onload = function(){
 	for (var i = 0; i < 81; i++) {
@@ -141,6 +143,7 @@ function game_start() {
 	btn_submit.style.display = "inline-block";
 	txt_sucs.style.display = "none";
 	txt_fail.style.display = "none";
+	trials = 0;
 	create_sudoku();
 	let ques = structuredClone(board);
 	create_hole(ques);
@@ -157,8 +160,11 @@ function game_start() {
 }
 
 function check() {
-	btn_submit.style.display = "none";
-	btn_start.style.display = "inline-block";
+	trials++;
+	if (trials == 3) {
+		btn_submit.style.display = "none";
+		btn_start.style.display = "inline-block";
+	}
 	for (var i = 0; i < 81; i++) {
 		sub_board[parseInt(i/9)][i%9] = Math.floor(gridObjs[i].value);
 		if (Math.floor(gridObjs[i].value) <= 0 || Math.floor(gridObjs[i].value) > 9) {
