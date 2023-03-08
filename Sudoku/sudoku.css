@@ -1,8 +1,18 @@
 * {
 	margin: 0;
 }
+#board {
+	display: flex;
+}
 #box {
+	width: 60%;
 	padding: 10px;
+}
+#notebox {
+	width: 30%;
+	height: 680px;
+	margin: 10px;
+/* 	resize: none; */
 }
 #box div {
 	display:flex;

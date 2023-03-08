@@ -5,107 +5,110 @@
 		<script type="text/javascript" src="sudoku.js" defer></script>
 	</head>
 	<body>
-		<div id="box"><center>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			<div>
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-				<input type="number" min="1" max="9" class="grid">
-			</div>
-			</center></div>
+		<div id="board">
+			<div id="box"><center>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(0)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(1)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(2)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(3)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(4)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(5)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(6)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(7)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(8)" onmouseout="clean_light()">
+				</div>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(9)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(10)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(11)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(12)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(13)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(14)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(15)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(16)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(17)" onmouseout="clean_light()">
+				</div>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(18)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(19)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(20)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(21)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(22)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(23)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(24)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(25)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(26)" onmouseout="clean_light()">
+				</div>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(27)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(28)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(29)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(30)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(31)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(32)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(33)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(34)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(35)" onmouseout="clean_light()">
+				</div>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(36)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(37)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(38)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(39)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(40)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(41)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(42)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(43)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(44)" onmouseout="clean_light()">
+				</div>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(45)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(46)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(47)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(48)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(49)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(50)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(51)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(52)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(53)" onmouseout="clean_light()">
+				</div>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(54)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(55)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(56)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(57)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(58)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(59)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(60)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(61)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(62)" onmouseout="clean_light()">
+				</div>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(63)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(64)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(65)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(66)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(67)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(68)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(69)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(70)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(71)" onmouseout="clean_light()">
+				</div>
+				<div>
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(72)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(73)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(74)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(75)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(76)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(77)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(78)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(79)" onmouseout="clean_light()">
+					<input type="number" min="1" max="9" class="grid" onmouseover="highlight(80)" onmouseout="clean_light()">
+				</div>
+				</center></div>
+			<textarea id="notebox"></textarea>
+		</div>
 		<br>
 		<div id="opt">
 			<select id="dif">

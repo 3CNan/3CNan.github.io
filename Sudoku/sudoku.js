@@ -7,6 +7,8 @@ var btn_start = document.getElementById("btn_start");
 var btn_submit = document.getElementById("btn_submit");
 var txt_sucs = document.getElementById("txt_sucs");
 var txt_fail = document.getElementById("txt_fail");
+var boxObj = document.getElementById("box");
+var noteObj = document.getElementById("notebox");
 let sub_board = structuredClone(board);
 
 window.onload = function(){
@@ -27,10 +29,42 @@ window.onload = function(){
 			gridObjs[i].style.borderRight = "2px solid black";
 		}
 		gridObjs[i].style.fontSize = gridObjs[0].offsetWidth - 30 + "px";
+		noteObj.style.height = gridObjs[0].offsetHeight*9 + "px";
+		noteObj.style.fontSize = noteObj.offsetHeight/27 + "px";
 	}
 }
 
 
+// boxObj.addEventListener("mouseover", function() {
+// 	for (var i = 0; i < 81; i++) {
+// 		gridObjs[i].style.background = "white";
+// 	}
+// 	for (var i = 0; i < 81; i++) {
+// 		if (gridObjs[i].matches(':hover')) {
+// 			for (var j = 0; j < 9; j++) {
+// 				gridObjs[i%9+j*9].style.background = "yellow";
+// 				gridObjs[parseInt(i/9)*9+j].style.background = "yellow";
+// 				gridObjs[parseInt(i/27)*27+j%3*9+parseInt(j/3)+parseInt(i%9/3)*3].style.background = "yellow";
+// 			}
+// 		}
+// 	}
+// });
+// Why Chrome cannot use element.matches :(
+
+function highlight(i) {
+	clean_light();
+	for (var j = 0; j < 9; j++) {
+		gridObjs[i%9+j*9].style.background = "rgb(255,255,200)";
+		gridObjs[parseInt(i/9)*9+j].style.background = "rgb(255,255,200)";
+		gridObjs[parseInt(i/27)*27+j%3*9+parseInt(j/3)+parseInt(i%9/3)*3].style.background = "rgb(255,255,200)";
+	}
+}
+
+function clean_light() {
+	for (var i = 0; i < 81; i++) {
+		gridObjs[i].style.background = "white";
+	}
+}
 
 function create_sudoku() {
 	var is_able_row;
