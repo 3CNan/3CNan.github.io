@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenGame | (Slogan)</title>
+    <!-- import font -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Poppins-Light';
+            src: url('./src/fonts/Poppins-Light.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-Medium';
+            src: url('./src/fonts/Poppins-Medium.ttf') format('truetype');
+        }
+    </style>
+    <!--  -->
+    <!-- global selector -->
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins-Medium', serif;
+        }
+        header {
+            display: block;
+        }
+        a, body, div, footer, header, html, li, nav, ol, ul {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        ol, ul {
+            list-style: none;
+        }
+    </style>
+    <!--  -->
+    <!-- class selector -->
+    <style type="text/css">
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            transition: background-color 0.5s ease;
+            width: 100%;
+            background: white;
+        }
+        .header .navbar.tablet {
+            display: flex;
+            height: 64px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header .logo {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            margin: 0 32px;
+            background: white;
+            font-size: 170%; /* temp func, deleted after replaced by img */
+        }
+        .header.header--open .navbar.mobile .navigation {
+            max-height: 635px;
+            transform: translateY(0);
+            transition: transform .5s ease-in-out;
+        }
+        .navbar.tablet {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+        .link_list {
+            display: flex;
+            gap: 32px;
+        }
+        .link {
+            cursor: pointer;
+        }
+        .navbar.mobile {
+            display: none;
+        }
+        .navbar.mobile .navigation {
+            display: flex;
+            flex-direction: column;
+            transform: translateY(-150%);
+            transition: transform .5s ease-in-out;
+            background: white;
+            padding: 25px 0;
+        }
+        .navbar.mobile .link {
+            padding: 10px 42px;
+        }
+    </style>
+    <!--  -->
+    <!-- media selector -->
+    <style type="text/css">
+        @media (max-width: 1279px) {
+            .navbar.tablet {
+                max-width: 928px;
+            }
+        }
+        @media (max-width: 1023px) {
+            .navbar.mobile .logo .icon {
+                display: flex;
+                align-items: center;
+            }
+            .header .navbar.tablet {
+                display: none;
+            }
+            .header .navbar.mobile {
+                display: block;
+            }
+        }
+    </style>
+    <!--  -->
+</head>
+<body style="background: lightskyblue;">
+    <!-- header START -->
+    <header class="header">
+        <div class="navbar tablet">
+            <div class="logo">
+                <a href="/" aria-current="page">
+                    <div>OpenGame</div>
+                    <!-- <img src="" class="opengame-logo"> -->
+                </a>
+            </div>
+            <nav class="navigation">
+                <ul class="link_list">
+                    <li><a class="link" href="/">Home</a></li>
+                    <li><a class="link" href="">Games</a></li>
+                    <li><a class="link" href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="navbar mobile" style="height: 64px;">
+            <div class="logo">
+                <a href="/" aria-current="page">
+                    <div>OpenGame</div>
+                    <!-- <img src="" class="opengame-logo"> -->
+                </a>
+                <div class="icon" onclick="toggle_icon()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>
+                </div>
+            </div>
+            <nav class="navigation">
+                <a class="link" href="/">Home</a>
+                <a class="link" href="">Games</a>
+                <a class="link" href="">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <!-- header END -->
+</body>
+<!-- header related -->
+<script type="text/javascript">
+    var icon_obj = document.getElementsByClassName("icon")[0];
+    function toggle_icon() {
+        var header_obj = document.getElementsByClassName("header")[0];
+        if (header_obj.classList.contains("header--open")) {
+            header_obj.classList.remove("header--open");
+            icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>';
+        } else {
+            header_obj.classList.add("header--open");
+            icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="cross" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>';
+        }
+    }
+</script>
+<!--  -->
+<!-- window.onload -->
+<script type="text/javascript">
+    // window.onload = toggle_icon();
+</script>
+<!--  -->
+</html>
