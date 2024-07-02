@@ -14,13 +14,17 @@
             font-family: 'Poppins-Medium';
             src: url('./src/fonts/Poppins-Medium.ttf') format('truetype');
         }
+        @font-face {
+            font-family: 'DolceVitaLight';
+            src: url('./src/fonts/Dolce Vita Light.ttf') format('truetype');
+        }
+        
     </style>
     <!--  -->
     <!-- global selector -->
     <style type="text/css">
         * {
             box-sizing: border-box;
-            font-family: 'Poppins-Medium', serif;
         }
         header {
             display: block;
@@ -51,7 +55,7 @@
             z-index: 20;
             transition: background-color 0.5s ease;
             width: 100%;
-            background: white;
+            font-family: 'Poppins-Light', serif;
         }
         .header .navbar.tablet {
             display: flex;
@@ -64,11 +68,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
+            position: sticky;
+            top: 0;
             z-index: 1;
             margin: 0 32px;
-            background: white;
-            font-size: 170%; /* temp func, deleted after replaced by img */
+            font-size: 150%; /* temp func, will be deleted after replaced by img */
+            font-weight: 800; /* temp func, will be deleted after replaced by img */
+            font-family: "DolceVitaLight"; /* temp func, will be deleted after replaced by img */
         }
         .header.header--open .navbar.mobile .navigation {
             max-height: 635px;
@@ -100,6 +106,9 @@
         .navbar.mobile .link {
             padding: 10px 42px;
         }
+        .header--scrolled {
+            background: white;
+        }
     </style>
     <!--  -->
     <!-- media selector -->
@@ -110,6 +119,14 @@
             }
         }
         @media (max-width: 1023px) {
+            .navbar.tablet {
+                max-width: 767px;
+            }
+        }
+        @media (max-width: 767px) {
+            .header.header--open {
+                background: white;
+            }
             .navbar.mobile .logo .icon {
                 display: flex;
                 align-items: center;
@@ -123,10 +140,34 @@
         }
     </style>
     <!--  -->
+    <!-- header related -->
+    <script type="text/javascript">
+        function toggle_icon() {
+            var icon_obj = document.getElementsByClassName("icon")[0];
+            var header_obj = document.getElementsByClassName("header")[0];
+            if (header_obj.classList.contains("header--open")) {
+                header_obj.classList.remove("header--open");
+                icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>';
+            } else {
+                header_obj.classList.add("header--open");
+                icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="cross" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>';
+            }
+        }
+        function toggle_header_bg() {
+            var header_obj = document.getElementsByClassName("header")[0];
+            var main_body_obj  = document.getElementsByClassName("main_body")[0];
+            if (main_body_obj.getBoundingClientRect().top == 0) {
+                header_obj.classList.remove("header--scrolled");
+            } else {
+                header_obj.classList.add("header--scrolled");
+            }
+        }
+    </script>
+    <!--  -->
 </head>
-<body style="background: lightskyblue;">
+<body style="background: lightskyblue;" onscroll="toggle_header_bg()">
     <!-- header START -->
-    <header class="header">
+    <header class="header" onscroll="">
         <div class="navbar tablet">
             <div class="logo">
                 <a href="/" aria-current="page">
@@ -161,25 +202,15 @@
         </div>
     </header>
     <!-- header END -->
+    <!--  -->
+    <!--  -->
+    <!-- main body START -->
+    <main style="height: 1200px" class="main_body">
+        <section class="Slogan"></section>
+        <section class="Games"></section>
+        <section class="AboutUs"></section>
+        <section class="Contact"></section>
+    </main>
 </body>
-<!-- header related -->
-<script type="text/javascript">
-    var icon_obj = document.getElementsByClassName("icon")[0];
-    function toggle_icon() {
-        var header_obj = document.getElementsByClassName("header")[0];
-        if (header_obj.classList.contains("header--open")) {
-            header_obj.classList.remove("header--open");
-            icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>';
-        } else {
-            header_obj.classList.add("header--open");
-            icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="cross" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>';
-        }
-    }
-</script>
-<!--  -->
-<!-- window.onload -->
-<script type="text/javascript">
-    // window.onload = toggle_icon();
-</script>
-<!--  -->
+
 </html>
