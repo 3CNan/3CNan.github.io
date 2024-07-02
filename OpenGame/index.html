@@ -20,7 +20,7 @@
         }
         
     </style>
-    <!--  -->
+    <!---->
     <!-- global selector -->
     <style type="text/css">
         * {
@@ -29,7 +29,7 @@
         header {
             display: block;
         }
-        a, body, div, footer, header, html, li, nav, ol, ul {
+        a, body, div, footer, h1, h2, h3, header, html, li, nav, ol, ul {
             margin: 0;
             padding: 0;
             border: 0;
@@ -45,8 +45,8 @@
             list-style: none;
         }
     </style>
-    <!--  -->
-    <!-- class selector -->
+    <!---->
+    <!-- header selector -->
     <style type="text/css">
         .header {
             position: fixed;
@@ -110,8 +110,16 @@
             background: white;
         }
     </style>
-    <!--  -->
-    <!-- media selector -->
+    <!---->
+    <!-- main-body selector -->
+    <style type="text/css">
+        .slogan {
+            background: linear-gradient(to top, white, white, rgb(240, 245, 255));
+            min-height: 704px;
+        }
+    </style>
+    <!---->
+    <!-- @media selector -->
     <style type="text/css">
         @media (max-width: 1279px) {
             .navbar.tablet {
@@ -139,7 +147,7 @@
             }
         }
     </style>
-    <!--  -->
+    <!---->
     <!-- header related -->
     <script type="text/javascript">
         function toggle_icon() {
@@ -155,7 +163,7 @@
         }
         function toggle_header_bg() {
             var header_obj = document.getElementsByClassName("header")[0];
-            var main_body_obj  = document.getElementsByClassName("main_body")[0];
+            var main_body_obj  = document.getElementsByClassName("main-body")[0];
             if (main_body_obj.getBoundingClientRect().top == 0) {
                 header_obj.classList.remove("header--scrolled");
             } else {
@@ -163,7 +171,7 @@
             }
         }
     </script>
-    <!--  -->
+    <!---->
 </head>
 <body style="background: lightskyblue;" onscroll="toggle_header_bg()">
     <!-- header START -->
@@ -202,14 +210,16 @@
         </div>
     </header>
     <!-- header END -->
-    <!--  -->
-    <!--  -->
+    <!---->
+    <!---->
     <!-- main body START -->
-    <main style="height: 1200px" class="main_body">
-        <section class="Slogan"></section>
-        <section class="Games"></section>
-        <section class="AboutUs"></section>
-        <section class="Contact"></section>
+    <main style="height: 1200px" class="main-body">
+        <section class="slogan">
+            <h1 class="title">Slogan</h1>
+        </section>
+        <section class="games"></section>
+        <section class="about-us"></section>
+        <section class="contact"></section>
     </main>
 </body>
 
