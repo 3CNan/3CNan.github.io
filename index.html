@@ -34,6 +34,9 @@
             box-sizing: border-box;
             font-size: 4vw;
 			text-align: center;
+			font-size: 1.5vw;
+            margin: 5vw 2vw;
+            width: calc(20% - 4vw);
         }
         .box_content {
 			height: 80%;
@@ -41,6 +44,8 @@
 			background-color: white;
 			box-shadow: 0px 0px 10px gray;
             border-radius: 5px;
+            box-sizing: border-box;
+            padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -50,6 +55,22 @@
         }
         .content {
         	margin: auto 0;
+        }
+        #main_body {
+    		height: calc((16vw * 1.2 + 10vw) * (16 / 5));
+    	}
+
+
+
+        @media (max-width: 767px) {
+        	.box {
+        		font-size: 4vw;
+	            margin: 5vw 5vw;
+	            width: calc(50% - 10vw);
+        	}
+        	#main_body {
+        		height: calc((40vw * 1.2 + 10vw) * (16 / 2));
+        	}
         }
 	</style>
 </head>
@@ -186,24 +207,4 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript">
-    var is_phone = (document.body.scrollWidth < 769);
-
-    var box_objs = document.getElementsByClassName("box");
-    // var main_title_shade_objs = document.getElementsByClassName("main_title_shade");
-    var main_body = document.getElementById("main_body");
-    main_body.style.height = (is_phone) ? ("calc((40vw * 1.2 + 10vw) * " + Math.floor(box_objs.length / 2) + ")") : ("calc((16vw * 1.2 + 10vw) * " + Math.floor(box_objs.length / 5) + ")");
-
-    for (var i = 0; i < box_objs.length; i++) {
-        if (is_phone) {
-            box_objs[i].style.fontSize = "4vw";
-            box_objs[i].style.margin = "5vw 5vw";
-            box_objs[i].style.width = "calc(50% - 10vw)";
-        } else {
-            box_objs[i].style.fontSize = "1.5vw";
-            box_objs[i].style.margin = "5vw 2vw";
-            box_objs[i].style.width = "calc(20% - 4vw)";
-        }
-    }
-</script>
 </html>
