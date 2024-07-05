@@ -4,6 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OpenGame | (Slogan)</title>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
     <!-- import font -->
     <style type="text/css">
         @font-face {
@@ -20,6 +32,17 @@
         }
         
     </style>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
     <!---->
     <!-- global selector -->
     <style type="text/css">
@@ -50,6 +73,17 @@
         }
     </style>
     <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
     <!-- class selector -->
     <style type="text/css">
         /* global START */
@@ -76,6 +110,10 @@
         }
         /*.header.header--open .navbar-mobile .navigation, */
         /* global END */
+        /**/
+        /**/
+        /**/
+        /**/
         /**/
         /**/
         /**/
@@ -113,7 +151,6 @@
             font-family: "DolceVitaLight"; /* temp func, will be deleted after replaced by img */
         }
         .header.header--open .navbar-mobile .navigation {
-/*            max-height: 635px;*/
             transform: translateY(0);
             transition-delay: 0.5s;
         }
@@ -142,6 +179,10 @@
             background: white;
         }
         /* header END */
+        /**/
+        /**/
+        /**/
+        /**/
         /**/
         /**/
         /**/
@@ -201,12 +242,16 @@
         /**/
         /**/
         /**/
+        /**/
+        /**/
+        /**/
+        /**/
         /* text-image START */
         .title-2, .title-3 {
             text-transform: uppercase;
             font-weight: 900;
             line-height: 150%;
-
+            text-align: center;
         }
         .title-2 {
             color: blue;
@@ -226,8 +271,19 @@
             background: white;
             text-align: center;
         }
+        .text-image-col .text {
+            display: flex;
+            padding: 5% 0;
+        }
+        .text-image-col .title-2, .text-image-col .rich-text {
+            width: 100%;
+        }
 
         /* text-image END */
+        /**/
+        /**/
+        /**/
+        /**/
         /**/
         /**/
         /**/
@@ -263,7 +319,7 @@
             width: 50%;
             text-align: center;
             padding: 10px;
-            color: #9fc4ff;
+            color: #6aa0ff;
             background: #f4f9ff;
             border-bottom: 2px solid #d2e5ff;
             font-weight: 900;
@@ -272,7 +328,7 @@
         .games-filter-btn--selected {
             color: #05f;
             border-bottom: 2px solid #05f;
-/*            background: rgb(252, 252, 252);*/
+            background: #e9f3ff;
         }
         .games-filter--selected .game-pod {
             display: block;
@@ -283,7 +339,7 @@
         .wrapper.featured, .wrapper.all {
             display: flex;
             flex-wrap: wrap;
-            gap: 80px;
+            gap: 50px;
             align-items: center;
             justify-content: center;
         }
@@ -346,7 +402,19 @@
         /**/
         /**/
         /**/
+        /* about us */
     </style>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
     <!---->
     <!-- @media selector -->
     <style type="text/css">
@@ -404,10 +472,20 @@
         }
     </style>
     <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
     <!-- header related -->
     <script type="text/javascript">
-        function toggle_icon() {
-            // toggle icon from burger to cross and add header--open class to the drop-down nav menu
+        function toggle_icon() {    // toggle icon from burger to cross and add header--open class to the drop-down nav menu
             var icon_obj = document.getElementsByClassName("icon")[0];
             var header_obj = document.getElementsByClassName("header")[0];
 
@@ -419,8 +497,7 @@
                 icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="cross" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>';
             }
         }
-        function toggle_header_bg() {
-            // toggle the background color of navbar
+        function toggle_header_bg() {    // toggle the background color of navbar
             var header_obj = document.getElementsByClassName("header")[0];
             var main_body_obj  = document.getElementsByClassName("main-body")[0];
 
@@ -430,9 +507,7 @@
                 header_obj.classList.add("header--scrolled");
             }
         }
-        function toggle_poster_video(obj, status) {
-            // play video when enter, pause when out
-            // add game-pod--hover class to game-pod object to toggle poster and video visibility
+        function toggle_poster_video(obj, status) {    // play video when enter, pause when out; add game-pod--hover class to game-pod object to toggle poster and video visibility
             if (status == "mouseenter") {
                 obj.classList.add("game-pod--hover");
                 obj.getElementsByClassName('video')[0].play();
@@ -441,8 +516,7 @@
                 obj.getElementsByClassName('video')[0].pause();
             }
         }
-        function toggle_game_filter(btn_obj, wrapper_name) {
-            // click btn to show corresponding wrapper object
+        function toggle_game_filter(btn_obj, wrapper_name) {    // click btn to show corresponding wrapper object
             var games_filter_btn_objs = document.getElementsByClassName("games-filter-btn");
             var games_wrapper_objs = document.getElementsByClassName("games-table")[0].getElementsByClassName("wrapper");
             var wrapper_obj = document.getElementsByClassName(wrapper_name)[0];
@@ -464,8 +538,7 @@
 
             soft_scroll("games"); // since wrapper have different length, scroll to games section top for better UX
         }
-        function soft_scroll(obj_class_name) {
-            // scroll the page to specific element based on fixed nav bar
+        function soft_scroll(obj_class_name) {    // scroll the page to specific element based on fixed nav bar
             var target_height = document.getElementsByClassName(obj_class_name)[0].offsetTop;  // get target pos
             window.scrollTo({
                 top: target_height - 64,
@@ -526,6 +599,17 @@
     <!---->
     <!---->
     <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
     <!-- main body START -->
     <main style="height: 1200px" class="main-body">
         <section class="slogan" id="slogan">
@@ -568,15 +652,10 @@
                     <h3 class="title-3">Our games really pay!</h3>
                     <p class="rich-text">To make your spare time worthy, try earn money through our games!</p>
                 </div>
-            <!-- </div> -->
-            <!-- <div class="placeholder default-block"></div> -->
-
                 <div class="games-filter">
                     <div class="link games-filter-btn games-filter-btn--selected" onclick="toggle_game_filter(this, 'featured')">Featured Games</div>
                     <div class="link games-filter-btn" onclick="toggle_game_filter(this, 'all')">All Games</div>
                 </div>
-
-            <!-- <div class="default-block"> -->
                 <div class="games-table">    
                     <div class="wrapper featured games-filter--selected">
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
@@ -599,17 +678,17 @@
                         </div>
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
-                                <img class="poster" src="./src/img/poster/ST-poster.png">
+                                <img class="poster" src="./src/img/poster/FPM-poster.png">
                                 <video class="video" muted="muted" loop="loop">
-                                    <source src="./src/video/ST.mp4" type="video/mp4">
+                                    <source src="./src/video/FPM.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" width="50" height="50" src='./src/img/logo/ST-logo.png'>
-                                <p>Solitaire Tycoon-Win Cash App</p>
+                                <img class="icon" width="50" height="50" src="./src/img/logo/FPM-logo.webp">
+                                <p>Faune Puzzle Match</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/solitaire-tycoon-win-cash-app/id6503892707" class="link app-store-btn">
+                                <a href="https://apps.apple.com/us/app/faune-puzzle-match/id6443747447" class="link app-store-btn">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
                                     <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
                                 </a>
@@ -655,6 +734,96 @@
                         </div>
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
+                                <img class="poster" src="./src/img/poster/BPB-poster.webp">
+                                <video class="video" muted="muted" loop="loop">
+                                    <source src="./src/video/BPB.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="game-info">
+                                <img class="icon" width="50" height="50" src="./src/img/logo/BPB-logo.webp">
+                                <p>Block Puzzle Battle-Win Cash</p>
+                            </div>
+                            <div class="game-link">
+                                <a href="https://apps.apple.com/us/app/block-puzzle-battle-win-cash/id6471829355" class="link app-store-btn">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                            <div class="game-background">
+                                <img class="poster" src="./src/img/poster/FPM-poster.png">
+                                <video class="video" muted="muted" loop="loop">
+                                    <source src="./src/video/FPM.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="game-info">
+                                <img class="icon" width="50" height="50" src="./src/img/logo/FPM-logo.webp">
+                                <p>Faune Puzzle Match</p>
+                            </div>
+                            <div class="game-link">
+                                <a href="https://apps.apple.com/us/app/faune-puzzle-match/id6443747447" class="link app-store-btn">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                            <div class="game-background">
+                                <img class="poster" src="./src/img/poster/GSP-poster.png">
+                                <video class="video" muted="muted" loop="loop">
+                                    <source src="./src/video/GSP.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="game-info">
+                                <img class="icon" src="./src/img/logo/GSP-logo.png" width="50" height="50">
+                                <p>Gem Sort Puzzle - Get Color</p>
+                            </div>
+                            <div class="game-link">
+                                <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                            <div class="game-background">
+                                <img class="poster" src="./src/img/poster/OC-poster.png">
+                                <video class="video" muted="muted" loop="loop">
+                                    <source src="./src/video/OC.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="game-info">
+                                <img class="icon" width="50" height="50" src="./src/img/logo/OC-logo.png">
+                                <p>Ocean Crush-Matching Games</p>
+                            </div>
+                            <div class="game-link">
+                                <a href="https://play.google.com/store/apps/details?id=com.ocean.crush.master.game&hl=en" class="link app-store-btn">
+                                    <img src="./src/img/google-play.svg" width="25" height="25">
+                                    <p>Get it On<br><b>Google Play</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                            <div class="game-background">
+                                <img class="poster" src="./src/img/poster/SCG-poster.png">
+                                <video class="video" muted="muted" loop="loop">
+                                    <source src="./src/video/SCG.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="game-info">
+                                <img class="icon" width="50" height="50" src="./src/img/logo/SCG-logo.webp">
+                                <p>Solitaire Clash Go - Card Game</p>
+                            </div>
+                            <div class="game-link">
+                                <a href="https://apps.apple.com/us/app/solitaire-clash-go-card-game/id6483055163" class="link app-store-btn">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                            <div class="game-background">
                                 <img class="poster" src="./src/img/poster/ST-poster.png">
                                 <video class="video" muted="muted" loop="loop">
                                     <source src="./src/video/ST.mp4" type="video/mp4">
@@ -689,68 +858,6 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
-                            <div class="game-background">
-                                <img class="poster" src="./src/img/AFM-poster.webp">
-                                <video class="video" muted="muted" loop="loop">
-                                    <source src="./src/video/AFM-sample-2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="game-info">
-                                <img class="icon" src="./src/img/AFM-logo.webp" width="50" height="50">
-                                <p>Amaze Farm Mowing - Maze Games</p>
-                            </div>
-                            <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/amaze-farm-mowing-maze-games/id6502537941" class="link app-store-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
-                            <div class="game-background">
-                                <img class="poster" src="">
-                                <video class="video" muted="muted" loop="loop">
-                                    <source src="./src/video/AFM-sample-2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="game-info">
-                                <img class="icon" width="50" height="50">
-                                <p></p>
-                            </div>
-                            <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
-                                </a>
-                                <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn">
-                                    <img src="./src/img/google-play.svg" width="25" height="25">
-                                    <p>Get it On<br><b>Google Play</b></p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
-                            <div class="game-background">
-                                <img class="poster" src="">
-                                <video class="video" muted="muted" loop="loop">
-                                    <source src="./src/video/AFM-sample-2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="game-info">
-                                <img class="icon" width="50" height="50">
-                                <p></p>
-                            </div>
-                            <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
-                                </a>
-                                <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn">
-                                    <img src="./src/img/google-play.svg" width="25" height="25">
-                                    <p>Get it On<br><b>Google Play</b></p>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -780,8 +887,42 @@
         <!---->
         <!---->
         <!---->
-        <section class="text-image-col about-us default-block" id="about-us"></section>
-        <section class="text-image-row contact default-block" id="contact"></section>
+        <section class="text-image-col about-us">
+            <div class="default-block">
+                <h2 class="title-2">About Us</h2>
+                <div class="text">
+                    <h3 class="title-3">We are here to enrich your life</h3>
+                    <p class="rich-text">I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. </p>
+                </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div class="placeholder-2 default-block"></div>
+        <div class="placeholder-2 default-block"></div>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <section class="text-image-row contact default-block"></section>
     </main>
     <!-- main body END -->
     <!---->
