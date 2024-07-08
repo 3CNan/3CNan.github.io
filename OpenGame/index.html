@@ -53,7 +53,7 @@
         header {
             display: block;
         }
-        a, body, div, footer, h1, h2, h3, h4, header, html, img, li, nav, ol, p, ul, video {
+        a, b, body, div, footer, h1, h2, h3, h4, header, html, img, li, nav, ol, p, ul, video {
             margin: 0;
             padding: 0;
             border: 0;
@@ -99,17 +99,56 @@
             height: 200px;
             background: white;
         }
-        .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video {
+        .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video, .job-content, .job-page, .job-pod.job-pod--selected .job-title {
             display: none;
         }
-        .slogan .title, .title-2, .title-3, .game-link b {
+        .slogan .title, .title-2, .title-3, .title-4, .game-link b {
             font-family: 'Poppins-Medium', serif;
         }
-        .navbar-mobile .navigation {
-            transition: transform .5s ease-in-out;
+        
+        .about-us .rich-text, .contact .rich-text {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: left;
         }
         /*.header.header--open .navbar-mobile .navigation, */
         /* global END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* text-image START */
+        .title-2, .title-3 {
+            text-transform: uppercase;
+            font-weight: 900;
+            line-height: 150%;
+            text-align: center;
+        }
+        .title-2 {
+            color: blue;
+        }
+        .title-3 {
+            font-size: 170%;
+            padding: 10px 0;
+        }
+        .title-4 {
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        .text-image-row {
+            background: white;
+            text-align: center;
+        }
+        /* text-image END */
         /**/
         /**/
         /**/
@@ -171,6 +210,7 @@
             background: white;
             padding: 25px 0;
             transform: translateY(-150%);
+            transition: transform .5s ease-in-out;
         }
         .navbar-mobile .link {
             padding: 10px 42px;
@@ -198,7 +238,8 @@
         .bg-image {
             width: 100%;
             min-height: 800px;
-            background-image: url("./src/img/Untitled-design-1_副本.png");
+/*            background-image: url("./src/img/Untitled-design-1_副本.png");*/
+            background: whitesmoke;
             background-size: cover;
             background-position: center;
 
@@ -221,7 +262,7 @@
         }
         .slogan .subtitle {
             width: 66.66667%;
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin: 0 auto;
             text-align: center;
         }
@@ -234,52 +275,6 @@
             margin: 0 auto;
         }
         /* slogan END */
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /* text-image START */
-        .title-2, .title-3 {
-            text-transform: uppercase;
-            font-weight: 900;
-            line-height: 150%;
-            text-align: center;
-        }
-        .title-2 {
-            color: blue;
-        }
-        .title-3 {
-            font-size: 170%;
-            padding: 10px 0;
-        }
-        .text-image-col {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 136px;
-            background: white;
-        }
-        .text-image-row {
-            background: white;
-            text-align: center;
-        }
-        .text-image-col .text {
-            display: flex;
-            padding: 5% 0;
-        }
-        .text-image-col .title-2, .text-image-col .rich-text {
-            width: 100%;
-        }
-
-        /* text-image END */
         /**/
         /**/
         /**/
@@ -402,7 +397,71 @@
         /**/
         /**/
         /**/
-        /* about us */
+        /* about us START */
+        
+        .about-us-box {
+            width: 49%;
+            padding: 2%;
+            margin: 0.5%;
+            border-radius: 20px;
+        }
+        .about-us-box:nth-child(1) {
+            background: lightpink;
+        }
+        .about-us-box:nth-child(2) {
+            background: cyan;
+        }
+        .about-us-box:nth-child(3) {
+            background: lightgreen;
+        }
+        .about-us-box:nth-child(4) {
+            background: lightgoldenrodyellow;
+        }
+        /* about us END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* contact START */
+        .contact li {
+            list-style: circle;
+            list-style-position: inside;
+        }
+        .job-pod {
+            width: 33.3333%;
+            aspect-ratio: 1/1;
+            border: 1px solid lightskyblue;
+        }
+        /*.job-pod .job-page--selected {
+            display: block;
+        }*/
+        .job-pod--selected .job-content, .job-page--selected {
+            display: block;
+        }
+        .job-page-btn {
+            text-align: right;
+        }
+        /* contact END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
     </style>
     <!---->
     <!---->
@@ -431,7 +490,7 @@
                 align-items: flex-start;
             }
             .slogan .content .subtitle {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
                 line-height: 3.2rem;
             }
             .slogan .title {
@@ -468,6 +527,10 @@
             .game-pod {
                 width: 86%;
                 margin: 4% 7%;
+            }
+            .about-us-box {
+                margin: 1%;
+                width: 98%;
             }
         }
     </style>
@@ -545,6 +608,20 @@
                 behavior: "smooth"
             });
         }
+        function toggle_job_content(obj, status) {
+            if (status == "enter") {
+                obj.classList.add("job-pod--selected");
+            } else {
+                obj.classList.remove("job-pod--selected");
+            }
+        }
+        function toggle_resp_req(obj) {
+            if (obj.innerHTML.slice(8, 20).indexOf("Resp") != -1) {  // if text includes "responsibilities"
+                obj.innerHTML = "See Job Requirements >>>";
+            } else {                                                 // if text includes "requirements"
+                obj.innerHTML = "See Job Responsibilities >>>"
+            }
+        }
     </script>
     <!---->
 </head>
@@ -615,15 +692,15 @@
         <section class="slogan" id="slogan">
             <div class="bg-image">
                 <div class="default-block content">
-                    <h1 class="title">Slogan</h1>
-                    <p class="subtitle">Subtitle</p>
+                    <h1 class="title">Happy game, happy life.</h1>
+                    <p class="subtitle">To create the world's No.1 integrated entertainment and revenue game platform</p>
                 </div>
             </div>
         </section>
         <!---->
         <!---->
         <!---->
-        <!---->
+        <!----> 
         <!---->
         <!---->
         <!---->
@@ -650,7 +727,7 @@
                 <div class="text">
                     <h2 class="title-2">Games</h2>
                     <h3 class="title-3">Our games really pay!</h3>
-                    <p class="rich-text">To make your spare time worthy, try earn money through our games!</p>
+                    <p class="rich-text">Empower gamers to transform from participants to owners</p>
                 </div>
                 <div class="games-filter">
                     <div class="link games-filter-btn games-filter-btn--selected" onclick="toggle_game_filter(this, 'featured')">Featured Games</div>
@@ -887,12 +964,87 @@
         <!---->
         <!---->
         <!---->
-        <section class="text-image-col about-us">
+        <section class="text-image-row about-us">
             <div class="default-block">
-                <h2 class="title-2">About Us</h2>
                 <div class="text">
+                    <h2 class="title-2">About Us</h2>
                     <h3 class="title-3">We are here to enrich your life</h3>
-                    <p class="rich-text">I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. I'm company description. </p>
+                    <div class="rich-text">
+                        <div class="about-us-box">
+                            <h4 class="title-4">Intro</h4>
+                            OPENGAME is an innovative technology company focused on the gaming industry, dedicated to the development and global distribution of mobile games.  The company has launched several globally renowned games, such as "Merge Watermelon," "Save the Princess," and "Ocean Crush," which have collectively garnered over 100 million downloads worldwide.
+                        </div>
+                        <div class="about-us-box">
+                            <h4 class="title-4">Management</h4>
+                            OPENGAME adopts a flat management structure, emphasizes transparent communication, and offers competitive compensation and benefits, including comprehensive insurance, performance bonuses, project bonuses, and equity incentives. 
+                        </div>
+                        <div class="about-us-box">
+                            <h4 class="title-4">Partnership</h4>
+                            As an international gaming company, OPENGAME has established high-quality partnerships with platforms such as Google, Apple, Facebook, and TikTok. The company's team is composed of elite professionals from top internet companies like Baidu, Alibaba, and Tencent, bringing extensive experience in mobile game development and operations.
+                        </div>
+                        <div class="about-us-box">
+                            <h4 class="title-4">Future</h4>
+                            The company encourages continuous learning and growth among its employees, regularly organizes team-building activities, and provides a wealth of lifestyle benefits. With its continuous growth in performance, OPENGAME will further strengthen its technological innovation and platform operations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div class="placeholder-2 default-block"></div>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <section class="text-image-row contact">
+            <div class="default-block">
+                <h2 class="title-2">Contact Us</h2>
+                <div class="rich-text">
+                    <div class="job-pod" onmouseenter="toggle_job_content(this, 'enter')" onmouseleave="toggle_job_content(this, 'leave')">
+                        <div class="job-title">Game Designer</div>
+                        <div class="job-content">
+                            <div class="job-page job-responsibility job-page--selected">
+                                <h4 class="title-4">Job Responsibilities: </h4>
+                                <ul>
+                                    <li>Responsible for planning the numerical values and level strategies for the company's overseas casual games.</li>
+                                    <li>Follow through on product requirements, design style formulation, project advancement in development and testing, user growth, and full-process data analysis.</li>
+                                    <li>Maintain communication with various departments, coordinate resources, and ensure project progress.</li>
+                                    <li>Responsible for product data analysis, tracking user feedback, and improving product retention and user conversion rates.</li>
+                                    <li>Monitor industry developments in casual games, competitive product performance, and further optimize and enhance the gaming experience to increase user engagement and playtime.</li>
+                                </ul>
+                            </div>
+                            <div class="job-page job-requirement">
+                                <h4 class="title-4">Job Requirements: </h4>
+                                <ul>
+                                    <li>Bachelor's degree or higher from an accredited university, with a score of 425 or above in CET-4 (College English Test Band 4).</li>
+                                    <li>Proficient in using software related to product requirements, flowcharts, and mind maps, and capable of independently writing highly readable product requirement documents.</li>
+                                    <li>Skilled in using funnel models and user segmentation for data analysis.</li>
+                                    <li>Passionate about games, with a broad interest and research in various game forms, and an understanding of the commercial logic of internet products.</li>
+                                    <li>Strong logical thinking, excellent communication and expression skills, ability to handle stress, and strong self-motivation.</li>
+                                </ul>
+                            </div>
+                            <div class="job-page-btn link" onclick="toggle_resp_req(this)">See Job Requirements >>></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -922,7 +1074,6 @@
         <!---->
         <!---->
         <!---->
-        <section class="text-image-row contact default-block"></section>
     </main>
     <!-- main body END -->
     <!---->
