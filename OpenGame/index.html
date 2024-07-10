@@ -244,7 +244,8 @@
             --blue025-to-white-gradient: linear-gradient(180deg,#f4f9ff,#fff);
         }
         .default-block {
-            max-width: 1024px;
+/*            max-width: 1024px;*/
+            max-width: 928px;
             margin: 0 auto;
         }
         .main-body .default-block {
@@ -412,6 +413,7 @@
             width: 100%;
             text-align: center;
             color: #10131b;
+            color: var(--grey-900);
             margin: 0 auto;
         }
         .slogan .title {
@@ -448,7 +450,7 @@
         /**/
         /* games START */
         .game-pod {
-            width: 27%;
+            width: calc(33.333333% - 33.333333px);
             border-radius: 20px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* temp */
             overflow: hidden;
@@ -464,7 +466,9 @@
             text-align: center;
             padding: 10px;
             color: #05f;
+            color: var(--blue-500);
             background: #f4f9ff;
+            background: var(--blue-025);
             font-weight: 900;
             max-width: 300px;
             border-radius: 50px;
@@ -474,14 +478,16 @@
             padding-top: 20px;
             padding-bottom: 35px;
         }
-        .wrapper.featured, .wrapper.all {
-            flex-wrap: wrap;
+        .games-table .wrapper {
             gap: 50px;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
         }
         .wrapper.featured {
             display: flex;
+        }
+        .wrapper.other {
+            justify-content: center;
         }
         .games-table--open .wrapper.all {
             margin-top: 50px;
@@ -489,7 +495,7 @@
         }
         .game-background {
             width: 100%;
-            aspect-ratio: 1/1.2;
+            aspect-ratio: 1/1;
             overflow: hidden;
         }
         .game-background img {
@@ -498,7 +504,7 @@
         .game-background video {
             width: 100%;
             position: relative;
-            transform: translateY(-15%);
+/*            transform: translateY(-25%);*/
         }
         .game-info {
             text-align: left;
@@ -510,6 +516,8 @@
             margin-left: 10px;
         }
         .icon {
+            width: 50px;
+            height: 50px;
             border-radius: 7px;
         }
         .game-link {
@@ -536,9 +544,11 @@
             line-height: 100%;
         }
         .app-store-btn:hover {
-            border: 1px solid transparent;
+/*            border: 1px solid transparent;*/
             color: white;
             background: linear-gradient(to right, rgb(50, 200, 255), var(--blue-400), var(--blue-400));
+            padding: calc(.5rem + 1px);
+    border: none;
         }
         .app-store-btn:hover img {
             position: relative;
@@ -580,7 +590,7 @@
         /**/
         /* about us START */
         .about-us {
-            /* background: #e9f3ff; */
+            background: #e9f3ff;
             background: var(--blue-050);
         }
         .about-us-box {
@@ -668,11 +678,11 @@
     <!---->
     <!-- @media selector -->
     <style type="text/css">
-        @media (max-width: 1279px) {
+/*        @media (max-width: 1279px) {
             .default-block {
-                max-width: 928px;
+                
             }
-        }
+        }*/
         @media (max-width: 1023px) {
             .default-block {
                 margin: 0 40px;
@@ -694,13 +704,24 @@
             .game-pod {
                 width: 46%;
             }
+            .game-info {
+                padding: 15px;
+                font-size: 105%;
+            }
+            .icon {
+                width: 70px;
+                height: 70px;
+            }
         }
         @media (max-width: 767px) {
             .default-block {
                 margin: 0 24px;
             }
-            .goto-btn {
+            .app-store-btn.goto-btn {
                 display: inline-flex;
+            }
+            .app-store-btn.qr-code-btn {
+                display: none;
             }
             .text-image {
                 flex-direction: column;
@@ -744,8 +765,9 @@
     <script type="text/javascript">
         function soft_scroll(obj_class_name) {    // scroll the page to specific element based on fixed nav bar
             var target_height = document.getElementsByClassName(obj_class_name)[0].offsetTop;  // get target pos
+            var adjust_height = (obj_class_name == "slogan") ? 0 : (- 64 + 80);
             window.scrollTo({
-                top: target_height - 64 + 80,  // 64: nav bar, 80: padding-top df-block
+                top: target_height + adjust_height,  // 64: nav bar, 80: padding-top df-block
                 behavior: "smooth"
             });
         }
@@ -838,9 +860,9 @@
     <header class="header" onscroll="">
         <div class="navbar-laptop default-block" style="height: 64px;">
             <div class="logo">
-                <a href="/" aria-current="page">
-                    <div>OpenGame</div>
-                    <!-- <img src="" class="opengame-logo"> -->
+                <a onclick="soft_scroll('slogan')" aria-current="page">
+                    <!-- <div>OpenGame</div> -->
+                    <img src="./src/img/OPENGAME-logo.svg" class="opengame-logo" height="20">
                 </a>
             </div>
             <nav class="navigation">
@@ -855,9 +877,8 @@
 
         <div class="navbar-mobile default-block" style="height: 64px;">
             <div class="logo">
-                <a href="/" aria-current="page">
-                    <div>OpenGame</div>
-                    <!-- <img src="" class="opengame-logo"> -->
+                <a onclick="soft_scroll('slogan')" aria-current="page">
+                    <img src="./src/img/OPENGAME-logo.svg" class="opengame-logo" height="20">
                 </a>
                 <div class="icon" onclick="toggle_icon()">
                     <svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>
@@ -934,21 +955,21 @@
             <div class="default-block">
                 <div class="text">
                     <h2 class="title-2">Games</h2>
-                    <h3 class="title-3">Empower gamers to transform from participants to owners</h3>
+                    <h3 class="title-3">Main Game Types</h3>
                     <!-- <h3 class="title-3">Our games really pay!</h3> -->
-                    <!-- <p class="rich-text">Empower gamers to transform from participants to owners</p> -->
+                    <p class="rich-text">Empower gamers to transform from participants to owners</p>
                 </div>
                 <div class="games-table">    
                     <div class="wrapper featured">
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
-                                <img class="poster" src="./src/img/poster/AFM-poster.webp">
+                                <img class="poster" src="./src/img/poster/AFM-poster.png">
                                 <video class="video" muted="muted" loop="loop">
                                     <source src="./src/video/AFM.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" src="./src/img/logo/AFM-logo.webp" width="50" height="50">
+                                <img class="icon" src="./src/img/logo/AFM-logo.webp">
                                 <p>Amaze Farm Mowing</p>
                             </div>
                             <div class="game-link">
@@ -964,13 +985,13 @@
                         </div>
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
-                                <img class="poster" src="./src/img/poster/BPB-poster.webp">
+                                <img class="poster" src="./src/img/poster/BPB-poster.png">
                                 <video class="video" muted="muted" loop="loop">
                                     <source src="./src/video/BPB.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" width="50" height="50" src="./src/img/logo/BPB-logo.webp">
+                                <img class="icon" src="./src/img/logo/BPB-logo.webp">
                                 <p>Block Puzzle Battle</p>
                             </div>
                             <div class="game-link">
@@ -992,7 +1013,7 @@
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" width="50" height="50" src="./src/img/logo/FPM-logo.webp">
+                                <img class="icon" src="./src/img/logo/FPM-logo.webp">
                                 <p>Faune Puzzle Match</p>
                             </div>
                             <div class="game-link">
@@ -1010,13 +1031,13 @@
                     <div class="wrapper all">
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
-                                <img class="poster" src="./src/img/poster/GSP-poster.png">
+                                <img class="poster" src="./src/img/poster/GSP-poster.jpg">
                                 <video class="video" muted="muted" loop="loop">
                                     <source src="./src/video/GSP.mp4" type="video/mp4">
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" src="./src/img/logo/GSP-logo.png" width="50" height="50">
+                                <img class="icon" src="./src/img/logo/GSP-logo.png">
                                 <p>Gem Sort Puzzle</p>
                             </div>
                             <div class="game-link">
@@ -1038,7 +1059,7 @@
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" width="50" height="50" src="./src/img/logo/OC-logo.png">
+                                <img class="icon" src="./src/img/logo/OC-logo.png">
                                 <p>Ocean Crush</p>
                             </div>
                             <div class="game-link">
@@ -1060,7 +1081,7 @@
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" width="50" height="50" src="./src/img/logo/SCG-logo.webp">
+                                <img class="icon" src="./src/img/logo/SCG-logo.webp">
                                 <p>Solitaire Clash Go</p>
                             </div>
                             <div class="game-link">
@@ -1074,6 +1095,8 @@
                                 </a>
                             </div>
                         </div>
+                    </div>
+                    <div class="wrapper all other">
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/ST-poster.png">
@@ -1082,7 +1105,7 @@
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" width="50" height="50" src='./src/img/logo/ST-logo.png'>
+                                <img class="icon" src='./src/img/logo/ST-logo.png'>
                                 <p>Solitaire Tycoon</p>
                             </div>
                             <div class="game-link">
@@ -1104,7 +1127,7 @@
                                 </video>
                             </div>
                             <div class="game-info">
-                                <img class="icon" width="50" height="50" src="./src/img/logo/TM3-logo.webp">
+                                <img class="icon" src="./src/img/logo/TM3-logo.webp">
                                 <p>Tile Match 3 Crush</p>
                             </div>
                             <div class="game-link">
