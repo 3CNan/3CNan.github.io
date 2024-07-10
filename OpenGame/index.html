@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OpenGame | (Slogan)</title>
+    <title>OpenGame | Happy Game Happy Life</title>
     <!---->
     <!---->
     <!---->
@@ -44,7 +44,7 @@
     <!---->
     <!---->
     <!---->
-    <!-- global selector -->
+    <!-- tag selector -->
     <style type="text/css">
         * {
             box-sizing: border-box;
@@ -71,6 +71,7 @@
         ol, ul {
             list-style: none;
         }
+        
     </style>
     <!---->
     <!---->
@@ -87,9 +88,167 @@
     <!-- class selector -->
     <style type="text/css">
         /* global START */
+        :root {
+            --grey-000: #fff;
+            --grey-000-rgb: 255,255,255;
+            --grey-025: #f6f7f9;
+            --grey-025-rgb: 246,247,249;
+            --grey-050: #eceef2;
+            --grey-050-rgb: 236,238,242;
+            --grey-100: #dbdee5;
+            --grey-100-rgb: 219,222,229;
+            --grey-200: #b9bfcc;
+            --grey-200-rgb: 185,191,204;
+            --grey-300: #9aa1b1;
+            --grey-300-rgb: 154,161,177;
+            --grey-400: #7d8598;
+            --grey-400-rgb: 125,133,152;
+            --grey-500: #636b7f;
+            --grey-500-rgb: 99,107,127;
+            --grey-600: #4a5366;
+            --grey-600-rgb: 74,83,102;
+            --grey-700: #353c4c;
+            --grey-700-rgb: 53,60,76;
+            --grey-800: #212734;
+            --grey-800-rgb: 33,39,52;
+            --grey-900: #10131b;
+            --grey-900-rgb: 16,19,27;
+            --grey-1000: #000;
+            --grey-1000-rgb: 0,0,0;
+            --blue-025: #f4f9ff;
+            --blue-025-rgb: 244,249,255;
+            --blue-050: #e9f3ff;
+            --blue-050-rgb: 233,243,255;
+            --blue-100: #d2e5ff;
+            --blue-100-rgb: 210,229,255;
+            --blue-200: #9fc4ff;
+            --blue-200-rgb: 159,196,255;
+            --blue-300: #6aa0ff;
+            --blue-300-rgb: 106,160,255;
+            --blue-400: #347bff;
+            --blue-400-rgb: 52,123,255;
+            --blue-500: #05f;
+            --blue-500-rgb: 0,85,255;
+            --blue-600: #004be0;
+            --blue-600-rgb: 0,75,224;
+            --blue-700: #003ebb;
+            --blue-700-rgb: 0,62,187;
+            --blue-800: #003091;
+            --blue-800-rgb: 0,48,145;
+            --blue-900: #002163;
+            --blue-900-rgb: 0,33,99;
+            --blue-1000: #013;
+            --blue-1000-rgb: 0,17,51;
+            --yellow-025: #fffbe6;
+            --yellow-025-rgb: 255,251,230;
+            --yellow-050: #fff6cd;
+            --yellow-050-rgb: 255,246,205;
+            --yellow-100: #ffed9a;
+            --yellow-100-rgb: 255,237,154;
+            --yellow-200: #ffe05e;
+            --yellow-200-rgb: 255,224,94;
+            --yellow-300: #ffd643;
+            --yellow-300-rgb: 255,214,67;
+            --yellow-400: #ffcd37;
+            --yellow-400-rgb: 255,205,55;
+            --yellow-500: #ffc231;
+            --yellow-500-rgb: 255,194,49;
+            --yellow-600: #feb52e;
+            --yellow-600-rgb: 254,181,46;
+            --yellow-700: #fda52d;
+            --yellow-700-rgb: 253,165,45;
+            --yellow-800: #fb922c;
+            --yellow-800-rgb: 251,146,44;
+            --yellow-900: #f67e2b;
+            --yellow-900-rgb: 246,126,43;
+            --yellow-1000: #ed6b2a;
+            --yellow-1000-rgb: 237,107,42;
+            --red-025: #fff8f4;
+            --red-025-rgb: 255,248,244;
+            --red-050: #fff0e9;
+            --red-050-rgb: 255,240,233;
+            --red-100: #ffe0d3;
+            --red-100-rgb: 255,224,211;
+            --red-200: #ffbba3;
+            --red-200-rgb: 255,187,163;
+            --red-300: #ff9874;
+            --red-300-rgb: 255,152,116;
+            --red-400: #ff7445;
+            --red-400-rgb: 255,116,69;
+            --red-500: #ff5117;
+            --red-500-rgb: 255,81,23;
+            --red-600: #eb3b00;
+            --red-600-rgb: 235,59,0;
+            --red-700: #d63600;
+            --red-700-rgb: 214,54,0;
+            --red-800: #c23000;
+            --red-800-rgb: 194,48,0;
+            --red-900: #ad2b00;
+            --red-900-rgb: 173,43,0;
+            --red-1000: #992600;
+            --red-1000-rgb: 153,38,0;
+            --green-025: #f0fefc;
+            --green-025-rgb: 240,254,252;
+            --green-050: #e0fdf8;
+            --green-050-rgb: 224,253,248;
+            --green-100: #c2faf1;
+            --green-100-rgb: 194,250,241;
+            --green-200: #8ef4e3;
+            --green-200-rgb: 142,244,227;
+            --green-300: #5bead2;
+            --green-300-rgb: 91,234,210;
+            --green-400: #2bddc0;
+            --green-400-rgb: 43,221,192;
+            --green-500: #0ca;
+            --green-500-rgb: 0,204,170;
+            --green-600: #00b799;
+            --green-600-rgb: 0,183,153;
+            --green-700: #009d83;
+            --green-700-rgb: 0,157,131;
+            --green-800: #007d68;
+            --green-800-rgb: 0,125,104;
+            --green-900: #00584a;
+            --green-900-rgb: 0,88,74;
+            --green-1000: #00332b;
+            --green-1000-rgb: 0,51,43;
+            --pink-025: #fff6fe;
+            --pink-025-rgb: 255,246,254;
+            --pink-050: #ffecfc;
+            --pink-050-rgb: 255,236,252;
+            --pink-100: #ffd8f9;
+            --pink-100-rgb: 255,216,249;
+            --pink-200: #ffafec;
+            --pink-200-rgb: 255,175,236;
+            --pink-300: #fc87df;
+            --pink-300-rgb: 252,135,223;
+            --pink-400: #f961d3;
+            --pink-400-rgb: 249,97,211;
+            --pink-500: #f53bc7;
+            --pink-500-rgb: 245,59,199;
+            --pink-600: #e01eb0;
+            --pink-600-rgb: 224,30,176;
+            --pink-700: #cb059a;
+            --pink-700-rgb: 203,5,154;
+            --pink-800: #b60089;
+            --pink-800-rgb: 182,0,137;
+            --pink-900: #a10079;
+            --pink-900-rgb: 161,0,121;
+            --pink-1000: #8c0069;
+            --pink-1000-rgb: 140,0,105;
+            --blue-opacity: rgba(0,85,255,0.15);
+            --yellow-opacity: rgba(254,181,46,0.15);
+            --red-opacity: rgba(255,81,23,0.15);
+            --green-opacity: rgba(0,204,170,0.15);
+            --pink-opacity: rgba(245,59,199,0.15);
+            --grey-opacity: rgba(0,17,51,0.05);
+            --blue025-to-white-gradient: linear-gradient(180deg,#f4f9ff,#fff);
+        }
         .default-block {
             max-width: 1024px;
             margin: 0 auto;
+        }
+        .main-body .default-block {
+            padding: 100px 0;
         }
         .placeholder-1 {
             height: 100px;
@@ -99,19 +258,13 @@
             height: 200px;
             background: white;
         }
-        .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video, .job-content, .job-page, .job-pod.job-pod--selected .job-title {
+        .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video, .job-content, .job-page, .job-pod.job-pod--selected .job-title, .wrapper.all, .qr-window, .app-store-btn.goto-btn {
             display: none;
         }
-        .slogan .title, .title-2, .title-3, .title-4, .game-link b {
+        .slogan .title, .title-2, .title-3, .title-4, .game-link b, .button {
             font-family: 'Poppins-Medium', serif;
         }
         
-        .about-us .rich-text, .contact .rich-text {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            text-align: left;
-        }
         /*.header.header--open .navbar-mobile .navigation, */
         /* global END */
         /**/
@@ -143,10 +296,15 @@
         .title-4 {
             text-transform: uppercase;
             font-weight: 900;
+            font-size: 120%;
+            margin-bottom: 10px;
         }
         .text-image-row {
             background: white;
             text-align: center;
+        }
+        .rich-text {
+            color: var(--grey-400);
         }
         /* text-image END */
         /**/
@@ -199,7 +357,8 @@
         }
         .link_list {
             display: flex;
-            gap: 32px;
+            gap: 40px;
+            margin-right: 10px;
         }
         .link {
             cursor: pointer;
@@ -291,52 +450,42 @@
         .game-pod {
             width: 27%;
             border-radius: 20px;
-            box-shadow: 0 0 10px gray; /* temp */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* temp */
             overflow: hidden;
-            transition: 0.3s ease-in-out;
-            display: none;
+            transition: .3s ease-in-out;
         }
         .game-pod:hover {
-            transform: scale(1.05);
+            transform: scale(1.025);
         }
         .game-pod.game-pod--hover .video {
             display: block;
         }
-        .games-filter {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-            width: 100%;
-            position: relative;
-        }
         .games-filter-btn {
-            width: 50%;
             text-align: center;
             padding: 10px;
-            color: #6aa0ff;
-            background: #f4f9ff;
-            border-bottom: 2px solid #d2e5ff;
-            font-weight: 900;
-            font-size: 90%;
-        }
-        .games-filter-btn--selected {
             color: #05f;
-            border-bottom: 2px solid #05f;
-            background: #e9f3ff;
-        }
-        .games-filter--selected .game-pod {
-            display: block;
+            background: #f4f9ff;
+            font-weight: 900;
+            max-width: 300px;
+            border-radius: 50px;
+            margin: 0 auto;
         }
         .games-table {
-            padding: 20px 0;
+            padding-top: 20px;
+            padding-bottom: 35px;
         }
         .wrapper.featured, .wrapper.all {
-            display: flex;
             flex-wrap: wrap;
             gap: 50px;
             align-items: center;
             justify-content: center;
+        }
+        .wrapper.featured {
+            display: flex;
+        }
+        .games-table--open .wrapper.all {
+            margin-top: 50px;
+            display: flex;
         }
         .game-background {
             width: 100%;
@@ -353,25 +502,26 @@
         }
         .game-info {
             text-align: left;
-            padding: 20px;
+            padding: 10px;
             display: flex;
+            align-items: center;
         }
         .game-info p {
             margin-left: 10px;
-            font-size: 90%;
         }
         .icon {
             border-radius: 7px;
         }
         .game-link {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .app-store-btn {
-            margin: 0 1%;
+            width: 90%;
+            margin: 0 auto;
+            padding: .5rem;
             display: inline-flex;
             box-sizing: border-box;
-            padding: 7px;
-            background: #e5e5e5;
+            border: 1px solid black;
             border-radius: 10px;
             justify-content: center;
             align-items: center;
@@ -381,8 +531,39 @@
             font-size: 10px;
             margin-left: 5px;
         }
-        .text {
-            padding: 1% 0;
+        .app-store-btn b {
+            font-size: 15px;
+            line-height: 100%;
+        }
+        .app-store-btn:hover {
+            border: 1px solid transparent;
+            color: white;
+            background: linear-gradient(to right, rgb(50, 200, 255), var(--blue-400), var(--blue-400));
+        }
+        .app-store-btn:hover img {
+            position: relative;
+            transform: translateX(-300px);
+            filter: drop-shadow(white 300px 0);     
+        }
+        .qr-window {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, .2);
+        }
+        .qr-window--open {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .qr-window-content {
+            background: white;
+            padding: 15px;
+/*            display: flex;*/
+/*            flex-direction: column;*/
         }
         /* games END */
         /**/
@@ -398,24 +579,25 @@
         /**/
         /**/
         /* about us START */
-        
+        .about-us {
+            /* background: #e9f3ff; */
+            background: var(--blue-050);
+        }
         .about-us-box {
-            width: 49%;
-            padding: 2%;
-            margin: 0.5%;
+            width: 48%;
+            padding: 20px;
+            box-sizing: border-box;
             border-radius: 20px;
+            background: white;
+            box-shadow: 0 5px 10px rgba(0,0,0,.25);
         }
-        .about-us-box:nth-child(1) {
-            background: lightpink;
-        }
-        .about-us-box:nth-child(2) {
-            background: cyan;
-        }
-        .about-us-box:nth-child(3) {
-            background: lightgreen;
-        }
-        .about-us-box:nth-child(4) {
-            background: lightgoldenrodyellow;
+        .about-us .content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: left;
+            gap: 32px;
+            padding-top: 32px;
         }
         /* about us END */
         /**/
@@ -430,8 +612,8 @@
         /**/
         /**/
         /**/
-        /* contact START */
-        .contact li {
+        /* join-us START */
+        .join-us li {
             list-style: circle;
             list-style-position: inside;
         }
@@ -439,17 +621,26 @@
             width: 33.3333%;
             aspect-ratio: 1/1;
             border: 1px solid lightskyblue;
+/*            overflow: hidden;*/
         }
-        /*.job-pod .job-page--selected {
-            display: block;
-        }*/
         .job-pod--selected .job-content, .job-page--selected {
             display: block;
         }
         .job-page-btn {
             text-align: right;
         }
-        /* contact END */
+        .job-content {
+            aspect-ratio: 1/1;
+            overflow-y: scroll;
+            font-size: 80%;
+        }
+        .join-us .rich-text {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+        /* join-us END */
         /**/
         /**/
         /**/
@@ -484,7 +675,7 @@
         }
         @media (max-width: 1023px) {
             .default-block {
-                max-width: 768px;
+                margin: 0 40px;
             }
             .slogan {
                 align-items: flex-start;
@@ -505,6 +696,12 @@
             }
         }
         @media (max-width: 767px) {
+            .default-block {
+                margin: 0 24px;
+            }
+            .goto-btn {
+                display: inline-flex;
+            }
             .text-image {
                 flex-direction: column;
             }
@@ -520,9 +717,6 @@
             }
             .header .navbar-mobile {
                 display: block;
-            }
-            .default-block {
-                margin: 0 24px;
             }
             .game-pod {
                 width: 86%;
@@ -548,6 +742,13 @@
     <!---->
     <!-- header related -->
     <script type="text/javascript">
+        function soft_scroll(obj_class_name) {    // scroll the page to specific element based on fixed nav bar
+            var target_height = document.getElementsByClassName(obj_class_name)[0].offsetTop;  // get target pos
+            window.scrollTo({
+                top: target_height - 64 + 80,  // 64: nav bar, 80: padding-top df-block
+                behavior: "smooth"
+            });
+        }
         function toggle_icon() {    // toggle icon from burger to cross and add header--open class to the drop-down nav menu
             var icon_obj = document.getElementsByClassName("icon")[0];
             var header_obj = document.getElementsByClassName("header")[0];
@@ -579,34 +780,28 @@
                 obj.getElementsByClassName('video')[0].pause();
             }
         }
-        function toggle_game_filter(btn_obj, wrapper_name) {    // click btn to show corresponding wrapper object
-            var games_filter_btn_objs = document.getElementsByClassName("games-filter-btn");
-            var games_wrapper_objs = document.getElementsByClassName("games-table")[0].getElementsByClassName("wrapper");
-            var wrapper_obj = document.getElementsByClassName(wrapper_name)[0];
-
-            for (var i = 0; i < games_filter_btn_objs.length; i++) {  // list of btn and list of wrapper have same length
-                // toggle btn style by obj param
-                if (btn_obj == games_filter_btn_objs[i]) {  // if btn[i] is the one clicked
-                    games_filter_btn_objs[i].classList.add("games-filter-btn--selected");
-                } else {
-                    games_filter_btn_objs[i].classList.remove("games-filter-btn--selected");
-                }
-                // toggle visibility of wrapper by wrapper obj
-                if (wrapper_obj == games_wrapper_objs[i]) {  // if wrapper[i] corresponds to the btn clicked
-                    games_wrapper_objs[i].classList.add("games-filter--selected");
-                } else {
-                    games_wrapper_objs[i].classList.remove("games-filter--selected");
-                }
+        function toggle_game_filter(btn_obj) {    // click btn to show/close wrapper object
+            var games_table_obj = document.getElementsByClassName("games-table")[0];
+            if (btn_obj.innerHTML == "See All Games") {
+                games_table_obj.classList.add("games-table--open");
+                btn_obj.innerHTML = "Hide All Games";
+            } else {
+                games_table_obj.classList.remove("games-table--open");
+                btn_obj.innerHTML = "See All Games";
+                soft_scroll("games");
             }
-
-            soft_scroll("games"); // since wrapper have different length, scroll to games section top for better UX
         }
-        function soft_scroll(obj_class_name) {    // scroll the page to specific element based on fixed nav bar
-            var target_height = document.getElementsByClassName(obj_class_name)[0].offsetTop;  // get target pos
-            window.scrollTo({
-                top: target_height - 64,
-                behavior: "smooth"
-            });
+        function show_qr_window(app_name) {  // alert the qr code window, display the qr code according to app_name
+            var url = "./src/img/qr-code/" + app_name + ".svg";
+            // var url = app_name + ".svg";
+            var qr_img_obj = document.getElementsByClassName("qr-img")[0];
+            qr_img_obj.src = url;
+            var qr_window_obj = document.getElementsByClassName("qr-window")[0];
+            qr_window_obj.classList.add("qr-window--open");
+        }
+        function hide_qr_window() {
+            var qr_window_obj = document.getElementsByClassName("qr-window")[0];
+            qr_window_obj.classList.remove("qr-window--open");
         }
         function toggle_job_content(obj, status) {
             if (status == "enter") {
@@ -616,10 +811,23 @@
             }
         }
         function toggle_resp_req(obj) {
-            if (obj.innerHTML.slice(8, 20).indexOf("Resp") != -1) {  // if text includes "responsibilities"
+            var job_page_objs = document.getElementsByClassName("job-page");
+            // var job_resp_obj = document.getElementsByClassName("job-responsibility")[0];
+            // var job_req_obj = document.getElementsByClassName("job-requirement")[0];
+            var job_page_on;
+            if (obj.innerHTML.slice(8, 20).indexOf("Resp") != -1) {  // if text includes "responsibilities", else text includes "requirements"
                 obj.innerHTML = "See Job Requirements >>>";
-            } else {                                                 // if text includes "requirements"
-                obj.innerHTML = "See Job Responsibilities >>>"
+                job_page_on = "job-responsibility";
+            } else {
+                obj.innerHTML = "See Job Responsibilities >>>";
+                job_page_on = "job-requirement";
+            }
+            for (var i = 0; i < job_page_objs.length; i++) {
+                if (job_page_objs[i].classList.contains(job_page_on)) {
+                    job_page_objs[i].classList.add("job-page--selected");
+                } else {
+                    job_page_objs[i].classList.remove("games-table--open");
+                }
             }
         }
     </script>
@@ -640,7 +848,7 @@
                     <li><a class="link" onclick="soft_scroll('slogan')">Home</a></li>
                     <li><a class="link" onclick="soft_scroll('games')">Games</a></li>
                     <li><a class="link" onclick="soft_scroll('about-us')">About Us</a></li>
-                    <li><a class="link" onclick="soft_scroll('contact')">Contact</a></li>
+                    <li><a class="link" onclick="soft_scroll('join-us')">Join Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -659,7 +867,7 @@
                 <a class="link" onclick="soft_scroll('slogan')">Home</a>
                 <a class="link" onclick="soft_scroll('games')">Games</a>
                 <a class="link" onclick="soft_scroll('about-us')">About Us</a>
-                <a class="link" onclick="soft_scroll('contact')">Contact</a>
+                <a class="link" onclick="soft_scroll('join-us')">Join Us</a>
             </nav>
         </div>
     </header>
@@ -693,7 +901,7 @@
             <div class="bg-image">
                 <div class="default-block content">
                     <h1 class="title">Happy game, happy life.</h1>
-                    <p class="subtitle">To create the world's No.1 integrated entertainment and revenue game platform</p>
+                    <!-- <p class="subtitle">To create the world's No.1 integrated entertainment and revenue game platform</p> -->
                 </div>
             </div>
         </section>
@@ -709,7 +917,7 @@
         <!---->
         <!---->
         <!---->
-        <div class="placeholder-1 default-block"></div>
+        <!-- <div class="placeholder-1 default-block"></div> -->
         <!---->
         <!---->
         <!---->
@@ -726,15 +934,12 @@
             <div class="default-block">
                 <div class="text">
                     <h2 class="title-2">Games</h2>
-                    <h3 class="title-3">Our games really pay!</h3>
-                    <p class="rich-text">Empower gamers to transform from participants to owners</p>
-                </div>
-                <div class="games-filter">
-                    <div class="link games-filter-btn games-filter-btn--selected" onclick="toggle_game_filter(this, 'featured')">Featured Games</div>
-                    <div class="link games-filter-btn" onclick="toggle_game_filter(this, 'all')">All Games</div>
+                    <h3 class="title-3">Empower gamers to transform from participants to owners</h3>
+                    <!-- <h3 class="title-3">Our games really pay!</h3> -->
+                    <!-- <p class="rich-text">Empower gamers to transform from participants to owners</p> -->
                 </div>
                 <div class="games-table">    
-                    <div class="wrapper featured games-filter--selected">
+                    <div class="wrapper featured">
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/AFM-poster.webp">
@@ -744,68 +949,16 @@
                             </div>
                             <div class="game-info">
                                 <img class="icon" src="./src/img/logo/AFM-logo.webp" width="50" height="50">
-                                <p>Amaze Farm Mowing - Maze Games</p>
+                                <p>Amaze Farm Mowing</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/amaze-farm-mowing-maze-games/id6502537941" class="link app-store-btn">
+                                <a href="https://apps.apple.com/us/app/amaze-farm-mowing-maze-games/id6502537941" class="link app-store-btn goto-btn">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                    <p>Download on the<br><b>App Store</b></p>
                                 </a>
-                            </div>
-                        </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
-                            <div class="game-background">
-                                <img class="poster" src="./src/img/poster/FPM-poster.png">
-                                <video class="video" muted="muted" loop="loop">
-                                    <source src="./src/video/FPM.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="game-info">
-                                <img class="icon" width="50" height="50" src="./src/img/logo/FPM-logo.webp">
-                                <p>Faune Puzzle Match</p>
-                            </div>
-                            <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/faune-puzzle-match/id6443747447" class="link app-store-btn">
+                                <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('AFM')">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
-                            <div class="game-background">
-                                <img class="poster" src="./src/img/poster/TM3-poster.png">
-                                <video class="video" muted="muted" loop="loop">
-                                    <source src="./src/video/TM3.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="game-info">
-                                <img class="icon" width="50" height="50" src="./src/img/logo/TM3-logo.webp">
-                                <p>Tile Match 3 Crush</p>
-                            </div>
-                            <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/tile-match-3-crush/id6479349057" class="link app-store-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wrapper all">
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
-                            <div class="game-background">
-                                <img class="poster" src="./src/img/poster/AFM-poster.webp">
-                                <video class="video" muted="muted" loop="loop">
-                                    <source src="./src/video/AFM.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="game-info">
-                                <img class="icon" src="./src/img/logo/AFM-logo.webp" width="50" height="50">
-                                <p>Amaze Farm Mowing - Maze Games</p>
-                            </div>
-                            <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/amaze-farm-mowing-maze-games/id6502537941" class="link app-store-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                    <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
                         </div>
@@ -818,12 +971,16 @@
                             </div>
                             <div class="game-info">
                                 <img class="icon" width="50" height="50" src="./src/img/logo/BPB-logo.webp">
-                                <p>Block Puzzle Battle-Win Cash</p>
+                                <p>Block Puzzle Battle</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/block-puzzle-battle-win-cash/id6471829355" class="link app-store-btn">
+                                <a href="https://apps.apple.com/us/app/block-puzzle-battle-win-cash/id6471829355" class="link app-store-btn goto-btn">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                    <p>Download on the<br><b>App Store</b></p>
+                                </a>
+                                <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('BPB')">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
                         </div>
@@ -839,12 +996,18 @@
                                 <p>Faune Puzzle Match</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/faune-puzzle-match/id6443747447" class="link app-store-btn">
+                                <a href="https://apps.apple.com/us/app/faune-puzzle-match/id6443747447" class="link app-store-btn goto-btn">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                    <p>Download on the<br><b>App Store</b></p>
+                                </a>
+                                <a onclick="show_qr_window('FPM')" class="link app-store-btn qr-code-btn">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
                         </div>
+                    </div>
+                    <div class="wrapper all">
                         <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/GSP-poster.png">
@@ -854,12 +1017,16 @@
                             </div>
                             <div class="game-info">
                                 <img class="icon" src="./src/img/logo/GSP-logo.png" width="50" height="50">
-                                <p>Gem Sort Puzzle - Get Color</p>
+                                <p>Gem Sort Puzzle</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn">
+                                <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn goto-btn">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                    <p>Download on the<br><b>App Store</b></p>
+                                </a>
+                                <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('GSP')">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
                         </div>
@@ -872,12 +1039,16 @@
                             </div>
                             <div class="game-info">
                                 <img class="icon" width="50" height="50" src="./src/img/logo/OC-logo.png">
-                                <p>Ocean Crush-Matching Games</p>
+                                <p>Ocean Crush</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://play.google.com/store/apps/details?id=com.ocean.crush.master.game&hl=en" class="link app-store-btn">
+                                <a href="https://play.google.com/store/apps/details?id=com.ocean.crush.master.game&hl=en" class="link app-store-btn goto-btn">
                                     <img src="./src/img/google-play.svg" width="25" height="25">
-                                    <p>Get it On<br><b>Google Play</b></p>
+                                    <p>GET IT ON<br><b>Google Play</b></p>
+                                </a>
+                                <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('OC')">
+                                    <img src="./src/img/google-play.svg" width="25" height="25">
+                                    <p>GET IT ON<br><b>Google Play</b></p>
                                 </a>
                             </div>
                         </div>
@@ -890,12 +1061,16 @@
                             </div>
                             <div class="game-info">
                                 <img class="icon" width="50" height="50" src="./src/img/logo/SCG-logo.webp">
-                                <p>Solitaire Clash Go - Card Game</p>
+                                <p>Solitaire Clash Go</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/solitaire-clash-go-card-game/id6483055163" class="link app-store-btn">
+                                <a href="https://apps.apple.com/us/app/solitaire-clash-go-card-game/id6483055163" class="link app-store-btn goto-btn">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                    <p>Download on the<br><b>App Store</b></p>
+                                </a>
+                                <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('SCG') ">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
                         </div>
@@ -908,12 +1083,16 @@
                             </div>
                             <div class="game-info">
                                 <img class="icon" width="50" height="50" src='./src/img/logo/ST-logo.png'>
-                                <p>Solitaire Tycoon-Win Cash App</p>
+                                <p>Solitaire Tycoon</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/solitaire-tycoon-win-cash-app/id6503892707" class="link app-store-btn">
+                                <a href="https://apps.apple.com/us/app/solitaire-tycoon-win-cash-app/id6503892707" class="link app-store-btn goto-btn">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                    <p>Download on the<br><b>App Store</b></p>
+                                </a>
+                                <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('ST') ">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
                         </div>
@@ -929,12 +1108,25 @@
                                 <p>Tile Match 3 Crush</p>
                             </div>
                             <div class="game-link">
-                                <a href="https://apps.apple.com/us/app/tile-match-3-crush/id6479349057" class="link app-store-btn">
+                                <a href="https://apps.apple.com/us/app/tile-match-3-crush/id6479349057" class="link app-store-btn goto-btn">
                                     <img src="./src/img/app-store.svg" width="25" height="25">
-                                    <p>Get it On<br><b>App Store&nbsp;&nbsp;</b></p>
+                                    <p>Download on the<br><b>App Store</b></p>
+                                </a>
+                                <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('TM3C') ">
+                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="link games-filter-btn button" onclick="toggle_game_filter(this)">See All Games</div>
+                <div class="qr-window">
+                    <!-- <div class="qr-window-bg"></div> -->
+                    <div class="qr-window-content">
+                        <svg class="base-icon" style="fill: blue; float: right;" onclick="hide_qr_window()" width="40" height="40" viewBox="0 0 24 24" aria-label="cross" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>
+                        <h3 class="title-3" style="display: inline-block; text-transform: capitalize;">Use your phone to scan the QR code</h3>
+                        <img src="" class="qr-img" style="display: block; margin: 0 auto;">
                     </div>
                 </div>
             </div>
@@ -951,7 +1143,6 @@
         <!---->
         <!---->
         <!---->
-        <div class="placeholder-2 default-block"></div>
         <!---->
         <!---->
         <!---->
@@ -968,23 +1159,24 @@
             <div class="default-block">
                 <div class="text">
                     <h2 class="title-2">About Us</h2>
-                    <h3 class="title-3">We are here to enrich your life</h3>
-                    <div class="rich-text">
+                    <h3 class="rich-text">To create the world's No.1 integrated entertainment and revenue game platform</h3>
+                    <!-- <h3 class="title-3">We are here to enrich your life</h3> -->
+                    <div class="content">
                         <div class="about-us-box">
                             <h4 class="title-4">Intro</h4>
-                            OPENGAME is an innovative technology company focused on the gaming industry, dedicated to the development and global distribution of mobile games.  The company has launched several globally renowned games, such as "Merge Watermelon," "Save the Princess," and "Ocean Crush," which have collectively garnered over 100 million downloads worldwide.
+                            OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. Notable titles include "Merge Watermelon," "Save the Princess," and "Ocean Crush," with over 100 million downloads worldwide.
                         </div>
                         <div class="about-us-box">
                             <h4 class="title-4">Management</h4>
-                            OPENGAME adopts a flat management structure, emphasizes transparent communication, and offers competitive compensation and benefits, including comprehensive insurance, performance bonuses, project bonuses, and equity incentives. 
+                            OPENGAME uses a flat management structure, values transparent communication, and offers competitive benefits like comprehensive insurance, performance and project bonuses, and equity incentives. 
                         </div>
                         <div class="about-us-box">
                             <h4 class="title-4">Partnership</h4>
-                            As an international gaming company, OPENGAME has established high-quality partnerships with platforms such as Google, Apple, Facebook, and TikTok. The company's team is composed of elite professionals from top internet companies like Baidu, Alibaba, and Tencent, bringing extensive experience in mobile game development and operations.
+                            As an international gaming firm, OPENGAME partners with Google, Apple, Facebook, and TikTok. The team includes experts from top companies like Baidu, Alibaba, and Tencent, with vast experience in mobile game development and operations.
                         </div>
                         <div class="about-us-box">
                             <h4 class="title-4">Future</h4>
-                            The company encourages continuous learning and growth among its employees, regularly organizes team-building activities, and provides a wealth of lifestyle benefits. With its continuous growth in performance, OPENGAME will further strengthen its technological innovation and platform operations.
+                            The company promotes continuous learning and growth, organizes team-building activities, and offers lifestyle benefits. With ongoing performance growth, OPENGAME aims to enhance technological innovation and platform operations.
                         </div>
                     </div>
                 </div>
@@ -1002,7 +1194,6 @@
         <!---->
         <!---->
         <!---->
-        <div class="placeholder-2 default-block"></div>
         <!---->
         <!---->
         <!---->
@@ -1015,9 +1206,9 @@
         <!---->
         <!---->
         <!---->
-        <section class="text-image-row contact">
+        <!-- <section class="text-image-row join-us">
             <div class="default-block">
-                <h2 class="title-2">Contact Us</h2>
+                <h2 class="title-2">Join Us</h2>
                 <div class="rich-text">
                     <div class="job-pod" onmouseenter="toggle_job_content(this, 'enter')" onmouseleave="toggle_job_content(this, 'leave')">
                         <div class="job-title">Game Designer</div>
@@ -1042,12 +1233,12 @@
                                     <li>Strong logical thinking, excellent communication and expression skills, ability to handle stress, and strong self-motivation.</li>
                                 </ul>
                             </div>
-                            <div class="job-page-btn link" onclick="toggle_resp_req(this)">See Job Requirements >>></div>
+                            <div class="job-page-btn button link" onclick="toggle_resp_req(this)">See Job Requirements >>></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!---->
         <!---->
         <!---->
@@ -1060,8 +1251,6 @@
         <!---->
         <!---->
         <!---->
-        <div class="placeholder-2 default-block"></div>
-        <div class="placeholder-2 default-block"></div>
         <!---->
         <!---->
         <!---->
