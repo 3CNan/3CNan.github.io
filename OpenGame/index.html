@@ -27,10 +27,9 @@
             src: url('./src/fonts/Poppins-Medium.ttf') format('truetype');
         }
         @font-face {
-            font-family: 'DolceVitaLight';
-            src: url('./src/fonts/Dolce Vita Light.ttf') format('truetype');
+            font-family: 'Cuprum-Bold';
+            src: url('./src/fonts/Cuprum-Bold.ttf') format('truetype');
         }
-        
     </style>
     <!---->
     <!---->
@@ -262,7 +261,7 @@
         .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video, .job-content, .job-page, .job-pod.job-pod--selected .job-title, .wrapper.all, .qr-window, .app-store-btn.goto-btn {
             display: none;
         }
-        .slogan .title, .title-2, .title-3, .title-4, .game-link b, .button {
+        .title-2, .title-3, .title-4, .game-link b, .button {
             font-family: 'Poppins-Medium', serif;
         }
         
@@ -397,7 +396,7 @@
         }
         .bg-image {
             width: 100%;
-            min-height: 800px;
+            min-height: 750px;
 /*            background-image: url("./src/img/Untitled-design-1_副本.png");*/
             background: whitesmoke;
             background-size: cover;
@@ -406,7 +405,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
         }
         .slogan .title {
             max-width: 867px;
@@ -415,11 +413,10 @@
             color: #10131b;
             color: var(--grey-900);
             margin: 0 auto;
-        }
-        .slogan .title {
             font-size: 4rem;
-            line-height: 8rem;
-            font-weight: 700;
+            font-weight: 900;
+            font-family: 'Cuprum-Bold';
+            transform: scaleX(1.3);
         }
         .slogan .subtitle {
             width: 66.66667%;
@@ -427,13 +424,19 @@
             margin: 0 auto;
             text-align: center;
         }
-        .slogan .content {
+/*        .slogan .content {
             display: flex;
             flex-direction: column;
             grid-gap: 32px;
             gap: 32px;
             position: relative;
             margin: 0 auto;
+        }*/
+        .slogan .title span {
+            font: inherit;
+        }
+        .slogan .title .cap-1 {
+            font-size: 150%;
         }
         /* slogan END */
         /**/
@@ -917,11 +920,16 @@
     <!---->
     <!---->
     <!-- main body START -->
-    <main style="height: 1200px" class="main-body">
+    <main class="main-body">
         <section class="slogan" id="slogan">
             <div class="bg-image">
-                <div class="default-block content">
-                    <h1 class="title">Happy game, happy life.</h1>
+                <div class="default-block">
+                    <h1 class="title">
+                        <span class="cap-1">H</span>appy 
+                        <span style="color: #ec1918;">Game </span>
+                        <span class="cap-1">H</span>appy 
+                        <span style="color: var(--blue-500);">Life</span>
+                    </h1>
                     <!-- <p class="subtitle">To create the world's No.1 integrated entertainment and revenue game platform</p> -->
                 </div>
             </div>
@@ -1229,7 +1237,7 @@
         <!---->
         <!---->
         <!---->
-        <!-- <section class="text-image-row join-us">
+        <section class="text-image-row join-us">
             <div class="default-block">
                 <h2 class="title-2">Join Us</h2>
                 <div class="rich-text">
@@ -1239,21 +1247,21 @@
                             <div class="job-page job-responsibility job-page--selected">
                                 <h4 class="title-4">Job Responsibilities: </h4>
                                 <ul>
-                                    <li>Responsible for planning the numerical values and level strategies for the company's overseas casual games.</li>
-                                    <li>Follow through on product requirements, design style formulation, project advancement in development and testing, user growth, and full-process data analysis.</li>
-                                    <li>Maintain communication with various departments, coordinate resources, and ensure project progress.</li>
-                                    <li>Responsible for product data analysis, tracking user feedback, and improving product retention and user conversion rates.</li>
-                                    <li>Monitor industry developments in casual games, competitive product performance, and further optimize and enhance the gaming experience to increase user engagement and playtime.</li>
+                                    <li>Plan the numerical and level strategies for the company's overseas casual games.</li>
+                                    <li>Oversee the entire process from product requirements, design style setting, R&D testing, user growth, to data analysis.</li>
+                                    <li>Communicate with various departments, coordinate resources, and ensure project progress.</li>
+                                    <li>Analyze product data, track user feedback, and improve product retention and user conversion rates.</li>
+                                    <li>Stay updated on the casual gaming industry, monitor competitors, and optimize the gaming experience to enhance user engagement and playtime.</li>
                                 </ul>
                             </div>
                             <div class="job-page job-requirement">
                                 <h4 class="title-4">Job Requirements: </h4>
                                 <ul>
-                                    <li>Bachelor's degree or higher from an accredited university, with a score of 425 or above in CET-4 (College English Test Band 4).</li>
-                                    <li>Proficient in using software related to product requirements, flowcharts, and mind maps, and capable of independently writing highly readable product requirement documents.</li>
+                                    <li>Bachelor's degree or higher from a recognized institution, with a passing score in CET-4 (425+).</li>
+                                    <li>Proficient in using software for product requirements, flowcharts, and mind maps; capable of independently writing highly readable product requirement documents.</li>
                                     <li>Skilled in using funnel models and user segmentation for data analysis.</li>
-                                    <li>Passionate about games, with a broad interest and research in various game forms, and an understanding of the commercial logic of internet products.</li>
-                                    <li>Strong logical thinking, excellent communication and expression skills, ability to handle stress, and strong self-motivation.</li>
+                                    <li>Passionate about games, interested in exploring and researching various game types, and understanding the business logic of internet products.</li>
+                                    <li>Strong logical thinking, excellent communication skills, stress resistance, and high self-motivation.</li>
                                 </ul>
                             </div>
                             <div class="job-page-btn button link" onclick="toggle_resp_req(this)">See Job Requirements >>></div>
@@ -1261,7 +1269,7 @@
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <!---->
         <!---->
         <!---->
