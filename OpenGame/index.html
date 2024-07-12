@@ -597,11 +597,12 @@
             display: flex;
             flex-direction: row;
             position: relative;
-            width: calc(928px * 4);
+            width: calc(928px * 5);
         }
         .about-us-pod {
             display: flex;
             padding: 20px;
+            width: 928px;
             min-height: 400px;
             gap: 50px;
             align-items: center;
@@ -611,7 +612,7 @@
             background: white;
         }
         .about-us-pod .image {
-            width: 40%;
+            width: calc(40% - 25px); /* -25px for gap */
             aspect-ratio: 1/1;
             overflow: hidden;
             display: flex;
@@ -623,7 +624,7 @@
             height: auto;
         }
         .about-us-pod .text {
-            width: 60%;
+            width: calc(60% - 25px); /* -25px for gap */
             text-align: left;
             padding-bottom: 10%;
         }
@@ -888,7 +889,11 @@
             var default_block_obj = document.getElementsByClassName("default-block")[3];
             var target_width = default_block_obj.getBoundingClientRect().width;
             var about_us_bar_obj = document.getElementsByClassName("about-us-bar")[0];
-            about_us_bar_obj.style.width = "calc(" + target_width + "px * 4)";
+            about_us_bar_obj.style.width = "calc(" + target_width + "px * 5)";
+            var about_us_pod_objs = document.getElementsByClassName("about-us-pod");
+            for (var i = about_us_pod_objs.length - 1; i >= 0; i--) {
+                about_us_pod_objs[i].style.width = target_width + "px";
+            }
         }
         window.onload = function() {
             set_ab_us_carousel();
@@ -1252,8 +1257,8 @@
                                     <img src="./src/img/about-us-intro.jpg">
                                 </div>
                                 <div class="text">
-                                    <h4 class="title-4">INTRO</h4>
-                                    <div>OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. Notable titles include "Merge Watermelon," "Save the Princess," and "Ocean Crush," with over 100 million downloads worldwide.</div>
+                                    <h4 class="title-4">MANAGEMENT</h4>
+                                    <div>OPENGAME uses a flat management structure, values transparent communication, and offers competitive benefits like comprehensive insurance, performance and project bonuses, and equity incentives.</div>
                                 </div>
                             </div>
                             <div class="about-us-pod">
@@ -1261,8 +1266,17 @@
                                     <img src="./src/img/about-us-intro.jpg">
                                 </div>
                                 <div class="text">
-                                    <h4 class="title-4">INTRO</h4>
-                                    <div>OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. Notable titles include "Merge Watermelon," "Save the Princess," and "Ocean Crush," with over 100 million downloads worldwide.</div>
+                                    <h4 class="title-4">PARTNERSHIP</h4>
+                                    <div>As an international gaming firm, OPENGAME partners with Google, Apple, Facebook, and TikTok. The team includes experts from top companies like Baidu, Alibaba, and Tencent, with vast experience in mobile game development and operations.</div>
+                                </div>
+                            </div>
+                            <div class="about-us-pod">
+                                <div class="image">
+                                    <img src="./src/img/about-us-intro.jpg">
+                                </div>
+                                <div class="text">
+                                    <h4 class="title-4">FUTURE</h4>
+                                    <div>The company promotes continuous learning and growth, organizes team-building activities, and offers lifestyle benefits. With ongoing performance growth, OPENGAME aims to enhance technological innovation and platform operations.</div>
                                 </div>
                             </div>
                             <div class="about-us-pod">
@@ -1287,18 +1301,6 @@
                 </div>
             </div>
         </section>
-        <!-- 
-
-MANAGEMENT
-OPENGAME uses a flat management structure, values transparent communication, and offers competitive benefits like comprehensive insurance, performance and project bonuses, and equity incentives.
-
-
-PARTNERSHIP
-As an international gaming firm, OPENGAME partners with Google, Apple, Facebook, and TikTok. The team includes experts from top companies like Baidu, Alibaba, and Tencent, with vast experience in mobile game development and operations.
-
-
-FUTURE
-The company promotes continuous learning and growth, organizes team-building activities, and offers lifestyle benefits. With ongoing performance growth, OPENGAME aims to enhance technological innovation and platform operations. -->
         <!---->
         <!---->
         <!---->
