@@ -52,7 +52,7 @@
         header {
             display: block;
         }
-        a, b, body, div, footer, h1, h2, h3, h4, header, html, img, li, nav, ol, p, ul, video {
+        a, b, body, button, div, footer, h1, h2, h3, h4, header, html, img, li, nav, ol, p, ul, video {
             margin: 0;
             padding: 0;
             border: 0;
@@ -258,13 +258,18 @@
             height: 200px;
             background: white;
         }
-        .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video, .job-content, .job-page, .job-pod.job-pod--selected .job-title, .wrapper.all, .qr-window, .app-store-btn.goto-btn {
+        .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video, .wrapper.all, .qr-window, .app-store-btn.goto-btn {
             display: none;
         }
-        .title-2, .title-3, .title-4, .game-link b, .button {
+        .title-2, .title-3, .title-4, .title-5, .game-link b, .button {
             font-family: 'Poppins-Medium', serif;
         }
-        
+        .box {
+            box-sizing: border-box;
+            border-radius: 20px;
+            box-shadow: 0 15px 15px rgba(0,0,0,.1);
+            background: white;
+        }
         /*.header.header--open .navbar-mobile .navigation, */
         /* global END */
         /**/
@@ -280,24 +285,28 @@
         /**/
         /**/
         /* text-image START */
-        .title-2, .title-3 {
-            text-transform: uppercase;
+        .title-2, .title-3, .title-4 {
             font-weight: 900;
-            line-height: 150%;
             text-align: center;
         }
         .title-2 {
+            text-transform: uppercase;
+            line-height: 150%;
             color: blue;
         }
         .title-3 {
+            line-height: 150%;
             font-size: 170%;
             padding: 10px 0;
         }
         .title-4 {
             text-transform: uppercase;
-            font-weight: 900;
             font-size: 120%;
             margin-bottom: 10px;
+        }
+        .title-5 {
+            font-size: 100%;
+            font-weight: 900;
         }
         .text-image-row {
             background: white;
@@ -343,9 +352,6 @@
             top: 0;
             z-index: 1;
             margin: 0 32px;
-            font-size: 150%; /* temp func, will be deleted after replaced by img */
-            font-weight: 800; /* temp func, will be deleted after replaced by img */
-            font-family: "DolceVitaLight"; /* temp func, will be deleted after replaced by img */
         }
         .header.header--open .navbar-mobile .navigation {
             transform: translateY(0);
@@ -397,6 +403,7 @@
         .bg-image {
             width: 100%;
             min-height: 750px;
+            height: 100vh;
 /*            background-image: url("./src/img/Untitled-design-1_副本.png");*/
             background: whitesmoke;
             background-size: cover;
@@ -416,22 +423,8 @@
             font-size: 4rem;
             font-weight: 900;
             font-family: 'Cuprum-Bold';
-            transform: scaleX(1.3);
+            transform: scaleY(0.7);
         }
-        .slogan .subtitle {
-            width: 66.66667%;
-            font-size: 1.5rem;
-            margin: 0 auto;
-            text-align: center;
-        }
-/*        .slogan .content {
-            display: flex;
-            flex-direction: column;
-            grid-gap: 32px;
-            gap: 32px;
-            position: relative;
-            margin: 0 auto;
-        }*/
         .slogan .title span {
             font: inherit;
         }
@@ -454,8 +447,6 @@
         /* games START */
         .game-pod {
             width: calc(33.333333% - 33.333333px);
-            border-radius: 20px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* temp */
             overflow: hidden;
             transition: .3s ease-in-out;
         }
@@ -575,8 +566,6 @@
         .qr-window-content {
             background: white;
             padding: 15px;
-/*            display: flex;*/
-/*            flex-direction: column;*/
         }
         /* games END */
         /**/
@@ -596,21 +585,70 @@
             background: #e9f3ff;
             background: var(--blue-050);
         }
-        .about-us-box {
-            width: 48%;
+        .about-us .content {
+            margin-top: 20px;
+            position: relative;
+        }
+        .about-us .wrapper {
+            overflow: hidden;
+            transition: .5s ease-in-out;
+        }
+        .about-us-bar {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            width: calc(928px * 4);
+        }
+        .about-us-pod {
+            display: flex;
             padding: 20px;
+            min-height: 400px;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
             box-sizing: border-box;
             border-radius: 20px;
             background: white;
-            box-shadow: 0 5px 10px rgba(0,0,0,.25);
         }
-        .about-us .content {
+        .about-us-pod .image {
+            width: 40%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            border-radius: 20px;
+        }
+        .about-us-pod .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .about-us-pod .text {
+            width: 60%;
             text-align: left;
+            padding-bottom: 10%;
+        }
+        .about-us .arrows {
+            position: absolute;
+            bottom: 3.5rem;
+            right: 0;
+            width: calc(60%);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 32px;
-            padding-top: 32px;
+        }
+        .arrows .btn {
+            fill: #05f;
+            fill: var(--blue-500);
+            background: var(--blue-050);
+            padding: 10px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
         }
         /* about us END */
         /**/
@@ -626,32 +664,8 @@
         /**/
         /**/
         /* join-us START */
-        .join-us li {
-            list-style: circle;
-            list-style-position: inside;
-        }
         .job-pod {
-            width: 33.3333%;
-            aspect-ratio: 1/1;
-            border: 1px solid lightskyblue;
-/*            overflow: hidden;*/
-        }
-        .job-pod--selected .job-content, .job-page--selected {
-            display: block;
-        }
-        .job-page-btn {
-            text-align: right;
-        }
-        .job-content {
-            aspect-ratio: 1/1;
-            overflow-y: scroll;
-            font-size: 80%;
-        }
-        .join-us .rich-text {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            text-align: left;
+            width: 33%;
         }
         /* join-us END */
         /**/
@@ -687,15 +701,15 @@
             }
         }*/
         @media (max-width: 1023px) {
-            .default-block {
+            .main-body .default-block {
                 margin: 0 40px;
+            }
+            .bg-image {
+                height: 50vh;
+                max-height: 750px;
             }
             .slogan {
                 align-items: flex-start;
-            }
-            .slogan .content .subtitle {
-                font-size: 1.5rem;
-                line-height: 3.2rem;
             }
             .slogan .title {
                 font-size: 2.5rem;
@@ -715,9 +729,12 @@
                 width: 70px;
                 height: 70px;
             }
+            .about-us-pod .image {
+                aspect-ratio: 1/1.4;
+            }
         }
         @media (max-width: 767px) {
-            .default-block {
+            .main-body .default-block {
                 margin: 0 24px;
             }
             .app-store-btn.goto-btn {
@@ -735,6 +752,7 @@
             .navbar-mobile .logo .icon {
                 display: flex;
                 align-items: center;
+                justify-content: right;
             }
             .header .navbar-laptop {
                 display: none;
@@ -746,9 +764,20 @@
                 width: 86%;
                 margin: 4% 7%;
             }
-            .about-us-box {
-                margin: 1%;
-                width: 98%;
+            .slogan .title {
+                width: 66%;
+            }
+            .about-us-pod {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .about-us-pod .text {
+                width: 100%;
+                padding-bottom: 0;
+            }
+            .about-us-pod .image {
+                width: 100%;
+                aspect-ratio: 1.5/1;
             }
         }
     </style>
@@ -855,6 +884,20 @@
                 }
             }
         }
+        function set_ab_us_carousel() {
+            var default_block_obj = document.getElementsByClassName("default-block")[3];
+            var target_width = default_block_obj.getBoundingClientRect().width;
+            var about_us_bar_obj = document.getElementsByClassName("about-us-bar")[0];
+            about_us_bar_obj.style.width = "calc(" + target_width + "px * 4)";
+        }
+        window.onload = function() {
+            set_ab_us_carousel();
+        }
+        window.addEventListener('resize', function() {
+                if (document.body.offsetWidth <= 1023) {
+                    set_ab_us_carousel();
+                }
+            });
     </script>
     <!---->
 </head>
@@ -963,13 +1006,14 @@
             <div class="default-block">
                 <div class="text">
                     <h2 class="title-2">Games</h2>
-                    <h3 class="title-3">Main Game Types</h3>
+                    <!-- <h3 class="title-3">Main Game Types</h3> -->
                     <!-- <h3 class="title-3">Our games really pay!</h3> -->
-                    <p class="rich-text">Empower gamers to transform from participants to owners</p>
+                    <!-- <p class="rich-text">Empower gamers to transform from participants to owners</p> -->
+                    <h3 class="title-3">Empower Gamers to Become Owners</h3>
                 </div>
                 <div class="games-table">    
                     <div class="wrapper featured">
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                        <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/AFM-poster.png">
                                 <video class="video" muted="muted" loop="loop">
@@ -991,7 +1035,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                        <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/BPB-poster.png">
                                 <video class="video" muted="muted" loop="loop">
@@ -1013,7 +1057,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                        <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/FPM-poster.png">
                                 <video class="video" muted="muted" loop="loop">
@@ -1037,7 +1081,7 @@
                         </div>
                     </div>
                     <div class="wrapper all">
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                        <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/GSP-poster.jpg">
                                 <video class="video" muted="muted" loop="loop">
@@ -1059,7 +1103,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                        <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/OC-poster.png">
                                 <video class="video" muted="muted" loop="loop">
@@ -1081,7 +1125,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                        <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/SCG-poster.png">
                                 <video class="video" muted="muted" loop="loop">
@@ -1105,7 +1149,7 @@
                         </div>
                     </div>
                     <div class="wrapper all other">
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                        <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/ST-poster.png">
                                 <video class="video" muted="muted" loop="loop">
@@ -1127,7 +1171,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="game-pod" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                        <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/TM3-poster.png">
                                 <video class="video" muted="muted" loop="loop">
@@ -1188,31 +1232,73 @@
         <!---->
         <section class="text-image-row about-us">
             <div class="default-block">
-                <div class="text">
-                    <h2 class="title-2">About Us</h2>
-                    <h3 class="rich-text">To create the world's No.1 integrated entertainment and revenue game platform</h3>
-                    <!-- <h3 class="title-3">We are here to enrich your life</h3> -->
-                    <div class="content">
-                        <div class="about-us-box">
-                            <h4 class="title-4">Intro</h4>
-                            OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. Notable titles include "Merge Watermelon," "Save the Princess," and "Ocean Crush," with over 100 million downloads worldwide.
+                <h2 class="title-2">About Us</h2>
+                <h3 class="title-3">Our Aim: World's No.1 Game Platform</h3>
+                <p class="rich-text">Leading in Entertainment & Revenue</p>
+                <div class="content">
+                    <div class="wrapper">
+                        <div class="about-us-bar">
+                            <div class="about-us-pod">
+                                <div class="image">
+                                    <img src="./src/img/about-us-intro.jpg">
+                                </div>
+                                <div class="text">
+                                    <h4 class="title-4">INTRO</h4>
+                                    <div>OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. Notable titles include "Merge Watermelon," "Save the Princess," and "Ocean Crush," with over 100 million downloads worldwide.</div>
+                                </div>
+                            </div>
+                            <div class="about-us-pod">
+                                <div class="image">
+                                    <img src="./src/img/about-us-intro.jpg">
+                                </div>
+                                <div class="text">
+                                    <h4 class="title-4">INTRO</h4>
+                                    <div>OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. Notable titles include "Merge Watermelon," "Save the Princess," and "Ocean Crush," with over 100 million downloads worldwide.</div>
+                                </div>
+                            </div>
+                            <div class="about-us-pod">
+                                <div class="image">
+                                    <img src="./src/img/about-us-intro.jpg">
+                                </div>
+                                <div class="text">
+                                    <h4 class="title-4">INTRO</h4>
+                                    <div>OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. Notable titles include "Merge Watermelon," "Save the Princess," and "Ocean Crush," with over 100 million downloads worldwide.</div>
+                                </div>
+                            </div>
+                            <div class="about-us-pod">
+                                <div class="image">
+                                    <img src="./src/img/about-us-intro.jpg">
+                                </div>
+                                <div class="text">
+                                    <h4 class="title-4">INTRO</h4>
+                                    <div>OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. Notable titles include "Merge Watermelon," "Save the Princess," and "Ocean Crush," with over 100 million downloads worldwide.</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="about-us-box">
-                            <h4 class="title-4">Management</h4>
-                            OPENGAME uses a flat management structure, values transparent communication, and offers competitive benefits like comprehensive insurance, performance and project bonuses, and equity incentives. 
-                        </div>
-                        <div class="about-us-box">
-                            <h4 class="title-4">Partnership</h4>
-                            As an international gaming firm, OPENGAME partners with Google, Apple, Facebook, and TikTok. The team includes experts from top companies like Baidu, Alibaba, and Tencent, with vast experience in mobile game development and operations.
-                        </div>
-                        <div class="about-us-box">
-                            <h4 class="title-4">Future</h4>
-                            The company promotes continuous learning and growth, organizes team-building activities, and offers lifestyle benefits. With ongoing performance growth, OPENGAME aims to enhance technological innovation and platform operations.
-                        </div>
+                    </div>
+                    <div class="arrows">
+                        <button class="btn link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                        </button>
+                        <button class="btn link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- 
+
+MANAGEMENT
+OPENGAME uses a flat management structure, values transparent communication, and offers competitive benefits like comprehensive insurance, performance and project bonuses, and equity incentives.
+
+
+PARTNERSHIP
+As an international gaming firm, OPENGAME partners with Google, Apple, Facebook, and TikTok. The team includes experts from top companies like Baidu, Alibaba, and Tencent, with vast experience in mobile game development and operations.
+
+
+FUTURE
+The company promotes continuous learning and growth, organizes team-building activities, and offers lifestyle benefits. With ongoing performance growth, OPENGAME aims to enhance technological innovation and platform operations. -->
         <!---->
         <!---->
         <!---->
@@ -1241,27 +1327,27 @@
             <div class="default-block">
                 <h2 class="title-2">Join Us</h2>
                 <div class="rich-text">
-                    <div class="job-pod" onmouseenter="toggle_job_content(this, 'enter')" onmouseleave="toggle_job_content(this, 'leave')">
-                        <div class="job-title">Game Designer</div>
+                    <div class="job-pod box">
+                        <h4 class="job-title title-4">Game Designer</h4>
                         <div class="job-content">
                             <div class="job-page job-responsibility job-page--selected">
-                                <h4 class="title-4">Job Responsibilities: </h4>
+                                <h5 class="title-5">Job Responsibilities: </h5>
                                 <ul>
-                                    <li>Plan the numerical and level strategies for the company's overseas casual games.</li>
-                                    <li>Oversee the entire process from product requirements, design style setting, R&D testing, user growth, to data analysis.</li>
-                                    <li>Communicate with various departments, coordinate resources, and ensure project progress.</li>
+                                    <li>Plan the values and level strategies for the company's overseas casual games.</li>
+                                    <li>Oversee the entire process from product requirements, design style formulation, R&D testing, user growth, to data analysis.</li>
+                                    <li>Communicate with various departments to coordinate resources and ensure project progress.</li>
                                     <li>Analyze product data, track user feedback, and improve product retention and user conversion rates.</li>
-                                    <li>Stay updated on the casual gaming industry, monitor competitors, and optimize the gaming experience to enhance user engagement and playtime.</li>
+                                    <li>Monitor industry trends and competitor performance in casual games to optimize and enhance game experience and increase user engagement and playtime.</li>
                                 </ul>
                             </div>
                             <div class="job-page job-requirement">
-                                <h4 class="title-4">Job Requirements: </h4>
+                                <h5 class="title-5">Job Requirements: </h5>
                                 <ul>
                                     <li>Bachelor's degree or higher from a recognized institution, with a passing score in CET-4 (425+).</li>
-                                    <li>Proficient in using software for product requirements, flowcharts, and mind maps; capable of independently writing highly readable product requirement documents.</li>
+                                    <li>Proficient in using software related to product requirements, flowcharts, and mind maps, and capable of independently writing highly readable product requirement documents.</li>
                                     <li>Skilled in using funnel models and user segmentation for data analysis.</li>
-                                    <li>Passionate about games, interested in exploring and researching various game types, and understanding the business logic of internet products.</li>
-                                    <li>Strong logical thinking, excellent communication skills, stress resistance, and high self-motivation.</li>
+                                    <li>Passionate about games, with an interest in exploring and researching various game types, and understanding the commercial logic of internet products.</li>
+                                    <li>Strong logical thinking, excellent communication skills, stress resilience, and a strong sense of self-motivation.</li>
                                 </ul>
                             </div>
                             <div class="job-page-btn button link" onclick="toggle_resp_req(this)">See Job Requirements >>></div>
