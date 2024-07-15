@@ -895,13 +895,16 @@
                 about_us_pod_objs[i].style.width = target_width + "px";
             }
         }
+        function lr_carousel(argument) {
+            // body...
+        }
+
+
         window.onload = function() {
             set_ab_us_carousel();
         }
         window.addEventListener('resize', function() {
-                if (document.body.offsetWidth <= 1023) {
-                    set_ab_us_carousel();
-                }
+                set_ab_us_carousel();
             });
     </script>
     <!---->
