@@ -274,7 +274,6 @@
         .transition {
             transition: .5s ease-in-out;
         }
-        /*.header.header--open .navbar-mobile .navigation, */
         /* global END */
         /**/
         /**/
@@ -310,7 +309,6 @@
         }
         .title-5 {
             font-size: 100%;
-            font-weight: 900;
         }
         .text-image-row {
             background: white;
@@ -402,20 +400,22 @@
         /**/
         /* slogan START */
         .banner {
-            background: linear-gradient(to top, white, white, rgb(240, 245, 250));
+            background: linear-gradient(to bottom, #f4f9ff, #fff);
         }
         .bg-image {
             width: 100%;
             min-height: 750px;
             height: 100vh;
-/*            background-image: url("./src/img/Untitled-design-1_副本.png");*/
-            background: whitesmoke;
-            background-size: cover;
-            background-position: center;
-
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .bg-image .image {
+            width: 100%;
+            height: auto;
+            position: absolute;
         }
         .banner .title {
             max-width: 867px;
@@ -466,7 +466,7 @@
             color: #05f;
             color: var(--blue-500);
             background: #f4f9ff;
-            background: var(--blue-025);
+            background: var(--blue-050);
             font-weight: 900;
             max-width: 300px;
             border-radius: 50px;
@@ -502,7 +502,6 @@
         .game-background video {
             width: 100%;
             position: relative;
-/*            transform: translateY(-25%);*/
         }
         .game-info {
             text-align: left;
@@ -590,7 +589,7 @@
             background: var(--blue-050);
         }
         .about-us .content {
-            margin-top: 20px;
+            margin: 20px 0;
             position: relative;
         }
         .about-us .wrapper {
@@ -670,9 +669,9 @@
         /**/
         /* join-us START */
         .join-us .content {
-            padding: 10px 0;
             position: relative;
             margin: 0 auto;
+            margin-top: 20px;
         }
         .join-us .wrapper {
             overflow: hidden;
@@ -709,7 +708,7 @@
         .job-content {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+/*            justify-content: space-between;*/
             height: 100%;
             gap: 10px;
         }
@@ -800,22 +799,23 @@
     <style type="text/css">
         @media (max-width: 1279px) {
             .join-us .content {
-                width: calc(100% / 3 * 2);
+                width: calc(100% / 3 * 2);  /* it's written to keep the similar style when page loading, will be covered by js written style */
             }
             .join-us .job-bar {
-                width: calc(100% / 2 * 6);
+                width: calc(100% / 2 * 6);  /* same as the above one */
+            }
+            .join-us .arrows {
+                width: 130%;
+                left: -15%;
             }
         }
         @media (max-width: 1023px) {
             .main-body .default-block {
-                margin: 0 40px;
+                margin: 0 70px;
             }
             .bg-image {
-                height: 50vh;
+                height: 40vh;
                 max-height: 750px;
-            }
-            .banner {
-                align-items: flex-start;
             }
             .banner .title {
                 font-size: 2.5rem;
@@ -841,13 +841,20 @@
             .join-us .content {
                 width: 50%;
             }
-/*            .join-us .job-bar {
+            .join-us .job-bar {
                 width: calc(100% * 6);
-            }*/
+            }
+            .join-us .arrows {
+                width: 140%;
+                left: -20%;
+            }
         }
         @media (max-width: 767px) {
             .main-body .default-block {
                 margin: 0 24px;
+            }
+            .bg-image .image {
+                width: 120%;
             }
             .app-store-btn.goto-btn {
                 display: inline-flex;
@@ -895,7 +902,7 @@
             .about-us .arrows {
                 width: 100%;
                 position: initial;
-                margin-top: 1.5rem;
+                margin-top: 2rem;
             }
             .about-us .arrows .btn {
                 background: white;
@@ -905,14 +912,17 @@
                 width: 100%;
             }
             .join-us .arrows {
-                bottom: 0;
                 width: 100%;
                 justify-content: center;
                 position: initial;
+                margin-top: 1.5rem;
             }
             .footer {
                 flex-direction: column;
                 padding: 30px;
+            }
+            .footer .logo {
+                gap: 5px;
             }
             .footer .link_list {
                 gap: 2vw;
@@ -934,7 +944,7 @@
     <!---->
     <!---->
     <!---->
-    <!-- header related -->
+    <!-- script START -->
     <script type="text/javascript">
         function soft_scroll(obj_class_name) {    // scroll the page to specific element based on fixed nav bar
             var target_height = document.getElementsByClassName(obj_class_name)[0].offsetTop;  // get target pos
@@ -951,10 +961,10 @@
             setTimeout(function() {
                 if (header_obj.classList.contains("header--open")) {
                     header_obj.classList.remove("header--open");
-                    icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>';
+                    icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>';
                 } else {
                     header_obj.classList.add("header--open");
-                    icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="cross" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>';
+                    icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="cross" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>';
                 }
             }, delay * 1000);
         }
@@ -1000,52 +1010,56 @@
             var qr_window_obj = document.getElementsByClassName("qr-window")[0];
             qr_window_obj.classList.remove("qr-window--open");
         }
-        function set_carousel(target_width, bar_name, pod_name, is_counting_gap=false) {
+        function set_carousel(target_width, bar_name, pod_name, is_counting_gap=false) {  // set bar width and pod width
             var bar_obj = document.getElementsByClassName(bar_name)[0];
             var pod_objs = document.getElementsByClassName(pod_name);
             var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
-            // gap_width = (gap_width) ? gap_width : 0;
             gap_width = (is_counting_gap) ? gap_width : 0; // if there's no gap between pods
 
             // e.g. calc(t * 6 + g * 5)
-            // bar_obj.style.width = "calc(" + target_width + "px * " + pod_objs.length + ")";
             bar_obj.style.width = "calc(" + target_width + "px * " + pod_objs.length + " + " + gap_width + "px * " + (pod_objs.length - 1)  + ")";
             for (var i = pod_objs.length - 1; i >= 0; i--) {
                 pod_objs[i].style.width = target_width + "px";
             }
         }
-        function set_aboutus_carousel() {
-            var default_block_obj = document.getElementsByClassName("default-block")[3];
+        function set_aboutus_carousel() {  // set bar width and pod width for about-us block
+            var default_block_obj = document.getElementsByClassName("default-block")[3];  // use block[3] because the first two are header and slogan, they have many extra styles, better to use more stable ones
             var target_width = default_block_obj.getBoundingClientRect().width;
             set_carousel(target_width, "about-us-bar", "about-us-pod");
         }
-        function set_joinus_carousel() {
+        function set_joinus_carousel() {  // set bar width and pod width for join-us block according to window width
             var col_num;
-            if (document.body.getBoundingClientRect().width > 1023) {  // col_num is actually the # of columns placed in default block, it's not the displayed number
+            // col_num is actually the # of columns placed in default block, it's not the displayed number
+            if (document.body.getBoundingClientRect().width > 1023) {
                 col_num = 3;
             } else if (document.body.getBoundingClientRect().width > 767) {
                 col_num = 2;
             } else {
                 col_num = 1;
             }
-            var is_counting_gap = (col_num == 3) ? false : true;  // counting gap since the width starts changing, to avoid float numbet which would influence carousel
-            var default_block_obj = document.getElementsByClassName("default-block")[3];
+
+            // counting gap since the width starts changing, to avoid float numbet which would influence carousel
+            var is_counting_gap = (col_num == 3) ? false : true;  // only when col = 3 the bar and pod is not changing with screen size, so flex compress gap and pod width to whole/.5 numbers
+
+            var default_block_obj = document.getElementsByClassName("default-block")[3];  // use block[3] because the first two are header and slogan, they have many extra styles, better to use more stable ones
             var target_width = default_block_obj.getBoundingClientRect().width / col_num;
+
             set_carousel(target_width, "job-bar", "job-pod", is_counting_gap);
         }
-        function set_aboutus_resize_carousel() {
+        function set_aboutus_resize_carousel() {  // set about-us bar and pod width when window resizes
             var bar_obj = document.getElementsByClassName("about-us-bar")[0];
             var pod_objs = document.getElementsByClassName("about-us-pod");
             var pod_width = pod_objs[0].getBoundingClientRect().width;
 
             var original_posX = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[4];  // receiving transform value: matrix(a, b, c, d, posX, f);
-            var current_page = Math.round(original_posX / -pod_width);
-            current_page = (current_page > pod_objs.length) ? 1 : current_page;
-            current_page = (current_page < 0) ? (pod_objs.length - 2) : current_page;
+
+            var current_page = Math.round(original_posX / -pod_width); // receiving 0 to n, round makes it stable when window either compress or stretch
+            current_page = (current_page > pod_objs.length) ? 1 : current_page;  // after last page, 1 because 1st=last, last + 1 = 1st + 1 = 0 + 1 (index)
+            current_page = (current_page < 0) ? (pod_objs.length - 2) : current_page;  // before first page, len-2 because 1st=last, 1st - 1 = last - 1 = len - 1 - 1 (index)
 
             bar_obj.style.transform = "translateX(" + (-pod_width * current_page) + "px)";
         }
-        function set_joinus_resize_carousel() {
+        function set_joinus_resize_carousel() {  // set join-us bar and pod width when window resizes
             var bar_obj = document.getElementsByClassName("job-bar")[0];
             var pod_objs = document.getElementsByClassName("job-pod");
             var pod_width = pod_objs[0].getBoundingClientRect().width;
@@ -1055,11 +1069,11 @@
             var move_width = pod_width + gap_width;
 
             var original_posX = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[4];  // receiving transform value: matrix(a, b, c, d, posX, f);
-            var current_page = Math.round(original_posX / -move_width);
+            var current_page = Math.round(original_posX / -move_width);  // receiving 0 to n, round makes it stable when window either compress or stretch
 
             bar_obj.style.transform = "translateX(" + (-move_width * current_page) + "px)";
         }
-        function lr_carousel(direction, bar_name, pod_name, col_num) {
+        function lr_carousel(direction, bar_name, pod_name, col_num) { // button onclick event, control the left-right carousel motion
             var direct_sign = (direction == "left") ? -1 : 1;
             var bar_obj = document.querySelector("." + bar_name);
             var original_posX = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[4];  // receiving transform value: matrix(a, b, c, d, posX, f);
@@ -1084,33 +1098,45 @@
                 bar_obj.style.transform = "translateX(" + (-move_width * (pod_objs.length - col_num)) + "px)";
                 setTimeout(function() {
                     bar_obj.classList.add("transition");
-                }, 50);
+                }, 50);  // delay to make sure "transition" class is added after the bar's motion
             } else if (current_page + direct_sign > pod_objs.length - col_num) {
                 new_page = 1;  // since 0 and 4 are same, 1 page right for 4 is 1 page right for 0, which is 1
                 bar_obj.classList.remove("transition");
                 bar_obj.style.transform = "translateX(" + (-move_width * 0) + "px)";
                 setTimeout(function() {
                     bar_obj.classList.add("transition");
-                }, 50);
+                }, 50);  // delay to make sure "transition" class is added after the bar's motion
             } else {
                 new_page = current_page + direct_sign;
             }
             setTimeout(function() {
                 bar_obj.style.transform = "translateX(" + (-move_width * new_page) + "px)";
-            }, 100);
+            }, 100);  // delay to make sure translate is added after "transition" class is added
         }
 
         window.onload = function() {
-            set_aboutus_carousel();
-            set_joinus_carousel();
+            set_aboutus_carousel();  // set style
+            set_joinus_carousel();  // set style
         }
         window.addEventListener('resize', function() {
-                set_aboutus_carousel();
-                set_aboutus_resize_carousel();
-                set_joinus_carousel();
-                set_joinus_resize_carousel();
+                set_aboutus_carousel();  // set dynamic width
+                set_aboutus_resize_carousel();  // keep displayed pod in place
+                set_joinus_carousel();  // set dynamic width
+                set_joinus_resize_carousel();  // keep displayed pod in place
             });
     </script>
+    <!-- script END -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
     <!---->
 </head>
 <body onscroll="toggle_header_bg()">
@@ -1120,7 +1146,7 @@
             <div class="logo">
                 <a onclick="soft_scroll('banner')" aria-current="page">
                     <!-- <div>OpenGame</div> -->
-                    <img src="./src/img/OPENGAME-logo.svg" class="opengame-logo link" height="20">
+                    <img src="./src/img/icon/OPENGAME-logo.svg" class="opengame-logo link" height="20">
                 </a>
             </div>
             <nav class="navigation">
@@ -1136,7 +1162,7 @@
         <div class="navbar-mobile default-block" style="height: 64px;">
             <div class="logo">
                 <a onclick="soft_scroll('slogan')" aria-current="page">
-                    <img src="./src/img/OPENGAME-logo.svg" class="opengame-logo" height="20">
+                    <img src="./src/img/icon/OPENGAME-logo.svg" class="opengame-logo" height="20">
                 </a>
                 <div class="icon" onclick="toggle_icon()">
                     <svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>
@@ -1178,6 +1204,7 @@
     <main class="main-body">
         <section class="banner" id="banner">
             <div class="bg-image">
+                <img src="./src/img/banner.png" class="image">
                 <div class="default-block">
                     <h1 class="title">
                         <span class="cap-1">H</span>appy 
@@ -1185,7 +1212,6 @@
                         <span class="cap-1">H</span>appy 
                         <span style="color: var(--blue-500);">Life</span>
                     </h1>
-                    <!-- <p class="subtitle">To create the world's No.1 integrated entertainment and revenue game platform</p> -->
                 </div>
             </div>
         </section>
@@ -1201,7 +1227,6 @@
         <!---->
         <!---->
         <!---->
-        <!-- <div class="placeholder-1 default-block"></div> -->
         <!---->
         <!---->
         <!---->
@@ -1218,7 +1243,6 @@
             <div class="default-block">
                 <div class="text">
                     <h2 class="title-2">Games</h2>
-                    <!-- <h3 class="title-3">Main Game Types</h3> -->
                     <h3 class="title-3">Empower Gamers to Become Owners</h3>
                 </div>
                 <div class="games-table">    
@@ -1236,11 +1260,11 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/amaze-farm-mowing-maze-games/id6502537941" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('AFM')">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1258,11 +1282,11 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/block-puzzle-battle-win-cash/id6471829355" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('BPB')">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1280,11 +1304,11 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/faune-puzzle-match/id6443747447" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a onclick="show_qr_window('FPM')" class="link app-store-btn qr-code-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1304,11 +1328,11 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('GSP')">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1326,11 +1350,11 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://play.google.com/store/apps/details?id=com.ocean.crush.master.game&hl=en" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/google-play.svg" width="25" height="25">
+                                    <img src="./src/img/icon/google-play.svg" width="25" height="25">
                                     <p>GET IT ON<br><b>Google Play</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('OC')">
-                                    <img src="./src/img/google-play.svg" width="25" height="25">
+                                    <img src="./src/img/icon/google-play.svg" width="25" height="25">
                                     <p>GET IT ON<br><b>Google Play</b></p>
                                 </a>
                             </div>
@@ -1348,17 +1372,17 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/solitaire-clash-go-card-game/id6483055163" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('SCG') ">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="wrapper all other">
+                    <div class="wrapper all other">  <!-- "other" is used only for pod less than 3 in a line. If adding new ones, please remove the "other" class for this wrapper, and add it to the new wrapper if you need.-->
                         <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/ST-poster.png">
@@ -1372,11 +1396,11 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/solitaire-tycoon-win-cash-app/id6503892707" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('ST') ">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1394,11 +1418,11 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/tile-match-3-crush/id6479349057" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('TM3C') ">
-                                    <img src="./src/img/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1406,7 +1430,21 @@
                         <!---->
                         <!---->
                         <!---->
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!---->
                         <!-- Add new block here -->
+                        <!-- Add new block here -->
+                        <!-- Add new block here -->
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!---->
                         <!---->
                         <!---->
                         <!---->
@@ -1451,12 +1489,11 @@
             <div class="default-block">
                 <h2 class="title-2">About Us</h2>
                 <h3 class="title-3">Our Aim: World's No.1 Game Platform</h3>
-                <p class="rich-text">Leading in Entertainment & Revenue</p>
                 <div class="content">
-                    <div class="wrapper">
+                    <div class="wrapper box">
                         <div class="about-us-bar transition">
                             <div class="about-us-pod">
-                                <div class="image" style='background-image: url("./src/img/about-us-intro.jpg")'>
+                                <div class="image" style='background-image: url("./src/img/about-us-image/intro.jpg")'>
                                 </div>
                                 <div class="text">
                                     <h4 class="title-4">INTRO</h4>
@@ -1464,7 +1501,7 @@
                                 </div>
                             </div>
                             <div class="about-us-pod">
-                                <div class="image" style='background-image: url("./src/img/about-us-management.jpg")'>
+                                <div class="image" style='background-image: url("./src/img/about-us-image/management.jpg")'>
                                 </div>
                                 <div class="text">
                                     <h4 class="title-4">MANAGEMENT</h4>
@@ -1472,7 +1509,7 @@
                                 </div>
                             </div>
                             <div class="about-us-pod">
-                                <div class="image" style='background-image: url("./src/img/about-us-partnership.png")'>
+                                <div class="image" style='background-image: url("./src/img/about-us-image/partnership.png")'>
                                 </div>
                                 <div class="text">
                                     <h4 class="title-4">PARTNERSHIP</h4>
@@ -1480,7 +1517,7 @@
                                 </div>
                             </div>
                             <div class="about-us-pod">
-                                <div class="image" style='background-image: url("./src/img/about-us-future.jpg")'>
+                                <div class="image" style='background-image: url("./src/img/about-us-image/future.jpg")'>
                                 </div>
                                 <div class="text">
                                     <h4 class="title-4">FUTURE</h4>
@@ -1490,13 +1527,27 @@
                             <!---->
                             <!---->
                             <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
                             <!-- Add new block here -->
+                            <!-- Add new block here -->
+                            <!-- Add new block here -->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
                             <!---->
                             <!---->
                             <!---->
                             <!-- same as 1st one-->
                             <div class="about-us-pod">
-                                <div class="image" style='background-image: url("./src/img/about-us-intro.jpg")'>
+                                <div class="image" style='background-image: url("./src/img/about-us-image/intro.jpg")'>
                                 </div>
                                 <div class="text">
                                     <h4 class="title-4">INTRO</h4>
@@ -1545,7 +1596,7 @@
                 <h2 class="title-2">Join Us</h2>
                 <h3 class="title-3">Proactive and Responsible</h3>
                 <div class="content">
-                    <div class="wrapper transition">
+                    <div class="wrapper">
                         <div class="job-bar transition">
                             <div class="job-pod">
                                 <h4 class="job-title title-4">Game Planner</h4>
@@ -1629,12 +1680,24 @@
                             <!---->
                             <!---->
                             <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!-- Add new block here -->
+                            <!-- Add new block here -->
                             <!-- Add new block here -->
                             <!---->
                             <!---->
                             <!---->
                             <!---->
-                            <div class="job-pod">  <!-- same as first three, for carousel to loop, do not need to change when adding new ones -->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <div class="job-pod">  <!-- same as first three, only for carousel to loop, do not need to change when adding new ones -->
                                 <h4 class="job-title title-4">Game Planner</h4>
                                 <div class="job-content">
                                     <div class="job-page job-responsibility job-page--selected">
@@ -1726,30 +1789,6 @@
                 </div>
             </div>
         </section>
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
     </main>
     <!-- main body END -->
     <!---->
@@ -1780,7 +1819,7 @@
         <div class="left">
             <div class="logo">
                 <a onclick="soft_scroll('banner')" aria-current="page">
-                    <img src="./src/img/OPENGAME-logo.svg" class="opengame-logo link" height="20">
+                    <img src="./src/img/icon/OPENGAME-logo.svg" class="opengame-logo link" height="20">
                 </a>
                 <div class="icons">
                     <a href="https://t.me/+twzIAOGwUsI4Njll">
@@ -1808,7 +1847,7 @@
                 </ul>
             </div>
             <div class="copyright">
-                Copyright © 2024 OPENGAME
+                Copyright © 2024 OPENGAME. All Rights Reserved.
             </div>
         </div>
     </footer>
