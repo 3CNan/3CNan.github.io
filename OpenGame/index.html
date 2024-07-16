@@ -89,162 +89,14 @@
     <style type="text/css">
         /* global START */
         :root {
-            --grey-000: #fff;
-            --grey-000-rgb: 255,255,255;
-            --grey-025: #f6f7f9;
-            --grey-025-rgb: 246,247,249;
-            --grey-050: #eceef2;
-            --grey-050-rgb: 236,238,242;
-            --grey-100: #dbdee5;
-            --grey-100-rgb: 219,222,229;
-            --grey-200: #b9bfcc;
-            --grey-200-rgb: 185,191,204;
-            --grey-300: #9aa1b1;
-            --grey-300-rgb: 154,161,177;
             --grey-400: #7d8598;
-            --grey-400-rgb: 125,133,152;
             --grey-500: #636b7f;
-            --grey-500-rgb: 99,107,127;
-            --grey-600: #4a5366;
-            --grey-600-rgb: 74,83,102;
-            --grey-700: #353c4c;
-            --grey-700-rgb: 53,60,76;
-            --grey-800: #212734;
-            --grey-800-rgb: 33,39,52;
             --grey-900: #10131b;
-            --grey-900-rgb: 16,19,27;
-            --grey-1000: #000;
-            --grey-1000-rgb: 0,0,0;
-            --blue-025: #f4f9ff;
-            --blue-025-rgb: 244,249,255;
             --blue-050: #e9f3ff;
-            --blue-050-rgb: 233,243,255;
-            --blue-100: #d2e5ff;
-            --blue-100-rgb: 210,229,255;
-            --blue-200: #9fc4ff;
-            --blue-200-rgb: 159,196,255;
-            --blue-300: #6aa0ff;
-            --blue-300-rgb: 106,160,255;
             --blue-400: #347bff;
-            --blue-400-rgb: 52,123,255;
             --blue-500: #05f;
-            --blue-500-rgb: 0,85,255;
-            --blue-600: #004be0;
-            --blue-600-rgb: 0,75,224;
-            --blue-700: #003ebb;
-            --blue-700-rgb: 0,62,187;
-            --blue-800: #003091;
-            --blue-800-rgb: 0,48,145;
-            --blue-900: #002163;
-            --blue-900-rgb: 0,33,99;
-            --blue-1000: #013;
-            --blue-1000-rgb: 0,17,51;
-            --yellow-025: #fffbe6;
-            --yellow-025-rgb: 255,251,230;
-            --yellow-050: #fff6cd;
-            --yellow-050-rgb: 255,246,205;
-            --yellow-100: #ffed9a;
-            --yellow-100-rgb: 255,237,154;
-            --yellow-200: #ffe05e;
-            --yellow-200-rgb: 255,224,94;
-            --yellow-300: #ffd643;
-            --yellow-300-rgb: 255,214,67;
-            --yellow-400: #ffcd37;
-            --yellow-400-rgb: 255,205,55;
-            --yellow-500: #ffc231;
-            --yellow-500-rgb: 255,194,49;
-            --yellow-600: #feb52e;
-            --yellow-600-rgb: 254,181,46;
-            --yellow-700: #fda52d;
-            --yellow-700-rgb: 253,165,45;
-            --yellow-800: #fb922c;
-            --yellow-800-rgb: 251,146,44;
-            --yellow-900: #f67e2b;
-            --yellow-900-rgb: 246,126,43;
-            --yellow-1000: #ed6b2a;
-            --yellow-1000-rgb: 237,107,42;
-            --red-025: #fff8f4;
-            --red-025-rgb: 255,248,244;
-            --red-050: #fff0e9;
-            --red-050-rgb: 255,240,233;
-            --red-100: #ffe0d3;
-            --red-100-rgb: 255,224,211;
-            --red-200: #ffbba3;
-            --red-200-rgb: 255,187,163;
-            --red-300: #ff9874;
-            --red-300-rgb: 255,152,116;
-            --red-400: #ff7445;
-            --red-400-rgb: 255,116,69;
-            --red-500: #ff5117;
-            --red-500-rgb: 255,81,23;
-            --red-600: #eb3b00;
-            --red-600-rgb: 235,59,0;
-            --red-700: #d63600;
-            --red-700-rgb: 214,54,0;
-            --red-800: #c23000;
-            --red-800-rgb: 194,48,0;
-            --red-900: #ad2b00;
-            --red-900-rgb: 173,43,0;
-            --red-1000: #992600;
-            --red-1000-rgb: 153,38,0;
-            --green-025: #f0fefc;
-            --green-025-rgb: 240,254,252;
-            --green-050: #e0fdf8;
-            --green-050-rgb: 224,253,248;
-            --green-100: #c2faf1;
-            --green-100-rgb: 194,250,241;
-            --green-200: #8ef4e3;
-            --green-200-rgb: 142,244,227;
-            --green-300: #5bead2;
-            --green-300-rgb: 91,234,210;
-            --green-400: #2bddc0;
-            --green-400-rgb: 43,221,192;
-            --green-500: #0ca;
-            --green-500-rgb: 0,204,170;
-            --green-600: #00b799;
-            --green-600-rgb: 0,183,153;
-            --green-700: #009d83;
-            --green-700-rgb: 0,157,131;
-            --green-800: #007d68;
-            --green-800-rgb: 0,125,104;
-            --green-900: #00584a;
-            --green-900-rgb: 0,88,74;
-            --green-1000: #00332b;
-            --green-1000-rgb: 0,51,43;
-            --pink-025: #fff6fe;
-            --pink-025-rgb: 255,246,254;
-            --pink-050: #ffecfc;
-            --pink-050-rgb: 255,236,252;
-            --pink-100: #ffd8f9;
-            --pink-100-rgb: 255,216,249;
-            --pink-200: #ffafec;
-            --pink-200-rgb: 255,175,236;
-            --pink-300: #fc87df;
-            --pink-300-rgb: 252,135,223;
-            --pink-400: #f961d3;
-            --pink-400-rgb: 249,97,211;
-            --pink-500: #f53bc7;
-            --pink-500-rgb: 245,59,199;
-            --pink-600: #e01eb0;
-            --pink-600-rgb: 224,30,176;
-            --pink-700: #cb059a;
-            --pink-700-rgb: 203,5,154;
-            --pink-800: #b60089;
-            --pink-800-rgb: 182,0,137;
-            --pink-900: #a10079;
-            --pink-900-rgb: 161,0,121;
-            --pink-1000: #8c0069;
-            --pink-1000-rgb: 140,0,105;
-            --blue-opacity: rgba(0,85,255,0.15);
-            --yellow-opacity: rgba(254,181,46,0.15);
-            --red-opacity: rgba(255,81,23,0.15);
-            --green-opacity: rgba(0,204,170,0.15);
-            --pink-opacity: rgba(245,59,199,0.15);
-            --grey-opacity: rgba(0,17,51,0.05);
-            --blue025-to-white-gradient: linear-gradient(180deg,#f4f9ff,#fff);
         }
         .default-block {
-/*            max-width: 1024px;*/
             max-width: 928px;
             margin: 0 auto;
         }
@@ -259,7 +111,7 @@
             height: 200px;
             background: white;
         }
-        .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video, .wrapper.all, .qr-window, .app-store-btn.goto-btn {
+        .navbar-mobile, .game-pod.game-pod--hover .poster, .game-pod .video, .wrapper.all, .qr-window, .app-store-btn.goto-btn, .banner-mobile, .app-store-btn:hover .normal, .app-store-btn .hover {
             display: none;
         }
         .title-2, .title-3, .title-4, .title-5, .game-link b, .button {
@@ -287,9 +139,9 @@
         /**/
         /**/
         /**/
-        /* text-image START */
-        .title-2, .title-3, .title-4 {
-            font-weight: 900;
+        /* text format START */
+        .title-2, .title-3 {
+            font-weight: 800;
             text-align: center;
         }
         .title-2 {
@@ -302,6 +154,8 @@
             padding: 10px 0;
         }
         .title-4 {
+            font-weight: 600;
+            text-align: center;
             text-transform: uppercase;
             font-size: 130%;
             margin-bottom: 10px;
@@ -310,14 +164,10 @@
         .title-5 {
             font-size: 100%;
         }
-        .text-image-row {
-            background: white;
-            text-align: center;
-        }
         .rich-text {
             color: var(--grey-400);
         }
-        /* text-image END */
+        /* text format END */
         /**/
         /**/
         /**/
@@ -413,15 +263,18 @@
             position: relative;
         }
         .bg-image .image {
+            position: absolute;
+        }
+        .bg-image .image img {
             width: 100%;
             height: auto;
-            position: absolute;
+/*            position: absolute;*/
         }
         .banner .title {
             max-width: 867px;
             width: 100%;
             text-align: center;
-            color: #10131b;
+/*            color: #10131b;*/
             color: var(--grey-900);
             margin: 0 auto;
             font-size: 4rem;
@@ -463,9 +316,9 @@
         .games-filter-btn {
             text-align: center;
             padding: 10px;
-            color: #05f;
+/*            color: #05f;*/
             color: var(--blue-500);
-            background: #f4f9ff;
+/*            background: #f4f9ff;*/
             background: var(--blue-050);
             font-weight: 900;
             max-width: 300px;
@@ -519,10 +372,10 @@
         }
         .game-link {
             margin-bottom: 10px;
+            text-align: center;
         }
         .app-store-btn {
             width: 90%;
-            margin: 0 auto;
             padding: .5rem;
             display: inline-flex;
             box-sizing: border-box;
@@ -541,16 +394,10 @@
             line-height: 100%;
         }
         .app-store-btn:hover {
-/*            border: 1px solid transparent;*/
             color: white;
             background: linear-gradient(to right, rgb(50, 200, 255), var(--blue-400), var(--blue-400));
             padding: calc(.5rem + 1px);
-    border: none;
-        }
-        .app-store-btn:hover img {
-            position: relative;
-            transform: translateX(-300px);
-            filter: drop-shadow(white 300px 0);     
+            border: none;
         }
         .qr-window {
             position: fixed;
@@ -569,6 +416,10 @@
         .qr-window-content {
             background: white;
             padding: 15px;
+            position: relative;
+        }
+        .app-store-btn .normal, .app-store-btn:hover .hover {
+            display: block;
         }
         /* games END */
         /**/
@@ -585,7 +436,7 @@
         /**/
         /* about us START */
         .about-us {
-            background: #e9f3ff;
+/*            background: #e9f3ff;*/
             background: var(--blue-050);
         }
         .about-us .content {
@@ -608,7 +459,7 @@
             padding: 10px;
             width: 928px;
             min-height: 450px;
-            gap: 50px;
+            gap: 10px;
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
@@ -616,7 +467,7 @@
             background: white;
         }
         .about-us-pod .image {
-            width: calc(47% - 25px); /* -25px for gap */
+            width: calc(47% - 5px); /* -5px for gap */
             aspect-ratio: 1/1.1;
             overflow: hidden;
             display: flex;
@@ -626,9 +477,12 @@
             background-position: center;
         }
         .about-us-pod .text {
-            width: calc(53% - 25px); /* -25px for gap */
-            text-align: left;
-            padding-bottom: 10%;
+            width: calc(53% - 5px); /* -5px for gap */
+            text-align: justify;
+            word-break: break-all;
+            padding: 0 40px;
+            line-height: 200%;
+            margin-bottom: 10%;
         }
         .about-us .arrows {
             position: absolute;
@@ -642,9 +496,9 @@
             gap: 32px;
         }
         .arrows .btn {
-            fill: #347bff;
+/*            fill: #347bff;*/
             fill: var(--blue-400);
-            background: #e9f3ff;
+/*            background: #e9f3ff;*/
             background: var(--blue-050);
             padding: 10px;
             width: 50px;
@@ -683,27 +537,29 @@
             width: calc(928px / 3 * 6);
             transform: translateX(0);
             transition-property: transform;
-            gap: 10px;
+            gap: 32px;
         }
         .job-pod {
             width: 33%;
             box-sizing: border-box;
-            padding: 10px;
-            text-align:left;
+            padding: 25px;
+            text-align:justify;
             background: var(--blue-050);
             position: relative;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 80%;
             display: flex;
             flex-direction: column;
         }
         .job-pod li {
             list-style: disc;
-            list-style-position: inside;
-            line-height: 100%;
+/*            list-style-position: inside;*/
+            line-height: 150%;
             font-size: 12px;
             margin: 5px 0;
+            margin-left: 10px;
             color: var(--grey-500);
+            word-break: break-all;
         }
         .job-content {
             display: flex;
@@ -739,7 +595,7 @@
         /**/
         /* footer START */
         .footer {
-            background: #e9f3ff;
+/*            background: #e9f3ff;*/
             background: var(--blue-050);
             min-height: 250px;
             display: flex;
@@ -848,25 +704,11 @@
                 width: 140%;
                 left: -20%;
             }
+            
         }
         @media (max-width: 767px) {
             .main-body .default-block {
                 margin: 0 24px;
-            }
-            .bg-image .image {
-                width: 120%;
-            }
-            .app-store-btn.goto-btn {
-                display: inline-flex;
-            }
-            .app-store-btn.qr-code-btn {
-                display: none;
-            }
-            .text-image {
-                flex-direction: column;
-            }
-            .header.header--open {
-                background: white;
             }
             .navbar-mobile .logo .icon {
                 display: flex;
@@ -879,12 +721,33 @@
             .header .navbar-mobile {
                 display: block;
             }
+            .header.header--open {
+                background: white;
+            }
+            .bg-image {
+                min-height: 700px;
+            }
+            .bg-image .image {
+                width: 120%;
+            }
+            .banner-laptop {
+                display: none;
+            }
+            .banner-mobile {
+                display: block;
+            }
+            .banner .title {
+                width: 66%;
+            }
             .game-pod {
                 width: 86%;
                 margin: 4% 7%;
             }
-            .banner .title {
-                width: 66%;
+            .app-store-btn.goto-btn {
+                display: inline-flex;
+            }
+            .app-store-btn.qr-code-btn {
+                display: none;
             }
             .about-us-pod {
                 flex-direction: column;
@@ -893,7 +756,8 @@
             }
             .about-us-pod .text {
                 width: 100%;
-                padding-bottom: 0;
+                margin-bottom: 0;
+                padding: 20px;
             }
             .about-us-pod .image {
                 width: 100%;
@@ -948,7 +812,7 @@
     <script type="text/javascript">
         function soft_scroll(obj_class_name) {    // scroll the page to specific element based on fixed nav bar
             var target_height = document.getElementsByClassName(obj_class_name)[0].offsetTop;  // get target pos
-            var adjust_height = (obj_class_name == "banner") ? 0 : (- 64 + 60);
+            var adjust_height = (obj_class_name == "banner") ? 0 : (- 64 + 100);
             window.scrollTo({
                 top: target_height + adjust_height,  // 64: nav bar, 80: padding-top df-block
                 behavior: "smooth"
@@ -1010,22 +874,20 @@
             var qr_window_obj = document.getElementsByClassName("qr-window")[0];
             qr_window_obj.classList.remove("qr-window--open");
         }
-        function set_carousel(target_width, bar_name, pod_name, is_counting_gap=false) {  // set bar width and pod width
+        function set_carousel(pod_width, bar_name, pod_name, gap_width=0) {  // set bar width and pod width
             var bar_obj = document.getElementsByClassName(bar_name)[0];
             var pod_objs = document.getElementsByClassName(pod_name);
-            var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
-            gap_width = (is_counting_gap) ? gap_width : 0; // if there's no gap between pods
 
             // e.g. calc(t * 6 + g * 5)
-            bar_obj.style.width = "calc(" + target_width + "px * " + pod_objs.length + " + " + gap_width + "px * " + (pod_objs.length - 1)  + ")";
+            bar_obj.style.width = "calc(" + pod_width + "px * " + pod_objs.length + " + " + gap_width + "px * " + (pod_objs.length - 1)  + ")";
             for (var i = pod_objs.length - 1; i >= 0; i--) {
-                pod_objs[i].style.width = target_width + "px";
+                pod_objs[i].style.width = pod_width + "px";
             }
         }
         function set_aboutus_carousel() {  // set bar width and pod width for about-us block
             var default_block_obj = document.getElementsByClassName("default-block")[3];  // use block[3] because the first two are header and slogan, they have many extra styles, better to use more stable ones
-            var target_width = default_block_obj.getBoundingClientRect().width;
-            set_carousel(target_width, "about-us-bar", "about-us-pod");
+            var pod_width = default_block_obj.getBoundingClientRect().width;
+            set_carousel(pod_width, "about-us-bar", "about-us-pod");
         }
         function set_joinus_carousel() {  // set bar width and pod width for join-us block according to window width
             var col_num;
@@ -1038,13 +900,14 @@
                 col_num = 1;
             }
 
-            // counting gap since the width starts changing, to avoid float numbet which would influence carousel
-            var is_counting_gap = (col_num == 3) ? false : true;  // only when col = 3 the bar and pod is not changing with screen size, so flex compress gap and pod width to whole/.5 numbers
+            var bar_obj = document.getElementsByClassName("job-bar")[0];
+            var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
 
-            var default_block_obj = document.getElementsByClassName("default-block")[3];  // use block[3] because the first two are header and slogan, they have many extra styles, better to use more stable ones
-            var target_width = default_block_obj.getBoundingClientRect().width / col_num;
+            var block_width = document.getElementsByClassName("default-block")[3].getBoundingClientRect().width;  // use block[3] because the first two are header and slogan, they have many extra styles, better to use more stable ones
+            var pod_width = Math.floor((block_width - gap_width * (col_num - 1)) / col_num);
+            console.log(pod_width);
 
-            set_carousel(target_width, "job-bar", "job-pod", is_counting_gap);
+            set_carousel(pod_width, "job-bar", "job-pod", gap_width);
         }
         function set_aboutus_resize_carousel() {  // set about-us bar and pod width when window resizes
             var bar_obj = document.getElementsByClassName("about-us-bar")[0];
@@ -1087,7 +950,6 @@
 
             var current_page = original_posX / -move_width;
             if (!Number.isInteger(current_page)) {
-                //  && Math.abs(current_page - Math.round(current_page)) < 0.1 temp
                 return;
             }
             var new_page;
@@ -1145,7 +1007,6 @@
         <div class="navbar-laptop default-block" style="height: 64px;">
             <div class="logo">
                 <a onclick="soft_scroll('banner')" aria-current="page">
-                    <!-- <div>OpenGame</div> -->
                     <img src="./src/img/icon/OPENGAME-logo.svg" class="opengame-logo link" height="20">
                 </a>
             </div>
@@ -1165,7 +1026,7 @@
                     <img src="./src/img/icon/OPENGAME-logo.svg" class="opengame-logo" height="20">
                 </a>
                 <div class="icon" onclick="toggle_icon()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation" class="base-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>
                 </div>
             </div>
             <nav class="navigation">
@@ -1202,9 +1063,15 @@
     <!---->
     <!-- main body START -->
     <main class="main-body">
-        <section class="banner" id="banner">
+        <section class="banner">
             <div class="bg-image">
-                <img src="./src/img/banner.png" class="image">
+                <div class="banner-laptop image">
+                    <img src="./src/img/banner-laptop.png">
+                </div>
+                <div class="banner-mobile image">
+                    <img src="./src/img/banner-mobile.png">
+                </div>
+                
                 <div class="default-block">
                     <h1 class="title">
                         <span class="cap-1">H</span>appy 
@@ -1239,7 +1106,7 @@
         <!---->
         <!---->
         <!---->
-        <section class="text-image-row games" id="games">
+        <section class="games">
             <div class="default-block">
                 <div class="text">
                     <h2 class="title-2">Games</h2>
@@ -1260,11 +1127,13 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/amaze-farm-mowing-maze-games/id6502537941" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('AFM')">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1282,11 +1151,13 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/block-puzzle-battle-win-cash/id6471829355" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('BPB')">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1304,11 +1175,13 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/faune-puzzle-match/id6443747447" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a onclick="show_qr_window('FPM')" class="link app-store-btn qr-code-btn">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1328,11 +1201,13 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/gem-sort-puzzle-get-color/id6499216078" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('GSP')">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1350,11 +1225,13 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://play.google.com/store/apps/details?id=com.ocean.crush.master.game&hl=en" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/icon/google-play.svg" width="25" height="25">
+                                    <img src="./src/img/icon/google-play-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/google-play-white.svg" width="25" height="25" class="hover">
                                     <p>GET IT ON<br><b>Google Play</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('OC')">
-                                    <img src="./src/img/icon/google-play.svg" width="25" height="25">
+                                    <img src="./src/img/icon/google-play-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/google-play-white.svg" width="25" height="25" class="hover">
                                     <p>GET IT ON<br><b>Google Play</b></p>
                                 </a>
                             </div>
@@ -1372,11 +1249,13 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/solitaire-clash-go-card-game/id6483055163" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('SCG') ">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1396,11 +1275,13 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/solitaire-tycoon-win-cash-app/id6503892707" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('ST') ">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1418,11 +1299,13 @@
                             </div>
                             <div class="game-link">
                                 <a href="https://apps.apple.com/us/app/tile-match-3-crush/id6479349057" class="link app-store-btn goto-btn">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                                 <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('TM3C') ">
-                                    <img src="./src/img/icon/app-store.svg" width="25" height="25">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
                                     <p>Download on the<br><b>App Store</b></p>
                                 </a>
                             </div>
@@ -1451,10 +1334,10 @@
                     </div>
                 </div>
                 <div class="link games-filter-btn button" onclick="toggle_game_filter(this)">See All Games</div>
-                <div class="qr-window">
+                <div class="qr-window" onclick="hide_qr_window()">
                     <!-- <div class="qr-window-bg"></div> -->
                     <div class="qr-window-content">
-                        <svg class="base-icon" style="fill: blue; float: right;" onclick="hide_qr_window()" width="40" height="40" viewBox="0 0 24 24" aria-label="cross" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>
+                        <svg class="link" style="fill: blue; float: right; position: absolute; right: 0; top: 0;" width="30" height="30" viewBox="0 0 24 24" aria-label="cross" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>
                         <h3 class="title-3" style="display: inline-block; text-transform: capitalize;">Use your phone to scan the QR code</h3>
                         <img src="" class="qr-img" style="display: block; margin: 0 auto;">
                     </div>
@@ -1485,7 +1368,7 @@
         <!---->
         <!---->
         <!---->
-        <section class="text-image-row about-us">
+        <section class="about-us">
             <div class="default-block">
                 <h2 class="title-2">About Us</h2>
                 <h3 class="title-3">Our Aim: World's No.1 Game Platform</h3>
@@ -1591,7 +1474,7 @@
         <!---->
         <!---->
         <!---->
-        <section class="text-image-row join-us">
+        <section class="join-us">
             <div class="default-block">
                 <h2 class="title-2">Join Us</h2>
                 <h3 class="title-3">Proactive and Responsible</h3>
@@ -1604,21 +1487,21 @@
                                     <div class="job-page job-responsibility job-page--selected">
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
-                                            <li>Plan the numbers and level strategies for overseas casual games.</li>
-                                            <li>Oversee product requirements, design, development, testing, user growth, and data analysis.</li>
+                                            <!-- <li>Plan the numbers and level strategies for overseas casual games.</li> -->
+                                            <li>Oversee requirements, design, development, testing, growth, and analysis.</li>
                                             <li>Communicate with departments, coordinate resources, and ensure project progress.</li>
-                                            <li>Analyze product data, track user feedback, and improve retention and conversion rates.</li>
-                                            <li>Monitor industry trends and competitor performance to enhance game experience and user engagement.</li>
+                                            <li>Analyze data, track feedback, and improve retention and conversion.</li>
+                                            <!-- <li>Monitor industry trends and competitor performance to enhance game experience and user engagement.</li> -->
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <li>Bachelor's degree or higher, CET-4 (425+).</li>
-                                            <li>Proficient in software for product requirements, flowcharts, and mind maps; able to write clear product requirement documents.</li>
-                                            <li>Skilled in using funnel models and user segmentation for data analysis.</li>
-                                            <li>Passionate about games, knowledgeable about various game types, and understands internet product business logic.</li>
-                                            <li>Strong logical thinking, excellent communication skills, stress resilience, and self-motivation.</li>
+                                            <!-- <li>Bachelor's degree or higher, CET-4 (425+).</li> -->
+                                            <li>Proficient in software for product requirements, flowcharts, and mind maps.</li>
+                                            <li>Skilled in funnel models and user segmentation.</li>
+                                            <li>Passionate about games, knowledgeable about game types, and internet product logic.</li>
+                                            <!-- <li>Strong logical thinking, excellent communication skills, stress resilience, and self-motivation.</li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -1630,20 +1513,19 @@
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
                                             <li>Analyze game data: user behavior, revenue, retention.</li>
-                                            <li>Design and run A/B tests for new features and marketing.</li>
+                                            <!-- <li>Design and run A/B tests for new features and marketing.</li> -->
                                             <li>Collaborate with product managers and designers to improve user experience.</li>
                                             <li>Develop and maintain data models and reports.</li>
-                                            <li>Identify issues and opportunities in data, propose solutions.</li>
-                                            <li>Stay updated on industry trends and optimize analysis tools.</li>
+                                            <!-- <li>Identify issues and opportunities in data, propose solutions.</li> -->
+                                            <!-- <li>Stay updated on industry trends and optimize analysis tools.</li> -->
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <li>Bachelor's degree in Statistics, Mathematics, Computer Science, or related fields.</li>
-                                            <li>1-3 years of data analysis experience; gaming background preferred.</li>
-                                            <li>Proficient in SQL and tools like Python, R, Tableau. Strong logical thinking and problem-solving skills.</li>
-                                            <li>Experience with big data technologies like Hadoop, Spark is a plus.</li>
+                                            <!-- <li>Bachelor's degree in Statistics, Mathematics, Computer Science, or related fields.</li> -->
+                                            <!-- <li>1-3 years of data analysis experience; gaming background preferred.</li> -->
+                                            <li>Proficient in SQL, Python, R, Tableau; experience with Hadoop, Spark is a plus.</li>
                                             <li>Ability to use data for product decisions and explain results clearly.</li>
                                             <li>Excellent communication and teamwork skills, thrive in fast-paced environments.</li>
                                         </ul>
@@ -1658,20 +1540,20 @@
                                         <ul>
                                             <li>Design intuitive and attractive game UI elements based on game style and player needs.</li>
                                             <li>Create prototypes and final UI elements, including icons, buttons, and panels.</li>
-                                            <li>Design interface layouts ensuring usability and consistency.</li>
-                                            <li>Track and analyze user feedback to iteratively improve the UI.</li>
+                                            <!-- <li>Design interface layouts ensuring usability and consistency.</li> -->
+                                            <!-- <li>Track and analyze user feedback to iteratively improve the UI.</li> -->
                                             <li>Stay updated on current game UI design trends and best practices.</li>
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <li>Bachelor's degree in Graphic Design, Visual Arts, or related field.</li>
-                                            <li>At least 1 year of game UI design experience or relevant internship/project experience.</li>
+                                            <!-- <li>Bachelor's degree in Graphic Design, Visual Arts, or related field.</li> -->
+                                            <!-- <li>At least 1 year of game UI design experience or relevant internship/project experience.</li> -->
                                             <li>Good visual aesthetics and sensitivity to color, layout, and typography.</li>
                                             <li>Basic understanding of game UI design principles. Strong communication skills and team spirit.</li>
                                             <li>Experience with Unity or other game engines is a plus.</li>
-                                            <li>Outstanding fresh graduates are also welcome to apply.</li>
+                                            <!-- <li>Outstanding fresh graduates are also welcome to apply.</li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -1697,27 +1579,29 @@
                             <!---->
                             <!---->
                             <!---->
-                            <div class="job-pod">  <!-- same as first three, only for carousel to loop, do not need to change when adding new ones -->
+                            <!-- same as first three, only for carousel to loop, do not need to change when adding new ones. -->
+                            <!-- BUT!! modify the following three when you change the first three pods -->
+                            <div class="job-pod">
                                 <h4 class="job-title title-4">Game Planner</h4>
                                 <div class="job-content">
                                     <div class="job-page job-responsibility job-page--selected">
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
-                                            <li>Plan the numbers and level strategies for overseas casual games.</li>
-                                            <li>Oversee product requirements, design, development, testing, user growth, and data analysis.</li>
+                                            <!-- <li>Plan the numbers and level strategies for overseas casual games.</li> -->
+                                            <li>Oversee requirements, design, development, testing, growth, and analysis.</li>
                                             <li>Communicate with departments, coordinate resources, and ensure project progress.</li>
-                                            <li>Analyze product data, track user feedback, and improve retention and conversion rates.</li>
-                                            <li>Monitor industry trends and competitor performance to enhance game experience and user engagement.</li>
+                                            <li>Analyze data, track feedback, and improve retention and conversion.</li>
+                                            <!-- <li>Monitor industry trends and competitor performance to enhance game experience and user engagement.</li> -->
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <li>Bachelor's degree or higher, CET-4 (425+).</li>
-                                            <li>Proficient in software for product requirements, flowcharts, and mind maps; able to write clear product requirement documents.</li>
-                                            <li>Skilled in using funnel models and user segmentation for data analysis.</li>
-                                            <li>Passionate about games, knowledgeable about various game types, and understands internet product business logic.</li>
-                                            <li>Strong logical thinking, excellent communication skills, stress resilience, and self-motivation.</li>
+                                            <!-- <li>Bachelor's degree or higher, CET-4 (425+).</li> -->
+                                            <li>Proficient in software for product requirements, flowcharts, and mind maps.</li>
+                                            <li>Skilled in funnel models and user segmentation.</li>
+                                            <li>Passionate about games, knowledgeable about game types, and internet product logic.</li>
+                                            <!-- <li>Strong logical thinking, excellent communication skills, stress resilience, and self-motivation.</li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -1729,20 +1613,19 @@
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
                                             <li>Analyze game data: user behavior, revenue, retention.</li>
-                                            <li>Design and run A/B tests for new features and marketing.</li>
+                                            <!-- <li>Design and run A/B tests for new features and marketing.</li> -->
                                             <li>Collaborate with product managers and designers to improve user experience.</li>
                                             <li>Develop and maintain data models and reports.</li>
-                                            <li>Identify issues and opportunities in data, propose solutions.</li>
-                                            <li>Stay updated on industry trends and optimize analysis tools.</li>
+                                            <!-- <li>Identify issues and opportunities in data, propose solutions.</li> -->
+                                            <!-- <li>Stay updated on industry trends and optimize analysis tools.</li> -->
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <li>Bachelor's degree in Statistics, Mathematics, Computer Science, or related fields.</li>
-                                            <li>1-3 years of data analysis experience; gaming background preferred.</li>
-                                            <li>Proficient in SQL and tools like Python, R, Tableau. Strong logical thinking and problem-solving skills.</li>
-                                            <li>Experience with big data technologies like Hadoop, Spark is a plus.</li>
+                                            <!-- <li>Bachelor's degree in Statistics, Mathematics, Computer Science, or related fields.</li> -->
+                                            <!-- <li>1-3 years of data analysis experience; gaming background preferred.</li> -->
+                                            <li>Proficient in SQL, Python, R, Tableau; experience with Hadoop, Spark is a plus.</li>
                                             <li>Ability to use data for product decisions and explain results clearly.</li>
                                             <li>Excellent communication and teamwork skills, thrive in fast-paced environments.</li>
                                         </ul>
@@ -1756,21 +1639,21 @@
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
                                             <li>Design intuitive and attractive game UI elements based on game style and player needs.</li>
-                                            <li>Create prototypes and final UI elements, including icons, buttons, and panels.</li>
-                                            <li>Design interface layouts ensuring usability and consistency.</li>
-                                            <li>Track and analyze user feedback to iteratively improve the UI.</li>
+                                            <li>Create prototypes and final UI elements like icons, buttons, and panels.</li>
+                                            <!-- <li>Design interface layouts ensuring usability and consistency.</li> -->
+                                            <!-- <li>Track and analyze user feedback to iteratively improve the UI.</li> -->
                                             <li>Stay updated on current game UI design trends and best practices.</li>
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <li>Bachelor's degree in Graphic Design, Visual Arts, or related field.</li>
-                                            <li>At least 1 year of game UI design experience or relevant internship/project experience.</li>
+                                            <!-- <li>Bachelor's degree in Graphic Design, Visual Arts, or related field.</li> -->
+                                            <!-- <li>At least 1 year of game UI design experience or relevant internship/project experience.</li> -->
                                             <li>Good visual aesthetics and sensitivity to color, layout, and typography.</li>
-                                            <li>Basic understanding of game UI design principles. Strong communication skills and team spirit.</li>
+                                            <li>Basic understanding of game UI design principles. Strong communication and teamwork skills.</li>
                                             <li>Experience with Unity or other game engines is a plus.</li>
-                                            <li>Outstanding fresh graduates are also welcome to apply.</li>
+                                            <!-- <li>Outstanding fresh graduates are also welcome to apply.</li> -->
                                         </ul>
                                     </div>
                                 </div>
