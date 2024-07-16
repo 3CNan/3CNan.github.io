@@ -205,6 +205,10 @@
             z-index: 1;
             margin: 0 32px;
         }
+        .header .logo a {
+            display: flex;
+            align-items: center;
+        }
         .header.header--open .navbar-mobile .navigation {
             transform: translateY(0);
             transition-delay: 0.5s;
@@ -216,7 +220,7 @@
         .link_list {
             display: flex;
             gap: 40px;
-            margin-right: 10px;
+            margin-right: 32px;
         }
         .link {
             cursor: pointer;
@@ -481,7 +485,7 @@
             text-align: justify;
             word-break: break-all;
             padding: 0 40px;
-            line-height: 200%;
+            line-height: 180%;
             margin-bottom: 10%;
         }
         .about-us .arrows {
@@ -655,10 +659,10 @@
     <style type="text/css">
         @media (max-width: 1279px) {
             .join-us .content {
-                width: calc(100% / 3 * 2);  /* it's written to keep the similar style when page loading, will be covered by js written style */
+                width: calc(100% / 3 * 2 - 10px);  /* -10px since we have 20px gap */
             }
             .join-us .job-bar {
-                width: calc(100% / 2 * 6);  /* same as the above one */
+                width: calc(100% / 2 * 6);  /* it's written to keep the similar style when page loading, will be covered by js written style */
             }
             .join-us .arrows {
                 width: 130%;
@@ -671,7 +675,7 @@
             }
             .bg-image {
                 height: 40vh;
-                max-height: 750px;
+                min-height: 600px;
             }
             .banner .title {
                 font-size: 2.5rem;
@@ -695,7 +699,7 @@
                 aspect-ratio: 1/1.5;
             }
             .join-us .content {
-                width: 50%;
+                width: calc(50% - 10px);  /* -10px since we have 20px gap */
             }
             .join-us .job-bar {
                 width: calc(100% * 6);
@@ -708,7 +712,7 @@
         }
         @media (max-width: 767px) {
             .main-body .default-block {
-                margin: 0 24px;
+                margin: 0 40px;
             }
             .navbar-mobile .logo .icon {
                 display: flex;
@@ -725,7 +729,8 @@
                 background: white;
             }
             .bg-image {
-                min-height: 700px;
+                min-height: 400px;
+                margin-top: 64px;
             }
             .bg-image .image {
                 width: 120%;
@@ -740,8 +745,9 @@
                 width: 66%;
             }
             .game-pod {
-                width: 86%;
-                margin: 4% 7%;
+/*                width: 86%;*/
+/*                margin: 4% 7%;*/
+                width: 100%;
             }
             .app-store-btn.goto-btn {
                 display: inline-flex;
@@ -753,11 +759,12 @@
                 flex-direction: column;
                 gap: 10px;
                 justify-content: start;
+                padding: 20px;
             }
             .about-us-pod .text {
                 width: 100%;
                 margin-bottom: 0;
-                padding: 20px;
+                padding: 5px;
             }
             .about-us-pod .image {
                 width: 100%;
@@ -904,8 +911,7 @@
             var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
 
             var block_width = document.getElementsByClassName("default-block")[3].getBoundingClientRect().width;  // use block[3] because the first two are header and slogan, they have many extra styles, better to use more stable ones
-            var pod_width = Math.floor((block_width - gap_width * (col_num - 1)) / col_num);
-            console.log(pod_width);
+            var pod_width = (block_width - gap_width * (col_num - 1)) / col_num;
 
             set_carousel(pod_width, "job-bar", "job-pod", gap_width);
         }
