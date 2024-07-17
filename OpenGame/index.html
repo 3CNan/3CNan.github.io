@@ -3,7 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OpenGame | Happy Game Happy Life">
+    <meta property="og:description" content="OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. It has launched several globally renowned games with over 100 million downloads worldwide.">
+    <meta property="og:site_name" content="OPENGAME">
+
+    <meta property="twitter:title" content="OpenGame | Happy Game Happy Life">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:description" content="OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. It has launched several globally renowned games with over 100 million downloads worldwide.">
+
+    <meta name="description" content='OPENGAME is a cutting-edge tech company in the gaming industry, focusing on developing and globally distributing mobile games. It has launched several globally renowned games with over 100 million downloads worldwide.'>
+    <meta name="keywords" content="ios publisher, android publisher, mobile games, hypercasual publisher, hyper-casual publisher">
+    <meta itemprop="publisher" content="OPENGAME">
+    
+    <meta property="og:url" content="">
+    <meta itemprop="datePublished" content="2024-07-17">
+    <meta property="article:modified_time" content='2024-07-17T07:01:07.724Z'>
+
     <title>OpenGame | Happy Game Happy Life</title>
+    <link rel="icon" href="./src/img/web-icon/Black-16x16.jpg" sizes="16x16" type="image/jpg">
+    <link rel="icon" href="./src/img/web-icon/Black-32x32.jpg" sizes="32x32" type="image/jpg">
+    <link rel="icon" href="./src/img/web-icon/Black-96x96.jpg" sizes="96x96" type="image/jpg">
+    <link rel="icon" href="./src/img/web-icon/Black-192x192.jpg" sizes="192x192" type="image/jpg">
+    <link rel="apple-touch-icon" href="./src/img/web-icon/Black-180x180.jpg">
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!---->
     <!---->
@@ -18,7 +43,7 @@
     <!---->
     <!---->
     <!-- import font -->
-    <style type="text/css">
+    <style type="text/css" id="import-font-inline-css">
         @font-face {
             font-family: 'Poppins-Light';
             src: url('./src/fonts/Poppins-Light.ttf') format('truetype');
@@ -45,7 +70,7 @@
     <!---->
     <!---->
     <!-- tag selector -->
-    <style type="text/css">
+    <style type="text/css" id="tag-selector-inline-css">
         * {
             box-sizing: border-box;
             font-family: 'Poppins-Light', serif;
@@ -86,7 +111,7 @@
     <!---->
     <!---->
     <!-- class selector -->
-    <style type="text/css">
+    <style type="text/css" id="class-selector-inline-css">
         /* global START */
         :root {
             --grey-400: #7d8598;
@@ -322,9 +347,9 @@
         .games-filter-btn {
             text-align: center;
             padding: 10px;
-/*            color: #05f;*/
+            /* color: #05f;*/
             color: var(--blue-500);
-/*            background: #f4f9ff;*/
+            /* background: #f4f9ff;*/
             background: var(--blue-050);
             font-weight: 900;
             max-width: 300px;
@@ -442,7 +467,7 @@
         /**/
         /* about us START */
         .about-us {
-/*            background: #e9f3ff;*/
+        /* background: #e9f3ff;*/
             background: var(--blue-050);
         }
         .about-us .content {
@@ -487,7 +512,7 @@
             text-align: justify;
             word-break: break-all;
             padding: 0 40px;
-            line-height: 180%;
+            line-height: 150%;
             margin-bottom: 10%;
         }
         .about-us .arrows {
@@ -502,9 +527,9 @@
             gap: 32px;
         }
         .arrows .btn {
-/*            fill: #347bff;*/
+            /* fill: #347bff;*/
             fill: var(--blue-400);
-/*            background: #e9f3ff;*/
+            /* background: #e9f3ff;*/
             background: var(--blue-050);
             padding: 10px;
             width: 50px;
@@ -559,7 +584,6 @@
         }
         .job-pod li {
             list-style: disc;
-/*            list-style-position: inside;*/
             line-height: 150%;
             font-size: 12px;
             margin: 5px 0;
@@ -570,7 +594,6 @@
         .job-content {
             display: flex;
             flex-direction: column;
-/*            justify-content: space-between;*/
             height: 100%;
             gap: 10px;
         }
@@ -601,7 +624,7 @@
         /**/
         /* footer START */
         .footer {
-/*            background: #e9f3ff;*/
+            /* background: #e9f3ff;*/
             background: var(--blue-050);
             min-height: 250px;
             display: flex;
@@ -658,7 +681,7 @@
     <!---->
     <!---->
     <!-- @media selector -->
-    <style type="text/css">
+    <style type="text/css" id="media-inline-css">
         @media (max-width: 1279px) {
             .join-us .content {
                 width: calc(100% / 3 * 2 - 10px);  /* -10px since we have 20px gap */
@@ -748,8 +771,6 @@
                 width: 66%;
             }
             .game-pod {
-/*                width: 86%;*/
-/*                margin: 4% 7%;*/
                 width: 100%;
             }
             .app-store-btn.goto-btn {
@@ -819,8 +840,10 @@
     <!---->
     <!---->
     <!-- script START -->
-    <script type="text/javascript">
-        function soft_scroll(obj_class_name) {    // scroll the page to specific element based on fixed nav bar
+    <script type="text/javascript" id="function-inline-js">
+
+        // scroll the page to specific element based on fixed nav bar
+        function soft_scroll(obj_class_name) {    
             var target_height = document.getElementsByClassName(obj_class_name)[0].offsetTop;  // get target pos
             var adjust_height = (obj_class_name == "banner") ? 0 : (- 64 + 100);
             window.scrollTo({
@@ -828,7 +851,9 @@
                 behavior: "smooth"
             });
         }
-        function toggle_icon(delay=0) {    // toggle icon from burger to cross and add header--open class to the drop-down nav menu
+
+        // toggle icon from burger to cross and add header--open class to the drop-down nav menu
+        function toggle_icon(delay=0) {    
             var icon_obj = document.getElementsByClassName("icon")[0];
             var header_obj = document.getElementsByClassName("header")[0];
 
@@ -842,7 +867,9 @@
                 }
             }, delay * 1000);
         }
-        function toggle_header_bg() {    // toggle the background color of navbar
+
+        // toggle the background color of nav bar
+        function toggle_header_bg() {    
             var header_obj = document.getElementsByClassName("header")[0];
             var main_body_obj  = document.getElementsByClassName("main-body")[0];
 
@@ -852,7 +879,9 @@
                 header_obj.classList.add("header--scrolled");
             }
         }
-        function toggle_poster_video(obj, status) {    // play video when enter, pause when out; add game-pod--hover class to game-pod object to toggle poster and video visibility
+
+        // play video when enter, pause when out; add game-pod--hover class to game-pod object to toggle poster and video visibility
+        function toggle_poster_video(obj, status) {    
             if (status == "mouseenter") {
                 obj.classList.add("game-pod--hover");
                 obj.getElementsByClassName('video')[0].play();
@@ -861,7 +890,9 @@
                 obj.getElementsByClassName('video')[0].pause();
             }
         }
-        function toggle_game_filter(btn_obj) {    // click btn to show/close wrapper object
+
+        // click btn to show/close wrapper object
+        function toggle_game_filter(btn_obj) {    
             var games_table_obj = document.getElementsByClassName("games-table")[0];
             if (btn_obj.innerHTML == "See All Games") {
                 games_table_obj.classList.add("games-table--open");
@@ -872,34 +903,43 @@
                 soft_scroll("games");
             }
         }
-        function show_qr_window(app_name) {  // alert the qr code window, display the qr code according to app_name
+
+        // alert the qr code window, display the qr code according to app_name
+        function show_qr_window(app_name) {  
             var url = "./src/img/qr-code/" + app_name + ".svg";
-            // var url = app_name + ".svg";
             var qr_img_obj = document.getElementsByClassName("qr-img")[0];
             qr_img_obj.src = url;
             var qr_window_obj = document.getElementsByClassName("qr-window")[0];
             qr_window_obj.classList.add("qr-window--open");
         }
+
+        // remove the open class of qr win, hide the qr window
         function hide_qr_window() {
             var qr_window_obj = document.getElementsByClassName("qr-window")[0];
             qr_window_obj.classList.remove("qr-window--open");
         }
-        function set_carousel(pod_width, bar_name, pod_name, gap_width=0) {  // set bar width and pod width
+
+        // set bar width and pod width
+        function set_carousel(pod_width, bar_name, pod_name, gap_width=0) {  
             var bar_obj = document.getElementsByClassName(bar_name)[0];
             var pod_objs = document.getElementsByClassName(pod_name);
 
-            // e.g. calc(t * 6 + g * 5)
+            // e.g. calc(t * 6 + g * 5), calc(t * 4 + g * 3)
             bar_obj.style.width = "calc(" + pod_width + "px * " + pod_objs.length + " + " + gap_width + "px * " + (pod_objs.length - 1)  + ")";
             for (var i = pod_objs.length - 1; i >= 0; i--) {
                 pod_objs[i].style.width = pod_width + "px";
             }
         }
-        function set_aboutus_carousel() {  // set bar width and pod width for about-us block
+
+        // set bar width and pod width for about-us block
+        function set_aboutus_carousel() {  
             var default_block_obj = document.getElementsByClassName("default-block")[3];  // use block[3] because the first two are header and slogan, they have many extra styles, better to use more stable ones
             var pod_width = default_block_obj.getBoundingClientRect().width;
             set_carousel(pod_width, "about-us-bar", "about-us-pod");
         }
-        function set_joinus_carousel() {  // set bar width and pod width for join-us block according to window width
+
+        // set bar width and pod width for join-us block according to window width
+        function set_joinus_carousel() {  
             var col_num;
             // col_num is actually the # of columns placed in default block, it's not the displayed number
             if (document.body.getBoundingClientRect().width > 1023) {
@@ -918,7 +958,9 @@
 
             set_carousel(pod_width, "job-bar", "job-pod", gap_width);
         }
-        function set_aboutus_resize_carousel() {  // set about-us bar and pod width when window resizes
+
+        // set about-us bar transform value, keep the displayed pod in its original place
+        function set_aboutus_resize_carousel() {
             var bar_obj = document.getElementsByClassName("about-us-bar")[0];
             var pod_objs = document.getElementsByClassName("about-us-pod");
             var pod_width = pod_objs[0].getBoundingClientRect().width;
@@ -931,12 +973,14 @@
 
             bar_obj.style.transform = "translateX(" + (-pod_width * current_page) + "px)";
         }
-        function set_joinus_resize_carousel() {  // set join-us bar and pod width when window resizes
+
+        // set join-us bar transform value, keep the displayed pod in its original place
+        function set_joinus_resize_carousel() {  
             var bar_obj = document.getElementsByClassName("job-bar")[0];
             var pod_objs = document.getElementsByClassName("job-pod");
             var pod_width = pod_objs[0].getBoundingClientRect().width;
             var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
-            gap_width = (gap_width) ? gap_width : 0; // if there's no gap between pods
+            gap_width = (gap_width) ? gap_width : 0; // if there's no gap between pods, make it 0 to avoid null error
 
             var move_width = pod_width + gap_width;
 
@@ -945,7 +989,9 @@
 
             bar_obj.style.transform = "translateX(" + (-move_width * current_page) + "px)";
         }
-        function lr_carousel(direction, bar_name, pod_name, col_num) { // button onclick event, control the left-right carousel motion
+
+        // button onclick event, control the left-right carousel motion
+        function lr_carousel(direction, bar_name, pod_name, col_num) { 
             var direct_sign = (direction == "left") ? -1 : 1;
             var bar_obj = document.querySelector("." + bar_name);
             var original_posX = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[4];  // receiving transform value: matrix(a, b, c, d, posX, f);
@@ -984,17 +1030,18 @@
                 bar_obj.style.transform = "translateX(" + (-move_width * new_page) + "px)";
             }, 100);  // delay to make sure translate is added after "transition" class is added
         }
-
+    </script>
+    <script type="text/javascript" id="event-listener-inline-js">
         window.onload = function() {
             set_aboutus_carousel();  // set style
             set_joinus_carousel();  // set style
         }
         window.addEventListener('resize', function() {
-                set_aboutus_carousel();  // set dynamic width
-                set_aboutus_resize_carousel();  // keep displayed pod in place
-                set_joinus_carousel();  // set dynamic width
-                set_joinus_resize_carousel();  // keep displayed pod in place
-            });
+            set_aboutus_carousel();  // set dynamic width
+            set_aboutus_resize_carousel();  // keep displayed pod in place
+            set_joinus_carousel();  // set dynamic width
+            set_joinus_resize_carousel();  // keep displayed pod in place
+        });
     </script>
     <!-- script END -->
     <!---->
@@ -1012,6 +1059,8 @@
 </head>
 <body onscroll="toggle_header_bg()">
     <!-- header START -->
+    <!-- Header is the top navigation bar area. Its size is changed accoding to .default-block is @media selector. Scroll effect is created by soft_scroll() function, written directly in onclick attribute.
+        IMPORTANT!!! When modify the content of navigation bar, please update both the laptop version and the mobile version. -->
     <header class="header">
         <div class="navbar-laptop default-block" style="height: 64px;">
             <div class="logo">
@@ -1072,6 +1121,8 @@
     <!---->
     <!-- main body START -->
     <main class="main-body">
+        <!-- Banner START -->
+        <!-- Banner is the 1st block of the page, the image is changing according to @media selector based on window size. -->
         <section class="banner">
             <div class="bg-image">
                 <div class="banner-laptop image">
@@ -1091,6 +1142,7 @@
                 </div>
             </div>
         </section>
+        <!-- Banner END -->
         <!---->
         <!---->
         <!---->
@@ -1115,6 +1167,10 @@
         <!---->
         <!---->
         <!---->
+        <!-- Games START -->
+        <!-- Games is the 2nd block of the page. one wrapper can only contain 3 pods in total. The first wrapper must be "featured wrapper", and all other wrappers are "all wrapper". and the "other wrapper" is only used for last line (wrapper).
+            functions(toggle_poster_video, show_qr_window) are directly written in onclick attribute.
+            IMPORTANT!!! When adding new game pod, please add the "other" class to its wrapper if there're not full 3 pods. -->
         <section class="games">
             <div class="default-block">
                 <div class="text">
@@ -1270,7 +1326,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="wrapper all other">  <!-- "other" is used only for pod less than 3 in a line. If adding new ones, please remove the "other" class for this wrapper, and add it to the new wrapper if you need.-->
+                    <div class="wrapper all other">  <!-- "other" is used only for last wrapper. If adding new ones over the wrapper, please remove the "other" class for this wrapper, and add it to the new wrapper if you need.-->
                         <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
                             <div class="game-background">
                                 <img class="poster" src="./src/img/poster/ST-poster.png">
@@ -1329,8 +1385,31 @@
                         <!---->
                         <!---->
                         <!-- Add new block here -->
-                        <!-- Add new block here -->
-                        <!-- Add new block here -->
+                        <!-- New block sample, all parts need to enter is replaced by [--], the use of app store/google play is dependent: -->
+                        <!-- <div class="game-pod box" onmouseenter="toggle_poster_video(this, 'mouseenter')" onmouseleave="toggle_poster_video(this, 'mouseleave')">
+                            <div class="game-background">
+                                <img class="poster" src="./src/img/poster/[--]-poster.png">
+                                <video class="video" muted="muted" loop="loop">
+                                    <source src="./src/video/[--].mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="game-info">
+                                <img class="icon" src="./src/img/logo/[--]-logo.webp">
+                                <p>[--]</p>
+                            </div>
+                            <div class="game-link">
+                                <a href="[--]" class="link app-store-btn goto-btn">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
+                                    <p>Download on the<br><b>App Store</b></p>
+                                </a>
+                                <a class="link app-store-btn qr-code-btn" onclick="show_qr_window('[--]')">
+                                    <img src="./src/img/icon/app-store-black.svg" width="25" height="25" class="normal">
+                                    <img src="./src/img/icon/app-store-white.svg" width="25" height="25" class="hover">
+                                    <p>Download on the<br><b>App Store</b></p>
+                                </a>
+                            </div>
+                        </div> -->
                         <!---->
                         <!---->
                         <!---->
@@ -1353,6 +1432,7 @@
                 </div>
             </div>
         </section>
+        <!-- Games END -->
         <!---->
         <!---->
         <!---->
@@ -1377,6 +1457,9 @@
         <!---->
         <!---->
         <!---->
+        <!-- About Us START -->
+        <!-- About us is the 3rd block of the page. It originally has 4 pages: intro, management, partnership, future. The background image is written in HTML style attribute. The carousel function is directly used in onclick attributs in arrow buttons.
+            IMPORTANT!!! When modifying intro page, please synchronize the intro page at last. -->
         <section class="about-us">
             <div class="default-block">
                 <h2 class="title-2">About Us</h2>
@@ -1426,8 +1509,15 @@
                             <!---->
                             <!---->
                             <!-- Add new block here -->
-                            <!-- Add new block here -->
-                            <!-- Add new block here -->
+                            <!-- New block sample, all input is replaced by [--] -->
+                            <!-- <div class="about-us-pod">
+                                <div class="image" style='background-image: url("./src/img/about-us-image/[--].jpg")'>
+                                </div>
+                                <div class="text">
+                                    <h4 class="title-4">[--]</h4>
+                                    <div>[--]</div>
+                                </div>
+                            </div> -->
                             <!---->
                             <!---->
                             <!---->
@@ -1437,7 +1527,7 @@
                             <!---->
                             <!---->
                             <!---->
-                            <!-- same as 1st one-->
+                            <!-- same as 1st one, remember to synchronize it when modifying the 1st one. -->
                             <div class="about-us-pod">
                                 <div class="image" style='background-image: url("./src/img/about-us-image/intro.jpg")'>
                                 </div>
@@ -1459,6 +1549,7 @@
                 </div>
             </div>
         </section>
+        <!-- About Us END -->
         <!---->
         <!---->
         <!---->
@@ -1483,6 +1574,10 @@
         <!---->
         <!---->
         <!---->
+        <!-- Join Us START -->
+        <!-- Join Us is the 4th block of the page. It originally contains 3 pods. The place to add new pods is insert the pod after the first three. The carousel initialization function is used in <script>: load and resize of window.
+            For the content of each pod, it's better to have at most 3 points in each part.
+            IMPORTANT!!! When modifying the first three pods, please synchronize the last 3 pods. -->
         <section class="join-us">
             <div class="default-block">
                 <h2 class="title-2">Join Us</h2>
@@ -1496,21 +1591,17 @@
                                     <div class="job-page job-responsibility job-page--selected">
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
-                                            <!-- <li>Plan the numbers and level strategies for overseas casual games.</li> -->
                                             <li>Oversee requirements, design, development, testing, growth, and analysis.</li>
                                             <li>Communicate with departments, coordinate resources, and ensure project progress.</li>
                                             <li>Analyze data, track feedback, and improve retention and conversion.</li>
-                                            <!-- <li>Monitor industry trends and competitor performance to enhance game experience and user engagement.</li> -->
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <!-- <li>Bachelor's degree or higher, CET-4 (425+).</li> -->
                                             <li>Proficient in software for product requirements, flowcharts, and mind maps.</li>
                                             <li>Skilled in funnel models and user segmentation.</li>
                                             <li>Passionate about games, knowledgeable about game types, and internet product logic.</li>
-                                            <!-- <li>Strong logical thinking, excellent communication skills, stress resilience, and self-motivation.</li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -1522,18 +1613,13 @@
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
                                             <li>Analyze game data: user behavior, revenue, retention.</li>
-                                            <!-- <li>Design and run A/B tests for new features and marketing.</li> -->
                                             <li>Collaborate with product managers and designers to improve user experience.</li>
                                             <li>Develop and maintain data models and reports.</li>
-                                            <!-- <li>Identify issues and opportunities in data, propose solutions.</li> -->
-                                            <!-- <li>Stay updated on industry trends and optimize analysis tools.</li> -->
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <!-- <li>Bachelor's degree in Statistics, Mathematics, Computer Science, or related fields.</li> -->
-                                            <!-- <li>1-3 years of data analysis experience; gaming background preferred.</li> -->
                                             <li>Proficient in SQL, Python, R, Tableau; experience with Hadoop, Spark is a plus.</li>
                                             <li>Ability to use data for product decisions and explain results clearly.</li>
                                             <li>Excellent communication and teamwork skills, thrive in fast-paced environments.</li>
@@ -1577,8 +1663,28 @@
                             <!---->
                             <!---->
                             <!-- Add new block here -->
-                            <!-- Add new block here -->
-                            <!-- Add new block here -->
+                            <!-- New block sample, all input is replaced by [--]: -->
+                            <!-- <div class="job-pod">
+                                <h4 class="job-title title-4">[--]</h4>
+                                <div class="job-content">
+                                    <div class="job-page job-responsibility job-page--selected">
+                                        <h5 class="title-5">Job Responsibilities: </h5>
+                                        <ul>
+                                            <li>[--]</li>
+                                            <li>[--]</li>
+                                            <li>[--]</li>
+                                        </ul>
+                                    </div>
+                                    <div class="job-page job-requirement">
+                                        <h5 class="title-5">Job Requirements: </h5>
+                                        <ul>
+                                            <li>[--]</li>
+                                            <li>[--]</li>
+                                            <li>[--]</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> -->
                             <!---->
                             <!---->
                             <!---->
@@ -1596,21 +1702,17 @@
                                     <div class="job-page job-responsibility job-page--selected">
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
-                                            <!-- <li>Plan the numbers and level strategies for overseas casual games.</li> -->
                                             <li>Oversee requirements, design, development, testing, growth, and analysis.</li>
                                             <li>Communicate with departments, coordinate resources, and ensure project progress.</li>
                                             <li>Analyze data, track feedback, and improve retention and conversion.</li>
-                                            <!-- <li>Monitor industry trends and competitor performance to enhance game experience and user engagement.</li> -->
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <!-- <li>Bachelor's degree or higher, CET-4 (425+).</li> -->
                                             <li>Proficient in software for product requirements, flowcharts, and mind maps.</li>
                                             <li>Skilled in funnel models and user segmentation.</li>
                                             <li>Passionate about games, knowledgeable about game types, and internet product logic.</li>
-                                            <!-- <li>Strong logical thinking, excellent communication skills, stress resilience, and self-motivation.</li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -1622,18 +1724,13 @@
                                         <h5 class="title-5">Job Responsibilities: </h5>
                                         <ul>
                                             <li>Analyze game data: user behavior, revenue, retention.</li>
-                                            <!-- <li>Design and run A/B tests for new features and marketing.</li> -->
                                             <li>Collaborate with product managers and designers to improve user experience.</li>
                                             <li>Develop and maintain data models and reports.</li>
-                                            <!-- <li>Identify issues and opportunities in data, propose solutions.</li> -->
-                                            <!-- <li>Stay updated on industry trends and optimize analysis tools.</li> -->
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <!-- <li>Bachelor's degree in Statistics, Mathematics, Computer Science, or related fields.</li> -->
-                                            <!-- <li>1-3 years of data analysis experience; gaming background preferred.</li> -->
                                             <li>Proficient in SQL, Python, R, Tableau; experience with Hadoop, Spark is a plus.</li>
                                             <li>Ability to use data for product decisions and explain results clearly.</li>
                                             <li>Excellent communication and teamwork skills, thrive in fast-paced environments.</li>
@@ -1649,20 +1746,15 @@
                                         <ul>
                                             <li>Design intuitive and attractive game UI elements based on game style and player needs.</li>
                                             <li>Create prototypes and final UI elements like icons, buttons, and panels.</li>
-                                            <!-- <li>Design interface layouts ensuring usability and consistency.</li> -->
-                                            <!-- <li>Track and analyze user feedback to iteratively improve the UI.</li> -->
                                             <li>Stay updated on current game UI design trends and best practices.</li>
                                         </ul>
                                     </div>
                                     <div class="job-page job-requirement">
                                         <h5 class="title-5">Job Requirements: </h5>
                                         <ul>
-                                            <!-- <li>Bachelor's degree in Graphic Design, Visual Arts, or related field.</li> -->
-                                            <!-- <li>At least 1 year of game UI design experience or relevant internship/project experience.</li> -->
                                             <li>Good visual aesthetics and sensitivity to color, layout, and typography.</li>
                                             <li>Basic understanding of game UI design principles. Strong communication and teamwork skills.</li>
                                             <li>Experience with Unity or other game engines is a plus.</li>
-                                            <!-- <li>Outstanding fresh graduates are also welcome to apply.</li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -1681,6 +1773,7 @@
                 </div>
             </div>
         </section>
+        <!-- Join Us END -->
     </main>
     <!-- main body END -->
     <!---->
@@ -1707,6 +1800,7 @@
     <!---->
     <!---->
     <!---->
+    <!-- footer START -->
     <footer class="footer">
         <div class="left">
             <div class="logo">
@@ -1720,13 +1814,13 @@
                     <a href="mailto:cypwkjyxgs@163.com">
                         <img src="./src/img/icon/envelope.svg" width="25" height="25">
                     </a>
+                    <!---->
+                    <!-- Add new icon here -->
+                    <!---->
                 </div>
             </div>
             <div class="slogan">
-                Happy 
-                <span style="color: #ec1918;">Game </span>
-                Happy 
-                <span style="color: #05f;">Life</span>
+                Happy <span style="color: #ec1918;">Game</span> Happy <span style="color: #05f;">Life</span>
             </div>
         </div>
         <div class="right">
@@ -1738,11 +1832,10 @@
                     <li><a class="link" onclick="soft_scroll('join-us')">Join Us</a></li>
                 </ul>
             </div>
-            <div class="copyright">
-                Copyright © 2024 OPENGAME. All Rights Reserved.
-            </div>
+            <div class="copyright">Copyright © 2024 OPENGAME. All Rights Reserved.</div>
         </div>
     </footer>
+    <!-- footer END -->
 </body>
 
 </html>
