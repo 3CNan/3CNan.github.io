@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sample effect - Fixed background when vertical scrolling</title>
+	<style type="text/css">
+		.fixed-bg {
+			/*position: absolute;
+			z-index: -1;*/
+			background-attachment: fixed;
+			background-size: cover;
+			background-position: center;
+		}
+		.default-block .content {
+			height: 300px;
+			background: white;
+		}
+		.default-block .fixed-bg {
+			height: 200px;
+		}
+		.fixed-bg:nth-child {
+			width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="default-block" id="product-A">
+		<div class="content">
+			<h1>Product A</h1>
+		</div>
+		<div class="fixed-bg" style="background-image: url('./src/img/about-us-image/future.jpg');">
+			<!-- <img src="./src/img/about-us-image/future.jpg"> -->
+		</div>
+	</div>
+	<div class="default-block" id="product-B">
+		<div class="content">
+			<h1>Product B</h1>
+		</div>
+		<div class="fixed-bg" style="background-image: url('./src/img/about-us-image/management.jpg');">
+			<!-- <img src="./src/img/about-us-image/management.jpg"> -->
+		</div>
+	</div>
+	<div class="default-block" id="product-C">
+		<div class="content">
+			<h1>Product C</h1>
+		</div>
+		<div class="fixed-bg" style="background-image: url('./src/img/about-us-image/intro.jpg');">
+			<!-- <img src="./src/img/about-us-image/future.jpg"> -->
+		</div>
+	</div>
+</body>
+</html>
