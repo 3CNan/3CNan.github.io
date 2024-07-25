@@ -115,7 +115,7 @@
             max-width: 928px;
             margin: 0 auto;
         }
-        .main-body .default-block {
+        #main-body .default-block {
             padding: 100px 0;
         }
         .clickable {
@@ -191,7 +191,7 @@
         /**/
         /**/
         /* header START */
-        .header {
+        #header {
             position: fixed;
             top: 0;
             left: 0;
@@ -200,12 +200,12 @@
             width: 100%;
             font-family: 'Poppins-Light', serif;
         }
-        .header .navbar-laptop {
+        #header .navbar-laptop {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .header .logo {
+        #header .logo {
             height: 64px;
             display: flex;
             align-items: center;
@@ -215,11 +215,11 @@
             z-index: 1;
             margin: 0 32px;
         }
-        .header .logo a {
+        #header .logo a {
             display: flex;
             align-items: center;
         }
-        .header.header--open .navbar-mobile .navigation {
+        #header.header--open .navbar-mobile .navigation {
             transform: translateY(0);
             transition-delay: 0.5s;
         }
@@ -231,7 +231,7 @@
             display: flex;
             gap: 40px;
         }
-        .header .link-list {
+        #header .link-list {
             margin-right: 32px;
         }
         .navbar-mobile .navigation {
@@ -262,7 +262,7 @@
         /**/
         /**/
         /* slogan START */
-        .banner {
+        #banner {
             background: linear-gradient(to bottom, #f4f9ff, #fff);
         }
         .bg-image {
@@ -283,7 +283,7 @@
             width: 100%;
             height: auto;
         }
-        .banner .title {
+        #banner .title {
             max-width: 867px;
             width: 100%;
             text-align: center;
@@ -296,10 +296,10 @@
             transform: scaleY(0.7);
             margin-bottom: 1.5vw;
         }
-        .banner .title span {
+        #banner .title span {
             font: inherit;
         }
-        .banner .title .cap-1 {
+        #banner .title .cap-1 {
             font-size: 150%;
         }
         /* slogan END */
@@ -678,14 +678,14 @@
             }
         }
         @media (max-width: 1023px) {
-            .main-body .default-block {
+            #main-body .default-block {
                 margin: 0 70px;
             }
             .bg-image {
                 height: 40vh;
                 min-height: 600px;
             }
-            .banner .title {
+            #banner .title {
                 font-size: 2.5rem;
                 line-height: 4rem;
             }
@@ -719,7 +719,7 @@
             
         }
         @media (max-width: 767px) {
-            .main-body .default-block {
+            #main-body .default-block {
                 margin: 0 40px;
             }
             .navbar-mobile .logo .icon {
@@ -727,13 +727,13 @@
                 align-items: center;
                 justify-content: right;
             }
-            .header .navbar-laptop {
+            #header .navbar-laptop {
                 display: none;
             }
-            .header .navbar-mobile {
+            #header .navbar-mobile {
                 display: block;
             }
-            .header.header--open {
+            #header.header--open {
                 background: white;
             }
             .bg-image {
@@ -750,7 +750,7 @@
             .banner-mobile {
                 display: block;
             }
-            .banner .title {
+            #banner .title {
                 width: 66%;
             }
             .game-pod {
@@ -825,7 +825,7 @@
     <!-- script START -->
     <script type="text/javascript" id="function-inline-js">
         // scroll the page to specific element based on fixed nav bar
-        function soft_scroll(obj_id_name) {    
+        function nav_scroll_to(obj_id_name) {    
             var target_height = document.getElementById(obj_id_name).offsetTop;  // get target pos
             var adjust_height = (obj_id_name == "banner") ? 0 : (- 64 + 100);
             window.scrollTo({
@@ -882,7 +882,7 @@
             } else {
                 games_table_obj.classList.remove("games-table--open");
                 btn_obj.innerHTML = "See All Games";
-                soft_scroll("games");
+                nav_scroll_to("games");
             }
         }
 
@@ -1041,28 +1041,28 @@
 </head>
 <body onscroll="toggle_header_bg()">
     <!-- header START -->
-    <!-- Header is the top navigation bar area. Its size is changed accoding to .default-block is @media selector. Scroll effect is created by soft_scroll() function, written directly in onclick attribute.
+    <!-- Header is the top navigation bar area. Its size is changed accoding to .default-block is @media selector. Scroll effect is created by nav_scroll_to() function, written directly in onclick attribute.
         IMPORTANT!!! When modify the content of navigation bar, please update both the laptop version and the mobile version. -->
     <header class="header">
         <div class="navbar-laptop default-block" style="height: 64px;">
             <div class="logo">
-                <a onclick="soft_scroll('banner')" aria-current="page">
+                <a onclick="nav_scroll_to('banner')" aria-current="page">
                     <img src="./src/img/icon/OPENGAME-logo.svg" class="opengame-logo clickable" height="20">
                 </a>
             </div>
             <nav class="navigation">
                 <ul class="link-list">
-                    <li><a class="clickable" onclick="soft_scroll('banner')">Home</a></li>
-                    <li><a class="clickable" onclick="soft_scroll('games')">Games</a></li>
-                    <li><a class="clickable" onclick="soft_scroll('about-us')">About Us</a></li>
-                    <li><a class="clickable" onclick="soft_scroll('join-us')">Join Us</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('banner')">Home</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('games')">Games</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('about-us')">About Us</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('join-us')">Join Us</a></li>
                 </ul>
             </nav>
         </div>
 
         <div class="navbar-mobile default-block" style="height: 64px;">
             <div class="logo">
-                <a onclick="soft_scroll('slogan')" aria-current="page">
+                <a onclick="nav_scroll_to('slogan')" aria-current="page">
                     <img src="./src/img/icon/OPENGAME-logo.svg" class="opengame-logo" height="20">
                 </a>
                 <div class="icon" onclick="toggle_icon()">
@@ -1070,10 +1070,10 @@
                 </div>
             </div>
             <nav class="navigation">
-                <a class="clickable" onclick="soft_scroll('banner'); toggle_icon(0.7)">Home</a>
-                <a class="clickable" onclick="soft_scroll('games'); toggle_icon(0.7)">Games</a>
-                <a class="clickable" onclick="soft_scroll('about-us'); toggle_icon(0.7)">About Us</a>
-                <a class="clickable" onclick="soft_scroll('join-us'); toggle_icon(0.7)">Join Us</a>
+                <a class="clickable" onclick="nav_scroll_to('banner'); toggle_icon(0.7)">Home</a>
+                <a class="clickable" onclick="nav_scroll_to('games'); toggle_icon(0.7)">Games</a>
+                <a class="clickable" onclick="nav_scroll_to('about-us'); toggle_icon(0.7)">About Us</a>
+                <a class="clickable" onclick="nav_scroll_to('join-us'); toggle_icon(0.7)">Join Us</a>
             </nav>
         </div>
     </header>
@@ -1786,7 +1786,7 @@
     <footer class="footer">
         <div class="left">
             <div class="logo">
-                <a onclick="soft_scroll('banner')" aria-current="page">
+                <a onclick="nav_scroll_to('banner')" aria-current="page">
                     <img src="./src/img/icon/OPENGAME-logo.svg" class="opengame-logo clickable" height="20">
                 </a>
                 <div class="icons">
@@ -1808,10 +1808,10 @@
         <div class="right">
             <div class="navigation">
                 <ul class="link-list">
-                    <li><a class="clickable" onclick="soft_scroll('banner')">Home</a></li>
-                    <li><a class="clickable" onclick="soft_scroll('games')">Games</a></li>
-                    <li><a class="clickable" onclick="soft_scroll('about-us')">About Us</a></li>
-                    <li><a class="clickable" onclick="soft_scroll('join-us')">Join Us</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('banner')">Home</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('games')">Games</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('about-us')">About Us</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('join-us')">Join Us</a></li>
                 </ul>
             </div>
             <div class="copyright">Copyright © 2024 OPENGAME. All Rights Reserved.</div>

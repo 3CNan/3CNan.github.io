@@ -60,8 +60,1002 @@
     <!---->
     <!---->
     <!-- tag selector -->
-</head>
-<body>
+    <style type="text/css" id="tag-selector-inline-css">
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins-Light', serif;
+        }
+        header {
+            display: block;
+        }
+        a, b, body, button, div, footer, h1, h2, h3, h4, h5, header, html, img, li, nav, ol, p, ul, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        body {
+            transition: transform .5s ease-in-out;
+        }
+        ol, ul {
+            list-style: none;
+        }  
+    </style>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!-- class selector -->
+    <style type="text/css" id="class-selector-inline-css">
+        /* global START */
+        :root {
+            --grey-400: #7d8598;
+            --grey-500: #636b7f;
+            --grey-900: #10131b;
+            --blue-050: #e9f3ff;
+            --blue-400: #347bff;
+            --blue-500: #05f;
+        }
+        .default-block {
+            max-width: 928px;
+            margin: 0 auto;
+        }
+        #main-body .default-block {
+            padding: 100px 0;
+        }
+        .clickable {
+            cursor: pointer;
+        }
+        .navbar-mobile, .banner-mobile {
+            display: none;
+        }
+        .title-1, .title-2, .title-3, .title-4, .title-5, .button {
+            font-family: 'Poppins-Medium', serif;
+        }
+        .box {
+            box-sizing: border-box;
+            border-radius: 20px;
+            box-shadow: 0 15px 15px rgba(0,0,0,.1);
+            overflow: hidden;
+        }
+        .transition {
+            transition: .5s ease-in-out;
+        }
+        .visible {
+            opacity: 1;
+        }
+        .invisible {
+            opacity: 0;
+        }
+        .overflow-window {
+            overflow: hidden;
+        }
+        /* global END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* text format START */
+        .title-1 {
+            font-size: 2rem;
+            text-align: center;
+            padding: .5rem 0;
+        }
+        /* text format END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* header START */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            font-family: 'Poppins-Light', serif;
+        }
+        #header .navbar-laptop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #header .logo {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            padding: 0 32px;
+        }
+        #header .logo a {
+            display: flex;
+            align-items: center;
+        }
+        #header.header--open .navbar-mobile .navigation {
+            transform: translateY(0);
+            transition-delay: 0.2s;
+            opacity: 1;
+        }
+        .navbar-laptop {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+        .link-list {
+            display: flex;
+            gap: 40px;
+        }
+        #header .link-list {
+            margin-right: 32px;
+        }
+        #header .link-list a {
+            color: white;
+        }
+        #header.header--scrolled .link-list a {
+            color: black;
+        }
+        .navbar-mobile .navigation {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            padding: 25px 0;
+            transform: translateY(-150%);
+            transition: .5s ease-in-out;
+            opacity: 0;
+        }
+        .nav-tag {
+            padding: 10px 42px;
+        }
+        .header--scrolled {
+            background: white;
+        }
+        .Auroramob-title {
+            height: 20px;
+            aspect-ratio: 1024/155;
+            background-image: url('./src/img/icon/Auroramob-title-white.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .header--scrolled .Auroramob-title, .header--open .Auroramob-title {
+            background-image: url('./src/img/icon/Auroramob-title-black.png');
+        }
+        #nav-icon {
+            fill: white;
+        }
+        .header--scrolled #nav-icon, .header--open #nav-icon {
+            fill: black;
+        }
+        /* header END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* banner START */
+        .banner-image {
+            width: 100%;
+            height: 700px;
+            background-image: url("./src/img/banner/1.jpg");
+            background-size: cover;
+            background-position: center;
+            animation: banner-img-carousel 20s linear infinite;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner-image::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 700px;
+            position: absolute;
+            z-index: 2;
+            background-color: rgb(61 37 128 / 46%);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        #banner .title {
+            color: white;
+            position: relative;
+            z-index: 3;
+            font-size: 4rem;
+        }
+        /* banner END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* product START */
+        .product-bar {
+            width: calc(928px * 4 + 50px * 3);
+            gap: 50px;
+            display: flex;
+            margin: 40px 0;
+        }
+        .product-pod {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            /* background-image: linear-gradient(to right, white 45%, transparent 60%), url();     sample background */
+            background-size: 100%, 60%;    /* the second % is same as the % of transparent in background */
+            background-position: left, right;
+            opacity: 0;
+        }
+        .product-pod.pod--selected {
+            opacity: 1;
+        }
+        .product-pod .text {
+            width: 50%;
+            position: relative;
+            z-index: 1;
+        }
+        .product-pod .title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .product-pod .logo {
+            width: 50px;
+            height: 50px;
+        }
+        .product-pod .image {
+            height: 100%;
+            aspect-ratio: 3 / 2;
+            overflow: hidden;
+            position: absolute;
+            right: 0;
+            z-index: 0;
+        }
+        .product-pod .image img {
+            width: 100%;
+            height: auto;
+        }
+        .logo-bar {
+            width: 100%;
+            margin: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-bar .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 100px;
+            transition: .3s ease-in-out;
 
+            background-size: cover;
+            background-position: center;
+
+            position: relative;
+            z-index: 1;
+        }
+        .logo-bar .logo:hover, .logo-bar .logo.logo--selected {
+            transform: scale(1.25);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .logo-line {
+            position: absolute;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            border: solid 1px black;
+        }
+        /* product END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* about us START */
+        .ab-content {
+            display: flex;
+            width: 100%;
+            height: 400px;
+        }
+        .ab-content .detail {
+            width: 70%;
+        }
+        .ab-content .title-bar {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+        }
+        .title-bar .title {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .title-bar .title .text {
+            transition: .3s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+        .title-bar .title::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: orange;
+            transform: translateX(-100%);
+            transition: .5s ease-in-out;
+            position: absolute;
+            z-index: 0;
+        }
+        .title-bar .title.title--selected .text {
+            color: white;
+        }
+        .title-bar .title.title--selected::before {
+            transform: translateX(0);
+        }
+        .ab-bar {
+            height: calc(400px * 5);
+            display: flex;
+            flex-direction: column;
+        }
+        .ab-pod {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 0 15px grey inset;
+        }
+        /* about us END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* join-us START */
+        /* join-us END */
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /**/
+        /* footer START */
+        .footer {
+            /* background: #e9f3ff;*/
+            background: var(--blue-050);
+            min-height: 250px;
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 100px;
+            font-family: "Poppins-Light", serif;
+        }
+        .footer .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .footer .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            text-align: right;
+        }
+        .footer .logo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer .icons {
+            display: flex;
+            gap: 13px;
+        }
+        .footer .slogan {
+            font-size: 130%;
+            font-family: 'Cuprum-Bold';
+            transform: scaleY(0.7);
+        }
+        .footer .slogan span {
+            font-family: 'Cuprum-Bold';
+            transform: scaleY(0.7);
+        }
+        .footer .copyright {
+            color: var(--grey-400);
+            font-size: 80%;
+        }
+        /* footer END */
+    </style>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!-- @media selector -->
+    <style type="text/css" id="media-inline-css">
+        @media (max-width: 1279px) {
+        }
+        @media (max-width: 1023px) {
+            #main-body .default-block {
+                margin: 0 70px;
+            }            
+        }
+        @media (max-width: 767px) {
+            #main-body .default-block {
+                margin: 0 40px;
+            }
+            .navbar-mobile .logo .icon {
+                display: flex;
+                align-items: center;
+                justify-content: right;
+            }
+            #header .navbar-laptop {
+                display: none;
+            }
+            #header .navbar-mobile {
+                display: block;
+            }
+            #header .logo {
+                width: 100%;
+            }
+            #header.header--open, #header.header--open .logo {
+                background: white;
+            }
+            
+            .ab-content {
+                flex-direction: column;
+                height: auto;
+            }
+            .ab-content .detail {
+                width: 100%;
+                height: 400px;
+            }
+            .ab-content .title-bar {
+                width: 100%;
+            }
+
+            .footer {
+                flex-direction: column;
+                padding: 30px;
+            }
+            .footer .logo {
+                gap: 5px;
+            }
+            .footer .link-list {
+                gap: 2vw;
+            }
+            .footer .copyright {
+                text-align: left;
+            }
+        }
+    </style>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!-- @keyframes animation -->
+    <style type="text/css" id="media-inline-css">
+        @keyframes banner-img-carousel {
+            0%, 18.75% {background-image: url("./src/img/banner/1.jpg");}
+            25%, 43.75% {background-image: url("./src/img/banner/2.jpg");}
+            50%, 68.75% {background-image: url("./src/img/banner/3.jpg");}
+            75%, 93.75% {background-image: url("./src/img/banner/4.jpg");}
+            100% {background-image: url("./src/img/banner/1.jpg");}
+        }
+    </style>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!-- script -->
+    <script type="text/javascript">
+        // scroll the page to specific element based on fixed nav bar
+        function nav_scroll_to(obj_id_name) {    
+            var target_height = document.getElementById(obj_id_name).offsetTop;  // get target pos
+            var adjust_height = (obj_id_name == "banner") ? 0 : (- 64 + 100);
+            window.scrollTo({
+                top: target_height + adjust_height,  // 64: nav bar, 80: padding-top df-block
+                behavior: "smooth"
+            });
+        }
+        // 
+        // 
+        // 
+        // toggle icon from burger to cross and add header--open class to the drop-down nav menu
+        function toggle_icon(delay=0) {    
+            var icon_obj = document.getElementById("nav-icon");
+            var header_obj = document.getElementById("header");
+            var Auroramob_title_obj = document.getElementsByClassName("Auroramob-title")[0];
+
+            setTimeout(function() {
+                if (header_obj.classList.contains("header--open")) {
+                    header_obj.classList.remove("header--open");
+                    icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>';
+                } else {
+                    header_obj.classList.add("header--open");
+                    icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="cross" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>';
+                }
+            }, delay * 1000);
+        }
+        // 
+        // 
+        // 
+        // toggle the background color of nav bar
+        function toggle_header_bg() {    
+            var header_obj = document.getElementById("header");
+            var main_body_obj  = document.getElementById("main-body");
+            var Auroramob_title_obj = document.getElementsByClassName("Auroramob-title")[0];
+
+            if (main_body_obj.getBoundingClientRect().top == 0) {
+                header_obj.classList.remove("header--scrolled");
+                Auroramob_title_obj.src = "./src/img/icon/Auroramob-title-white.png";
+            } else {
+                header_obj.classList.add("header--scrolled");
+                Auroramob_title_obj.src = "./src/img/icon/Auroramob-title-black.png";
+            }
+        }
+        // 
+        // 
+        // 
+        // horizontally scroll to the product pod according to index
+        function product_scroll_to(obj) {
+            var obj_index = $(obj).index();
+            var bar_obj = document.getElementsByClassName("product-bar")[0];
+            var pod_objs = document.getElementsByClassName("product-pod");
+            var logo_objs = obj.parentNode.getElementsByClassName("logo");
+
+            var pod_width = pod_objs[0].getBoundingClientRect().width;
+            var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
+            var move_width = (pod_width + gap_width) * obj_index;  // translateX pattern: 0th pod = 0px, 1st = 1*w + 1*g, 2nd = 2*w + 2*g ...
+
+            bar_obj.style.transform = "translateX(" + (-move_width) + "px)";
+
+            // remove the selected status from all pods & logos, and then add it to the clicked logo & corresponding pod
+            for (var i = 0; i < logo_objs.length; i++) {
+                pod_objs[i].classList.remove("pod--selected");
+                logo_objs[i].classList.remove("logo--selected");
+            }      
+            obj.classList.add("logo--selected");
+            pod_objs[obj_index].classList.add("pod--selected");
+        }
+        // 
+        // 
+        // 
+        // vertically scroll to the about-us pod according to index
+        function ab_scroll_to(obj, index=undefined) {
+            var obj_index = (index == undefined) ? $(obj).index(): index;
+            var bar_obj = document.getElementsByClassName("ab-bar")[0];
+            var pod_objs = document.getElementsByClassName("ab-pod");
+            var title_objs = obj.parentNode.getElementsByClassName("title");
+
+            var pod_height = pod_objs[0].getBoundingClientRect().height;
+
+            bar_obj.style.transform = "translateY(" + (-pod_height * obj_index) + "px)";
+
+            // remove the selected status from all pods & logos, and then add it to the clicked logo & corresponding pod
+            for (var i = 0; i < title_objs.length; i++) {
+                // pod_objs[i].classList.remove("pod--selected");
+                title_objs[i].classList.remove("title--selected");
+            }      
+            title_objs[obj_index].classList.add("title--selected");
+            // pod_objs[obj_index].classList.add("pod--selected");
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style type="text/css" id="temp-style">
+        #main-body {
+            height: 2000px;
+            background-color: lightskyblue;
+        }
+        section {
+            background: white;
+        }
+    </style>
+</head>
+<body onscroll="toggle_header_bg()">
+    <header id="header">
+        <div class="navbar-laptop default-block" style="height: 64px;">
+            <div class="logo">
+                <a onclick="nav_scroll_to('banner')" aria-current="page" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="./src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
+                    <!-- <img src="./src/img/icon/Auroramob-title-white.png" class="Auroramob-logo clickable" height="20"> -->
+                    <div class="Auroramob-title clickable"></div>
+                </a>
+            </div>
+            <nav class="navigation">
+                <ul class="link-list">
+                    <li><a class="clickable" onclick="nav_scroll_to('banner')">Home</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('product')">Products</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('about-us')">About Us</a></li>
+                    <li><a class="clickable" onclick="nav_scroll_to('join-us')">Join Us</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="navbar-mobile default-block" style="height: 64px;">
+            <div class="logo">
+                <a onclick="nav_scroll_to('banner')" aria-current="page" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="./src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
+                    <div class="Auroramob-title clickable"></div>
+                    <!-- <img src="./src/img/icon/Auroramob-title-white.png" class="Auroramob-title clickable" height="20"> -->
+                </a>
+                <div id="nav-icon" class="icon" onclick="toggle_icon()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>
+                </div>
+            </div>
+            <nav class="navigation">
+                <a class="clickable nav-tag" onclick="nav_scroll_to('banner'); toggle_icon(0.7)">Home</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('product'); toggle_icon(0.7)">Products</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('about-us'); toggle_icon(0.7)">About Us</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('join-us'); toggle_icon(0.7)">Join Us</a>
+            </nav>
+        </div>
+    </header>
+    <!-- header END -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!-- main body START -->
+    <main id="main-body">
+        <!-- Banner START -->
+        <!-- Banner is the 1st block of the page, the image is changing according to @media selector based on window size. -->
+        <section id="banner">
+            <div class="banner-image">                
+                <div class="default-block">
+                    <h1 class="title">
+                        Light Up Your Digital World
+                    </h1>
+                </div>
+            </div>
+        </section>
+        <!-- Banner END -->
+        <!---->
+        <!---->
+        <!---->
+        <!----> 
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!-- product START -->
+        <section id="product" class="overflow-window">
+            <div class="default-block">
+                <h1 class="title-1">Products</h1>
+                <div class="product-bar transition">
+                    <div class="product-pod box transition pod--selected" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/简易翻译-poster.webp');">
+                        <div class="text">
+                            <div class="title">
+                                <img class="logo" src="./src/img/logo/简易翻译-logo.webp">
+                                <div class="name">Panda Translator</div>
+                            </div>
+                            <h2 class="title-2">Multi-Language AI Translator</h2>
+                            <div class="rich-text">Panda Translator is a powerful translation app that supports multiple languages, accents, and scenarios for fast and accurate translations. It includes features like road sign translation, photo translation, and more to enhance overall efficiency.</div>
+                        </div>
+                        <div class="image">
+                            <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                        </div>
+                    </div>
+                    <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡相机-poster.webp');">
+                        <div class="text">
+                            <div class="title">
+                                <img class="logo" src="./src/img/logo/玛卡相机-logo.webp">
+                                <!-- <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp"> -->
+                                <!-- <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp"> -->
+                                <div class="name">FaceLens</div>
+                            </div>
+                            <h2 class="title-2">Blend AI Technology with the Art of Photography</h2>
+                            <div class="rich-text">From everyday life and travel snapshots to exquisite food photography, FaceLens enables you to infuse your unique flair and showcase your individuality to the world. With just a single click, transform your photos and make them shine.</div>
+                        </div>
+                        <div class="image">
+                            <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                        </div>
+                    </div>
+                    <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡写真馆-poster.webp');">
+                        <div class="text">
+                            <div class="title">
+                                <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
+                                <div class="name">FaceQ</div>
+                            </div>
+                            <h2 class="title-2">Extraordinary Portrait Creation Experience</h2>
+                            <div class="rich-text">Welcome to FaceQ, your exclusive AI photo world! Upload your photos, and FaceQ will create a unique LoRA virtual image with various styles. Share your work, appreciate others' masterpieces, and explore the charm of AI portraits together!</div>
+                        </div>
+                        <div class="image">
+                            <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                        </div>
+                    </div>
+                    <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/蜜桃小剧场-poster.webp');">
+                        <div class="text">
+                            <div class="title">
+                                <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp">
+                                <div class="name">Peach Theater</div>
+                            </div>
+                            <h2 class="title-2">Watching a Vast Array of Short Dramas Online</h2>
+                            <div class="rich-text">Peach Theater offers numerous exciting and popular short dramas, featuring a vertical full-screen viewing mode, letting you catch up anytime on your phone. With ultra-clear quality and swipe controls, it unlocks a new way to watch dramas.</div>
+                        </div>
+                        <div class="image">
+                            <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                        </div>
+                    </div>
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!-- Add New product pod HERE -->
+                    <!-- TEMPLATE, input area replaced by []:
+                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/[]-poster.webp');">
+                            <div class="text">
+                                <div class="title">
+                                    <img class="logo" src="./src/img/logo/[]-logo.webp">
+                                    <div class="name">[]</div>
+                                </div>
+                                <h2 class="title-2">[]</h2>
+                                <div class="rich-text">[]</div>
+                            </div>
+                        </div> -->
+                    <!---->
+                    <!---->
+                    <!---->
+                </div>
+                <div class="logo-bar">
+                    <div class="logo logo--selected" style="background-image: url('./src/img/logo/简易翻译-logo.webp');" onclick="product_scroll_to(this)"></div>
+                    <div class="logo" style="background-image: url('./src/img/logo/玛卡相机-logo.webp');" onclick="product_scroll_to(this)"></div>
+                    <div class="logo" style="background-image: url('./src/img/logo/玛卡写真馆-logo.webp');" onclick="product_scroll_to(this)"></div>
+                    <div class="logo" style="background-image: url('./src/img/logo/蜜桃小剧场-logo.webp');" onclick="product_scroll_to(this)"></div>
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!-- Add New Logo HERE -->
+                    <!-- TEMPLATE, input area replaced by []:
+                        <div class="logo" style="background-image: url('./src/img/logo/[]-logo.webp');" onclick="product_scroll_to(this)"></div> -->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <hr class="logo-line">
+                </div>
+            </div>
+        </section>
+        <!-- product END -->
+        <!---->
+        <!---->
+        <!---->
+        <!----> 
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!-- About Us START -->
+        <!-- About Us is left right structure. -->
+        <section id="about-us">
+            <div class="default-block">
+                <h1 class="title-1">About Us</h1>
+                <div class="ab-content">
+                    <div class="detail overflow-window">
+                        <div class="ab-bar transition">
+                            <div class="ab-pod">
+                                <div class="text">
+                                    <div class="title-2">Intro</div>
+                                    <div class="rich-text">Welcome to Auroramob! We are a high-tech company focused on developing tool-based applications, dedicated to providing efficient and intelligent digital solutions for users worldwide. Our mission is to enhance the quality of daily life and work efficiency through technological innovation.</div>
+                                </div>
+                            </div>
+                            <div class="ab-pod">
+                                <div class="text">
+                                    <div class="title-2">Products</div>
+                                    <div class="rich-text">Auroramob's core products cover three main areas: short videos, translation, and cameras. Each application is meticulously designed to provide users with the best possible experience.</div>
+                                </div>
+                            </div>
+                            <div class="ab-pod">
+                                <div class="text">
+                                    <div class="title-2">Establishment</div>
+                                    <div class="rich-text">Founded in May 2017, it is located in the beautiful spring city of Jinan, a high-tech enterprise in Shandong Province. It is also one of Shandong's top mobile Internet and artificial intelligence companies. </div>
+                                </div>
+                            </div>
+                            <div class="ab-pod">
+                                <div class="text">
+                                    <div class="title-2">Members</div>
+                                    <div class="rich-text">All the company's founding members graduated from 985 and other double first-class universities in China. In the early stage, the core members worked in Baidu, Innovation Workshop, FunPlus, and other world-class Internet and game companies.</div>
+                                </div>
+                            </div>
+                            <div class="ab-pod">
+                                <div class="text">
+                                    <div class="title-2">Partnerships</div>
+                                    <div class="rich-text">The company signed a strategic cooperation agreement with Tencent, Baidu, ByteDance, and KuaiShou in the domestic market. In overseas markets, the company has reached long-term and important strategic cooperation agreements with Amazon, Google, Apple, Facebook, Twitter, and TikTok.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-bar">
+                        <div class="title title--selected" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Intro</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Products</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Establishment</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Members</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Partnerships</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Us END -->
+        <!---->
+        <!---->
+        <!---->
+        <!----> 
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!-- Join Us START -->
+        <section id="join-us">
+            
+        </section>
+        <!-- Join Us END -->
+    </main>
 </body>
 </html>
