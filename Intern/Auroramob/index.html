@@ -227,10 +227,10 @@
         #header .link-list {
             margin-right: 32px;
         }
-        #header .link-list a {
+        #header .link-list li {
             color: white;
         }
-        #header.header--scrolled .link-list a {
+        #header.header--scrolled .link-list li {
             color: black;
         }
         .navbar-mobile .navigation {
@@ -258,11 +258,37 @@
         .header--scrolled .Auroramob-title, .header--open .Auroramob-title {
             background-image: url('./src/img/icon/Auroramob-title-black.png');
         }
-        #nav-icon {
+        #nav-icon, .arrow {
             fill: white;
         }
-        .header--scrolled #nav-icon, .header--open #nav-icon {
+        .header--scrolled #nav-icon, .header--open #nav-icon, .header--scrolled .arrow, .header--open .arrow {
             fill: black;
+        }
+        .language-select {
+            display: flex;
+            gap: 5px;
+        }
+        .menu {
+            position: absolute;
+            transform: translateY(-150%);
+            transition: .5s ease-in-out;
+            padding: 20px;
+        }
+        .header--scrolled .menu.menu--opened, .header--open .menu.menu--opened {
+            background: white;
+        }
+        .menu.menu--opened {
+            transform: translateY(50%);
+        }
+        .arrow {
+            display: flex;
+            align-items: center;
+        }
+        .up-arrow, .select--opened .down-arrow {
+            display: none;
+        }
+        .select--opened .up-arrow {
+            display: flex;
         }
         /* header END */
         /**/
@@ -824,7 +850,7 @@
         // 
         // 
         // 
-        // 
+        // display the corresponding job-pod according to the job-title selected
         function join_display_corres(obj) {
             var obj_index = $(obj).index();
             var pod_objs = document.getElementsByClassName("job-pod");
@@ -836,6 +862,21 @@
             }
             pod_objs[obj_index].classList.add("pod--selected");
             obj.classList.add("title--selected");
+        }
+        // 
+        // 
+        // 
+        // toggle the language drop down menu according to the command received (open/close)
+        function toggle_lang_menu(obj, command) {
+            var select_obj = obj.parentNode;
+            var menu_obj = select_obj.getElementsByClassName("menu")[0];
+            if (command == "open") {
+                menu_obj.classList.add("menu--opened");
+                select_obj.classList.add("select--opened");
+            } else {
+                menu_obj.classList.remove("menu--opened");
+                select_obj.classList.remove("select--opened");
+            }
         }
     </script>
 
@@ -873,10 +914,27 @@
             </div>
             <nav class="navigation">
                 <ul class="link-list">
-                    <li><a class="clickable" onclick="nav_scroll_to('banner')">Home</a></li>
-                    <li><a class="clickable" onclick="nav_scroll_to('product')">Products</a></li>
-                    <li><a class="clickable" onclick="nav_scroll_to('about-us')">About Us</a></li>
-                    <li><a class="clickable" onclick="nav_scroll_to('join-us')">Join Us</a></li>
+                    <li class="clickable" onclick="nav_scroll_to('banner')">Home</li>
+                    <li class="clickable" onclick="nav_scroll_to('product')">Products</li>
+                    <li class="clickable" onclick="nav_scroll_to('about-us')">About Us</li>
+                    <li class="clickable" onclick="nav_scroll_to('join-us')">Join Us</li>
+                    <!-- <li><select>
+                        <option><a class="clickable" onselect="nav_scroll_to('banner')">English</a></option>
+                        <option><a class="clickable" href="./en-US/index.html">Chinese Simplified</a></option>
+                    </select></li> -->
+                    <li><div class="language-select">
+                        <div>Language</div>
+                        <div class="menu">
+                            <div>> English</div>
+                            <div>> Chinese Simplified</div>
+                        </div>
+                        <div class="down-arrow arrow" onclick="toggle_lang_menu(this, 'open')">
+                            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </div>
+                        <div class="up-arrow arrow" onclick="toggle_lang_menu(this, 'close')">
+                            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+                        </div>
+                    </div></li>
                 </ul>
             </nav>
         </div>
@@ -886,7 +944,6 @@
                 <a onclick="nav_scroll_to('banner')" aria-current="page" style="display: flex; align-items: center; gap: 10px;">
                     <img src="./src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
                     <div class="Auroramob-title clickable"></div>
-                    <!-- <img src="./src/img/icon/Auroramob-title-white.png" class="Auroramob-title clickable" height="20"> -->
                 </a>
                 <div id="nav-icon" class="icon" onclick="toggle_icon()">
                     <svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>
@@ -897,6 +954,8 @@
                 <a class="clickable nav-tag" onclick="nav_scroll_to('product'); toggle_icon(0.7)">Products</a>
                 <a class="clickable nav-tag" onclick="nav_scroll_to('about-us'); toggle_icon(0.7)">About Us</a>
                 <a class="clickable nav-tag" onclick="nav_scroll_to('join-us'); toggle_icon(0.7)">Join Us</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('banner'); toggle_icon(0.7)">> English</a>
+                <a class="clickable nav-tag" href="./en-US/index.html">> Chinese Simplified</a>
             </nav>
         </div>
     </header>
