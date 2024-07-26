@@ -114,7 +114,7 @@
             max-width: 928px;
             margin: 0 auto;
         }
-        #main-body .default-block {
+        .section {
             padding: 100px 0;
         }
         .clickable {
@@ -143,6 +143,12 @@
         }
         .overflow-window {
             overflow: hidden;
+        }
+        .content {
+            margin-top: 40px;
+        }
+        .flex-wrapper {
+            display: flex;
         }
         /* global END */
         /**/
@@ -320,7 +326,6 @@
             width: calc(928px * 4 + 50px * 3);
             gap: 50px;
             display: flex;
-            margin: 40px 0;
         }
         .product-pod {
             width: 100%;
@@ -369,7 +374,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo-bar .logo {
+        .logo-pod .logo {
             width: 60px;
             height: 60px;
             border-radius: 100px;
@@ -381,7 +386,7 @@
             position: relative;
             z-index: 1;
         }
-        .logo-bar .logo:hover, .logo-bar .logo.logo--selected {
+        .logo-pod .logo:hover, .logo-pod.logo--selected .logo {
             transform: scale(1.25);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
@@ -391,6 +396,16 @@
             z-index: 0;
             width: 100%;
             border: solid 1px black;
+        }
+        .logo-pod {
+            position: relative;
+        }
+        .logo-name {
+            position: absolute;
+            width: max-content;
+            left: 50%;
+            top: calc(100% + 10px);
+            transform: translate(-50%);
         }
         /* product END */
         /**/
@@ -406,20 +421,20 @@
         /**/
         /**/
         /* about us START */
-        .ab-content {
+        #about-us .content {
             display: flex;
             width: 100%;
             height: 400px;
         }
-        .ab-content .detail {
+        #about-us .content .detail {
             width: 70%;
         }
-        .ab-content .title-bar {
+        #about-us .content .title-bar {
             width: 30%;
             display: flex;
             flex-direction: column;
         }
-        .title-bar .title {
+        #about-us .title-bar .title {
             width: 100%;
             height: 100%;
             display: flex;
@@ -427,12 +442,12 @@
             position: relative;
             overflow: hidden;
         }
-        .title-bar .title .text {
+        #about-us .title-bar .title .text {
             transition: .3s ease-in-out;
             position: relative;
             z-index: 1;
         }
-        .title-bar .title::before {
+        #about-us .title-bar .title::before {
             content: "";
             width: 100%;
             height: 100%;
@@ -442,10 +457,10 @@
             position: absolute;
             z-index: 0;
         }
-        .title-bar .title.title--selected .text {
+        #about-us .title-bar .title.title--selected .text {
             color: white;
         }
-        .title-bar .title.title--selected::before {
+        #about-us .title-bar .title.title--selected::before {
             transform: translateX(0);
         }
         .ab-bar {
@@ -474,6 +489,84 @@
         /**/
         /**/
         /* join-us START */
+        #join-us {
+            background: whitesmoke;
+        }
+        #join-us .content {
+            display: flex;
+            height: 400px;
+        }
+        #join-us .content .flex-wrapper {
+            height: 100%;
+        }
+        #join-us .content .title-bar {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap-reverse;
+            gap: 32px;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+        }
+        #join-us .content .title-bar::before {
+            content: "";
+            width: 600%;
+            height: 100%;
+            background: white;
+            position: absolute;
+            z-index: 0;
+            right: 0;
+        }
+        #join-us .title-bar .title {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        #join-us .title.title--selected {
+            background: orange;
+            color: white;
+        }
+        #join-us .content .job-bar {
+            width: 75%;
+            height: 100%;
+            position: relative;
+        }
+        #join-us .content .job-bar::before {
+            content: "";
+            width: 300%;
+            height: 100%;
+            background: orange;
+            position: absolute;
+            z-index: 0;
+            left: 0;
+        }
+        .job-pod {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: relative;
+            z-index: 1;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .job-pod.pod--selected {
+            display: flex;
+        }
+        .job-pod li {
+            list-style: disc;
+            margin-left: 25px;
+            font-size: 90%;
+            word-break: break-all;
+            text-align: justify;
+        }
         /* join-us END */
         /**/
         /**/
@@ -576,15 +669,15 @@
                 background: white;
             }
             
-            .ab-content {
+            #about-us .content {
                 flex-direction: column;
                 height: auto;
             }
-            .ab-content .detail {
+            #about-us .content .detail {
                 width: 100%;
                 height: 400px;
             }
-            .ab-content .title-bar {
+            #about-us .content .title-bar {
                 width: 100%;
             }
 
@@ -692,7 +785,7 @@
             var obj_index = $(obj).index();
             var bar_obj = document.getElementsByClassName("product-bar")[0];
             var pod_objs = document.getElementsByClassName("product-pod");
-            var logo_objs = obj.parentNode.getElementsByClassName("logo");
+            var logo_objs = obj.parentNode.getElementsByClassName("logo-pod");
 
             var pod_width = pod_objs[0].getBoundingClientRect().width;
             var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
@@ -712,8 +805,8 @@
         // 
         // 
         // vertically scroll to the about-us pod according to index
-        function ab_scroll_to(obj, index=undefined) {
-            var obj_index = (index == undefined) ? $(obj).index(): index;
+        function ab_scroll_to(obj) {
+            var obj_index = $(obj).index();
             var bar_obj = document.getElementsByClassName("ab-bar")[0];
             var pod_objs = document.getElementsByClassName("ab-pod");
             var title_objs = obj.parentNode.getElementsByClassName("title");
@@ -722,13 +815,27 @@
 
             bar_obj.style.transform = "translateY(" + (-pod_height * obj_index) + "px)";
 
-            // remove the selected status from all pods & logos, and then add it to the clicked logo & corresponding pod
+            // remove the selected status for all titles, and then add it to the selected title
             for (var i = 0; i < title_objs.length; i++) {
-                // pod_objs[i].classList.remove("pod--selected");
                 title_objs[i].classList.remove("title--selected");
             }      
-            title_objs[obj_index].classList.add("title--selected");
-            // pod_objs[obj_index].classList.add("pod--selected");
+            obj.classList.add("title--selected");
+        }
+        // 
+        // 
+        // 
+        // 
+        function join_display_corres(obj) {
+            var obj_index = $(obj).index();
+            var pod_objs = document.getElementsByClassName("job-pod");
+            var title_objs = obj.parentNode.getElementsByClassName("title");
+
+            for (var i = 0; i < pod_objs.length; i++) {
+                pod_objs[i].classList.remove("pod--selected");
+                title_objs[i].classList.remove("title--selected");
+            }
+            pod_objs[obj_index].classList.add("pod--selected");
+            obj.classList.add("title--selected");
         }
     </script>
 
@@ -856,98 +963,112 @@
         <!---->
         <!---->
         <!-- product START -->
-        <section id="product" class="overflow-window">
+        <section id="product" class="overflow-window section">
             <div class="default-block">
                 <h1 class="title-1">Products</h1>
-                <div class="product-bar transition">
-                    <div class="product-pod box transition pod--selected" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/简易翻译-poster.webp');">
-                        <div class="text">
-                            <div class="title">
-                                <img class="logo" src="./src/img/logo/简易翻译-logo.webp">
-                                <div class="name">Panda Translator</div>
-                            </div>
-                            <h2 class="title-2">Multi-Language AI Translator</h2>
-                            <div class="rich-text">Panda Translator is a powerful translation app that supports multiple languages, accents, and scenarios for fast and accurate translations. It includes features like road sign translation, photo translation, and more to enhance overall efficiency.</div>
-                        </div>
-                        <div class="image">
-                            <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                        </div>
-                    </div>
-                    <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡相机-poster.webp');">
-                        <div class="text">
-                            <div class="title">
-                                <img class="logo" src="./src/img/logo/玛卡相机-logo.webp">
-                                <!-- <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp"> -->
-                                <!-- <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp"> -->
-                                <div class="name">FaceLens</div>
-                            </div>
-                            <h2 class="title-2">Blend AI Technology with the Art of Photography</h2>
-                            <div class="rich-text">From everyday life and travel snapshots to exquisite food photography, FaceLens enables you to infuse your unique flair and showcase your individuality to the world. With just a single click, transform your photos and make them shine.</div>
-                        </div>
-                        <div class="image">
-                            <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                        </div>
-                    </div>
-                    <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡写真馆-poster.webp');">
-                        <div class="text">
-                            <div class="title">
-                                <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
-                                <div class="name">FaceQ</div>
-                            </div>
-                            <h2 class="title-2">Extraordinary Portrait Creation Experience</h2>
-                            <div class="rich-text">Welcome to FaceQ, your exclusive AI photo world! Upload your photos, and FaceQ will create a unique LoRA virtual image with various styles. Share your work, appreciate others' masterpieces, and explore the charm of AI portraits together!</div>
-                        </div>
-                        <div class="image">
-                            <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                        </div>
-                    </div>
-                    <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/蜜桃小剧场-poster.webp');">
-                        <div class="text">
-                            <div class="title">
-                                <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp">
-                                <div class="name">Peach Theater</div>
-                            </div>
-                            <h2 class="title-2">Watching a Vast Array of Short Dramas Online</h2>
-                            <div class="rich-text">Peach Theater offers numerous exciting and popular short dramas, featuring a vertical full-screen viewing mode, letting you catch up anytime on your phone. With ultra-clear quality and swipe controls, it unlocks a new way to watch dramas.</div>
-                        </div>
-                        <div class="image">
-                            <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                        </div>
-                    </div>
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!-- Add New product pod HERE -->
-                    <!-- TEMPLATE, input area replaced by []:
-                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/[]-poster.webp');">
+                <div class="content">
+                    <div class="product-bar transition">
+                        <div class="product-pod box transition pod--selected" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/简易翻译-poster.webp');">
                             <div class="text">
                                 <div class="title">
-                                    <img class="logo" src="./src/img/logo/[]-logo.webp">
-                                    <div class="name">[]</div>
+                                    <img class="logo" src="./src/img/logo/简易翻译-logo.webp">
+                                    <div class="name">Panda Translator</div>
                                 </div>
-                                <h2 class="title-2">[]</h2>
-                                <div class="rich-text">[]</div>
+                                <h2 class="title-2">Multi-Language AI Translator</h2>
+                                <div class="rich-text">Panda Translator is a powerful translation app that supports multiple languages, accents, and scenarios for fast and accurate translations. It includes features like road sign translation, photo translation, and more to enhance overall efficiency.</div>
                             </div>
-                        </div> -->
-                    <!---->
-                    <!---->
-                    <!---->
-                </div>
-                <div class="logo-bar">
-                    <div class="logo logo--selected" style="background-image: url('./src/img/logo/简易翻译-logo.webp');" onclick="product_scroll_to(this)"></div>
-                    <div class="logo" style="background-image: url('./src/img/logo/玛卡相机-logo.webp');" onclick="product_scroll_to(this)"></div>
-                    <div class="logo" style="background-image: url('./src/img/logo/玛卡写真馆-logo.webp');" onclick="product_scroll_to(this)"></div>
-                    <div class="logo" style="background-image: url('./src/img/logo/蜜桃小剧场-logo.webp');" onclick="product_scroll_to(this)"></div>
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!-- Add New Logo HERE -->
-                    <!-- TEMPLATE, input area replaced by []:
-                        <div class="logo" style="background-image: url('./src/img/logo/[]-logo.webp');" onclick="product_scroll_to(this)"></div> -->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <hr class="logo-line">
+                            <div class="image">
+                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                            </div>
+                        </div>
+                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡相机-poster.webp');">
+                            <div class="text">
+                                <div class="title">
+                                    <img class="logo" src="./src/img/logo/玛卡相机-logo.webp">
+                                    <!-- <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp"> -->
+                                    <!-- <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp"> -->
+                                    <div class="name">FaceLens</div>
+                                </div>
+                                <h2 class="title-2">Blend AI Technology with the Art of Photography</h2>
+                                <div class="rich-text">From everyday life and travel snapshots to exquisite food photography, FaceLens enables you to infuse your unique flair and showcase your individuality to the world. With just a single click, transform your photos and make them shine.</div>
+                            </div>
+                            <div class="image">
+                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                            </div>
+                        </div>
+                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡写真馆-poster.webp');">
+                            <div class="text">
+                                <div class="title">
+                                    <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
+                                    <div class="name">FaceQ</div>
+                                </div>
+                                <h2 class="title-2">Extraordinary Portrait Creation Experience</h2>
+                                <div class="rich-text">Welcome to FaceQ, your exclusive AI photo world! Upload your photos, and FaceQ will create a unique LoRA virtual image with various styles. Share your work, appreciate others' masterpieces, and explore the charm of AI portraits together!</div>
+                            </div>
+                            <div class="image">
+                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                            </div>
+                        </div>
+                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/蜜桃小剧场-poster.webp');">
+                            <div class="text">
+                                <div class="title">
+                                    <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp">
+                                    <div class="name">Peach Theater</div>
+                                </div>
+                                <h2 class="title-2">Watching a Vast Array of Short Dramas Online</h2>
+                                <div class="rich-text">Peach Theater offers numerous exciting and popular short dramas, featuring a vertical full-screen viewing mode, letting you catch up anytime on your phone. With ultra-clear quality and swipe controls, it unlocks a new way to watch dramas.</div>
+                            </div>
+                            <div class="image">
+                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                            </div>
+                        </div>
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!-- Add New product pod HERE -->
+                        <!-- TEMPLATE, input area replaced by []:
+                            <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/[]-poster.webp');">
+                                <div class="text">
+                                    <div class="title">
+                                        <img class="logo" src="./src/img/logo/[]-logo.webp">
+                                        <div class="name">[]</div>
+                                    </div>
+                                    <h2 class="title-2">[]</h2>
+                                    <div class="rich-text">[]</div>
+                                </div>
+                            </div> -->
+                        <!---->
+                        <!---->
+                        <!---->
+                    </div>
+                    <div class="logo-bar">
+                        <div class="logo-pod logo--selected" onmouseenter="product_scroll_to(this)">
+                            <div class="logo" style="background-image: url('./src/img/logo/简易翻译-logo.webp');"></div>
+                            <div class="logo-name">Panda Translator</div>
+                        </div>
+                        <div class="logo-pod" onmouseenter="product_scroll_to(this)">
+                            <div class="logo" style="background-image: url('./src/img/logo/玛卡相机-logo.webp');"></div>
+                            <div class="logo-name">FaceLens</div>
+                        </div>
+                        <div class="logo-pod" onmouseenter="product_scroll_to(this)">
+                            <div class="logo" style="background-image: url('./src/img/logo/玛卡写真馆-logo.webp');"></div>
+                            <div class="logo-name">FaceQ</div>
+                        </div>
+                        <div class="logo-pod" onmouseenter="product_scroll_to(this)">
+                            <div class="logo" style="background-image: url('./src/img/logo/蜜桃小剧场-logo.webp');"></div>
+                            <div class="logo-name">Peach Theater</div>
+                        </div>
+                        <!---->
+                        <!---->
+                        <!---->
+                        <!-- Add New Logo HERE -->
+                        <!-- TEMPLATE, input area replaced by []:
+                            <div class="logo" style="background-image: url('./src/img/logo/[]-logo.webp');" onclick="product_scroll_to(this)"></div> -->
+                        <!---->
+                        <!---->
+                        <!---->
+                        <hr class="logo-line">
+                    </div>
                 </div>
             </div>
         </section>
@@ -978,10 +1099,10 @@
         <!---->
         <!-- About Us START -->
         <!-- About Us is left right structure. -->
-        <section id="about-us">
+        <section id="about-us" class="section">
             <div class="default-block">
                 <h1 class="title-1">About Us</h1>
-                <div class="ab-content">
+                <div class="content">
                     <div class="detail overflow-window">
                         <div class="ab-bar transition">
                             <div class="ab-pod">
@@ -1017,11 +1138,11 @@
                         </div>
                     </div>
                     <div class="title-bar">
-                        <div class="title title--selected" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Intro</div></div>
-                        <div class="title" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Products</div></div>
-                        <div class="title" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Establishment</div></div>
-                        <div class="title" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Members</div></div>
-                        <div class="title" onmouseenter="ab_scroll_to(this)" onmouseleave="ab_scroll_to(this, 0)"><div class="text">Partnerships</div></div>
+                        <div class="title title--selected" onmouseenter="ab_scroll_to(this)"><div class="text">Intro</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">Products</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">Establishment</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">Members</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">Partnerships</div></div>
                     </div>
                 </div>
             </div>
@@ -1052,8 +1173,64 @@
         <!---->
         <!---->
         <!-- Join Us START -->
-        <section id="join-us">
-            
+        <section id="join-us" class="section overflow-window">
+            <div class="default-block">
+                <h1 class="title-1">Join Us</h1>
+                <div class="content">
+                    <div class="title-bar">
+                        <div class="title title--selected" onmouseenter="join_display_corres(this)">Senior iOS Developer</div>
+                        <div class="title" onmouseenter="join_display_corres(this)">Product Manager</div>
+                        <div class="title" onmouseenter="join_display_corres(this)">UI Designer</div>
+                    </div>
+                    <div class="job-bar">
+                        <div class="job-pod pod--selected">
+                            <div class="title-2">Senior iOS Developer</div>
+                            <div class="title-3">Job Responsibilities:</div>
+                            <ul>
+                                <li>Develop, develop, and implement new iOS features; stay updated with the latest iOS trends.</li>
+                                <li>Optimize code for performance and stability; write and review maintainable, efficient, and reliable code.</li>
+                                <li>Mentor and train junior engineers to enhance the overall technical level of the team.</li>
+                            </ul>
+                            <div class="title-3">Job Requirements:</div>
+                            <ul>
+                                <li>Strong skills in software architecture and solving complex technical issues.</li>
+                                <li>Familiar with iOS SDK, development tools, common design patterns, and software engineering principles.</li>
+                                <li>Proficient in Objective-C and Swift; cross-platform experience (React Native, Flutter) is a plus.</li>
+                            </ul>
+                        </div>
+                        <div class="job-pod">
+                            <div class="title-2">Product Manager</div>
+                            <div class="title-3">Job Responsibilities:</div>
+                            <ul>
+                                <li>Assist teams in advancing products from concept to market launch; develop roadmaps aligning with company vision.</li>
+                                <li>Track performance indicators, analyze data, provide iteration insights; ensure timely, quality product releases.</li>
+                                <li>Manage product documentation; collect user feedback; design user experience improvements.</li>
+                            </ul>
+                            <div class="title-3">Job Requirements:</div>
+                            <ul>
+                                <li>Excellent communication and collaboration skills; strong critical thinking and problem-solving abilities.</li>
+                                <li>Basic data analysis skills; proficient in Excel/Google Sheets; basic market analysis and product planning skills.</li>
+                                <li>Familiarity with agile development processes and tools (e.g., JIRA, Trello) is a plus.</li>
+                            </ul>
+                        </div>
+                        <div class="job-pod">
+                            <div class="title-2">UI Designer</div>
+                            <div class="title-3">Job Responsibilities:</div>
+                            <ul>
+                                <li>Design UI for software products; focus on development feedback and product feature optimization design.</li>
+                                <li>Participate in creative design, prototype optimization discussions, drive execution and implementation of solutions.</li>
+                                <li>Optimize design processes, consolidate solutions, and establish standards.</li>
+                            </ul>
+                            <div class="title-3">Job Requirements:</div>
+                            <ul>
+                                <li>Understand app design standards; clearly express design solutions; keen insight into internet product trends.</li>
+                                <li>Good communication skills and clear logical thinking; can collaborate with product and development teams.</li>
+                                <li>Proficient in Sketch, Photoshop, Adobe Illustrator, Figma; Cinema 4D proficiency is a plus.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- Join Us END -->
     </main>
