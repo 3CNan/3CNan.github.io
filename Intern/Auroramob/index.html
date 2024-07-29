@@ -46,6 +46,10 @@
             font-family: 'Cuprum-Bold';
             src: url('./src/fonts/Cuprum-Bold.ttf') format('truetype');
         }
+        @font-face {
+            font-family: 'Smiley-Sans';
+            src: url('./src/fonts/SmileySans-Oblique.ttf.woff2') format('woff2');
+        }
     </style>
     <!---->
     <!---->
@@ -107,6 +111,8 @@
             --grey-500: #636b7f;
             --grey-900: #10131b;
             --blue-050: #e9f3ff;
+            --blue-075: #deecff;
+            --blue-100: #d2e5ff;
             --blue-400: #347bff;
             --blue-500: #05f;
         }
@@ -307,10 +313,10 @@
         .banner-image {
             width: 100%;
             height: 650px;
-            background-image: url("./src/img/banner/1.jpg");
+            background-image: url("./src/img/banner/5.jpg");
             background-size: cover;
             background-position: center;
-            animation: banner-img-carousel 20s linear infinite;
+/*            animation: banner-img-carousel 20s linear infinite;*/
             position: relative;
             z-index: 1;
             display: flex;
@@ -323,16 +329,23 @@
             width: 100%;
             height: 650px;
             position: absolute;
+            top: 0;
             z-index: 2;
-            background-color: rgb(61 37 128 / 46%);
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
+             background-color: rgba(37, 124, 128, 0.2); 
+/*            -webkit-backdrop-filter: blur(1px);*/
+/*            backdrop-filter: blur(1px);*/
+/*            filter: blur(1px);*/
         }
         #banner .title {
             color: white;
             position: relative;
             z-index: 3;
-            font-size: 4rem;
+            font-size: 3.3rem;
+            line-height: 200%;
+            font-family: "Smiley-Sans";
+            text-align: right;
+            text-shadow: 0 0 10px deepskyblue;
+            margin-top: 32px;
         }
         /* banner END */
         /**/
@@ -368,7 +381,7 @@
             opacity: 1;
         }
         .product-pod .text {
-            width: 50%;
+            width: 45%;
             position: relative;
             z-index: 1;
         }
@@ -393,18 +406,31 @@
             width: 100%;
             height: auto;
         }
+/*        #product .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }*/
         .logo-bar {
-            width: 100%;
-            margin: 40px 0;
+            width: 80%;
+            margin: 40px auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        .logo-pod {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
         .logo-pod .logo {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
+            border: 2px solid white;
             border-radius: 100px;
             transition: .3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 
             background-size: cover;
             background-position: center;
@@ -413,25 +439,45 @@
             z-index: 1;
         }
         .logo-pod .logo:hover, .logo-pod.logo--selected .logo {
-            transform: scale(1.25);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.4);
         }
         .logo-line {
             position: absolute;
-            left: 0;
             z-index: 0;
-            width: 100%;
-            border: solid 1px black;
+            width: 50%;
+            border: solid 2px var(--blue-075);
+            overflow: visible;
         }
-        .logo-pod {
-            position: relative;
+        .logo-line::before, .logo-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #d2e5ff;
+            background: var(--blue-075);
+        }
+        .logo-line::before {
+            left: -5px;
+        }
+        .logo-line::after {
+            right: -5px;
         }
         .logo-name {
             position: absolute;
             width: max-content;
             left: 50%;
-            top: calc(100% + 10px);
+            top: calc(100% + 20px);
             transform: translate(-50%);
+            transition: .3s ease-in-out;
+/*            display: none;*/
+            opacity: 0;
+        }
+        .logo-pod.logo--selected .logo-name {
+/*            display: block;*/
+            opacity: 1;
         }
         /* product END */
         /**/
@@ -989,9 +1035,9 @@
         <!-- Banner is the 1st block of the page, the image is changing according to @media selector based on window size. -->
         <section id="banner">
             <div class="banner-image">                
-                <div class="default-block">
+                <div class="default-block" style="width: 50%;">
                     <h1 class="title">
-                        Light Up Your Digital World
+                        <span style="font: inherit; font-size: 4rem;">Auroramob,</span> <br>Light Up Your Digital World.
                     </h1>
                 </div>
             </div>
@@ -1027,7 +1073,20 @@
                 <h1 class="title-1">Products</h1>
                 <div class="content">
                     <div class="product-bar transition">
-                        <div class="product-pod box transition pod--selected" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/简易翻译-poster.webp');">
+                        <div class="product-pod transition box  pod--selected" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡写真馆-poster.webp');">
+                            <div class="text">
+                                <div class="title">
+                                    <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
+                                    <div class="name">FaceQ</div>
+                                </div>
+                                <h2 class="title-2">Extraordinary Portrait Creation Experience</h2>
+                                <div class="rich-text">Welcome to FaceQ, your exclusive AI photo world! Upload your photos, and FaceQ will create a unique LoRA virtual image with various styles. Share your work, appreciate others' masterpieces, and explore the charm of AI portraits together!</div>
+                            </div>
+                            <div class="image">
+                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
+                            </div>
+                        </div>
+                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/简易翻译-poster.png');">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/简易翻译-logo.webp">
@@ -1044,25 +1103,10 @@
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/玛卡相机-logo.webp">
-                                    <!-- <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp"> -->
-                                    <!-- <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp"> -->
                                     <div class="name">FaceLens</div>
                                 </div>
                                 <h2 class="title-2">Blend AI Technology with the Art of Photography</h2>
                                 <div class="rich-text">From everyday life and travel snapshots to exquisite food photography, FaceLens enables you to infuse your unique flair and showcase your individuality to the world. With just a single click, transform your photos and make them shine.</div>
-                            </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
-                        </div>
-                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡写真馆-poster.webp');">
-                            <div class="text">
-                                <div class="title">
-                                    <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
-                                    <div class="name">FaceQ</div>
-                                </div>
-                                <h2 class="title-2">Extraordinary Portrait Creation Experience</h2>
-                                <div class="rich-text">Welcome to FaceQ, your exclusive AI photo world! Upload your photos, and FaceQ will create a unique LoRA virtual image with various styles. Share your work, appreciate others' masterpieces, and explore the charm of AI portraits together!</div>
                             </div>
                             <div class="image">
                                 <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
@@ -1102,6 +1146,10 @@
                     </div>
                     <div class="logo-bar">
                         <div class="logo-pod logo--selected" onmouseenter="product_scroll_to(this)">
+                            <div class="logo" style="background-image: url('./src/img/logo/玛卡写真馆-logo.webp');"></div>
+                            <div class="logo-name">FaceQ</div>
+                        </div>
+                        <div class="logo-pod" onmouseenter="product_scroll_to(this)">
                             <div class="logo" style="background-image: url('./src/img/logo/简易翻译-logo.webp');"></div>
                             <div class="logo-name">Panda Translator</div>
                         </div>
@@ -1109,10 +1157,7 @@
                             <div class="logo" style="background-image: url('./src/img/logo/玛卡相机-logo.webp');"></div>
                             <div class="logo-name">FaceLens</div>
                         </div>
-                        <div class="logo-pod" onmouseenter="product_scroll_to(this)">
-                            <div class="logo" style="background-image: url('./src/img/logo/玛卡写真馆-logo.webp');"></div>
-                            <div class="logo-name">FaceQ</div>
-                        </div>
+                        
                         <div class="logo-pod" onmouseenter="product_scroll_to(this)">
                             <div class="logo" style="background-image: url('./src/img/logo/蜜桃小剧场-logo.webp');"></div>
                             <div class="logo-name">Peach Theater</div>
@@ -1126,7 +1171,7 @@
                         <!---->
                         <!---->
                         <!---->
-                        <hr class="logo-line">
+                        <hr class="logo-line default-block">
                     </div>
                 </div>
             </div>
@@ -1158,7 +1203,7 @@
         <!---->
         <!-- About Us START -->
         <!-- About Us is left right structure. -->
-        <section id="about-us" class="section">
+        <section id="about-us" class="section" style="background: var(--blue-075);">
             <div class="default-block">
                 <h1 class="title-1">About Us</h1>
                 <div class="content">
