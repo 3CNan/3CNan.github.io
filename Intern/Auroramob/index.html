@@ -161,6 +161,9 @@
         .flex-wrapper {
             display: flex;
         }
+        .bar {
+            scroll-snap-align: start;
+        }
         /* global END */
         /**/
         /**/
@@ -258,7 +261,7 @@
         #header .link-list li {
             color: white;
         }
-        #header.header--scrolled .link-list li {
+        #header.header--scrolled .link-list li, #header.header--scrolled .lang-menu select {
             color: black;
         }
         .navbar-mobile .navigation {
@@ -286,37 +289,40 @@
         .header--scrolled .Auroramob-title, .header--open .Auroramob-title {
             background-image: url('./src/img/icon/Auroramob-title-black.png');
         }
-        #nav-icon, .arrow {
-            fill: white;
-        }
-        .header--scrolled #nav-icon, .header--open #nav-icon, .header--scrolled .arrow, .header--open .arrow {
-            fill: black;
-        }
-        .language-select {
+        .lang-menu {
             display: flex;
-            gap: 5px;
-        }
-        .menu {
-            position: absolute;
-            transform: translateY(-150%);
-            transition: .5s ease-in-out;
-            padding: 20px;
-        }
-        .header--scrolled .menu.menu--opened, .header--open .menu.menu--opened {
-            background: white;
-        }
-        .menu.menu--opened {
-            transform: translateY(50%);
-        }
-        .arrow {
-            display: flex;
+            gap: 10px;
             align-items: center;
+            position: relative;
         }
-        .up-arrow, .select--opened .down-arrow {
-            display: none;
+        .lang-menu select {
+            border: none;
+            background: transparent;
+            font-size: 100%;
+            appearance: none;
+            width: 80px;
         }
-        .select--opened .up-arrow {
-            display: flex;
+        #header .lang-menu select {
+            color: white;
+        }
+        #header .lang-menu::after{
+            background: url("./src/img/icon/chevron-down-white.svg");
+        }
+        .lang-menu select:focus-visible {
+            outline: none;
+        }
+        .lang-menu::after {
+            content: "";
+            display: block;
+            width: 12px;
+            height: 12px;
+            padding-bottom: 2px;
+            position: absolute;
+            right: 0;
+            pointer-events: none;
+        }
+        #header.header--scrolled .lang-menu::after, .lang-menu::after {
+            background: url("./src/img/icon/chevron-down-black.svg");
         }
         /* header END */
         /**/
@@ -334,11 +340,10 @@
         /* banner START */
         .banner-image {
             width: 100%;
-            height: 650px;
+            min-height: 650px;
             background-image: url("./src/img/banner/5.jpg");
             background-size: cover;
             background-position: center;
-/*            animation: banner-img-carousel 20s linear infinite;*/
             position: relative;
             z-index: 1;
             display: flex;
@@ -349,14 +354,11 @@
             content: "";
             display: block;
             width: 100%;
-            height: 650px;
+            min-height: 650px;
             position: absolute;
             top: 0;
             z-index: 2;
-             background-color: rgba(37, 124, 128, 0.2); 
-/*            -webkit-backdrop-filter: blur(1px);*/
-/*            backdrop-filter: blur(1px);*/
-/*            filter: blur(1px);*/
+            background-color: rgba(37, 124, 128, 0.2); 
         }
         #banner .title {
             color: white;
@@ -466,7 +468,6 @@
         .logo-line {
             position: absolute;
             z-index: 0;
-/*            width: calc(928px * 0.8);*/
             width: 100%;
             border: solid 2px var(--blue-075);
             overflow: visible;
@@ -598,7 +599,6 @@
         }
         .job-bar {
             width: calc(928px / 3 * 3);
-/*            height: 400px;*/
             position: relative;
             display: flex;
             gap: 50px;
@@ -637,48 +637,36 @@
         /**/
         /**/
         /* footer START */
-        .footer {
-            /* background: #e9f3ff;*/
+        #footer {
+            background: #e9f3ff;
             background: var(--blue-050);
-            min-height: 250px;
+            min-height: 200px;
             display: flex;
             justify-content: space-between;
             padding: 50px 100px;
             font-family: "Poppins-Light", serif;
         }
-        .footer .left {
+        #footer .left {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 10px;
         }
-        .footer .right {
+        #footer .right {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: 10px;
             text-align: right;
         }
-        .footer .logo {
+        #footer .logo {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        .footer .icons {
+        #footer .icons {
             display: flex;
             gap: 13px;
-        }
-        .footer .slogan {
-            font-size: 130%;
-            font-family: 'Cuprum-Bold';
-            transform: scaleY(0.7);
-        }
-        .footer .slogan span {
-            font-family: 'Cuprum-Bold';
-            transform: scaleY(0.7);
-        }
-        .footer .copyright {
-            color: var(--grey-400);
-            font-size: 80%;
         }
         /* footer END */
     </style>
@@ -704,6 +692,13 @@
             }            
         }
         @media (max-width: 767px) {
+            .overflow-window {
+                overflow: scroll;
+            }
+            .pod {
+                scroll-snap-align: start;
+                transition: transform 0.3s ease;
+            }
             #main-body .default-block {
                 margin: 0 40px;
             }
@@ -736,18 +731,26 @@
             #about-us .content .title-bar {
                 width: 100%;
             }
-
-            .footer {
+            .ab-pod {
+                align-items: end;
+            }
+            .ab-pod .text {
+                width: 85%;
+                transform: none;
+            }
+            #footer {
                 flex-direction: column;
                 padding: 30px;
             }
-            .footer .logo {
+            #footer .left {
                 gap: 5px;
             }
-            .footer .link-list {
-                gap: 2vw;
+            #footer .link-list {
+                flex-wrap: wrap;
+                gap: 5px 20px;
+                margin: 10px 0;
             }
-            .footer .copyright {
+            #footer .copyright {
                 text-align: left;
             }
         }
@@ -896,16 +899,11 @@
         // 
         // 
         // 
-        // toggle the language drop down menu according to the command received (open/close)
-        function toggle_lang_menu(obj, command) {
-            var select_obj = obj.parentNode;
-            var menu_obj = select_obj.getElementsByClassName("menu")[0];
-            if (command == "open") {
-                menu_obj.classList.add("menu--opened");
-                select_obj.classList.add("select--opened");
-            } else {
-                menu_obj.classList.remove("menu--opened");
-                select_obj.classList.remove("select--opened");
+        // jump to new page if the selected option has address of destination as its value
+        function window_jump_to(obj) {
+            var destination = (obj.value );
+            if (destination) {
+                window.location.href = destination;
             }
         }
     </script>
@@ -925,19 +923,12 @@
                     <li class="clickable" onclick="nav_scroll_to('product')">Products</li>
                     <li class="clickable" onclick="nav_scroll_to('about-us')">About Us</li>
                     <li class="clickable" onclick="nav_scroll_to('join-us')">Join Us</li>
-                    <li><div class="language-select">
-                        <div>Language</div>
-                        <div class="menu">
-                            <div class="clickable" onclick="nav_scroll_to('banner')">> English</div>
-                            <a href="./en-US/"><div>> Chinese Simplified</div></a>
-                        </div>
-                        <div class="down-arrow arrow" onclick="toggle_lang_menu(this, 'open')">
-                            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-                        </div>
-                        <div class="up-arrow arrow" onclick="toggle_lang_menu(this, 'close')">
-                            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
-                        </div>
-                    </div></li>
+                    <li class="lang-menu">
+                        <select onchange="window_jump_to(this)" class="clickable">
+                            <option value="" onclick="nav_scroll_to('banner')">English</option>
+                            <option value="./en-US/index.html">Chinese</option>
+                        </select>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -1030,7 +1021,7 @@
                 <h1 class="title-1">Products</h1>
                 <div class="content">
                     <div class="product-bar transition">
-                        <div class="product-pod transition box  pod--selected">
+                        <div class="product-pod pod transition box  pod--selected">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
@@ -1041,7 +1032,7 @@
                             </div>
                             <div class="image" style="background-image: url('./src/img/poster/玛卡写真馆-poster.png');"></div>
                         </div>
-                        <div class="product-pod transition box">
+                        <div class="product-pod pod transition box">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/简易翻译-logo.webp">
@@ -1052,7 +1043,7 @@
                             </div>
                             <div class="image" style="background-image: url('./src/img/poster/简易翻译-poster.png');"></div>
                         </div>
-                        <div class="product-pod transition box">
+                        <div class="product-pod pod transition box">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/玛卡相机-logo.webp">
@@ -1063,7 +1054,7 @@
                             </div>
                             <div class="image" style="background-image: url('./src/img/poster/玛卡相机-poster.png');"></div>
                         </div>
-                        <div class="product-pod transition box">
+                        <div class="product-pod pod transition box">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp">
@@ -1079,7 +1070,7 @@
                         <!---->
                         <!-- Add New product pod HERE -->
                         <!-- TEMPLATE, input area replaced by []:
-                            <div class="product-pod transition box">
+                            <div class="product-pod pod transition box">
                                 <div class="text">
                                     <div class="title">
                                         <img class="logo" src="./src/img/logo/[]-logo.webp">
@@ -1159,31 +1150,31 @@
                 <div class="content">
                     <div class="detail overflow-window box">
                         <div class="ab-bar transition">
-                            <div class="ab-pod" style="background-image: url('./src/img/about-us/intro.jpg');">
+                            <div class="ab-pod pod" style="background-image: url('./src/img/about-us/intro.jpg');">
                                 <div class="text">
                                     <!-- <div class="title-2">Intro</div> -->
                                     <div class="rich-text">Auroramob is a high-tech company developing tool-based applications, providing efficient and intelligent digital solutions for users worldwide. Our mission is to enhance the quality of daily life and work efficiency through technological innovation.</div>
                                 </div>
                             </div>
-                            <div class="ab-pod" style="background-image: url('./src/img/about-us/products.jpg');">
+                            <div class="ab-pod pod" style="background-image: url('./src/img/about-us/products.jpg');">
                                 <div class="text">
                                     <!-- <div class="title-2">Products</div> -->
                                     <div class="rich-text">Auroramob's core products cover three main areas: playkets, translator, and AI picture processing. Each application is meticulously designed to provide users with the best possible experience.</div>
                                 </div>
                             </div>
-                            <div class="ab-pod" style="background-image: url('./src/img/about-us/establishment.jpg');">
+                            <div class="ab-pod pod" style="background-image: url('./src/img/about-us/establishment.jpg');">
                                 <div class="text">
                                     <!-- <div class="title-2">Establishment</div> -->
                                     <div class="rich-text">Founded in May 2017, it is located in the beautiful spring city of Jinan, a high-tech enterprise in Shandong Province. It is also one of Shandong's top mobile Internet and artificial intelligence companies. </div>
                                 </div>
                             </div>
-                            <div class="ab-pod" style="background-image: url('./src/img/about-us/members.jpg');">
+                            <div class="ab-pod pod" style="background-image: url('./src/img/about-us/members.jpg');">
                                 <div class="text">
                                     <!-- <div class="title-2">Members</div> -->
                                     <div class="rich-text">All the company's founding members graduated from 985 and other double first-class universities in China. In the early stage, the core members worked in Baidu, Innovation Workshop, FunPlus, and other world-class Internet and game companies.</div>
                                 </div>
                             </div>
-                            <div class="ab-pod" style="background-image: url('./src/img/about-us/partnerships.jpg');">
+                            <div class="ab-pod pod" style="background-image: url('./src/img/about-us/partnerships.jpg');">
                                 <div class="text">
                                     <!-- <div class="title-2">Partnerships</div> -->
                                     <div class="rich-text">Our company has strategic agreements with Tencent, Baidu, ByteDance, and KuaiShou domestically, and with Amazon, Google, Apple, Facebook, Twitter, and TikTok internationally.</div>
@@ -1232,7 +1223,7 @@
                 <h1 class="title-1">Join Us</h1>
                 <!-- <div class="content"> -->
                 <div class="job-bar">
-                    <div class="job-pod pod--selected">
+                    <div class="job-pod pod pod--selected">
                         <div class="title-3">Senior iOS Developer</div>
                         <div class="title-4">Job Responsibilities:</div>
                         <ul>
@@ -1247,7 +1238,7 @@
                             <li>Proficient in Objective-C and Swift; cross-platform experience (React Native, Flutter) is a plus.</li>
                         </ul>
                     </div>
-                    <div class="job-pod">
+                    <div class="job-pod pod">
                         <div class="title-3">Product Manager</div>
                         <div class="title-4">Job Responsibilities:</div>
                         <ul>
@@ -1262,7 +1253,7 @@
                             <li>Familiarity with agile development processes and tools (e.g., JIRA, Trello) is a plus.</li>
                         </ul>
                     </div>
-                    <div class="job-pod">
+                    <div class="job-pod pod">
                         <div class="title-3">UI Designer</div>
                         <div class="title-4">Job Responsibilities:</div>
                         <ul>
@@ -1311,36 +1302,39 @@
     <!-- footer START -->
     <footer id="footer">
         <div class="left">
-            <div class="logo">
-                <a onclick="soft_scroll('banner')" aria-current="page">
-                    <img src="./src/img/icon/Auroramob-logo.png" class="opengame-logo link" height="20">
+            <a onclick="soft_scroll('banner')" aria-current="page" style="display: flex; align-items: center; gap: 5px;">
+                <img src="./src/img/icon/Auroramob-logo.png" class="opengame-logo link" height="25">
+                <img src="./src/img/icon/Auroramob-title-black.png" class="opengame-logo link" height="20">
+            </a>
+            <div class="slogan">Light Up Your Digital World</div>
+            <div class="icons">
+                <a href="mailto:Office@auroramob.com">
+                    <img src="./src/img/icon/handshake.svg" width="25" height="25">
                 </a>
-                <div class="icons">
-                    <a href="https://t.me/+twzIAOGwUsI4Njll">
-                        <img src="./src/img/icon/telegram.svg" width="25" height="25">
-                    </a>
-                    <a href="mailto:cypwkjyxgs@163.com">
-                        <img src="./src/img/icon/envelope.svg" width="25" height="25">
-                    </a>
-                    <!---->
-                    <!-- Add new icon here -->
-                    <!---->
-                </div>
-            </div>
-            <div class="slogan">
-                Happy <span style="color: #ec1918;">Game</span> Happy <span style="color: #05f;">Life</span>
+                <a href="mailto:hr@auroramob.com">
+                    <img src="./src/img/icon/envelope.svg" width="25" height="25">
+                </a>
+                <!---->
+                <!-- Add new icon here -->
+                <!---->
             </div>
         </div>
         <div class="right">
             <div class="navigation">
-                <ul class="link_list">
-                    <li><a class="link" onclick="soft_scroll('banner')">Home</a></li>
-                    <li><a class="link" onclick="soft_scroll('games')">Games</a></li>
-                    <li><a class="link" onclick="soft_scroll('about-us')">About Us</a></li>
-                    <li><a class="link" onclick="soft_scroll('join-us')">Join Us</a></li>
+                <ul class="link-list">
+                    <li class="clickable" onclick="nav_scroll_to('banner')">Home</li>
+                    <li class="clickable" onclick="nav_scroll_to('product')">Products</li>
+                    <li class="clickable" onclick="nav_scroll_to('about-us')">About Us</li>
+                    <li class="clickable" onclick="nav_scroll_to('join-us')">Join Us</li>
+                    <li class="lang-menu">
+                        <select onchange="window_jump_to(this)" class="clickable">
+                            <option value="" onclick="nav_scroll_to('banner')">English</option>
+                            <option value="./en-US/index.html">Chinese</option>
+                        </select>
+                    </li>
                 </ul>
             </div>
-            <div class="copyright">Copyright © 2024 OPENGAME. All Rights Reserved.</div>
+            <div class="copyright" style="color: #7d8598; color: var(--grey-400); font-size: 80%;">Copyright © 2024 Auroramob. All Rights Reserved.</div>
         </div>
     </footer>
     <!-- footer END -->
