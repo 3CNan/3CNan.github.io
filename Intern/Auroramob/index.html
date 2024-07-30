@@ -43,9 +43,13 @@
             src: url('./src/fonts/Poppins-Medium.ttf') format('truetype');
         }
         @font-face {
+            font-family: 'Poppins-Bold';
+            src: url('./src/fonts/Poppins-Bold.ttf') format('truetype');
+        }
+        /*@font-face {
             font-family: 'Cuprum-Bold';
             src: url('./src/fonts/Cuprum-Bold.ttf') format('truetype');
-        }
+        }*/
         @font-face {
             font-family: 'Smiley-Sans';
             src: url('./src/fonts/SmileySans-Oblique.ttf.woff2') format('woff2');
@@ -113,6 +117,7 @@
             --blue-050: #e9f3ff;
             --blue-075: #deecff;
             --blue-100: #d2e5ff;
+            --blue-300: #6aa0ff;
             --blue-400: #347bff;
             --blue-500: #05f;
         }
@@ -129,13 +134,13 @@
         .navbar-mobile, .banner-mobile {
             display: none;
         }
-        .title-1, .title-2, .title-3, .title-4, .title-5, .button {
+        .title-2, .title-3, .title-4, .title-5, .button {
             font-family: 'Poppins-Medium', serif;
         }
         .box {
             box-sizing: border-box;
             border-radius: 20px;
-            box-shadow: 0 15px 15px rgba(0,0,0,.1);
+            box-shadow: 0 15px 20px rgba(0,0,0,.1);
             overflow: hidden;
         }
         .transition {
@@ -171,9 +176,26 @@
         /**/
         /* text format START */
         .title-1 {
+            font-family: "Poppins-Bold", serif;
             font-size: 2rem;
             text-align: center;
             padding: .5rem 0;
+        }
+        .title-2 {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .title-3 {
+            color: var(--blue-500);
+        }
+        .title-4 {
+            font-size: 12px;
+        }
+        .rich-text {
+            font-size: 13px;
+            word-break: break-all;
+            text-align: justify;
+            line-height: 180%;
         }
         /* text format END */
         /**/
@@ -371,10 +393,6 @@
             height: 400px;
             position: relative;
             display: flex;
-            align-items: center;
-            /* background-image: linear-gradient(to right, white 45%, transparent 60%), url();     sample background */
-            background-size: 100%, 60%;    /* the second % is same as the % of transparent in background */
-            background-position: left, right;
             opacity: 0;
         }
         .product-pod.pod--selected {
@@ -382,41 +400,45 @@
         }
         .product-pod .text {
             width: 45%;
-            position: relative;
-            z-index: 1;
+            box-sizing: border-box;
+            padding: 50px 40px;
+/*            font-size: 80%;*/
         }
         .product-pod .title {
             display: flex;
-            align-items: center;
             gap: 15px;
+            margin-bottom: 40px;
+        }
+        .product-pod .name {
+            margin-top: 5px;
+            font-size: 1.3rem;
+            font-family: "Poppins-Medium";
         }
         .product-pod .logo {
-            width: 50px;
-            height: 50px;
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
         }
         .product-pod .image {
             height: 100%;
-            aspect-ratio: 3 / 2;
-            overflow: hidden;
-            position: absolute;
-            right: 0;
-            z-index: 0;
+            width: 55%;
+            background-position: center;
+            background-size: cover;
         }
-        .product-pod .image img {
+        .product-pod .image::after {
+            content: "";
             width: 100%;
-            height: auto;
+            height: 100%;
+            background-image: linear-gradient(to right, white 1%, transparent 15%);
+            position: absolute;
         }
-/*        #product .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }*/
         .logo-bar {
             width: 80%;
             margin: 40px auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         .logo-pod {
             position: relative;
@@ -444,7 +466,8 @@
         .logo-line {
             position: absolute;
             z-index: 0;
-            width: 50%;
+/*            width: calc(928px * 0.8);*/
+            width: 100%;
             border: solid 2px var(--blue-075);
             overflow: visible;
         }
@@ -472,11 +495,9 @@
             top: calc(100% + 20px);
             transform: translate(-50%);
             transition: .3s ease-in-out;
-/*            display: none;*/
             opacity: 0;
         }
         .logo-pod.logo--selected .logo-name {
-/*            display: block;*/
             opacity: 1;
         }
         /* product END */
@@ -499,10 +520,10 @@
             height: 400px;
         }
         #about-us .content .detail {
-            width: 70%;
+            width: 85%;
         }
         #about-us .content .title-bar {
-            width: 30%;
+            width: 15%;
             display: flex;
             flex-direction: column;
         }
@@ -511,29 +532,33 @@
             height: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
             position: relative;
-            overflow: hidden;
+            font-size: 75%;
+            color: rgba(0, 0, 0, .5);
+        }
+        #about-us .title-bar .title::after {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background: #6aa0ff;
+            background: var(--blue-300);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -2.5px;
+        }
+        #about-us .title-bar .title:nth-child(5)::after {
+            content: none; /* only the middle 4 spaces have dot between */
         }
         #about-us .title-bar .title .text {
             transition: .3s ease-in-out;
             position: relative;
             z-index: 1;
         }
-        #about-us .title-bar .title::before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            background: orange;
-            transform: translateX(-100%);
-            transition: .5s ease-in-out;
-            position: absolute;
-            z-index: 0;
-        }
         #about-us .title-bar .title.title--selected .text {
-            color: white;
-        }
-        #about-us .title-bar .title.title--selected::before {
-            transform: translateX(0);
+            color: var(--blue-500);
+            transform: scale(1.5);
+            font-family: "Poppins-Medium", serif;
         }
         .ab-bar {
             height: calc(400px * 5);
@@ -543,9 +568,16 @@
         .ab-pod {
             height: 100%;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 0 15px grey inset;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+        .ab-pod .text {
+            width: 75%;
+            color: white;
+            background: linear-gradient(to right, rgba(0, 0, 0, .65) 85%, transparent 100%);
+            padding: 20px;
+            transform: translateY(80px);
         }
         /* about us END */
         /**/
@@ -564,80 +596,32 @@
         #join-us {
             background: whitesmoke;
         }
-        #join-us .content {
-            display: flex;
-            height: 400px;
-        }
-        #join-us .content .flex-wrapper {
-            height: 100%;
-        }
-        #join-us .content .title-bar {
-            width: 25%;
-            height: 100%;
-            display: flex;
-            flex-wrap: wrap-reverse;
-            gap: 32px;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
+        .job-bar {
+            width: calc(928px / 3 * 3);
+/*            height: 400px;*/
             position: relative;
-        }
-        #join-us .content .title-bar::before {
-            content: "";
-            width: 600%;
-            height: 100%;
-            background: white;
-            position: absolute;
-            z-index: 0;
-            right: 0;
-        }
-        #join-us .title-bar .title {
-            width: 100px;
-            height: 100px;
-            border-radius: 100px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        #join-us .title.title--selected {
-            background: orange;
-            color: white;
-        }
-        #join-us .content .job-bar {
-            width: 75%;
-            height: 100%;
-            position: relative;
-        }
-        #join-us .content .job-bar::before {
-            content: "";
-            width: 300%;
-            height: 100%;
-            background: orange;
-            position: absolute;
-            z-index: 0;
-            left: 0;
+            gap: 50px;
         }
         .job-pod {
             width: 100%;
             height: 100%;
-            display: none;
+            padding: 20px;
+            background: var(--blue-075);
+            border-radius: 20px;
+            box-sizing: border-box;
             position: relative;
             z-index: 1;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .job-pod.pod--selected {
-            display: flex;
         }
         .job-pod li {
             list-style: disc;
-            margin-left: 25px;
-            font-size: 90%;
+            line-height: 150%;
+            font-size: 11px;
+            margin: 5px 0;
+            margin-left: 10px;
             word-break: break-all;
             text-align: justify;
+            color: var(--grey-500);
         }
         /* join-us END */
         /**/
@@ -925,28 +909,6 @@
             }
         }
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <style type="text/css" id="temp-style">
-        #main-body {
-            height: 2000px;
-            background-color: lightskyblue;
-        }
-        section {
-            background: white;
-        }
-    </style>
 </head>
 <body onscroll="toggle_header_bg()">
     <header id="header">
@@ -954,7 +916,6 @@
             <div class="logo">
                 <a onclick="nav_scroll_to('banner')" aria-current="page" style="display: flex; align-items: center; gap: 10px;">
                     <img src="./src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
-                    <!-- <img src="./src/img/icon/Auroramob-title-white.png" class="Auroramob-logo clickable" height="20"> -->
                     <div class="Auroramob-title clickable"></div>
                 </a>
             </div>
@@ -964,15 +925,11 @@
                     <li class="clickable" onclick="nav_scroll_to('product')">Products</li>
                     <li class="clickable" onclick="nav_scroll_to('about-us')">About Us</li>
                     <li class="clickable" onclick="nav_scroll_to('join-us')">Join Us</li>
-                    <!-- <li><select>
-                        <option><a class="clickable" onselect="nav_scroll_to('banner')">English</a></option>
-                        <option><a class="clickable" href="./en-US/index.html">Chinese Simplified</a></option>
-                    </select></li> -->
                     <li><div class="language-select">
                         <div>Language</div>
                         <div class="menu">
-                            <div>> English</div>
-                            <div>> Chinese Simplified</div>
+                            <div class="clickable" onclick="nav_scroll_to('banner')">> English</div>
+                            <a href="./en-US/"><div>> Chinese Simplified</div></a>
                         </div>
                         <div class="down-arrow arrow" onclick="toggle_lang_menu(this, 'open')">
                             <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
@@ -1073,64 +1030,56 @@
                 <h1 class="title-1">Products</h1>
                 <div class="content">
                     <div class="product-bar transition">
-                        <div class="product-pod transition box  pod--selected" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡写真馆-poster.webp');">
+                        <div class="product-pod transition box  pod--selected">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
-                                    <div class="name">FaceQ</div>
+                                    <div class="name">FaceQ - Camera & Photo Editor</div>
                                 </div>
                                 <h2 class="title-2">Extraordinary Portrait Creation Experience</h2>
                                 <div class="rich-text">Welcome to FaceQ, your exclusive AI photo world! Upload your photos, and FaceQ will create a unique LoRA virtual image with various styles. Share your work, appreciate others' masterpieces, and explore the charm of AI portraits together!</div>
                             </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
+                            <div class="image" style="background-image: url('./src/img/poster/玛卡写真馆-poster.png');"></div>
                         </div>
-                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/简易翻译-poster.png');">
+                        <div class="product-pod transition box">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/简易翻译-logo.webp">
-                                    <div class="name">Panda Translator</div>
+                                    <div class="name">Panda Translator & AI Translation</div>
                                 </div>
                                 <h2 class="title-2">Multi-Language AI Translator</h2>
                                 <div class="rich-text">Panda Translator is a powerful translation app that supports multiple languages, accents, and scenarios for fast and accurate translations. It includes features like road sign translation, photo translation, and more to enhance overall efficiency.</div>
                             </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
+                            <div class="image" style="background-image: url('./src/img/poster/简易翻译-poster.png');"></div>
                         </div>
-                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/玛卡相机-poster.webp');">
+                        <div class="product-pod transition box">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/玛卡相机-logo.webp">
-                                    <div class="name">FaceLens</div>
+                                    <div class="name">FaceLens - AI Photo Creator</div>
                                 </div>
-                                <h2 class="title-2">Blend AI Technology with the Art of Photography</h2>
+                                <h2 class="title-2">Blend AI-Tech with the Art of Photography</h2>
                                 <div class="rich-text">From everyday life and travel snapshots to exquisite food photography, FaceLens enables you to infuse your unique flair and showcase your individuality to the world. With just a single click, transform your photos and make them shine.</div>
                             </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
+                            <div class="image" style="background-image: url('./src/img/poster/玛卡相机-poster.png');"></div>
                         </div>
-                        <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/蜜桃小剧场-poster.webp');">
+                        <div class="product-pod transition box">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp">
-                                    <div class="name">Peach Theater</div>
+                                    <div class="name">Peach Theater - Unlimited Playlets</div>
                                 </div>
-                                <h2 class="title-2">Watching a Vast Array of Short Dramas Online</h2>
+                                <h2 class="title-2">Watching a Vast Array of Playlets Online</h2>
                                 <div class="rich-text">Peach Theater offers numerous exciting and popular short dramas, featuring a vertical full-screen viewing mode, letting you catch up anytime on your phone. With ultra-clear quality and swipe controls, it unlocks a new way to watch dramas.</div>
                             </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
+                            <div class="image" style="background-image: url('./src/img/poster/蜜桃小剧场-poster.png');"></div>
                         </div>
                         <!---->
                         <!---->
                         <!---->
                         <!-- Add New product pod HERE -->
                         <!-- TEMPLATE, input area replaced by []:
-                            <div class="product-pod transition box" style="background-image: linear-gradient(to right, white 45%, transparent 60%), url('./src/img/poster/[]-poster.webp');">
+                            <div class="product-pod transition box">
                                 <div class="text">
                                     <div class="title">
                                         <img class="logo" src="./src/img/logo/[]-logo.webp">
@@ -1139,6 +1088,7 @@
                                     <h2 class="title-2">[]</h2>
                                     <div class="rich-text">[]</div>
                                 </div>
+                                <div class="image" style="background-image: url('./src/img/poster/[]-poster.png');"></div>
                             </div> -->
                         <!---->
                         <!---->
@@ -1167,11 +1117,11 @@
                         <!---->
                         <!-- Add New Logo HERE -->
                         <!-- TEMPLATE, input area replaced by []:
-                            <div class="logo" style="background-image: url('./src/img/logo/[]-logo.webp');" onclick="product_scroll_to(this)"></div> -->
+                            <div class="logo" style="background-image: url('./src/img/logo/[]-logo.webp');" onclick="product_scroll_to(this)">[]</div> -->
                         <!---->
                         <!---->
                         <!---->
-                        <hr class="logo-line default-block">
+                        <hr class="logo-line">
                     </div>
                 </div>
             </div>
@@ -1207,36 +1157,36 @@
             <div class="default-block">
                 <h1 class="title-1">About Us</h1>
                 <div class="content">
-                    <div class="detail overflow-window">
+                    <div class="detail overflow-window box">
                         <div class="ab-bar transition">
-                            <div class="ab-pod">
+                            <div class="ab-pod" style="background-image: url('./src/img/about-us/intro.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Intro</div>
-                                    <div class="rich-text">Welcome to Auroramob! We are a high-tech company focused on developing tool-based applications, dedicated to providing efficient and intelligent digital solutions for users worldwide. Our mission is to enhance the quality of daily life and work efficiency through technological innovation.</div>
+                                    <!-- <div class="title-2">Intro</div> -->
+                                    <div class="rich-text">Auroramob is a high-tech company developing tool-based applications, providing efficient and intelligent digital solutions for users worldwide. Our mission is to enhance the quality of daily life and work efficiency through technological innovation.</div>
                                 </div>
                             </div>
-                            <div class="ab-pod">
+                            <div class="ab-pod" style="background-image: url('./src/img/about-us/products.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Products</div>
-                                    <div class="rich-text">Auroramob's core products cover three main areas: short videos, translation, and cameras. Each application is meticulously designed to provide users with the best possible experience.</div>
+                                    <!-- <div class="title-2">Products</div> -->
+                                    <div class="rich-text">Auroramob's core products cover three main areas: playkets, translator, and AI picture processing. Each application is meticulously designed to provide users with the best possible experience.</div>
                                 </div>
                             </div>
-                            <div class="ab-pod">
+                            <div class="ab-pod" style="background-image: url('./src/img/about-us/establishment.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Establishment</div>
+                                    <!-- <div class="title-2">Establishment</div> -->
                                     <div class="rich-text">Founded in May 2017, it is located in the beautiful spring city of Jinan, a high-tech enterprise in Shandong Province. It is also one of Shandong's top mobile Internet and artificial intelligence companies. </div>
                                 </div>
                             </div>
-                            <div class="ab-pod">
+                            <div class="ab-pod" style="background-image: url('./src/img/about-us/members.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Members</div>
+                                    <!-- <div class="title-2">Members</div> -->
                                     <div class="rich-text">All the company's founding members graduated from 985 and other double first-class universities in China. In the early stage, the core members worked in Baidu, Innovation Workshop, FunPlus, and other world-class Internet and game companies.</div>
                                 </div>
                             </div>
-                            <div class="ab-pod">
+                            <div class="ab-pod" style="background-image: url('./src/img/about-us/partnerships.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Partnerships</div>
-                                    <div class="rich-text">The company signed a strategic cooperation agreement with Tencent, Baidu, ByteDance, and KuaiShou in the domestic market. In overseas markets, the company has reached long-term and important strategic cooperation agreements with Amazon, Google, Apple, Facebook, Twitter, and TikTok.</div>
+                                    <!-- <div class="title-2">Partnerships</div> -->
+                                    <div class="rich-text">Our company has strategic agreements with Tencent, Baidu, ByteDance, and KuaiShou domestically, and with Amazon, Google, Apple, Facebook, Twitter, and TikTok internationally.</div>
                                 </div>
                             </div>
                         </div>
@@ -1280,63 +1230,119 @@
         <section id="join-us" class="section overflow-window">
             <div class="default-block">
                 <h1 class="title-1">Join Us</h1>
-                <div class="content">
-                    <div class="title-bar">
-                        <div class="title title--selected" onmouseenter="join_display_corres(this)">Senior iOS Developer</div>
-                        <div class="title" onmouseenter="join_display_corres(this)">Product Manager</div>
-                        <div class="title" onmouseenter="join_display_corres(this)">UI Designer</div>
+                <!-- <div class="content"> -->
+                <div class="job-bar">
+                    <div class="job-pod pod--selected">
+                        <div class="title-3">Senior iOS Developer</div>
+                        <div class="title-4">Job Responsibilities:</div>
+                        <ul>
+                            <li>Develop, develop, and implement new iOS features; stay updated with the latest iOS trends.</li>
+                            <li>Optimize code for performance and stability; write and review maintainable, efficient, and reliable code.</li>
+                            <li>Mentor and train junior engineers to enhance the overall technical level of the team.</li>
+                        </ul>
+                        <div class="title-4">Job Requirements:</div>
+                        <ul>
+                            <li>Strong skills in software architecture and solving complex technical issues.</li>
+                            <li>Familiar with iOS SDK, development tools, common design patterns, and software engineering principles.</li>
+                            <li>Proficient in Objective-C and Swift; cross-platform experience (React Native, Flutter) is a plus.</li>
+                        </ul>
                     </div>
-                    <div class="job-bar">
-                        <div class="job-pod pod--selected">
-                            <div class="title-2">Senior iOS Developer</div>
-                            <div class="title-3">Job Responsibilities:</div>
-                            <ul>
-                                <li>Develop, develop, and implement new iOS features; stay updated with the latest iOS trends.</li>
-                                <li>Optimize code for performance and stability; write and review maintainable, efficient, and reliable code.</li>
-                                <li>Mentor and train junior engineers to enhance the overall technical level of the team.</li>
-                            </ul>
-                            <div class="title-3">Job Requirements:</div>
-                            <ul>
-                                <li>Strong skills in software architecture and solving complex technical issues.</li>
-                                <li>Familiar with iOS SDK, development tools, common design patterns, and software engineering principles.</li>
-                                <li>Proficient in Objective-C and Swift; cross-platform experience (React Native, Flutter) is a plus.</li>
-                            </ul>
-                        </div>
-                        <div class="job-pod">
-                            <div class="title-2">Product Manager</div>
-                            <div class="title-3">Job Responsibilities:</div>
-                            <ul>
-                                <li>Assist teams in advancing products from concept to market launch; develop roadmaps aligning with company vision.</li>
-                                <li>Track performance indicators, analyze data, provide iteration insights; ensure timely, quality product releases.</li>
-                                <li>Manage product documentation; collect user feedback; design user experience improvements.</li>
-                            </ul>
-                            <div class="title-3">Job Requirements:</div>
-                            <ul>
-                                <li>Excellent communication and collaboration skills; strong critical thinking and problem-solving abilities.</li>
-                                <li>Basic data analysis skills; proficient in Excel/Google Sheets; basic market analysis and product planning skills.</li>
-                                <li>Familiarity with agile development processes and tools (e.g., JIRA, Trello) is a plus.</li>
-                            </ul>
-                        </div>
-                        <div class="job-pod">
-                            <div class="title-2">UI Designer</div>
-                            <div class="title-3">Job Responsibilities:</div>
-                            <ul>
-                                <li>Design UI for software products; focus on development feedback and product feature optimization design.</li>
-                                <li>Participate in creative design, prototype optimization discussions, drive execution and implementation of solutions.</li>
-                                <li>Optimize design processes, consolidate solutions, and establish standards.</li>
-                            </ul>
-                            <div class="title-3">Job Requirements:</div>
-                            <ul>
-                                <li>Understand app design standards; clearly express design solutions; keen insight into internet product trends.</li>
-                                <li>Good communication skills and clear logical thinking; can collaborate with product and development teams.</li>
-                                <li>Proficient in Sketch, Photoshop, Adobe Illustrator, Figma; Cinema 4D proficiency is a plus.</li>
-                            </ul>
-                        </div>
+                    <div class="job-pod">
+                        <div class="title-3">Product Manager</div>
+                        <div class="title-4">Job Responsibilities:</div>
+                        <ul>
+                            <li>Assist teams in advancing products from concept to market launch; develop roadmaps aligning with company vision.</li>
+                            <li>Track performance indicators, analyze data, provide iteration insights; ensure timely, quality product releases.</li>
+                            <li>Manage product documentation; collect user feedback; design user experience improvements.</li>
+                        </ul>
+                        <div class="title-4">Job Requirements:</div>
+                        <ul>
+                            <li>Excellent communication and collaboration skills; strong critical thinking and problem-solving abilities.</li>
+                            <li>Basic data analysis skills; proficient in Excel/Google Sheets; basic market analysis and product planning skills.</li>
+                            <li>Familiarity with agile development processes and tools (e.g., JIRA, Trello) is a plus.</li>
+                        </ul>
+                    </div>
+                    <div class="job-pod">
+                        <div class="title-3">UI Designer</div>
+                        <div class="title-4">Job Responsibilities:</div>
+                        <ul>
+                            <li>Design UI for software products; focus on development feedback and product feature optimization design.</li>
+                            <li>Participate in creative design, prototype optimization discussions, drive execution and implementation of solutions.</li>
+                            <li>Optimize design processes, consolidate solutions, and establish standards.</li>
+                        </ul>
+                        <div class="title-4">Job Requirements:</div>
+                        <ul>
+                            <li>Understand app design standards; clearly express design solutions; keen insight into internet product trends.</li>
+                            <li>Good communication skills and clear logical thinking; can collaborate with product and development teams.</li>
+                            <li>Proficient in Sketch, Photoshop, Adobe Illustrator, Figma; Cinema 4D proficiency is a plus.</li>
+                        </ul>
                     </div>
                 </div>
+                <!-- </div> -->
             </div>
         </section>
         <!-- Join Us END -->
     </main>
+    <!-- main body END -->
+    <!---->
+    <!---->
+    <!---->
+    <!----> 
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!-- footer START -->
+    <footer id="footer">
+        <div class="left">
+            <div class="logo">
+                <a onclick="soft_scroll('banner')" aria-current="page">
+                    <img src="./src/img/icon/Auroramob-logo.png" class="opengame-logo link" height="20">
+                </a>
+                <div class="icons">
+                    <a href="https://t.me/+twzIAOGwUsI4Njll">
+                        <img src="./src/img/icon/telegram.svg" width="25" height="25">
+                    </a>
+                    <a href="mailto:cypwkjyxgs@163.com">
+                        <img src="./src/img/icon/envelope.svg" width="25" height="25">
+                    </a>
+                    <!---->
+                    <!-- Add new icon here -->
+                    <!---->
+                </div>
+            </div>
+            <div class="slogan">
+                Happy <span style="color: #ec1918;">Game</span> Happy <span style="color: #05f;">Life</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="navigation">
+                <ul class="link_list">
+                    <li><a class="link" onclick="soft_scroll('banner')">Home</a></li>
+                    <li><a class="link" onclick="soft_scroll('games')">Games</a></li>
+                    <li><a class="link" onclick="soft_scroll('about-us')">About Us</a></li>
+                    <li><a class="link" onclick="soft_scroll('join-us')">Join Us</a></li>
+                </ul>
+            </div>
+            <div class="copyright">Copyright © 2024 OPENGAME. All Rights Reserved.</div>
+        </div>
+    </footer>
+    <!-- footer END -->
 </body>
 </html>
