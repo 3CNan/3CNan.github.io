@@ -24,11 +24,11 @@
     <!-- <meta property="article:modified_time" content='2024-07-18T06:15:00.000Z'> -->
 
     <title>Auroramob</title>
-    <link rel="icon" href="./src/img/web-icon/Auroramob-logo-16x16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="./src/img/web-icon/Auroramob-logo-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="./src/img/web-icon/Auroramob-logo-96x96.png" sizes="96x96" type="image/png">
-    <link rel="icon" href="./src/img/web-icon/Auroramob-logo-192x192.png" sizes="192x192" type="image/png">
-    <link rel="apple-touch-icon" href="./src/img/web-icon/Auroramob-logo-180x180.png">
+    <link rel="icon" href="../src/img/web-icon/Auroramob-logo-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="../src/img/web-icon/Auroramob-logo-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../src/img/web-icon/Auroramob-logo-96x96.png" sizes="96x96" type="image/png">
+    <link rel="icon" href="../src/img/web-icon/Auroramob-logo-192x192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="../src/img/web-icon/Auroramob-logo-180x180.png">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -36,15 +36,19 @@
     <style type="text/css" id="import-font-inline-css">
         @font-face {
             font-family: 'Poppins-Light';
-            src: url('./src/fonts/Poppins-Light.ttf') format('truetype');
+            src: url('../src/fonts/Poppins-Light.ttf') format('truetype');
         }
         @font-face {
             font-family: 'Poppins-Medium';
-            src: url('./src/fonts/Poppins-Medium.ttf') format('truetype');
+            src: url('../src/fonts/Poppins-Medium.ttf') format('truetype');
         }
         @font-face {
-            font-family: 'Cuprum-Bold';
-            src: url('./src/fonts/Cuprum-Bold.ttf') format('truetype');
+            font-family: 'Poppins-Bold';
+            src: url('../src/fonts/Poppins-Bold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Smiley-Sans';
+            src: url('../src/fonts/SmileySans-Oblique.ttf.woff2') format('woff2');
         }
     </style>
     <!---->
@@ -63,7 +67,7 @@
     <style type="text/css" id="tag-selector-inline-css">
         * {
             box-sizing: border-box;
-            font-family: 'Poppins-Light', serif;
+            font-family: 'Poppins-Light', sans-serif;
         }
         header {
             display: block;
@@ -107,6 +111,9 @@
             --grey-500: #636b7f;
             --grey-900: #10131b;
             --blue-050: #e9f3ff;
+            --blue-075: #deecff;
+            --blue-100: #d2e5ff;
+            --blue-300: #6aa0ff;
             --blue-400: #347bff;
             --blue-500: #05f;
         }
@@ -123,13 +130,13 @@
         .navbar-mobile, .banner-mobile {
             display: none;
         }
-        .title-1, .title-2, .title-3, .title-4, .title-5, .button {
-            font-family: 'Poppins-Medium', serif;
+        .title-2, .title-3, .title-4, .title-5, .button {
+            font-family: 'Poppins-Medium', sans-serif;
         }
         .box {
             box-sizing: border-box;
             border-radius: 20px;
-            box-shadow: 0 15px 15px rgba(0,0,0,.1);
+            box-shadow: 0 15px 20px rgba(0,0,0,.1);
             overflow: hidden;
         }
         .transition {
@@ -143,12 +150,23 @@
         }
         .overflow-window {
             overflow: hidden;
+            scrollbar-width: none; /* hide the scrollbar, used for mobile, firefox */
+            -ms-overflow-style: none; /* hide the scrollbar, used for mobile, ie & edge */
+        }
+        .overflow-window::-webkit-scrollbar {
+            display: none; /* hide the scrollbar, used for mobile, webkit */
         }
         .content {
             margin-top: 40px;
         }
         .flex-wrapper {
             display: flex;
+        }
+        .bar {
+            scroll-snap-type: x mandatory;
+        }
+        .mobile {
+            display: none;
         }
         /* global END */
         /**/
@@ -165,9 +183,26 @@
         /**/
         /* text format START */
         .title-1 {
+            font-family: "Poppins-Bold", sans-serif;
             font-size: 2rem;
             text-align: center;
             padding: .5rem 0;
+        }
+        .title-2 {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .title-3 {
+            color: var(--blue-500);
+        }
+        .title-4 {
+            font-size: 12px;
+        }
+        .rich-text {
+            font-size: 13px;
+            word-break: break-all;
+            text-align: justify;
+            line-height: 180%;
         }
         /* text format END */
         /**/
@@ -188,9 +223,9 @@
             top: 0;
             left: 0;
             z-index: 20;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.5s ease;
             width: 100%;
-            font-family: 'Poppins-Light', serif;
+            font-family: 'Poppins-Light', sans-serif;
         }
         #header .navbar-laptop {
             display: flex;
@@ -227,10 +262,10 @@
         #header .link-list {
             margin-right: 32px;
         }
-        #header .link-list a {
+        #header .link-list li {
             color: white;
         }
-        #header.header--scrolled .link-list a {
+        #header.header--scrolled .link-list li {
             color: black;
         }
         .navbar-mobile .navigation {
@@ -239,11 +274,17 @@
             background: white;
             padding: 25px 0;
             transform: translateY(-150%);
-            transition: .5s ease-in-out;
+            transition: transform .5s ease-in-out, opacity .2s ease-in-out;
             opacity: 0;
         }
         .nav-tag {
             padding: 10px 42px;
+        }
+        .navbar-mobile .logo .icon {
+            fill: white;
+        }
+        .header--scrolled .navbar-mobile .logo .icon, .header--open .navbar-mobile .logo .icon {
+            fill: black;
         }
         .header--scrolled {
             background: white;
@@ -251,18 +292,52 @@
         .Auroramob-title {
             height: 20px;
             aspect-ratio: 1024/155;
-            background-image: url('./src/img/icon/Auroramob-title-white.png');
+            background-image: url('../src/img/icon/Auroramob-title-white.png');
             background-size: cover;
             background-position: center;
         }
         .header--scrolled .Auroramob-title, .header--open .Auroramob-title {
-            background-image: url('./src/img/icon/Auroramob-title-black.png');
+            background-image: url('../src/img/icon/Auroramob-title-black.png');
         }
-        #nav-icon {
-            fill: white;
+        #header .menu {
+            position: relative;
         }
-        .header--scrolled #nav-icon, .header--open #nav-icon {
-            fill: black;
+        #header .menu .drop {
+            padding: 10px 20px;
+            position: absolute;
+            transform: translateY(-200%);
+            transition: .3s ease-in-out;
+            z-index: -1;
+            opacity: 0;
+            width: max-content;
+        }
+        #header .menu.menu--opened .drop {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        #header.header--scrolled .menu .drop {
+            background: white;
+        }
+        #header .menu-title {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        #header .menu-title::after {
+            content: "";
+            display: block;
+            width: 12px;
+            height: 12px;
+            padding-bottom: 2px;
+            position: absolute;
+            right: -15px;
+/*            pointer-events: none;*/
+        }
+        #header .menu-title::after {
+            background: url("../src/img/icon/chevron-down-white.svg");
+        }
+        #header.header--scrolled .menu-title::after, .menu-title::after {
+            background: url("../src/img/icon/chevron-down-black.svg");
         }
         /* header END */
         /**/
@@ -280,11 +355,10 @@
         /* banner START */
         .banner-image {
             width: 100%;
-            height: 700px;
-            background-image: url("./src/img/banner/1.jpg");
+            min-height: 650px;
+            background-image: url("../src/img/banner/background.jpg");
             background-size: cover;
             background-position: center;
-            animation: banner-img-carousel 20s linear infinite;
             position: relative;
             z-index: 1;
             display: flex;
@@ -293,19 +367,29 @@
         }
         .banner-image::after {
             content: "";
-            display: block;
             width: 100%;
-            height: 700px;
+            min-height: 650px;
             position: absolute;
             z-index: 2;
-            background-color: rgb(61 37 128 / 46%);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
+            filter: blur(1px);
+            mask-image: linear-gradient(170deg, rgb(0,0,0) 45%, transparent 65%);
         }
         #banner .title {
             color: white;
             position: relative;
             z-index: 3;
+            font-size: 3.3rem;
+            line-height: 200%;
+            font-family: "Smiley-Sans";
+            text-align: right;
+            text-shadow: 0 0 10px #00AEFF;
+            margin-top: 32px;
+            padding-left: 250px;
+        }
+        #banner .title span {
+            font: inherit;
             font-size: 4rem;
         }
         /* banner END */
@@ -332,53 +416,90 @@
             height: 400px;
             position: relative;
             display: flex;
-            align-items: center;
-            /* background-image: linear-gradient(to right, white 40%, transparent 60%), url();     sample background */
-            background-size: 100%, 60%;    /* the second % is same as the % of transparent in background */
-            background-position: left, right;
             opacity: 0;
         }
         .product-pod.pod--selected {
             opacity: 1;
         }
         .product-pod .text {
-            width: 50%;
-            position: relative;
-            z-index: 1;
+            width: 45%;
+            box-sizing: border-box;
+            padding: 50px 40px;
+        }
+        .product-pod .text::after {
+            width: 90px;
+            height: 45px;
+            background: url("../src/img/icon/dot-matrix.svg");
+            position: absolute;
+            bottom: -30px;
+            z-index: 0;
+        }
+        .product-pod:nth-child(odd) .text::after {
+            left: 0;
+        }
+        .product-pod:nth-child(even) .text::after {
+            right: 0;
         }
         .product-pod .title {
             display: flex;
-            align-items: center;
             gap: 15px;
+            margin-bottom: 40px;
         }
         .product-pod .logo {
-            width: 50px;
-            height: 50px;
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
         }
+        .product-pod .name {
+            margin-top: 5px;
+            font-size: 1.3rem;
+            font-family: "Poppins-Medium", sans-serif;
+        }
+        .product-pod .description .title-2 {
+            font-size: 12px;
+            color: grey;
+            font-family: "Poppins-Light", sans-serif;
+        }
+        .product-pod .rich-text {
+            position: relative;
+            z-index: 1;
+            background: white;
+        }
+
         .product-pod .image {
             height: 100%;
-            aspect-ratio: 3 / 2;
-            overflow: hidden;
-            position: absolute;
-            right: 0;
-            z-index: 0;
+            width: 55%;
+            background-position: center;
+            background-size: cover;
         }
-        .product-pod .image img {
+        .product-pod .image::after {
+            content: "";
             width: 100%;
-            height: auto;
+            height: 100%;
+            background-image: linear-gradient(to right, white 1%, transparent 15%);
+            position: absolute;
         }
         .logo-bar {
-            width: 100%;
-            margin: 40px 0;
+            width: 80%;
+            margin: 40px auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+        }
+        .logo-pod {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         .logo-pod .logo {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
+            border: 2px solid white;
             border-radius: 100px;
             transition: .3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 
             background-size: cover;
             background-position: center;
@@ -387,25 +508,43 @@
             z-index: 1;
         }
         .logo-pod .logo:hover, .logo-pod.logo--selected .logo {
-            transform: scale(1.25);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.4);
         }
         .logo-line {
             position: absolute;
-            left: 0;
             z-index: 0;
             width: 100%;
-            border: solid 1px black;
+            border: solid 2px var(--blue-075);
+            overflow: visible;
         }
-        .logo-pod {
-            position: relative;
+        .logo-line::before, .logo-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #d2e5ff;
+            background: var(--blue-075);
+        }
+        .logo-line::before {
+            left: -5px;
+        }
+        .logo-line::after {
+            right: -5px;
         }
         .logo-name {
             position: absolute;
             width: max-content;
             left: 50%;
-            top: calc(100% + 10px);
+            top: calc(100% + 20px);
             transform: translate(-50%);
+            transition: .3s ease-in-out;
+            opacity: 0;
+        }
+        .logo-pod.logo--selected .logo-name {
+            opacity: 1;
         }
         /* product END */
         /**/
@@ -427,41 +566,45 @@
             height: 400px;
         }
         #about-us .content .detail {
-            width: 70%;
+            width: 85%;
         }
         #about-us .content .title-bar {
-            width: 30%;
+            width: 15%;
             display: flex;
             flex-direction: column;
         }
-        .title-bar .title {
+        #about-us .title-bar .title {
             width: 100%;
             height: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
             position: relative;
-            overflow: hidden;
+            font-size: 75%;
+            color: rgba(0, 0, 0, .5);
         }
-        .title-bar .title .text {
+        #about-us .title-bar .title::after {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background: #6aa0ff;
+            background: var(--blue-300);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -2.5px;
+        }
+        #about-us .title-bar .title:nth-child(5)::after {
+            content: none; /* only the middle 4 spaces have dot between */
+        }
+        #about-us .title-bar .title .text {
             transition: .3s ease-in-out;
             position: relative;
             z-index: 1;
         }
-        .title-bar .title::before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            background: orange;
-            transform: translateX(-100%);
-            transition: .5s ease-in-out;
-            position: absolute;
-            z-index: 0;
-        }
-        .title-bar .title.title--selected .text {
-            color: white;
-        }
-        .title-bar .title.title--selected::before {
-            transform: translateX(0);
+        #about-us .title-bar .title.title--selected .text {
+            color: var(--blue-500);
+            transform: scale(1.5);
+            font-family: "Poppins-Medium", sans-serif;
         }
         .ab-bar {
             height: calc(400px * 5);
@@ -471,9 +614,21 @@
         .ab-pod {
             height: 100%;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 0 15px grey inset;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+        .ab-pod .text {
+            width: 75%;
+            color: white;
+            background: linear-gradient(to right, rgba(0, 0, 0, .65) 85%, transparent 100%);
+            padding: 20px;
+            transform: translateY(80px);
+        }
+        .ab-pod .title-2 {
+            display: none;
         }
         /* about us END */
         /**/
@@ -489,51 +644,57 @@
         /**/
         /**/
         /* join-us START */
-        #join-us {
-            background: whitesmoke;
+        #join-us .wrapper {
+            overflow: scroll !important;
+            pointer-events: none;
         }
-        #join-us .content {
-            height: 400px;
-            background-image: linear-gradient(to right, white 35%, orange 35%);
-        }
-        #join-us .content .flex-wrapper {
-            height: 100%;
-        }
-        #join-us .content .title-bar {
-            width: 20%;
-            height: 100%;
+        .job-bar {
+            width: 928px;  /* For more than 3 pods: calc(928px + [# of pods - 3] * ((928px - 50px * 2) / 3 + 50px)) -------------- ([df-block width] + [# of pods - 3] * (([df-block width] - [gap] * 2) / 3 + [gap])) */
+            position: relative;
             display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        .title-bar .title {
-            width: 70px;
-            height: 70px;
-            border-radius: 100px;
-/*            box-shadow: 0 0 5px orange; /* temp */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        #join-us .content .job-bar {
-            width: 80%;
-            height: 100%;
+            gap: 50px;
+            transform: translate(0);
         }
         .job-pod {
             width: 100%;
-            height: 100%;
-            box-shadow: 0 0 10px blue inset;
-            display: none;
-            align-items: center;
+            padding: 20px;
+            background: var(--blue-075);
+            border-radius: 20px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
         }
-        .job-pod.pod--selected {
+        .job-pod li {
+            list-style: disc;
+            line-height: 150%;
+            font-size: 11px;
+            margin: 5px 0;
+            margin-left: 10px;
+            word-break: break-all;
+            text-align: justify;
+            color: var(--grey-500);
+        }
+        #join-us .arrow_bar {
+            position: absolute;
+            bottom: calc(50% - 20px);  /* -40px for content margin / 2 */
+            width: 120%;
+            left: -10%;
             display: flex;
+            justify-content: space-between;
+            gap: 32px;
         }
-        .title.title--selected {
-            background: orange;
-            color: white;
+        .arrow_bar .btn {
+            fill: #347bff;
+            fill: var(--blue-400);
+            background: #e9f3ff;
+            background: var(--blue-050);
+            padding: 10px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
         }
         /* join-us END */
         /**/
@@ -549,48 +710,36 @@
         /**/
         /**/
         /* footer START */
-        .footer {
-            /* background: #e9f3ff;*/
+        #footer {
+            background: #e9f3ff;
             background: var(--blue-050);
-            min-height: 250px;
+            min-height: 200px;
             display: flex;
             justify-content: space-between;
             padding: 50px 100px;
-            font-family: "Poppins-Light", serif;
+            font-family: "Poppins-Light", sans-serif;
         }
-        .footer .left {
+        #footer .left {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 10px;
         }
-        .footer .right {
+        #footer .right {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: 10px;
             text-align: right;
         }
-        .footer .logo {
+        #footer .logo {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        .footer .icons {
+        #footer .icons {
             display: flex;
             gap: 13px;
-        }
-        .footer .slogan {
-            font-size: 130%;
-            font-family: 'Cuprum-Bold';
-            transform: scaleY(0.7);
-        }
-        .footer .slogan span {
-            font-family: 'Cuprum-Bold';
-            transform: scaleY(0.7);
-        }
-        .footer .copyright {
-            color: var(--grey-400);
-            font-size: 80%;
         }
         /* footer END */
     </style>
@@ -613,12 +762,54 @@
         @media (max-width: 1023px) {
             #main-body .default-block {
                 margin: 0 70px;
-            }            
+            }         
+            #about-us .content .title-bar {
+                margin-left: 20px;
+            }
+            .product-bar {
+                width: calc((100vw - 140px) * 4 + 50px * 3);  /* -140px for dft-blk's margin * 2, 50px for gap */
+            }
+            .job-bar {
+                width: calc((100vw - 140px));  /* -48px for dft-blk's margin * 2 */
+                gap: 15px;
+            }
+            #footer .link-list {
+                gap: 20px;
+            }
         }
         @media (max-width: 767px) {
-            #main-body .default-block {
-                margin: 0 40px;
+            /* General global class START */
+            .content {
+                margin-top: 24px;
             }
+            .overflow-window {
+                overflow: scroll;
+                scroll-snap-type: x mandatory;
+            }
+            .bar {
+                transform: translate(0) !important;
+            }
+            .pod {
+                scroll-snap-align: center;
+                transition: transform 0.3s ease;
+            }
+            .mobile {
+                display: block;
+            }
+            .laptop {
+                display: none;
+            }
+            #main-body .default-block {
+                margin: 0;
+            }
+            /* General global class END */
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /* header START */
             .navbar-mobile .logo .icon {
                 display: flex;
                 align-items: center;
@@ -636,7 +827,97 @@
             #header.header--open, #header.header--open .logo {
                 background: white;
             }
-            
+            /* header END */
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /* banner START */
+            .banner-image {
+                min-height: 450px;
+                display: flex;
+                justify-content: end;
+            }
+            #banner .title {
+                font-size: 2rem;
+                padding: 0 50px 0 0;
+            }
+            #banner .title span {
+                font-size: 2.7rem;
+            }
+            /* banner END */
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /* product START */
+            .product-bar {
+                width: 100%;
+                flex-direction: column;
+                gap: 50px;
+            }
+            .product-pod {
+                height: auto;
+                opacity: 1;
+            }
+            .product-pod .text {
+                width: 100%;
+                padding: 0;
+            }
+            .product-pod .text::after {
+                content: "";
+            }
+            .product-pod:nth-child(odd) .text {
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+            }
+            .product-pod .title {
+                width: calc(100% - 48px);  /* -48px for margin * 2 */
+                margin: 0 24px 10px 24px;
+            }
+            .product-pod:nth-child(even) .text .title {
+                flex-direction: row-reverse;
+            }
+            .product-pod .logo {
+                width: 50px;
+                height: 50px;
+                border-radius: 5px;
+            }
+            .product-pod:nth-child(even) .description {
+                text-align: right;
+            }
+            .product-pod .name {
+                font-size: 15px;
+                margin: 0;
+            }
+            .product-pod .rich-text {
+                width: 85%;
+                box-sizing: border-box;
+                padding: 15px;
+                box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
+            }
+            .product-pod:nth-child(odd) .rich-text {
+                border-radius: 10px 0 0 10px;
+            }
+            .product-pod:nth-child(even) .rich-text {
+                border-radius: 0 10px 10px 0;
+            }
+            .product-pod .image, .product-pod .image::after, #product .logo-bar {
+                display: none;
+            }
+            /* product END */
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /* about-us START */
             #about-us .content {
                 flex-direction: column;
                 height: auto;
@@ -644,24 +925,72 @@
             #about-us .content .detail {
                 width: 100%;
                 height: 400px;
+                padding: 0 24px; /* same as dft-blk's margin */
             }
             #about-us .content .title-bar {
-                width: 100%;
+                display: none;
             }
-
-            .footer {
+            .ab-bar {
+                width: calc((100vw - 48px) * 5 + 15px * 4);  /* -48px for dft-blk's margin * 2, + 20px for gap; # of gap = # of block - 1 */
+                height: 100%;
+                flex-direction: row;
+                gap: 15px;
+            }
+            .ab-pod {
+                width: 100%;
+                align-items: end;
+                border-radius: 20px;
+            }
+            .ab-pod .text {
+                width: 85%;
+                transform: none;
+            }
+            .ab-pod .title-2 {
+                display: block;
+            }
+            /* about-us END */
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /* join-us START */
+            #join-us .wrapper {
+                padding: 0 24px; /* same as dft-blk's margin */
+                pointer-events: auto;
+            }
+            .job-bar {
+                width: calc((100vw - 48px) * 3 + 15px * 2);  /* (100vw - 48px) * [# of pods] + 15px * [# of pods - 1] */
+            }
+            #join-us .arrow_bar {
+                display: none;
+            }
+            /* join-us END */
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /* footer START */
+            #footer {
                 flex-direction: column;
                 padding: 30px;
             }
-            .footer .logo {
+            #footer .left {
                 gap: 5px;
             }
-            .footer .link-list {
-                gap: 2vw;
+            #footer .link-list {
+                flex-wrap: wrap;
+                gap: 5px 10px;
+                margin: 10px 0;
+                font-size: 80%;
             }
-            .footer .copyright {
+            #footer .copyright {
                 text-align: left;
             }
+            /* footer END */
         }
     </style>
     <!---->
@@ -679,11 +1008,11 @@
     <!-- @keyframes animation -->
     <style type="text/css" id="media-inline-css">
         @keyframes banner-img-carousel {
-            0%, 18.75% {background-image: url("./src/img/banner/1.jpg");}
-            25%, 43.75% {background-image: url("./src/img/banner/2.jpg");}
-            50%, 68.75% {background-image: url("./src/img/banner/3.jpg");}
-            75%, 93.75% {background-image: url("./src/img/banner/4.jpg");}
-            100% {background-image: url("./src/img/banner/1.jpg");}
+            0%, 18.75% {background-image: url("../src/img/banner/1.jpg");}
+            25%, 43.75% {background-image: url("../src/img/banner/2.jpg");}
+            50%, 68.75% {background-image: url("../src/img/banner/3.jpg");}
+            75%, 93.75% {background-image: url("../src/img/banner/4.jpg");}
+            100% {background-image: url("../src/img/banner/1.jpg");}
         }
     </style>
     <!---->
@@ -700,12 +1029,17 @@
     <!---->
     <!-- script -->
     <script type="text/javascript">
+        // Global variables
+        let class_is_toggled = false;
+        // 
+        // 
+        // 
         // scroll the page to specific element based on fixed nav bar
         function nav_scroll_to(obj_id_name) {    
             var target_height = document.getElementById(obj_id_name).offsetTop;  // get target pos
             var adjust_height = (obj_id_name == "banner") ? 0 : (- 64 + 100);
             window.scrollTo({
-                top: target_height + adjust_height,  // 64: nav bar, 80: padding-top df-block
+                top: target_height + adjust_height,
                 behavior: "smooth"
             });
         }
@@ -739,11 +1073,28 @@
 
             if (main_body_obj.getBoundingClientRect().top == 0) {
                 header_obj.classList.remove("header--scrolled");
-                Auroramob_title_obj.src = "./src/img/icon/Auroramob-title-white.png";
+                Auroramob_title_obj.src = "../src/img/icon/Auroramob-title-white.png";
             } else {
                 header_obj.classList.add("header--scrolled");
-                Auroramob_title_obj.src = "./src/img/icon/Auroramob-title-black.png";
+                Auroramob_title_obj.src = "../src/img/icon/Auroramob-title-black.png";
             }
+        }
+        // 
+        // 
+        // 
+        // toggle the drop-down menu of nav bar
+        function toggle_lang_menu(obj) {
+            var menu_obj = obj.parentNode;
+
+            if (menu_obj.classList.contains("menu--opened")) {
+                menu_obj.classList.remove("menu--opened");
+            } else {
+                menu_obj.classList.add("menu--opened");
+            }
+            // var drop_obj = menu_obj.querySelector("drop");
+            // var drop_posY = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[5];  // receiving transform value: matrix(a, b, c, d, e, posY);
+
+            // if (drop_posY)
         }
         // 
         // 
@@ -787,48 +1138,151 @@
             for (var i = 0; i < title_objs.length; i++) {
                 title_objs[i].classList.remove("title--selected");
             }      
-            title_objs[obj_index].classList.add("title--selected");
+            obj.classList.add("title--selected");
         }
+        // 
+        // 
+        // 
+        // display the corresponding job-pod according to the job-title selected
+        function join_display_corres(obj) {
+            var obj_index = $(obj).index();
+            var pod_objs = document.getElementsByClassName("job-pod");
+            var title_objs = obj.parentNode.getElementsByClassName("title");
+
+            for (var i = 0; i < pod_objs.length; i++) {
+                pod_objs[i].classList.remove("pod--selected");
+                title_objs[i].classList.remove("title--selected");
+            }
+            pod_objs[obj_index].classList.add("pod--selected");
+            obj.classList.add("title--selected");
+        }
+        // 
+        // 
+        // 
+        // 
+        // the following is the carousel function, used when adding new jobs into the page
+        // function lr_carousel(direction, col_num) { 
+        //     var direct_sign = (direction == "left") ? -1 : 1;
+        //     var bar_obj = document.querySelector(".job-bar");
+        //     var original_posX = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[4];  // receiving transform value: matrix(a, b, c, d, posX, f);
+        //     var pod_objs = document.getElementsByClassName("job-pod");
+        //     var pod_width = pod_objs[0].getBoundingClientRect().width;
+        //     var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
+        //     gap_width = (gap_width) ? gap_width : 0; // if there's no gap between pods
+
+        //     var move_width = pod_width + gap_width;
+
+
+        //     var current_page = original_posX / -move_width;
+        //     if (!Number.isInteger(current_page)) {
+        //         return;
+        //     }
+        //     var new_page;
+
+        //     if (current_page + direct_sign < 0) {
+        //         new_page = pod_objs.length - 1 - col_num;  // since 0 and 4 are same, 1 page left for 0 is 1 page left for 4, which is 3
+        //         bar_obj.classList.remove("transition");
+        //         bar_obj.style.transform = "translateX(" + (-move_width * (pod_objs.length - col_num)) + "px)";
+        //         setTimeout(function() {
+        //             bar_obj.classList.add("transition");
+        //         }, 50);  // delay to make sure "transition" class is added after the bar's motion
+        //     } else if (current_page + direct_sign > pod_objs.length - col_num) {
+        //         new_page = 1;  // since 0 and 4 are same, 1 page right for 4 is 1 page right for 0, which is 1
+        //         bar_obj.classList.remove("transition");
+        //         bar_obj.style.transform = "translateX(" + (-move_width * 0) + "px)";
+        //         setTimeout(function() {
+        //             bar_obj.classList.add("transition");
+        //         }, 50);  // delay to make sure "transition" class is added after the bar's motion
+        //     } else {
+        //         new_page = current_page + direct_sign;
+        //     }
+        //     setTimeout(function() {
+        //         bar_obj.style.transform = "translateX(" + (-move_width * new_page) + "px)";
+        //     }, 100);  // delay to make sure translate is added after "transition" class is added
+        // }
+        // 
+        // 
+        // 
+        // jump to new page if the selected option has address of destination as its value
+        function window_jump_to(obj) {
+            window.location.href = obj.title;
+        }
+        // 
+        // 
+        // 
+        // Initialize the scroll position of bars to its center
+        function bar_scroll_init() {
+            var ab_bar_obj = document.getElementsByClassName("ab-bar")[0];
+            var ab_bar_width = ab_bar_obj.getBoundingClientRect().width;
+            var job_bar_obj = document.getElementsByClassName("job-bar")[0];
+            var job_bar_width = job_bar_obj.getBoundingClientRect().width;
+            ab_bar_obj.parentNode.scrollLeft = ab_bar_width / 2;
+            job_bar_obj.parentNode.scrollLeft = job_bar_width / 2;
+        }
+        // 
+        // 
+        // 
+        // remove class of some element when window resize(), getting 0 and 1 for status, 1 means execute, 0 means recover
+        function toggle_class_for_mobile(status) {
+            var ab_detail_obj = document.getElementById("about-us").getElementsByClassName("detail")[0];
+            var product_pod_objs = document.getElementsByClassName("product-pod");
+
+            if (status) {
+                ab_detail_obj.classList.remove("box");
+                for (var i = 0; i < product_pod_objs.length; i++) {
+                    product_pod_objs[i].classList.remove("box");
+                }
+
+                class_is_toggled = true;
+            } else {
+                ab_detail_obj.classList.add("box");
+                for (var i = 0; i < product_pod_objs.length; i++) {
+                    product_pod_objs[i].classList.add("box");
+                }
+
+                class_is_toggled = false;
+            }
+        }
+        // 
+        // 
+        // 
+        // check if the open device is mobile and then toggle the classes according to the status
+        function check_is_mobile() {
+            const is_mobile = window.matchMedia("(max-width: 767px)").matches;   // Use a media query to check for mobile devices
+
+            if (is_mobile && !class_is_toggled) {
+                toggle_class_for_mobile(1);
+                bar_scroll_init();
+            } else if (!is_mobile && class_is_toggled) {
+                toggle_class_for_mobile(0);
+            }
+        }
+        window.addEventListener("load", check_is_mobile);
+        window.addEventListener("resize", check_is_mobile);
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <style type="text/css" id="temp-style">
-        #main-body {
-            height: 2000px;
-            background-color: lightskyblue;
-        }
-        section {
-            background: white;
-        }
-    </style>
 </head>
 <body onscroll="toggle_header_bg()">
     <header id="header">
         <div class="navbar-laptop default-block" style="height: 64px;">
             <div class="logo">
                 <a onclick="nav_scroll_to('banner')" aria-current="page" style="display: flex; align-items: center; gap: 10px;">
-                    <img src="./src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
-                    <!-- <img src="./src/img/icon/Auroramob-title-white.png" class="Auroramob-logo clickable" height="20"> -->
+                    <img src="../src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
                     <div class="Auroramob-title clickable"></div>
                 </a>
             </div>
             <nav class="navigation">
                 <ul class="link-list">
-                    <li><a class="clickable" onclick="nav_scroll_to('banner')">Home</a></li>
-                    <li><a class="clickable" onclick="nav_scroll_to('product')">Products</a></li>
-                    <li><a class="clickable" onclick="nav_scroll_to('about-us')">About Us</a></li>
-                    <li><a class="clickable" onclick="nav_scroll_to('join-us')">Join Us</a></li>
+                    <li class="clickable" onclick="nav_scroll_to('banner')">主页</li>
+                    <li class="clickable" onclick="nav_scroll_to('product')">产品</li>
+                    <li class="clickable" onclick="nav_scroll_to('about-us')">关于我们</li>
+                    <li class="clickable" onclick="nav_scroll_to('join-us')">加入我们</li>
+                    <li class="clickable menu">
+                        <div class="menu-title" onclick="toggle_lang_menu(this)">语言</div>
+                        <div class="drop">
+                            <div class="option clickable" onclick="nav_scroll_to('banner')">简中</div>
+                            <div class="option clickable" title="../index.html" onclick="window_jump_to(this)">EN</div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -836,19 +1290,20 @@
         <div class="navbar-mobile default-block" style="height: 64px;">
             <div class="logo">
                 <a onclick="nav_scroll_to('banner')" aria-current="page" style="display: flex; align-items: center; gap: 10px;">
-                    <img src="./src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
+                    <img src="../src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
                     <div class="Auroramob-title clickable"></div>
-                    <!-- <img src="./src/img/icon/Auroramob-title-white.png" class="Auroramob-title clickable" height="20"> -->
                 </a>
                 <div id="nav-icon" class="icon" onclick="toggle_icon()">
                     <svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>
                 </div>
             </div>
             <nav class="navigation">
-                <a class="clickable nav-tag" onclick="nav_scroll_to('banner'); toggle_icon(0.7)">Home</a>
-                <a class="clickable nav-tag" onclick="nav_scroll_to('product'); toggle_icon(0.7)">Products</a>
-                <a class="clickable nav-tag" onclick="nav_scroll_to('about-us'); toggle_icon(0.7)">About Us</a>
-                <a class="clickable nav-tag" onclick="nav_scroll_to('join-us'); toggle_icon(0.7)">Join Us</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('banner'); toggle_icon(0.7)">主页</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('product'); toggle_icon(0.7)">产品</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('about-us'); toggle_icon(0.7)">关于我们</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('join-us'); toggle_icon(0.7)">加入我们</a>
+                <a class="clickable nav-tag" onclick="nav_scroll_to('banner'); toggle_icon(0.7)">> 简中</a>
+                <a class="clickable nav-tag" href="../index.html">> EN</a>
             </nav>
         </div>
     </header>
@@ -884,7 +1339,7 @@
             <div class="banner-image">                
                 <div class="default-block">
                     <h1 class="title">
-                        Light Up Your Digital World
+                        <span>Auroramob，</span> <br>点亮你的数字世界。
                     </h1>
                 </div>
             </div>
@@ -916,78 +1371,84 @@
         <!---->
         <!-- product START -->
         <section id="product" class="overflow-window section">
+            <h1 class="title-1">产品</h1>
             <div class="default-block">
-                <h1 class="title-1">Products</h1>
                 <div class="content">
-                    <div class="product-bar transition">
-                        <div class="product-pod pod box transition pod--selected" style="background-image: linear-gradient(to right, white 40%, transparent 60%), url('./src/img/poster/简易翻译-poster.webp');">
+                    <div class="product-bar bar transition">
+                        <div class="product-pod pod transition box pod--selected">
                             <div class="text">
                                 <div class="title">
-                                    <img class="logo" src="./src/img/logo/简易翻译-logo.webp">
-                                    <div class="name">Panda Translator</div>
+                                    <img class="logo" src="../src/img/logo/玛卡写真馆-logo.webp">
+                                    <div class="description">
+                                        <div class="name">玛卡写真馆</div>
+                                        <h2 class="title-2 mobile">非凡的写真创作体验</h2>
+                                    </div>
                                 </div>
-                                <h2 class="title-2">Multi-Language AI Translator</h2>
-                                <div class="rich-text">Panda Translator is a powerful translation app that supports multiple languages, accents, and scenarios for fast and accurate translations. It includes features like road sign translation, photo translation, and more to enhance overall efficiency.</div>
+                                <h2 class="title-2 laptop">非凡的写真创作体验</h2>
+                                <div class="rich-text">在这里，您可以上传自己的照片，让玛卡写真馆为您定制独特的LoRA虚拟形象，搭配各种风格的写真模板，打造出别具一格的写真作品。分享您的作品，欣赏他人的佳作，共同探索AI写真的魅力。</div>
                             </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
+                            <div class="image" style="background-image: url('../src/img/poster/玛卡写真馆-poster.png');"></div>
                         </div>
-                        <div class="product-pod pod transition box" style="background-image: linear-gradient(to right, white 40%, transparent 60%), url('./src/img/poster/玛卡相机-poster.webp');">
+                        <div class="product-pod pod transition box">
                             <div class="text">
                                 <div class="title">
-                                    <img class="logo" src="./src/img/logo/玛卡相机-logo.webp">
-                                    <!-- <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp"> -->
-                                    <!-- <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp"> -->
-                                    <div class="name">FaceLens</div>
+                                    <img class="logo" src="../src/img/logo/简易翻译-logo.webp">
+                                    <div class="description">
+                                        <div class="name">简易翻译</div>
+                                        <h2 class="title-2 mobile">多语言智能翻译</h2>
+                                    </div>
                                 </div>
-                                <h2 class="title-2">Blend AI Technology with the Art of Photography</h2>
-                                <div class="rich-text">From everyday life and travel snapshots to exquisite food photography, FaceLens enables you to infuse your unique flair and showcase your individuality to the world. With just a single click, transform your photos and make them shine.</div>
+                                <h2 class="title-2 laptop">多语言智能翻译</h2>
+                                <div class="rich-text">简易翻译支持多种主流语言，可以识别多种语言口音和方言，以及不同场景下的语言翻译，集路牌翻译、拍照翻译、同声传译、文本翻译、文档翻译和语音翻译等功能于一体，全面提升办公效率。</div>
                             </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
+                            <div class="image" style="background-image: url('../src/img/poster/简易翻译-poster.png');"></div>
                         </div>
-                        <div class="product-pod pod transition box" style="background-image: linear-gradient(to right, white 40%, transparent 60%), url('./src/img/poster/玛卡写真馆-poster.webp');">
+                        <div class="product-pod pod transition box">
                             <div class="text">
                                 <div class="title">
-                                    <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
-                                    <div class="name">FaceQ</div>
+                                    <img class="logo" src="../src/img/logo/玛卡相机-logo.webp">
+                                    <div class="description">
+                                        <div class="name">玛卡相机</div>
+                                        <h2 class="title-2 mobile">将AI技术与摄影艺术完美结合</h2>
+                                    </div>
                                 </div>
-                                <h2 class="title-2">Extraordinary Portrait Creation Experience</h2>
-                                <div class="rich-text">Welcome to FaceQ, your exclusive AI photo world! Upload your photos, and FaceQ will create a unique LoRA virtual image with various styles. Share your work, appreciate others' masterpieces, and explore the charm of AI portraits together!</div>
+                                <h2 class="title-2 laptop">将AI技术与摄影艺术完美结合</h2>
+                                <div class="rich-text">无论是生活照，还是旅行照，或者是美食照，您都可以通过玛卡相机将您的独特风格融入其中，向世界展示您与众不同的自己。只需一键，就能让您的照片焕然一新。</div>
                             </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
+                            <div class="image" style="background-image: url('../src/img/poster/玛卡相机-poster.png');"></div>
                         </div>
-                        <div class="product-pod pod transition box" style="background-image: linear-gradient(to right, white 40%, transparent 60%), url('./src/img/poster/蜜桃小剧场-poster.webp');">
+                        <div class="product-pod pod transition box">
                             <div class="text">
                                 <div class="title">
-                                    <img class="logo" src="./src/img/logo/蜜桃小剧场-logo.webp">
-                                    <div class="name">Peach Theater</div>
+                                    <img class="logo" src="../src/img/logo/蜜桃小剧场-logo.webp">
+                                    <div class="description">
+                                        <div class="name">蜜桃小剧场</div>
+                                        <h2 class="title-2 mobile">在线观看海量短剧</h2>
+                                    </div>
                                 </div>
-                                <h2 class="title-2">Watching a Vast Array of Short Dramas Online</h2>
-                                <div class="rich-text">Peach Theater offers numerous exciting and popular short dramas, featuring a vertical full-screen viewing mode, letting you catch up anytime on your phone. With ultra-clear quality and swipe controls, it unlocks a new way to watch dramas.</div>
+                                <h2 class="title-2 laptop">在线观看海量短剧</h2>
+                                <div class="rich-text">蜜桃小剧场提供众多精彩热门短剧，采用竖型全屏观看模式，让你随时随地在手机上轻松追剧。全屏超清画质，上下滑动操作简便，解锁看剧新姿势。</div>
                             </div>
-                            <div class="image">
-                                <!-- <img src="./src/img/poster/简易翻译-poster.webp"> -->
-                            </div>
+                            <div class="image" style="background-image: url('../src/img/poster/蜜桃小剧场-poster.png');"></div>
                         </div>
                         <!---->
                         <!---->
                         <!---->
                         <!-- Add New product pod HERE -->
                         <!-- TEMPLATE, input area replaced by []:
-                            <div class="product-pod pod transition box" style="background-image: linear-gradient(to right, white 40%, transparent 60%), url('./src/img/poster/[]-poster.webp');">
+                            <div class="product-pod pod transition box">
                                 <div class="text">
                                     <div class="title">
-                                        <img class="logo" src="./src/img/logo/[]-logo.webp">
-                                        <div class="name">[]</div>
+                                        <img class="logo" src="../src/img/logo/[]-logo.webp">
+                                        <div class="description">
+                                            <div class="name">[]</div>
+                                            <h2 class="title-2 mobile">[]</h2>
+                                        </div>
                                     </div>
-                                    <h2 class="title-2">[]</h2>
+                                    <h2 class="title-2 laptop">[]</h2>
                                     <div class="rich-text">[]</div>
                                 </div>
+                                <div class="image" style="background-image: url('../src/img/poster/[]-poster.png');"></div>
                             </div> -->
                         <!---->
                         <!---->
@@ -995,27 +1456,28 @@
                     </div>
                     <div class="logo-bar">
                         <div class="logo-pod logo--selected" onmouseenter="product_scroll_to(this)">
-                            <div class="logo" style="background-image: url('./src/img/logo/简易翻译-logo.webp');"></div>
-                            <div class="logo-name">Panda Translator</div>
+                            <div class="logo" style="background-image: url('../src/img/logo/玛卡写真馆-logo.webp');"></div>
+                            <div class="logo-name">玛卡写真馆</div>
                         </div>
                         <div class="logo-pod" onmouseenter="product_scroll_to(this)">
-                            <div class="logo" style="background-image: url('./src/img/logo/玛卡相机-logo.webp');"></div>
-                            <div class="logo-name">FaceLens</div>
+                            <div class="logo" style="background-image: url('../src/img/logo/简易翻译-logo.webp');"></div>
+                            <div class="logo-name">简易翻译</div>
                         </div>
                         <div class="logo-pod" onmouseenter="product_scroll_to(this)">
-                            <div class="logo" style="background-image: url('./src/img/logo/玛卡写真馆-logo.webp');"></div>
-                            <div class="logo-name">FaceQ</div>
+                            <div class="logo" style="background-image: url('../src/img/logo/玛卡相机-logo.webp');"></div>
+                            <div class="logo-name">玛卡相机</div>
                         </div>
+                        
                         <div class="logo-pod" onmouseenter="product_scroll_to(this)">
-                            <div class="logo" style="background-image: url('./src/img/logo/蜜桃小剧场-logo.webp');"></div>
-                            <div class="logo-name">Peach Theater</div>
+                            <div class="logo" style="background-image: url('../src/img/logo/蜜桃小剧场-logo.webp');"></div>
+                            <div class="logo-name">蜜桃小剧场</div>
                         </div>
                         <!---->
                         <!---->
                         <!---->
                         <!-- Add New Logo HERE -->
                         <!-- TEMPLATE, input area replaced by []:
-                            <div class="logo" style="background-image: url('./src/img/logo/[]-logo.webp');" onclick="product_scroll_to(this)"></div> -->
+                            <div class="logo" style="background-image: url('../src/img/logo/[]-logo.webp');" onclick="product_scroll_to(this)">[]</div> -->
                         <!---->
                         <!---->
                         <!---->
@@ -1051,50 +1513,50 @@
         <!---->
         <!-- About Us START -->
         <!-- About Us is left right structure. -->
-        <section id="about-us" class="section">
+        <section id="about-us" class="section" style="background: var(--blue-075);">
+            <h1 class="title-1">关于我们</h1>
             <div class="default-block">
-                <h1 class="title-1">About Us</h1>
                 <div class="content">
-                    <div class="detail overflow-window">
-                        <div class="ab-bar transition">
-                            <div class="ab-pod pod">
+                    <div class="detail overflow-window box">
+                        <div class="ab-bar bar transition">
+                            <div class="ab-pod pod" style="background-image: url('../src/img/about-us/intro.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Intro</div>
-                                    <div class="rich-text">Welcome to Auroramob! We are a high-tech company focused on developing tool-based applications, dedicated to providing efficient and intelligent digital solutions for users worldwide. Our mission is to enhance the quality of daily life and work efficiency through technological innovation.</div>
+                                    <div class="title-2">简介</div>
+                                    <div class="rich-text">欢迎来到Auroramob，我们是一家专注于研发工具类应用的高科技公司，致力于为全球用户提供高效、智能的数字化解决方案。我们的使命是通过技术创新，提升用户的日常生活质量和工作效率。</div>
                                 </div>
                             </div>
-                            <div class="ab-pod pod">
+                            <div class="ab-pod pod" style="background-image: url('../src/img/about-us/products.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Products</div>
-                                    <div class="rich-text">Auroramob's core products cover three main areas: short videos, translation, and cameras. Each application is meticulously designed to provide users with the best possible experience.</div>
+                                    <div class="title-2">产品</div>
+                                    <div class="rich-text">Auroramob的核心产品涵盖短剧、翻译和AI图片处理三大领域，每一款应用都经过精心设计，旨在为用户提供最佳的使用体验。</div>
                                 </div>
                             </div>
-                            <div class="ab-pod pod">
+                            <div class="ab-pod pod" style="background-image: url('../src/img/about-us/establishment.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Establishment</div>
-                                    <div class="rich-text">Founded in May 2017, it is located in the beautiful spring city of Jinan, a high-tech enterprise in Shandong Province. It is also one of Shandong's top mobile Internet and artificial intelligence companies. </div>
+                                    <div class="title-2">公司成立</div>
+                                    <div class="rich-text">公司成立于2017年5月，坐落在美丽的泉城济南，是山东省的一家高科技企业，同时也是山东省顶尖的移动互联网和人工智能公司之一。 </div>
                                 </div>
                             </div>
-                            <div class="ab-pod pod">
+                            <div class="ab-pod pod" style="background-image: url('../src/img/about-us/members.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Members</div>
-                                    <div class="rich-text">All the company's founding members graduated from 985 and other double first-class universities in China. In the early stage, the core members worked in Baidu, Innovation Workshop, FunPlus, and other world-class Internet and game companies.</div>
+                                    <div class="title-2">团队成员</div>
+                                    <div class="rich-text">公司的所有创始成员均毕业于985高校和其他双一流大学。早期阶段，核心成员曾在百度、创新工场、FunPlus等世界级互联网和游戏公司任职。</div>
                                 </div>
                             </div>
-                            <div class="ab-pod pod">
+                            <div class="ab-pod pod" style="background-image: url('../src/img/about-us/partnerships.jpg');">
                                 <div class="text">
-                                    <div class="title-2">Partnerships</div>
-                                    <div class="rich-text">The company signed a strategic cooperation agreement with Tencent, Baidu, ByteDance, and KuaiShou in the domestic market. In overseas markets, the company has reached long-term and important strategic cooperation agreements with Amazon, Google, Apple, Facebook, Twitter, and TikTok.</div>
+                                    <div class="title-2">合作伙伴</div>
+                                    <div class="rich-text">在国内市场，公司与腾讯、百度、字节跳动和快手签署了战略合作协议；在海外市场，公司与亚马逊、谷歌、苹果、Facebook、Twitter和TikTok达成了长期且重要的战略合作协议。</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="title-bar">
-                        <div class="title title--selected" onmouseenter="ab_scroll_to(this)"><div class="text">Intro</div></div>
-                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">Products</div></div>
-                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">Establishment</div></div>
-                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">Members</div></div>
-                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">Partnerships</div></div>
+                        <div class="title title--selected" onmouseenter="ab_scroll_to(this)"><div class="text">简介</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">产品</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">公司成立</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">团队成员</div></div>
+                        <div class="title" onmouseenter="ab_scroll_to(this)"><div class="text">合作伙伴</div></div>
                     </div>
                 </div>
             </div>
@@ -1125,24 +1587,156 @@
         <!---->
         <!---->
         <!-- Join Us START -->
-        <section id="join-us" class="section">
-            <h1 class="title-1">Join Us</h1>
-            <div class="content">
-                <div class="default-block flex-wrapper">
-                    <div class="title-bar">
-                        <div class="title title--selected">Senior iOS Developer</div>
-                        <div class="title">Product Manager</div>
-                        <div class="title">UI Designer</div>
+        <section id="join-us" class="section overflow-window">
+            <h1 class="title-1">加入我们</h1>
+            <div class="default-block">
+                <div class="content" style="position: relative;">
+                    <div class="wrapper overflow-window">
+                        <div class="job-bar bar">
+                            <div class="job-pod pod pod--selected">
+                                <div class="title-3">iOS高级研发工程师</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>负责iOS新功能的设计、开发和实现；跟踪iOS最新趋势和技术发展；</li>
+                                    <li>优化现有代码，提高应用性能和稳定性；编写和审查可维护、高效、可靠的代码；</li>
+                                    <li>指导和培养初级工程师，提升团队整体的技术水平。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>有良好的架构设计能力，能够处理复杂的技术问题；</li>
+                                    <li>熟悉iOS SDK和相关开发、调试工具、常用的设计模式和软件工程原则；</li>
+                                    <li>精通Objective-C和Swift编程语言；拥有跨平台开发经验（如React Native、Flutter）者优先。</li>
+                                </ul>
+                            </div>
+                            <div class="job-pod pod">
+                                <div class="title-3">产品经理</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>协助跨部门团队推进产品从概念到上市；参与制定符合公司愿景的产品路线图；</li>
+                                    <li>跟踪产品性能指标，提供数据分析报告，为产品迭代提供依据；确保按时发布符合质量标准的产品。</li>
+                                    <li>协助管理产品文档，收集整理用户反馈，设计用户体验改进措施。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>良好的沟通和协作能力；具备批判性思维和解决问题的能力；</li>
+                                    <li>具备基本的数据分析技能，熟练使用Excel/Google Sheets；具备基本的市场分析和产品规划能力；</li>
+                                    <li>熟悉敏捷开发流程和工具（如JIRA、Trello）者优先。</li>
+                                </ul>
+                            </div>
+                            <div class="job-pod pod">
+                                <div class="title-3">UI设计师</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>负责公司软件产品UI设计；关注开发反馈和产品功能优化设计；</li>
+                                    <li>参与创意设计，原型优化讨论，推动方案执行和实施；</li>
+                                    <li>参与设计流程优化，沉淀设计方案，制定规范。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>了解app相关设计规范，能清晰完整的表达设计方案；对互联网产品流行趋势有敏锐的洞察力；</li>
+                                    <li>思路清晰具有良好的沟通能力，逻辑思维强，能与产品以及研发配合产出；</li>
+                                    <li>熟练使用 Sketch / PS / AI / Figma 等软件；</li>
+                                    <li>加分项：熟练掌握C4D。</li>
+                                </ul>
+                            </div>
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!-- Add new pods HERE-->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!-- <div class="job-pod pod">
+                                <div class="title-3">[]</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>[]</li>
+                                    <li>[]</li>
+                                    <li>[]</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>[]</li>
+                                    <li>[]</li>
+                                    <li>[]</li>
+                                </ul>
+                            </div> -->
+                        </div>
                     </div>
-                    <div class="job-bar">
-                        <div class="job-pod pod pod--selected"></div>
-                        <div class="job-pod pod"></div>
-                        <div class="job-pod pod"></div>
-                    </div>
+                    <!-- The following arrow_bar is used when adding new jobs into the page -->
+                    <!-- <div class="arrow_bar">
+                        <button class="btn clickable" onclick="lr_carousel('left', 3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                        </button>
+                        <button class="btn clickable" onclick="lr_carousel('right', 3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                        </button>
+                    </div> -->
                 </div>
             </div>
         </section>
         <!-- Join Us END -->
     </main>
+    <!-- main body END -->
+    <!---->
+    <!---->
+    <!---->
+    <!----> 
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!-- footer START -->
+    <footer id="footer">
+        <div class="left">
+            <a onclick="soft_scroll('banner')" aria-current="page" style="display: flex; align-items: center; gap: 5px;">
+                <img src="../src/img/icon/Auroramob-logo.png" class="opengame-logo link" height="25">
+                <img src="../src/img/icon/Auroramob-title-black.png" class="opengame-logo link" height="20">
+            </a>
+            <div class="slogan">点亮你的数字世界</div>
+            <div class="icons">
+                <a href="mailto:Office@auroramob.com">
+                    <img src="../src/img/icon/handshake.svg" width="25" height="25">
+                </a>
+                <a href="mailto:hr@auroramob.com">
+                    <img src="../src/img/icon/envelope.svg" width="25" height="25">
+                </a>
+                <!---->
+                <!-- Add new icon here -->
+                <!---->
+            </div>
+        </div>
+        <div class="right">
+            <div class="navigation">
+                <ul class="link-list">
+                    <li class="clickable" onclick="nav_scroll_to('banner')">主页</li>
+                    <li class="clickable" onclick="nav_scroll_to('product')">产品</li>
+                    <li class="clickable" onclick="nav_scroll_to('about-us')">关于我们</li>
+                    <li class="clickable" onclick="nav_scroll_to('join-us')">加入我们</li>
+                    <a class="clickable" href="../index.html"><li>EN</li></a>
+                </ul>
+            </div>
+            <div class="copyright" style="color: #7d8598; color: var(--grey-400); font-size: 80%;">Copyright © 2024 Auroramob. All Rights Reserved.<br>备案号：京ICP备17012210号-2</div>
+        </div>
+    </footer>
+    <!-- footer END -->
 </body>
 </html>

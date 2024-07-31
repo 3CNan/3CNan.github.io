@@ -1,0 +1,82 @@
+<?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="rgba(0, 0, 0, .08)" viewBox="0 0 181 90.5">
+        <circle class="dot" cx="10" cy="10" r="2.5"/>
+        <circle class="dot" cx="25" cy="10" r="2.5"/>
+        <circle class="dot" cx="40" cy="10" r="2.5"/>
+        <circle class="dot" cx="55" cy="10" r="2.5"/>
+        <circle class="dot" cx="70" cy="10" r="2.5"/>
+        <circle class="dot" cx="85" cy="10" r="2.5"/>
+        <circle class="dot" cx="100" cy="10" r="2.5"/>
+        <circle class="dot" cx="115" cy="10" r="2.5"/>
+        <circle class="dot" cx="130" cy="10" r="2.5"/>
+        <circle class="dot" cx="145" cy="10" r="2.5"/>
+        <circle class="dot" cx="160" cy="10" r="2.5"/>
+        <circle class="dot" cx="175" cy="10" r="2.5"/>
+
+        <circle class="dot" cx="10" cy="25" r="2.5"/>
+        <circle class="dot" cx="25" cy="25" r="2.5"/>
+        <circle class="dot" cx="40" cy="25" r="2.5"/>
+        <circle class="dot" cx="55" cy="25" r="2.5"/>
+        <circle class="dot" cx="70" cy="25" r="2.5"/>
+        <circle class="dot" cx="85" cy="25" r="2.5"/>
+        <circle class="dot" cx="100" cy="25" r="2.5"/>
+        <circle class="dot" cx="115" cy="25" r="2.5"/>
+        <circle class="dot" cx="130" cy="25" r="2.5"/>
+        <circle class="dot" cx="145" cy="25" r="2.5"/>
+        <circle class="dot" cx="160" cy="25" r="2.5"/>
+        <circle class="dot" cx="175" cy="25" r="2.5"/>
+
+        <circle class="dot" cx="10" cy="40" r="2.5"/>
+        <circle class="dot" cx="25" cy="40" r="2.5"/>
+        <circle class="dot" cx="40" cy="40" r="2.5"/>
+        <circle class="dot" cx="55" cy="40" r="2.5"/>
+        <circle class="dot" cx="70" cy="40" r="2.5"/>
+        <circle class="dot" cx="85" cy="40" r="2.5"/>
+        <circle class="dot" cx="100" cy="40" r="2.5"/>
+        <circle class="dot" cx="115" cy="40" r="2.5"/>
+        <circle class="dot" cx="130" cy="40" r="2.5"/>
+        <circle class="dot" cx="145" cy="40" r="2.5"/>
+        <circle class="dot" cx="160" cy="40" r="2.5"/>
+        <circle class="dot" cx="175" cy="40" r="2.5"/>
+
+        <circle class="dot" cx="10" cy="55" r="2.5"/>
+        <circle class="dot" cx="25" cy="55" r="2.5"/>
+        <circle class="dot" cx="40" cy="55" r="2.5"/>
+        <circle class="dot" cx="55" cy="55" r="2.5"/>
+        <circle class="dot" cx="70" cy="55" r="2.5"/>
+        <circle class="dot" cx="85" cy="55" r="2.5"/>
+        <circle class="dot" cx="100" cy="55" r="2.5"/>
+        <circle class="dot" cx="115" cy="55" r="2.5"/>
+        <circle class="dot" cx="130" cy="55" r="2.5"/>
+        <circle class="dot" cx="145" cy="55" r="2.5"/>
+        <circle class="dot" cx="160" cy="55" r="2.5"/>
+        <circle class="dot" cx="175" cy="55" r="2.5"/>
+
+        <circle class="dot" cx="10" cy="70" r="2.5"/>
+        <circle class="dot" cx="25" cy="70" r="2.5"/>
+        <circle class="dot" cx="40" cy="70" r="2.5"/>
+        <circle class="dot" cx="55" cy="70" r="2.5"/>
+        <circle class="dot" cx="70" cy="70" r="2.5"/>
+        <circle class="dot" cx="85" cy="70" r="2.5"/>
+        <circle class="dot" cx="100" cy="70" r="2.5"/>
+        <circle class="dot" cx="115" cy="70" r="2.5"/>
+        <circle class="dot" cx="130" cy="70" r="2.5"/>
+        <circle class="dot" cx="145" cy="70" r="2.5"/>
+        <circle class="dot" cx="160" cy="70" r="2.5"/>
+        <circle class="dot" cx="175" cy="70" r="2.5"/>
+
+        <circle class="dot" cx="10" cy="85" r="2.5"/>
+        <circle class="dot" cx="25" cy="85" r="2.5"/>
+        <circle class="dot" cx="40" cy="85" r="2.5"/>
+        <circle class="dot" cx="55" cy="85" r="2.5"/>
+        <circle class="dot" cx="70" cy="85" r="2.5"/>
+        <circle class="dot" cx="85" cy="85" r="2.5"/>
+        <circle class="dot" cx="100" cy="85" r="2.5"/>
+        <circle class="dot" cx="115" cy="85" r="2.5"/>
+        <circle class="dot" cx="130" cy="85" r="2.5"/>
+        <circle class="dot" cx="145" cy="85" r="2.5"/>
+        <circle class="dot" cx="160" cy="85" r="2.5"/>
+        <circle class="dot" cx="175" cy="85" r="2.5"/>
+    </svg>

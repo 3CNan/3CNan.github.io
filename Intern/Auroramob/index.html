@@ -46,10 +46,6 @@
             font-family: 'Poppins-Bold';
             src: url('./src/fonts/Poppins-Bold.ttf') format('truetype');
         }
-        /*@font-face {
-            font-family: 'Cuprum-Bold';
-            src: url('./src/fonts/Cuprum-Bold.ttf') format('truetype');
-        }*/
         @font-face {
             font-family: 'Smiley-Sans';
             src: url('./src/fonts/SmileySans-Oblique.ttf.woff2') format('woff2');
@@ -154,6 +150,11 @@
         }
         .overflow-window {
             overflow: hidden;
+            scrollbar-width: none; /* hide the scrollbar, used for mobile, firefox */
+            -ms-overflow-style: none; /* hide the scrollbar, used for mobile, ie & edge */
+        }
+        .overflow-window::-webkit-scrollbar {
+            display: none; /* hide the scrollbar, used for mobile, webkit */
         }
         .content {
             margin-top: 40px;
@@ -264,7 +265,7 @@
         #header .link-list li {
             color: white;
         }
-        #header.header--scrolled .link-list li, #header.header--scrolled .lang-menu select {
+        #header.header--scrolled .link-list li {
             color: black;
         }
         .navbar-mobile .navigation {
@@ -279,6 +280,12 @@
         .nav-tag {
             padding: 10px 42px;
         }
+        .navbar-mobile .logo .icon {
+            fill: white;
+        }
+        .header--scrolled .navbar-mobile .logo .icon, .header--open .navbar-mobile .logo .icon {
+            fill: black;
+        }
         .header--scrolled {
             background: white;
         }
@@ -292,39 +299,43 @@
         .header--scrolled .Auroramob-title, .header--open .Auroramob-title {
             background-image: url('./src/img/icon/Auroramob-title-black.png');
         }
-        .lang-menu {
+        #header .menu {
+            position: relative;
+        }
+        #header .menu .drop {
+            padding: 10px 20px;
+            position: absolute;
+            transform: translateY(-200%);
+            transition: .3s ease-in-out;
+            z-index: -1;
+            opacity: 0;
+        }
+        #header .menu.menu--opened .drop {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        #header.header--scrolled .menu .drop {
+            background: white;
+        }
+        #header .menu-title {
             display: flex;
             gap: 10px;
             align-items: center;
-            position: relative;
         }
-        .lang-menu select {
-            border: none;
-            background: transparent;
-            font-size: 100%;
-            appearance: none;
-            width: 80px;
-        }
-        #header .lang-menu select {
-            color: white;
-        }
-        #header .lang-menu::after{
-            background: url("./src/img/icon/chevron-down-white.svg");
-        }
-        .lang-menu select:focus-visible {
-            outline: none;
-        }
-        .lang-menu::after {
+        #header .menu-title::after {
             content: "";
             display: block;
             width: 12px;
             height: 12px;
             padding-bottom: 2px;
             position: absolute;
-            right: 0;
-            pointer-events: none;
+            right: -15px;
+/*            pointer-events: none;*/
         }
-        #header.header--scrolled .lang-menu::after, .lang-menu::after {
+        #header .menu-title::after {
+            background: url("./src/img/icon/chevron-down-white.svg");
+        }
+        #header.header--scrolled .menu-title::after, .menu-title::after {
             background: url("./src/img/icon/chevron-down-black.svg");
         }
         /* header END */
@@ -344,7 +355,7 @@
         .banner-image {
             width: 100%;
             min-height: 650px;
-            background-image: url("./src/img/banner/5.jpg");
+            background-image: url("./src/img/banner/background.jpg");
             background-size: cover;
             background-position: center;
             position: relative;
@@ -355,13 +366,14 @@
         }
         .banner-image::after {
             content: "";
-            display: block;
             width: 100%;
             min-height: 650px;
             position: absolute;
-            top: 0;
             z-index: 2;
-            background-color: rgba(37, 124, 128, 0.2); 
+            -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
+            filter: blur(1px);
+            mask-image: linear-gradient(170deg, rgb(0,0,0) 45%, transparent 65%);
         }
         #banner .title {
             color: white;
@@ -371,8 +383,12 @@
             line-height: 200%;
             font-family: "Smiley-Sans";
             text-align: right;
-            text-shadow: 0 0 10px deepskyblue;
+            text-shadow: 0 0 10px #00AEFF;
             margin-top: 32px;
+        }
+        #banner .title span {
+            font: inherit;
+            font-size: 4rem;
         }
         /* banner END */
         /**/
@@ -408,26 +424,46 @@
             box-sizing: border-box;
             padding: 50px 40px;
         }
+        .product-pod .text::after {
+            width: 90px;
+            height: 45px;
+            background: url("./src/img/icon/dot-matrix.svg");
+            position: absolute;
+            bottom: -30px;
+            z-index: 0;
+        }
+        .product-pod:nth-child(odd) .text::after {
+            left: 0;
+        }
+        .product-pod:nth-child(even) .text::after {
+            right: 0;
+        }
         .product-pod .title {
             display: flex;
             gap: 15px;
             margin-bottom: 40px;
-        }
-        .product-pod .name {
-            margin-top: 5px;
-            font-size: 1.3rem;
-            font-family: "Poppins-Medium", serif;
         }
         .product-pod .logo {
             width: 90px;
             height: 90px;
             border-radius: 20px;
         }
+        .product-pod .name {
+            margin-top: 5px;
+            font-size: 1.3rem;
+            font-family: "Poppins-Medium", serif;
+        }
         .product-pod .description .title-2 {
             font-size: 12px;
             color: grey;
             font-family: "Poppins-Light", serif;
         }
+        .product-pod .rich-text {
+            position: relative;
+            z-index: 1;
+            background: white;
+        }
+
         .product-pod .image {
             height: 100%;
             width: 55%;
@@ -529,11 +565,6 @@
         }
         #about-us .content .detail {
             width: 85%;
-            scrollbar-width: none; /* hide the scrollbar, used for mobile, firefox */
-            -ms-overflow-style: none; /* hide the scrollbar, used for mobile, ie & edge */
-        }
-        #about-us .content .detail::-webkit-scrollbar {
-            display: none; /* hide the scrollbar, used for mobile, webkit */
         }
         #about-us .content .title-bar {
             width: 15%;
@@ -611,18 +642,19 @@
         /**/
         /**/
         /* join-us START */
-        #join-us {
-            background: whitesmoke;
+        #join-us .wrapper {
+            overflow: scroll !important;
+            pointer-events: none;
         }
         .job-bar {
-            width: calc(928px / 3 * 3);
+            width: 928px;  /* For more than 3 pods: calc(928px + [# of pods - 3] * ((928px - 50px * 2) / 3 + 50px)) -------------- ([df-block width] + [# of pods - 3] * (([df-block width] - [gap] * 2) / 3 + [gap])) */
             position: relative;
             display: flex;
             gap: 50px;
+            transform: translate(0);
         }
         .job-pod {
             width: 100%;
-            height: 100%;
             padding: 20px;
             background: var(--blue-075);
             border-radius: 20px;
@@ -639,6 +671,28 @@
             word-break: break-all;
             text-align: justify;
             color: var(--grey-500);
+        }
+        #join-us .arrow_bar {
+            position: absolute;
+            bottom: calc(50% - 20px);  /* -40px for content margin / 2 */
+            width: 120%;
+            left: -10%;
+            display: flex;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        .arrow_bar .btn {
+            fill: #347bff;
+            fill: var(--blue-400);
+            background: #e9f3ff;
+            background: var(--blue-050);
+            padding: 10px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
         }
         /* join-us END */
         /**/
@@ -713,11 +767,25 @@
             .product-bar {
                 width: calc((100vw - 140px) * 4 + 50px * 3);  /* -140px for dft-blk's margin * 2, 50px for gap */
             }
+            .job-bar {
+                width: calc((100vw - 140px));  /* -48px for dft-blk's margin * 2 */
+                gap: 15px;
+            }
+            #footer .link-list {
+                gap: 20px;
+            }
         }
         @media (max-width: 767px) {
             /* General global class START */
+            .content {
+                margin-top: 24px;
+            }
             .overflow-window {
                 overflow: scroll;
+                scroll-snap-type: x mandatory;
+            }
+            .bar {
+                transform: translate(0) !important;
             }
             .pod {
                 scroll-snap-align: center;
@@ -730,7 +798,7 @@
                 display: none;
             }
             #main-body .default-block {
-                margin: 0 24px;
+                margin: 0;
             }
             /* General global class END */
             /**/
@@ -764,10 +832,24 @@
             /**/
             /**/
             /**/
-            /* product START */
-            #product .default-block {
-                margin: 0;
+            /* banner START */
+            .banner-image {
+                min-height: 450px;
             }
+            #banner .title {
+                font-size: 2rem;
+            }
+            #banner .title span {
+                font-size: 2.7rem;
+            }
+            /* banner END */
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /* product START */
             .product-bar {
                 width: 100%;
                 flex-direction: column;
@@ -780,6 +862,9 @@
             .product-pod .text {
                 width: 100%;
                 padding: 0;
+            }
+            .product-pod .text::after {
+                content: "";
             }
             .product-pod:nth-child(odd) .text {
                 display: flex;
@@ -802,15 +887,20 @@
                 text-align: right;
             }
             .product-pod .name {
-                font-size: 16px;
+                font-size: 15px;
                 margin: 0;
             }
             .product-pod .rich-text {
                 width: 85%;
                 box-sizing: border-box;
-                border-radius: 10px;
                 padding: 15px;
                 box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
+            }
+            .product-pod:nth-child(odd) .rich-text {
+                border-radius: 10px 0 0 10px;
+            }
+            .product-pod:nth-child(even) .rich-text {
+                border-radius: 0 10px 10px 0;
             }
             .product-pod .image, .product-pod .image::after, #product .logo-bar {
                 display: none;
@@ -823,9 +913,6 @@
             /**/
             /**/
             /* about-us START */
-            #about-us .default-block {
-                margin: 0;
-            }
             #about-us .content {
                 flex-direction: column;
                 height: auto;
@@ -834,7 +921,6 @@
                 width: 100%;
                 height: 400px;
                 padding: 0 24px; /* same as dft-blk's margin */
-                scroll-snap-type: x mandatory;
             }
             #about-us .content .title-bar {
                 display: none;
@@ -844,7 +930,6 @@
                 height: 100%;
                 flex-direction: row;
                 gap: 15px;
-                transform: translate(0) !important;
             }
             .ab-pod {
                 width: 100%;
@@ -865,6 +950,24 @@
             /**/
             /**/
             /**/
+            /* join-us START */
+            #join-us .wrapper {
+                padding: 0 24px; /* same as dft-blk's margin */
+                pointer-events: auto;
+            }
+            .job-bar {
+                width: calc((100vw - 48px) * 3 + 15px * 2);  /* (100vw - 48px) * [# of pods] + 15px * [# of pods - 1] */
+            }
+            #join-us .arrow_bar {
+                display: none;
+            }
+            /* join-us END */
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
+            /**/
             /* footer START */
             #footer {
                 flex-direction: column;
@@ -875,8 +978,9 @@
             }
             #footer .link-list {
                 flex-wrap: wrap;
-                gap: 5px 20px;
+                gap: 5px 10px;
                 margin: 10px 0;
+                font-size: 80%;
             }
             #footer .copyright {
                 text-align: left;
@@ -930,7 +1034,7 @@
             var target_height = document.getElementById(obj_id_name).offsetTop;  // get target pos
             var adjust_height = (obj_id_name == "banner") ? 0 : (- 64 + 100);
             window.scrollTo({
-                top: target_height + adjust_height,  // 64: nav bar, 80: padding-top df-block
+                top: target_height + adjust_height,
                 behavior: "smooth"
             });
         }
@@ -969,6 +1073,23 @@
                 header_obj.classList.add("header--scrolled");
                 Auroramob_title_obj.src = "./src/img/icon/Auroramob-title-black.png";
             }
+        }
+        // 
+        // 
+        // 
+        // toggle the drop-down menu of nav bar
+        function toggle_lang_menu(obj) {
+            var menu_obj = obj.parentNode;
+
+            if (menu_obj.classList.contains("menu--opened")) {
+                menu_obj.classList.remove("menu--opened");
+            } else {
+                menu_obj.classList.add("menu--opened");
+            }
+            // var drop_obj = menu_obj.querySelector("drop");
+            // var drop_posY = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[5];  // receiving transform value: matrix(a, b, c, d, e, posY);
+
+            // if (drop_posY)
         }
         // 
         // 
@@ -1033,12 +1154,65 @@
         // 
         // 
         // 
+        // 
+        // the following is the carousel function, used when adding new jobs into the page
+        // function lr_carousel(direction, col_num) { 
+        //     var direct_sign = (direction == "left") ? -1 : 1;
+        //     var bar_obj = document.querySelector(".job-bar");
+        //     var original_posX = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[4];  // receiving transform value: matrix(a, b, c, d, posX, f);
+        //     var pod_objs = document.getElementsByClassName("job-pod");
+        //     var pod_width = pod_objs[0].getBoundingClientRect().width;
+        //     var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
+        //     gap_width = (gap_width) ? gap_width : 0; // if there's no gap between pods
+
+        //     var move_width = pod_width + gap_width;
+
+
+        //     var current_page = original_posX / -move_width;
+        //     if (!Number.isInteger(current_page)) {
+        //         return;
+        //     }
+        //     var new_page;
+
+        //     if (current_page + direct_sign < 0) {
+        //         new_page = pod_objs.length - 1 - col_num;  // since 0 and 4 are same, 1 page left for 0 is 1 page left for 4, which is 3
+        //         bar_obj.classList.remove("transition");
+        //         bar_obj.style.transform = "translateX(" + (-move_width * (pod_objs.length - col_num)) + "px)";
+        //         setTimeout(function() {
+        //             bar_obj.classList.add("transition");
+        //         }, 50);  // delay to make sure "transition" class is added after the bar's motion
+        //     } else if (current_page + direct_sign > pod_objs.length - col_num) {
+        //         new_page = 1;  // since 0 and 4 are same, 1 page right for 4 is 1 page right for 0, which is 1
+        //         bar_obj.classList.remove("transition");
+        //         bar_obj.style.transform = "translateX(" + (-move_width * 0) + "px)";
+        //         setTimeout(function() {
+        //             bar_obj.classList.add("transition");
+        //         }, 50);  // delay to make sure "transition" class is added after the bar's motion
+        //     } else {
+        //         new_page = current_page + direct_sign;
+        //     }
+        //     setTimeout(function() {
+        //         bar_obj.style.transform = "translateX(" + (-move_width * new_page) + "px)";
+        //     }, 100);  // delay to make sure translate is added after "transition" class is added
+        // }
+        // 
+        // 
+        // 
         // jump to new page if the selected option has address of destination as its value
         function window_jump_to(obj) {
-            var destination = obj.value;
-            if (destination) {
-                window.location.href = destination;
-            }
+            window.location.href = obj.title;
+        }
+        // 
+        // 
+        // 
+        // Initialize the scroll position of bars to its center
+        function bar_scroll_init() {
+            var ab_bar_obj = document.getElementsByClassName("ab-bar")[0];
+            var ab_bar_width = ab_bar_obj.getBoundingClientRect().width;
+            var job_bar_obj = document.getElementsByClassName("job-bar")[0];
+            var job_bar_width = job_bar_obj.getBoundingClientRect().width;
+            ab_bar_obj.parentNode.scrollLeft = ab_bar_width / 2;
+            job_bar_obj.parentNode.scrollLeft = job_bar_width / 2;
         }
         // 
         // 
@@ -1067,12 +1241,13 @@
         // 
         // 
         // 
-        // 
+        // check if the open device is mobile and then toggle the classes according to the status
         function check_is_mobile() {
             const is_mobile = window.matchMedia("(max-width: 767px)").matches;   // Use a media query to check for mobile devices
 
             if (is_mobile && !class_is_toggled) {
                 toggle_class_for_mobile(1);
+                bar_scroll_init();
             } else if (!is_mobile && class_is_toggled) {
                 toggle_class_for_mobile(0);
             }
@@ -1096,11 +1271,12 @@
                     <li class="clickable" onclick="nav_scroll_to('product')">Products</li>
                     <li class="clickable" onclick="nav_scroll_to('about-us')">About Us</li>
                     <li class="clickable" onclick="nav_scroll_to('join-us')">Join Us</li>
-                    <li class="lang-menu">
-                        <select onchange="window_jump_to(this)" class="clickable">
-                            <option value="" onclick="nav_scroll_to('banner')">English</option>
-                            <option value="./en-US/index.html">Chinese</option>
-                        </select>
+                    <li class="clickable menu">
+                        <div class="menu-title" onclick="toggle_lang_menu(this)">Language</div>
+                        <div class="drop">
+                            <div class="option clickable">English</div>
+                            <div class="option clickable" title="./en-US/index.html" onclick="window_jump_to(this)">Chinese</div>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -1156,9 +1332,9 @@
         <!-- Banner is the 1st block of the page, the image is changing according to @media selector based on window size. -->
         <section id="banner">
             <div class="banner-image">                
-                <div class="default-block" style="width: 50%;">
+                <div class="default-block">
                     <h1 class="title">
-                        <span style="font: inherit; font-size: 4rem;">Auroramob,</span> <br>Light Up Your Digital World.
+                        <span>Auroramob,</span> <br>Light Up Your Digital World.
                     </h1>
                 </div>
             </div>
@@ -1193,8 +1369,8 @@
             <h1 class="title-1">Products</h1>
             <div class="default-block">
                 <div class="content">
-                    <div class="product-bar transition">
-                        <div class="product-pod pod transition box  pod--selected">
+                    <div class="product-bar bar transition">
+                        <div class="product-pod pod transition box pod--selected">
                             <div class="text">
                                 <div class="title">
                                     <img class="logo" src="./src/img/logo/玛卡写真馆-logo.webp">
@@ -1259,9 +1435,12 @@
                                 <div class="text">
                                     <div class="title">
                                         <img class="logo" src="./src/img/logo/[]-logo.webp">
-                                        <div class="name">[]</div>
+                                        <div class="description">
+                                            <div class="name">[]</div>
+                                            <h2 class="title-2 mobile">[]</h2>
+                                        </div>
                                     </div>
-                                    <h2 class="title-2">[]</h2>
+                                    <h2 class="title-2 laptop">[]</h2>
                                     <div class="rich-text">[]</div>
                                 </div>
                                 <div class="image" style="background-image: url('./src/img/poster/[]-poster.png');"></div>
@@ -1334,7 +1513,7 @@
             <div class="default-block">
                 <div class="content">
                     <div class="detail overflow-window box">
-                        <div class="ab-bar transition">
+                        <div class="ab-bar bar transition">
                             <div class="ab-pod pod" style="background-image: url('./src/img/about-us/intro.jpg');">
                                 <div class="text">
                                     <div class="title-2">Intro</div>
@@ -1404,57 +1583,92 @@
         <!---->
         <!-- Join Us START -->
         <section id="join-us" class="section overflow-window">
+            <h1 class="title-1">Join Us</h1>
             <div class="default-block">
-                <h1 class="title-1">Join Us</h1>
-                <!-- <div class="content"> -->
-                <div class="job-bar">
-                    <div class="job-pod pod pod--selected">
-                        <div class="title-3">Senior iOS Developer</div>
-                        <div class="title-4">Job Responsibilities:</div>
-                        <ul>
-                            <li>Develop, develop, and implement new iOS features; stay updated with the latest iOS trends.</li>
-                            <li>Optimize code for performance and stability; write and review maintainable, efficient, and reliable code.</li>
-                            <li>Mentor and train junior engineers to enhance the overall technical level of the team.</li>
-                        </ul>
-                        <div class="title-4">Job Requirements:</div>
-                        <ul>
-                            <li>Strong skills in software architecture and solving complex technical issues.</li>
-                            <li>Familiar with iOS SDK, development tools, common design patterns, and software engineering principles.</li>
-                            <li>Proficient in Objective-C and Swift; cross-platform experience (React Native, Flutter) is a plus.</li>
-                        </ul>
+                <div class="content" style="position: relative;">
+                    <div class="wrapper overflow-window">
+                        <div class="job-bar bar">
+                            <div class="job-pod pod pod--selected">
+                                <div class="title-3">Senior iOS Developer</div>
+                                <div class="title-4">Job Responsibilities:</div>
+                                <ul>
+                                    <li>Develop, develop, and implement new iOS features; stay updated with the latest iOS trends.</li>
+                                    <li>Optimize code for performance and stability; write and review maintainable, efficient, and reliable code.</li>
+                                    <li>Mentor and train junior engineers to enhance the overall technical level of the team.</li>
+                                </ul>
+                                <div class="title-4">Job Requirements:</div>
+                                <ul>
+                                    <li>Strong skills in software architecture and solving complex technical issues.</li>
+                                    <li>Familiar with iOS SDK, development tools, common design patterns, and software engineering principles.</li>
+                                    <li>Proficient in Objective-C and Swift; cross-platform experience (React Native, Flutter) is a plus.</li>
+                                </ul>
+                            </div>
+                            <div class="job-pod pod">
+                                <div class="title-3">Product Manager</div>
+                                <div class="title-4">Job Responsibilities:</div>
+                                <ul>
+                                    <li>Assist teams in advancing products from concept to market launch; develop roadmaps aligning with company vision.</li>
+                                    <li>Track performance indicators, analyze data, provide iteration insights; ensure timely, quality product releases.</li>
+                                    <li>Manage product documentation; collect user feedback; design user experience improvements.</li>
+                                </ul>
+                                <div class="title-4">Job Requirements:</div>
+                                <ul>
+                                    <li>Excellent communication and collaboration skills; strong critical thinking and problem-solving abilities.</li>
+                                    <li>Basic data analysis skills; proficient in Excel/Google Sheets; basic market analysis and product planning skills.</li>
+                                    <li>Familiarity with agile development processes and tools (e.g., JIRA, Trello) is a plus.</li>
+                                </ul>
+                            </div>
+                            <div class="job-pod pod">
+                                <div class="title-3">UI Designer</div>
+                                <div class="title-4">Job Responsibilities:</div>
+                                <ul>
+                                    <li>Design UI for software products; focus on development feedback and product feature optimization design.</li>
+                                    <li>Participate in creative design, prototype optimization discussions, drive execution and implementation of solutions.</li>
+                                    <li>Optimize design processes, consolidate solutions, and establish standards.</li>
+                                </ul>
+                                <div class="title-4">Job Requirements:</div>
+                                <ul>
+                                    <li>Understand app design standards; clearly express design solutions; keen insight into internet product trends.</li>
+                                    <li>Good communication skills and clear logical thinking; can collaborate with product and development teams.</li>
+                                    <li>Proficient in Sketch, Photoshop, Adobe Illustrator, Figma; Cinema 4D proficiency is a plus.</li>
+                                </ul>
+                            </div>
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!-- Add new pods HERE-->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!---->
+                            <!-- <div class="job-pod pod">
+                                <div class="title-3">[]</div>
+                                <div class="title-4">Job Responsibilities:</div>
+                                <ul>
+                                    <li>[]</li>
+                                    <li>[]</li>
+                                    <li>[]</li>
+                                </ul>
+                                <div class="title-4">Job Requirements:</div>
+                                <ul>
+                                    <li>[]</li>
+                                    <li>[]</li>
+                                    <li>[]</li>
+                                </ul>
+                            </div> -->
+                        </div>
                     </div>
-                    <div class="job-pod pod">
-                        <div class="title-3">Product Manager</div>
-                        <div class="title-4">Job Responsibilities:</div>
-                        <ul>
-                            <li>Assist teams in advancing products from concept to market launch; develop roadmaps aligning with company vision.</li>
-                            <li>Track performance indicators, analyze data, provide iteration insights; ensure timely, quality product releases.</li>
-                            <li>Manage product documentation; collect user feedback; design user experience improvements.</li>
-                        </ul>
-                        <div class="title-4">Job Requirements:</div>
-                        <ul>
-                            <li>Excellent communication and collaboration skills; strong critical thinking and problem-solving abilities.</li>
-                            <li>Basic data analysis skills; proficient in Excel/Google Sheets; basic market analysis and product planning skills.</li>
-                            <li>Familiarity with agile development processes and tools (e.g., JIRA, Trello) is a plus.</li>
-                        </ul>
-                    </div>
-                    <div class="job-pod pod">
-                        <div class="title-3">UI Designer</div>
-                        <div class="title-4">Job Responsibilities:</div>
-                        <ul>
-                            <li>Design UI for software products; focus on development feedback and product feature optimization design.</li>
-                            <li>Participate in creative design, prototype optimization discussions, drive execution and implementation of solutions.</li>
-                            <li>Optimize design processes, consolidate solutions, and establish standards.</li>
-                        </ul>
-                        <div class="title-4">Job Requirements:</div>
-                        <ul>
-                            <li>Understand app design standards; clearly express design solutions; keen insight into internet product trends.</li>
-                            <li>Good communication skills and clear logical thinking; can collaborate with product and development teams.</li>
-                            <li>Proficient in Sketch, Photoshop, Adobe Illustrator, Figma; Cinema 4D proficiency is a plus.</li>
-                        </ul>
-                    </div>
+                    <!-- The following arrow_bar is used when adding new jobs into the page -->
+                    <!-- <div class="arrow_bar">
+                        <button class="btn clickable" onclick="lr_carousel('left', 3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                        </button>
+                        <button class="btn clickable" onclick="lr_carousel('right', 3)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                        </button>
+                    </div> -->
                 </div>
-                <!-- </div> -->
             </div>
         </section>
         <!-- Join Us END -->
@@ -1511,12 +1725,7 @@
                     <li class="clickable" onclick="nav_scroll_to('product')">Products</li>
                     <li class="clickable" onclick="nav_scroll_to('about-us')">About Us</li>
                     <li class="clickable" onclick="nav_scroll_to('join-us')">Join Us</li>
-                    <li class="lang-menu">
-                        <select onchange="window_jump_to(this)" class="clickable">
-                            <option value="" onclick="nav_scroll_to('banner')">English</option>
-                            <option value="./en-US/index.html">Chinese</option>
-                        </select>
-                    </li>
+                    <a class="clickable" href="./en-US/index.html"><li>Chinese</li></a>
                 </ul>
             </div>
             <div class="copyright" style="color: #7d8598; color: var(--grey-400); font-size: 80%;">Copyright © 2024 Auroramob. All Rights Reserved.</div>
