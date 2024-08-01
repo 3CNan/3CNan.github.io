@@ -131,7 +131,8 @@
             display: none;
         }
         .title-2, .title-3, .title-4, .title-5, .button {
-            font-family: 'Poppins-Medium', sans-serif;
+            /* font-family: 'Poppins-Medium', sans-serif;       English only */
+            font-weight: 800;
         }
         .box {
             box-sizing: border-box;
@@ -183,7 +184,8 @@
         /**/
         /* text format START */
         .title-1 {
-            font-family: "Poppins-Bold", sans-serif;
+            /* font-family: "Poppins-Bold", sans-serif; */
+            font-weight: 900;
             font-size: 2rem;
             text-align: center;
             padding: .5rem 0;
@@ -453,12 +455,14 @@
         .product-pod .name {
             margin-top: 5px;
             font-size: 1.3rem;
-            font-family: "Poppins-Medium", sans-serif;
+/*            font-family: "Poppins-Medium", sans-serif;*/
+            font-weight: 800;
         }
         .product-pod .description .title-2 {
             font-size: 12px;
             color: grey;
-            font-family: "Poppins-Light", sans-serif;
+/*            font-family: "Poppins-Light", sans-serif;*/
+            font-weight: 800;
         }
         .product-pod .rich-text {
             position: relative;
@@ -605,6 +609,7 @@
             color: var(--blue-500);
             transform: scale(1.5);
             font-family: "Poppins-Medium", sans-serif;
+            font-weight: 800;
         }
         .ab-bar {
             height: calc(400px * 5);
@@ -877,8 +882,8 @@
                 align-items: end;
             }
             .product-pod .title {
-                width: calc(100% - 48px);  /* -48px for margin * 2 */
-                margin: 0 24px 10px 24px;
+                width: calc(100% - 80px);  /* -80px for margin * 2 */
+                margin: 0 40px 10px 40px;  /* margin left right same as df */
             }
             .product-pod:nth-child(even) .text .title {
                 flex-direction: row-reverse;
@@ -896,7 +901,7 @@
                 margin: 0;
             }
             .product-pod .rich-text {
-                width: 85%;
+                width: 82%;
                 box-sizing: border-box;
                 padding: 15px;
                 box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
@@ -925,13 +930,13 @@
             #about-us .content .detail {
                 width: 100%;
                 height: 400px;
-                padding: 0 24px; /* same as dft-blk's margin */
+                padding: 0 40px; /* same as dft-blk's margin */
             }
             #about-us .content .title-bar {
                 display: none;
             }
             .ab-bar {
-                width: calc((100vw - 48px) * 5 + 15px * 4);  /* -48px for dft-blk's margin * 2, + 20px for gap; # of gap = # of block - 1 */
+                width: calc((100vw - 80px) * 5 + 15px * 4);  /* -80px for dft-blk's margin * 2, + 20px for gap; # of gap = # of block - 1 */
                 height: 100%;
                 flex-direction: row;
                 gap: 15px;
@@ -957,11 +962,11 @@
             /**/
             /* join-us START */
             #join-us .wrapper {
-                padding: 0 24px; /* same as dft-blk's margin */
+                padding: 0 40px; /* same as dft-blk's margin */
                 pointer-events: auto;
             }
             .job-bar {
-                width: calc((100vw - 48px) * 3 + 15px * 2);  /* (100vw - 48px) * [# of pods] + 15px * [# of pods - 1] */
+                width: calc((100vw - 80px) * 3 + 15px * 2);  /* (100vw - 80px) * [# of pods] + 15px * [# of pods - 1] */
             }
             #join-us .arrow_bar {
                 display: none;
