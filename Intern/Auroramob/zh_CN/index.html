@@ -304,6 +304,8 @@
         }
         #header .menu {
             position: relative;
+            display: flex;
+            justify-content: center;
         }
         #header .menu .drop {
             padding: 10px 20px;
@@ -313,9 +315,12 @@
             z-index: -1;
             opacity: 0;
             width: max-content;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
         #header .menu.menu--opened .drop {
-            transform: translateY(0);
+            transform: translateY(30%);
             opacity: 1;
         }
         #header.header--scrolled .menu .drop {
@@ -1039,13 +1044,17 @@
         // 
         // 
         // scroll the page to specific element based on fixed nav bar
-        function nav_scroll_to(obj_id_name) {    
+        function nav_scroll_to(obj_id_name, nav_obj=undefined) {    
             var target_height = document.getElementById(obj_id_name).offsetTop;  // get target pos
             var adjust_height = (obj_id_name == "banner") ? 0 : (- 64 + 100);
             window.scrollTo({
                 top: target_height + adjust_height,
                 behavior: "smooth"
             });
+
+            if(nav_obj) {
+                nav_obj.parentNode.parentNode.classList.remove("menu--opened");
+            }
         }
         // 
         // 
@@ -1283,7 +1292,7 @@
                     <li class="clickable menu">
                         <div class="menu-title" onclick="toggle_lang_menu(this)">语言</div>
                         <div class="drop">
-                            <div class="option clickable" onclick="nav_scroll_to('banner')">简中</div>
+                            <div class="option clickable" onclick="nav_scroll_to('banner', this)">简中</div>
                             <div class="option clickable" title="../index.html" onclick="window_jump_to(this)">EN</div>
                         </div>
                     </li>
