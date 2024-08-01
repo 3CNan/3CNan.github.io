@@ -30,27 +30,9 @@
     <link rel="icon" href="../src/img/web-icon/Auroramob-logo-192x192.png" sizes="192x192" type="image/png">
     <link rel="apple-touch-icon" href="../src/img/web-icon/Auroramob-logo-180x180.png">
 
+    <link rel="stylesheet" type="text/css" href="../main.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- import font -->
-    <style type="text/css" id="import-font-inline-css">
-        @font-face {
-            font-family: 'Poppins-Light';
-            src: url('../src/fonts/Poppins-Light.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Poppins-Medium';
-            src: url('../src/fonts/Poppins-Medium.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Poppins-Bold';
-            src: url('../src/fonts/Poppins-Bold.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Smiley-Sans';
-            src: url('../src/fonts/SmileySans-Oblique.ttf.woff2') format('woff2');
-        }
-    </style>
+    <script type="text/javascript" src="../main.js"></script>
     <!---->
     <!---->
     <!---->
@@ -63,1223 +45,13 @@
     <!---->
     <!---->
     <!---->
-    <!-- tag selector -->
-    <style type="text/css" id="tag-selector-inline-css">
-        * {
-            box-sizing: border-box;
-/*            font-family: 'Poppins-Light', sans-serif;*/
-            font-family: sans-serif;
-        }
-        header {
-            display: block;
-        }
-        a, b, body, button, div, footer, h1, h2, h3, h4, h5, header, html, img, li, nav, ol, p, ul, video {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            vertical-align: baseline;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-        }
-        body {
-            transition: transform .5s ease-in-out;
-        }
-        ol, ul {
-            list-style: none;
-        }  
-    </style>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!-- class selector -->
-    <style type="text/css" id="class-selector-inline-css">
-        /* global START */
-        :root {
-            --grey-400: #7d8598;
-            --grey-500: #636b7f;
-            --grey-900: #10131b;
-            --blue-050: #e9f3ff;
-            --blue-075: #deecff;
-            --blue-100: #d2e5ff;
-            --blue-300: #6aa0ff;
-            --blue-400: #347bff;
-            --blue-500: #05f;
-        }
-        .default-block {
-            max-width: 928px;
-            margin: 0 auto;
-        }
-        .section {
-            padding: 100px 0;
-        }
-        .clickable {
-            cursor: pointer;
-        }
-        .navbar-mobile, .banner-mobile {
-            display: none;
-        }
-        .title-2, .title-3, .title-4, .title-5, .button {
-            /* font-family: 'Poppins-Medium', sans-serif;       English only */
-            font-weight: 800;
-        }
-        .box {
-            box-sizing: border-box;
-            border-radius: 20px;
-            box-shadow: 0 15px 20px rgba(0,0,0,.1);
-            overflow: hidden;
-        }
-        .transition {
-            transition: .5s ease-in-out;
-        }
-        .visible {
-            opacity: 1;
-        }
-        .invisible {
-            opacity: 0;
-        }
-        .overflow-window {
-            overflow: hidden;
-            scrollbar-width: none; /* hide the scrollbar, used for mobile, firefox */
-            -ms-overflow-style: none; /* hide the scrollbar, used for mobile, ie & edge */
-        }
-        .overflow-window::-webkit-scrollbar {
-            display: none; /* hide the scrollbar, used for mobile, webkit */
-        }
-        .content {
-            margin-top: 40px;
-        }
-        .flex-wrapper {
-            display: flex;
-        }
-        .bar {
-            scroll-snap-type: x mandatory;
-        }
-        .mobile {
-            display: none;
-        }
-        /* global END */
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /* text format START */
-        .title-1 {
-            /* font-family: "Poppins-Bold", sans-serif; */
-            font-weight: 900;
-            font-size: 2rem;
-            text-align: center;
-            padding: .5rem 0;
-        }
-        .title-2 {
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-        .title-3 {
-            color: var(--blue-500);
-        }
-        .title-4 {
-            font-size: 12px;
-        }
-        .rich-text {
-            font-size: 13px;
-            word-break: break-all;
-            text-align: justify;
-            line-height: 180%;
-        }
-        /* text format END */
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /* header START */
-        #header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 20;
-            transition: background-color 0.5s ease;
-            width: 100%;
-/*            font-family: 'Poppins-Light', sans-serif;*/
-        }
-        #header .navbar-laptop {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        #header .logo {
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-            padding: 0 32px;
-        }
-        #header .logo a {
-            display: flex;
-            align-items: center;
-        }
-        #header.header--open .navbar-mobile .navigation {
-            transform: translateY(0);
-            transition-delay: 0.2s;
-            opacity: 1;
-        }
-        .navbar-laptop {
-            max-width: 1024px;
-            margin: 0 auto;
-        }
-        .link-list {
-            display: flex;
-            gap: 40px;
-        }
-        #header .link-list {
-            margin-right: 32px;
-        }
-        #header .link-list li {
-            color: white;
-        }
-        #header.header--scrolled .link-list li {
-            color: black;
-        }
-        .navbar-mobile .navigation {
-            display: flex;
-            flex-direction: column;
-            background: white;
-            padding: 25px 0;
-            transform: translateY(-150%);
-            transition: transform .5s ease-in-out, opacity .2s ease-in-out;
-            opacity: 0;
-        }
-        .nav-tag {
-            padding: 10px 42px;
-        }
-        .navbar-mobile .logo .icon {
-            fill: white;
-        }
-        .header--scrolled .navbar-mobile .logo .icon, .header--open .navbar-mobile .logo .icon {
-            fill: black;
-        }
-        .header--scrolled {
-            background: white;
-        }
-        .Auroramob-title {
-            height: 20px;
-            aspect-ratio: 1024/155;
-            background-image: url('../src/img/icon/Auroramob-title-white.png');
-            background-size: cover;
-            background-position: center;
-        }
-        .header--scrolled .Auroramob-title, .header--open .Auroramob-title {
-            background-image: url('../src/img/icon/Auroramob-title-black.png');
-        }
-        #header .menu {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-        #header .menu .drop {
-            padding: 10px 20px;
-            position: absolute;
-            transform: translateY(-200%);
-            transition: .3s ease-in-out;
-            z-index: -1;
-            opacity: 0;
-            width: max-content;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        #header .menu.menu--opened .drop {
-            transform: translateY(30%);
-            opacity: 1;
-        }
-        #header.header--scrolled .menu .drop {
-            background: white;
-        }
-        #header .menu-title {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        #header .menu-title::after {
-            content: "";
-            display: block;
-            width: 12px;
-            height: 12px;
-            padding-bottom: 2px;
-            position: absolute;
-            right: -15px;
-/*            pointer-events: none;*/
-        }
-        #header .menu-title::after {
-            background: url("../src/img/icon/chevron-down-white.svg");
-        }
-        #header.header--scrolled .menu-title::after, .menu-title::after {
-            background: url("../src/img/icon/chevron-down-black.svg");
-        }
-        /* header END */
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /* banner START */
-        .banner-image {
-            width: 100%;
-            min-height: 650px;
-            background-image: url("../src/img/banner/background.jpg");
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .banner-image::after {
-            content: "";
-            width: 100%;
-            min-height: 650px;
-            position: absolute;
-            z-index: 2;
-            -webkit-backdrop-filter: blur(3px);
-            backdrop-filter: blur(3px);
-            filter: blur(1px);
-            mask-image: linear-gradient(170deg, rgb(0,0,0) 45%, transparent 65%);
-        }
-        #banner .title {
-            color: white;
-            position: relative;
-            z-index: 3;
-            font-size: 3.3rem;
-            line-height: 200%;
-            font-family: "Smiley-Sans";
-            text-align: right;
-            text-shadow: 0 0 10px #00AEFF;
-            margin-top: 32px;
-            padding-left: 250px;
-        }
-        #banner .title span {
-            font: inherit;
-            font-size: 4rem;
-        }
-        /* banner END */
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /* product START */
-        .product-bar {
-            width: calc(928px * 4 + 50px * 3);
-            gap: 50px;
-            display: flex;
-        }
-        .product-pod {
-            width: 100%;
-            height: 400px;
-            position: relative;
-            display: flex;
-            opacity: 0;
-        }
-        .product-pod.pod--selected {
-            opacity: 1;
-        }
-        .product-pod .text {
-            width: 45%;
-            box-sizing: border-box;
-            padding: 50px 40px;
-        }
-        .product-pod .text::after {
-            width: 90px;
-            height: 45px;
-            background: url("../src/img/icon/dot-matrix.svg");
-            position: absolute;
-            bottom: -30px;
-            z-index: 0;
-        }
-        .product-pod:nth-child(odd) .text::after {
-            left: 0;
-        }
-        .product-pod:nth-child(even) .text::after {
-            right: 0;
-        }
-        .product-pod .title {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-        .product-pod .logo {
-            width: 90px;
-            height: 90px;
-            border-radius: 20px;
-        }
-        .product-pod .name {
-            margin-top: 15px;
-            font-size: 1.3rem;
-/*            font-family: "Poppins-Medium", sans-serif;*/
-            font-weight: 800;
-        }
-        .product-pod .description .title-2 {
-            font-size: 12px;
-            color: grey;
-/*            font-family: "Poppins-Light", sans-serif;*/
-            font-weight: 800;
-        }
-        .product-pod .rich-text {
-            position: relative;
-            z-index: 1;
-            background: white;
-        }
-
-        .product-pod .image {
-            height: 100%;
-            width: 55%;
-            background-position: center;
-            background-size: cover;
-        }
-        .product-pod .image::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(to right, white 1%, transparent 15%);
-            position: absolute;
-        }
-        .logo-bar {
-            width: 80%;
-            margin: 40px auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-        .logo-pod {
-            position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        .logo-pod .logo {
-            width: 55px;
-            height: 55px;
-            border: 2px solid white;
-            border-radius: 100px;
-            transition: .3s ease-in-out;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-
-            background-size: cover;
-            background-position: center;
-
-            position: relative;
-            z-index: 1;
-        }
-        .logo-pod .logo:hover, .logo-pod.logo--selected .logo {
-            transform: scale(1.4);
-        }
-        .logo-line {
-            position: absolute;
-            z-index: 0;
-            width: 100%;
-            border: solid 2px var(--blue-075);
-            overflow: visible;
-        }
-        .logo-line::before, .logo-line::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #d2e5ff;
-            background: var(--blue-075);
-        }
-        .logo-line::before {
-            left: -5px;
-        }
-        .logo-line::after {
-            right: -5px;
-        }
-        .logo-name {
-            position: absolute;
-            width: max-content;
-            left: 50%;
-            top: calc(100% + 20px);
-            transform: translate(-50%);
-            transition: .3s ease-in-out;
-            opacity: 0;
-        }
-        .logo-pod.logo--selected .logo-name {
-            opacity: 1;
-        }
-        /* product END */
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /* about us START */
-        #about-us .content {
-            display: flex;
-            width: 100%;
-            height: 400px;
-        }
-        #about-us .content .detail {
-            width: 85%;
-        }
-        #about-us .content .title-bar {
-            width: 15%;
-            display: flex;
-            flex-direction: column;
-        }
-        #about-us .title-bar .title {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            font-size: 75%;
-            color: rgba(0, 0, 0, .5);
-        }
-        #about-us .title-bar .title::after {
-            content: "";
-            width: 5px;
-            height: 5px;
-            background: #6aa0ff;
-            background: var(--blue-300);
-            border-radius: 50%;
-            position: absolute;
-            bottom: -2.5px;
-        }
-        #about-us .title-bar .title:nth-child(5)::after {
-            content: none; /* only the middle 4 spaces have dot between */
-        }
-        #about-us .title-bar .title .text {
-            transition: .3s ease-in-out;
-            position: relative;
-            z-index: 1;
-        }
-        #about-us .title-bar .title.title--selected .text {
-            color: var(--blue-500);
-            transform: scale(1.5);
-            font-family: "Poppins-Medium", sans-serif;
-            font-weight: 800;
-        }
-        .ab-bar {
-            height: calc(400px * 5);
-            display: flex;
-            flex-direction: column;
-        }
-        .ab-pod {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            background-size: cover;
-            background-position: center;
-            border-radius: 0px;
-            overflow: hidden;
-        }
-        .ab-pod .text {
-            width: 75%;
-            color: white;
-            background: linear-gradient(to right, rgba(0, 20, 50, .65) 85%, transparent 100%);
-            padding: 20px;
-            transform: translateY(80px);
-        }
-        .ab-pod .title-2 {
-            display: none;
-        }
-        /* about us END */
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /* join-us START */
-        #join-us .wrapper {
-            overflow: scroll !important;
-            pointer-events: none;
-        }
-        .job-bar {
-            width: 928px;  /* For more than 3 pods: calc(928px + [# of pods - 3] * ((928px - 50px * 2) / 3 + 50px)) -------------- ([df-block width] + [# of pods - 3] * (([df-block width] - [gap] * 2) / 3 + [gap])) */
-            position: relative;
-            display: flex;
-            gap: 50px;
-            transform: translate(0);
-        }
-        .job-pod {
-            width: 100%;
-            padding: 20px;
-            background: var(--blue-075);
-            border-radius: 20px;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 1;
-        }
-        .job-pod li {
-            list-style: disc;
-            line-height: 150%;
-            font-size: 11px;
-            margin: 5px 0;
-            margin-left: 10px;
-            word-break: break-all;
-            text-align: justify;
-            color: var(--grey-500);
-        }
-        #join-us .arrow_bar {
-            position: absolute;
-            bottom: calc(50% - 20px);  /* -40px for content margin / 2 */
-            width: 120%;
-            left: -10%;
-            display: flex;
-            justify-content: space-between;
-            gap: 32px;
-        }
-        .arrow_bar .btn {
-            fill: #347bff;
-            fill: var(--blue-400);
-            background: #e9f3ff;
-            background: var(--blue-050);
-            padding: 10px;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 30px;
-        }
-        /* join-us END */
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /**/
-        /* footer START */
-        #footer {
-            background: #e9f3ff;
-            background: var(--blue-050);
-            min-height: 200px;
-            display: flex;
-            justify-content: space-between;
-            padding: 50px 100px;
-/*            font-family: "Poppins-Light", sans-serif;*/
-        }
-        #footer .left {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 10px;
-        }
-        #footer .right {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 10px;
-            text-align: right;
-        }
-        #footer .logo {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        #footer .icons {
-            display: flex;
-            gap: 13px;
-        }
-        /* footer END */
-    </style>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!-- @media selector -->
-    <style type="text/css" id="media-inline-css">
-        @media (max-width: 1279px) {
-        }
-        @media (max-width: 1023px) {
-            #main-body .default-block {
-                margin: 0 70px;
-            }         
-            #about-us .content .title-bar {
-                margin-left: 20px;
-            }
-            .product-bar {
-                width: calc((100vw - 140px) * 4 + 50px * 3);  /* -140px for dft-blk's margin * 2, 50px for gap */
-            }
-            .job-bar {
-                width: calc((100vw - 140px));  /* -48px for dft-blk's margin * 2 */
-                gap: 15px;
-            }
-            #footer .link-list {
-                gap: 20px;
-            }
-        }
-        @media (max-width: 767px) {
-            /* General global class START */
-            .content {
-                margin-top: 24px;
-            }
-            .overflow-window {
-                overflow: scroll;
-                scroll-snap-type: x mandatory;
-            }
-            .bar {
-                transform: translate(0) !important;
-            }
-            .pod {
-                scroll-snap-align: center;
-                transition: transform 0.3s ease;
-            }
-            .mobile {
-                display: block;
-            }
-            .laptop {
-                display: none;
-            }
-            #main-body .default-block {
-                margin: 0;
-            }
-            /* General global class END */
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /* header START */
-            .navbar-mobile .logo .icon {
-                display: flex;
-                align-items: center;
-                justify-content: right;
-            }
-            #header .navbar-laptop {
-                display: none;
-            }
-            #header .navbar-mobile {
-                display: block;
-            }
-            #header .logo {
-                width: 100%;
-            }
-            #header.header--open, #header.header--open .logo {
-                background: white;
-            }
-            /* header END */
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /* banner START */
-            .banner-image {
-                min-height: 450px;
-                display: flex;
-                justify-content: end;
-            }
-            #banner .title {
-                font-size: 2rem;
-                padding: 0 50px 0 0;
-            }
-            #banner .title span {
-                font-size: 2.7rem;
-            }
-            /* banner END */
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /* product START */
-            /* margin: 24px for this section */
-            .product-bar {
-                width: 100%;
-                flex-direction: column;
-                gap: 50px;
-            }
-            .product-pod {
-                height: auto;
-                opacity: 1;
-            }
-            .product-pod .text {
-                width: 100%;
-                padding: 0;
-            }
-            .product-pod .text::after {
-                content: "";
-            }
-            .product-pod:nth-child(odd) .text {
-                display: flex;
-                flex-direction: column;
-                align-items: end;
-            }
-            .product-pod .title {
-                width: calc(100% - 48px);  /* -48px for margin * 2 */
-                margin: 0 24px 10px 24px;  /* margin left right same as df */
-            }
-            .product-pod:nth-child(even) .text .title {
-                flex-direction: row-reverse;
-            }
-            .product-pod .logo {
-                width: 50px;
-                height: 50px;
-                border-radius: 5px;
-            }
-            .product-pod:nth-child(even) .description {
-                text-align: right;
-            }
-            .product-pod .name {
-                font-size: 15px;
-                margin: 0;
-            }
-            .product-pod .rich-text {
-                width: 85%;
-                box-sizing: border-box;
-                padding: 15px;
-                box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
-            }
-            .product-pod:nth-child(odd) .rich-text {
-                border-radius: 10px 0 0 10px;
-            }
-            .product-pod:nth-child(even) .rich-text {
-                border-radius: 0 10px 10px 0;
-            }
-            .product-pod .image, .product-pod .image::after, #product .logo-bar {
-                display: none;
-            }
-            /* product END */
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /* about-us START */
-            #about-us .content {
-                flex-direction: column;
-                height: auto;
-            }
-            #about-us .content .detail {
-                width: 100%;
-                height: 400px;
-                padding: 0 40px; /* same as dft-blk's margin */
-            }
-            #about-us .content .title-bar {
-                display: none;
-            }
-            .ab-bar {
-                width: calc((100vw - 80px) * 5 + 15px * 4);  /* -80px for dft-blk's margin * 2, + 20px for gap; # of gap = # of block - 1 */
-                height: 100%;
-                flex-direction: row;
-                gap: 15px;
-            }
-            .ab-pod {
-                width: 100%;
-                align-items: end;
-                border-radius: 20px;
-            }
-            .ab-pod .text {
-                width: 85%;
-                transform: none;
-            }
-            .ab-pod .title-2 {
-                display: block;
-            }
-            /* about-us END */
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /* join-us START */
-            #join-us .wrapper {
-                padding: 0 40px; /* same as dft-blk's margin */
-                pointer-events: auto;
-            }
-            .job-bar {
-                width: calc((100vw - 80px) * 3 + 15px * 2);  /* (100vw - 80px) * [# of pods] + 15px * [# of pods - 1] */
-            }
-            #join-us .arrow_bar {
-                display: none;
-            }
-            /* join-us END */
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /**/
-            /* footer START */
-            #footer {
-                flex-direction: column;
-                padding: 30px;
-            }
-            #footer .link-list {
-                flex-wrap: wrap;
-                gap: 5px 10px;
-                margin: 10px 0;
-                font-size: 80%;
-            }
-            #footer .copyright {
-                text-align: left;
-            }
-            /* footer END */
-        }
-    </style>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!-- @keyframes animation -->
-    <style type="text/css" id="media-inline-css">
-        @keyframes banner-img-carousel {
-            0%, 18.75% {background-image: url("../src/img/banner/1.jpg");}
-            25%, 43.75% {background-image: url("../src/img/banner/2.jpg");}
-            50%, 68.75% {background-image: url("../src/img/banner/3.jpg");}
-            75%, 93.75% {background-image: url("../src/img/banner/4.jpg");}
-            100% {background-image: url("../src/img/banner/1.jpg");}
-        }
-    </style>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!-- script -->
-    <script type="text/javascript">
-        // Global variables
-        let class_is_toggled = false;
-        // 
-        // 
-        // 
-        // scroll the page to specific element based on fixed nav bar
-        function nav_scroll_to(obj_id_name, nav_obj=undefined) {    
-            var target_height = document.getElementById(obj_id_name).offsetTop;  // get target pos
-            var adjust_height = (obj_id_name == "banner") ? 0 : (- 64 + 100);
-            window.scrollTo({
-                top: target_height + adjust_height,
-                behavior: "smooth"
-            });
-
-            if(nav_obj) {
-                nav_obj.parentNode.parentNode.classList.remove("menu--opened");
-            }
-        }
-        // 
-        // 
-        // 
-        // toggle icon from burger to cross and add header--open class to the drop-down nav menu
-        function toggle_icon(delay=0) {    
-            var icon_obj = document.getElementById("nav-icon");
-            var header_obj = document.getElementById("header");
-            var Auroramob_title_obj = document.getElementsByClassName("Auroramob-title")[0];
-
-            setTimeout(function() {
-                if (header_obj.classList.contains("header--open")) {
-                    header_obj.classList.remove("header--open");
-                    icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="burger" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 12C4.74763 11.5858 5.08342 11.25 5.49763 11.25H18.5027C18.9169 11.25 19.2527 11.5858 19.2527 12C19.2527 12.4142 18.9169 12.75 18.5027 12.75H5.49763C5.08342 12.75 4.74763 12.4142 4.74763 12Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74763 16.0017C4.74763 15.5875 5.08342 15.2517 5.49763 15.2517H18.5027C18.9169 15.2517 19.2527 15.5875 19.2527 16.0017C19.2527 16.4159 18.9169 16.7517 18.5027 16.7517H5.49763C5.08342 16.7517 4.74763 16.4159 4.74763 16.0017Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.74729 7.99834C4.74729 7.58412 5.08308 7.24834 5.49729 7.24834H18.5024C18.9166 7.24834 19.2524 7.58412 19.2524 7.99834C19.2524 8.41255 18.9166 8.74834 18.5024 8.74834H5.49729C5.08308 8.74834 4.74729 8.41255 4.74729 7.99834Z"></path></svg>';
-                } else {
-                    header_obj.classList.add("header--open");
-                    icon_obj.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" aria-label="cross" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg>';
-                }
-            }, delay * 1000);
-        }
-        // 
-        // 
-        // 
-        // toggle the background color of nav bar
-        function toggle_header_bg() {    
-            var header_obj = document.getElementById("header");
-            var main_body_obj  = document.getElementById("main-body");
-            var Auroramob_title_obj = document.getElementsByClassName("Auroramob-title")[0];
-
-            if (main_body_obj.getBoundingClientRect().top == 0) {
-                header_obj.classList.remove("header--scrolled");
-                Auroramob_title_obj.src = "../src/img/icon/Auroramob-title-white.png";
-            } else {
-                header_obj.classList.add("header--scrolled");
-                Auroramob_title_obj.src = "../src/img/icon/Auroramob-title-black.png";
-            }
-        }
-        // 
-        // 
-        // 
-        // toggle the drop-down menu of nav bar
-        function toggle_lang_menu(obj) {
-            var menu_obj = obj.parentNode;
-
-            if (menu_obj.classList.contains("menu--opened")) {
-                menu_obj.classList.remove("menu--opened");
-            } else {
-                menu_obj.classList.add("menu--opened");
-            }
-            // var drop_obj = menu_obj.querySelector("drop");
-            // var drop_posY = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[5];  // receiving transform value: matrix(a, b, c, d, e, posY);
-
-            // if (drop_posY)
-        }
-        // 
-        // 
-        // 
-        // horizontally scroll to the product pod according to index
-        function product_scroll_to(obj) {
-            var obj_index = $(obj).index();
-            var bar_obj = document.getElementsByClassName("product-bar")[0];
-            var pod_objs = document.getElementsByClassName("product-pod");
-            var logo_objs = obj.parentNode.getElementsByClassName("logo-pod");
-
-            var pod_width = pod_objs[0].getBoundingClientRect().width;
-            var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
-            var move_width = (pod_width + gap_width) * obj_index;  // translateX pattern: 0th pod = 0px, 1st = 1*w + 1*g, 2nd = 2*w + 2*g ...
-
-            bar_obj.style.transform = "translateX(" + (-move_width) + "px)";
-
-            // remove the selected status from all pods & logos, and then add it to the clicked logo & corresponding pod
-            for (var i = 0; i < logo_objs.length; i++) {
-                pod_objs[i].classList.remove("pod--selected");
-                logo_objs[i].classList.remove("logo--selected");
-            }      
-            obj.classList.add("logo--selected");
-            pod_objs[obj_index].classList.add("pod--selected");
-        }
-        // 
-        // 
-        // 
-        // vertically scroll to the about-us pod according to index
-        function ab_scroll_to(obj) {
-            var obj_index = $(obj).index();
-            var bar_obj = document.getElementsByClassName("ab-bar")[0];
-            var pod_objs = document.getElementsByClassName("ab-pod");
-            var title_objs = obj.parentNode.getElementsByClassName("title");
-
-            var pod_height = pod_objs[0].getBoundingClientRect().height;
-
-            bar_obj.style.transform = "translateY(" + (-pod_height * obj_index) + "px)";
-
-            // remove the selected status for all titles, and then add it to the selected title
-            for (var i = 0; i < title_objs.length; i++) {
-                title_objs[i].classList.remove("title--selected");
-            }      
-            obj.classList.add("title--selected");
-        }
-        // 
-        // 
-        // 
-        // display the corresponding job-pod according to the job-title selected
-        function join_display_corres(obj) {
-            var obj_index = $(obj).index();
-            var pod_objs = document.getElementsByClassName("job-pod");
-            var title_objs = obj.parentNode.getElementsByClassName("title");
-
-            for (var i = 0; i < pod_objs.length; i++) {
-                pod_objs[i].classList.remove("pod--selected");
-                title_objs[i].classList.remove("title--selected");
-            }
-            pod_objs[obj_index].classList.add("pod--selected");
-            obj.classList.add("title--selected");
-        }
-        // 
-        // 
-        // 
-        // 
-        // the following is the carousel function, used when adding new jobs into the page
-        // function lr_carousel(direction, col_num) { 
-        //     var direct_sign = (direction == "left") ? -1 : 1;
-        //     var bar_obj = document.querySelector(".job-bar");
-        //     var original_posX = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[4];  // receiving transform value: matrix(a, b, c, d, posX, f);
-        //     var pod_objs = document.getElementsByClassName("job-pod");
-        //     var pod_width = pod_objs[0].getBoundingClientRect().width;
-        //     var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
-        //     gap_width = (gap_width) ? gap_width : 0; // if there's no gap between pods
-
-        //     var move_width = pod_width + gap_width;
-
-
-        //     var current_page = original_posX / -move_width;
-        //     if (!Number.isInteger(current_page)) {
-        //         return;
-        //     }
-        //     var new_page;
-
-        //     if (current_page + direct_sign < 0) {
-        //         new_page = pod_objs.length - 1 - col_num;  // since 0 and 4 are same, 1 page left for 0 is 1 page left for 4, which is 3
-        //         bar_obj.classList.remove("transition");
-        //         bar_obj.style.transform = "translateX(" + (-move_width * (pod_objs.length - col_num)) + "px)";
-        //         setTimeout(function() {
-        //             bar_obj.classList.add("transition");
-        //         }, 50);  // delay to make sure "transition" class is added after the bar's motion
-        //     } else if (current_page + direct_sign > pod_objs.length - col_num) {
-        //         new_page = 1;  // since 0 and 4 are same, 1 page right for 4 is 1 page right for 0, which is 1
-        //         bar_obj.classList.remove("transition");
-        //         bar_obj.style.transform = "translateX(" + (-move_width * 0) + "px)";
-        //         setTimeout(function() {
-        //             bar_obj.classList.add("transition");
-        //         }, 50);  // delay to make sure "transition" class is added after the bar's motion
-        //     } else {
-        //         new_page = current_page + direct_sign;
-        //     }
-        //     setTimeout(function() {
-        //         bar_obj.style.transform = "translateX(" + (-move_width * new_page) + "px)";
-        //     }, 100);  // delay to make sure translate is added after "transition" class is added
-        // }
-        // 
-        // 
-        // 
-        // jump to new page if the selected option has address of destination as its value
-        function window_jump_to(obj) {
-            window.location.href = obj.title;
-        }
-        // 
-        // 
-        // 
-        // Initialize the scroll position of bars to its center
-        function bar_scroll_init() {
-            var ab_bar_obj = document.getElementsByClassName("ab-bar")[0];
-            var ab_bar_width = ab_bar_obj.getBoundingClientRect().width;
-            var job_bar_obj = document.getElementsByClassName("job-bar")[0];
-            var job_bar_width = job_bar_obj.getBoundingClientRect().width;
-            ab_bar_obj.parentNode.scrollLeft = ab_bar_width / 2;
-            job_bar_obj.parentNode.scrollLeft = job_bar_width / 2;
-        }
-        // 
-        // 
-        // 
-        // remove class of some element when window resize(), getting 0 and 1 for status, 1 means execute, 0 means recover
-        function toggle_class_for_mobile(status) {
-            var ab_detail_obj = document.getElementById("about-us").getElementsByClassName("detail")[0];
-            var product_pod_objs = document.getElementsByClassName("product-pod");
-
-            if (status) {
-                ab_detail_obj.classList.remove("box");
-                for (var i = 0; i < product_pod_objs.length; i++) {
-                    product_pod_objs[i].classList.remove("box");
-                }
-
-                class_is_toggled = true;
-            } else {
-                ab_detail_obj.classList.add("box");
-                for (var i = 0; i < product_pod_objs.length; i++) {
-                    product_pod_objs[i].classList.add("box");
-                }
-
-                class_is_toggled = false;
-            }
-        }
-        // 
-        // 
-        // 
-        // check if the open device is mobile and then toggle the classes according to the status
-        function check_is_mobile() {
-            const is_mobile = window.matchMedia("(max-width: 767px)").matches;   // Use a media query to check for mobile devices
-
-            if (is_mobile && !class_is_toggled) {
-                toggle_class_for_mobile(1);
-                bar_scroll_init();
-            } else if (!is_mobile && class_is_toggled) {
-                toggle_class_for_mobile(0);
-            }
-        }
-        window.addEventListener("load", check_is_mobile);
-        window.addEventListener("resize", check_is_mobile);
-    </script>
 </head>
 <body onscroll="toggle_header_bg()">
     <header id="header">
         <div class="navbar-laptop default-block" style="height: 64px;">
             <div class="logo">
                 <a onclick="nav_scroll_to('banner')" aria-current="page" style="display: flex; align-items: center; gap: 10px;">
-                    <img src="../src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
+                    <img src="../src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="30">
                     <div class="Auroramob-title clickable"></div>
                 </a>
             </div>
@@ -1303,7 +75,7 @@
         <div class="navbar-mobile default-block" style="height: 64px;">
             <div class="logo">
                 <a onclick="nav_scroll_to('banner')" aria-current="page" style="display: flex; align-items: center; gap: 10px;">
-                    <img src="../src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="25">
+                    <img src="../src/img/icon/Auroramob-logo.png" class="Auroramob-logo clickable" height="30">
                     <div class="Auroramob-title clickable"></div>
                 </a>
                 <div id="nav-icon" class="icon" onclick="toggle_icon()">
@@ -1350,11 +122,9 @@
         <!-- Banner is the 1st block of the page, the image is changing according to @media selector based on window size. -->
         <section id="banner">
             <div class="banner-image">                
-                <div class="default-block">
-                    <h1 class="title">
-                        <span>Auroramob，</span> <br>点亮你的数字世界。
-                    </h1>
-                </div>
+                <h1 class="title">
+                    <span>Auroramob</span><br>点亮你的数字世界
+                </h1>
             </div>
         </section>
         <!-- Banner END -->
@@ -1602,55 +372,130 @@
         <!-- Join Us START -->
         <section id="join-us" class="section overflow-window">
             <h1 class="title-1">加入我们</h1>
+            <p class="rich-text" style="text-align: center;">hr@auroramob.com</p>
             <div class="default-block">
                 <div class="content" style="position: relative;">
                     <div class="wrapper overflow-window">
-                        <div class="job-bar bar">
-                            <div class="job-pod pod pod--selected">
-                                <div class="title-3">iOS高级研发工程师</div>
-                                <div class="title-4">岗位职责：</div>
-                                <ul>
-                                    <li>负责iOS新功能的设计、开发和实现；跟踪iOS最新趋势和技术发展；</li>
-                                    <li>优化现有代码，提高应用性能和稳定性；编写和审查可维护、高效、可靠的代码；</li>
-                                    <li>指导和培养初级工程师，提升团队整体的技术水平。</li>
-                                </ul>
-                                <div class="title-4">任职要求：</div>
-                                <ul>
-                                    <li>有良好的架构设计能力，能够处理复杂的技术问题；</li>
-                                    <li>熟悉iOS SDK和相关开发、调试工具、常用的设计模式和软件工程原则；</li>
-                                    <li>精通Objective-C和Swift编程语言；拥有跨平台开发经验（如React Native、Flutter）者优先。</li>
-                                </ul>
-                            </div>
+                        <div class="job-bar bar transition">
                             <div class="job-pod pod">
-                                <div class="title-3">产品经理</div>
+                                <div class="title-3">游戏UI设计师</div>
                                 <div class="title-4">岗位职责：</div>
                                 <ul>
-                                    <li>协助跨部门团队推进产品从概念到上市；参与制定符合公司愿景的产品路线图；</li>
-                                    <li>跟踪产品性能指标，提供数据分析报告，为产品迭代提供依据；确保按时发布符合质量标准的产品。</li>
-                                    <li>协助管理产品文档，收集整理用户反馈，设计用户体验改进措施。</li>
+                                    <li>根据项目策划案，参与游戏UI设计，包括游戏组件、人物和场景等相关设定；</li>
+                                    <li>统筹美术制作流程，协调各职能良好配合游戏UI设计工作；</li>
+                                    <li>根据游戏需求设定脚本和游戏流程；</li>
+                                    <li>熟悉目前流行的游戏美术风格，持续关注并了解业界动态，对游戏行列有热情。</li>
                                 </ul>
                                 <div class="title-4">任职要求：</div>
                                 <ul>
-                                    <li>良好的沟通和协作能力；具备批判性思维和解决问题的能力；</li>
-                                    <li>具备基本的数据分析技能，熟练使用Excel/Google Sheets；具备基本的市场分析和产品规划能力；</li>
-                                    <li>熟悉敏捷开发流程和工具（如JIRA、Trello）者优先。</li>
+                                    <li>喜欢玩游戏，绘画功底扎实，创意能力出众，色彩感觉良好，想像力丰富，具有较强的造型设计能力；</li>
+                                    <li>积极，良好的沟通能力和团队合作精神，富于创意；</li>
+                                    <li>工作认真细致，有较强的进取心和责任心，能够主动承受工作压力。</li>
                                 </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/0bbdc0ce2b4daf3d1HF62dy4GVRS?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
                             </div>
+
                             <div class="job-pod pod">
-                                <div class="title-3">UI设计师</div>
+                                <div class="title-3">游戏主美</div>
                                 <div class="title-4">岗位职责：</div>
                                 <ul>
-                                    <li>负责公司软件产品UI设计；关注开发反馈和产品功能优化设计；</li>
-                                    <li>参与创意设计，原型优化讨论，推动方案执行和实施；</li>
-                                    <li>参与设计流程优化，沉淀设计方案，制定规范。</li>
+                                    <li>设定游戏的整体视觉风格和艺术方向，制定美术设计的标准和指导原则，确保游戏的视觉一致性；</li>
+                                    <li>管理美术团队，参与项目规划，指导团队成员的工作，确保他们的设计符合艺术方向和项目需求；</li>
+                                    <li>与开发和项目管理团队密切合作，确保设计与游戏玩法和技术实现相协调。</li>
                                 </ul>
                                 <div class="title-4">任职要求：</div>
                                 <ul>
-                                    <li>了解app相关设计规范，能清晰完整的表达设计方案；对互联网产品流行趋势有敏锐的洞察力；</li>
-                                    <li>思路清晰具有良好的沟通能力，逻辑思维强，能与产品以及研发配合产出；</li>
-                                    <li>熟练使用 Sketch / PS / AI / Figma 等软件；</li>
-                                    <li>加分项：熟练掌握C4D。</li>
+                                    <li>本科及以上学历，美术、设计等相关专业；5年以上游戏UI设计经验，2年以上团队管理经验；</li>
+                                    <li>熟练掌握Photoshop、Illustrator、Flash等设计软件，具备良好的审美观和创意思维；</li>
+                                    <li>熟悉游戏UI设计流程，具备一定的交互设计能力；有成功上线游戏项目UI设计经验者优先。</li>
                                 </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/8fe9edd4f7bde2791HN709W1FlpX?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
+                            </div>
+
+                            <div class="job-pod pod">
+                                <div class="title-3">Unity开发</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>使用Unity引擎进行iOS/Android平台手机游戏开发；</li>
+                                    <li>与策划、美术保持良好沟通，实现美术表现需求同时满足功能的保障；</li>
+                                    <li>根据项目需求灵活使用插件，有良好的数据结构及算法基础；</li>
+                                    <li>熟悉XML、Json等数据结构配置信息的读取与存储功能。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>本科及以上计算机相关专业学历，有Unity客户端底层架构经验者优先；</li>
+                                    <li>有Unity开发经验，了解Unity扩展工具包、引擎应用组件；</li>
+                                    <li>具有强烈的责任心，良好的分析及解决问题和沟通协调能力。</li>
+                                </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/81612a3a786e54151HBz39q9F1JV?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
+                            </div>
+
+                            <div class="job-pod pod">
+                                <div class="title-3">Unity主程</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>设计和规划游戏的技术架构，确保系统的稳定性和可扩展性；</li>
+                                    <li>编写高质量的代码，设立代码和技术标准，实施代码审查；</li>
+                                    <li>管理程序员团队，参与项目规划，制定开发时间表，监控项目进度。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>计算机相关专业本科及以上学历，具备扎实的计算机科学基础；</li>
+                                    <li>5年以上Unity游戏开发经验，至少2年团队管理经验；</li>
+                                    <li>熟悉Unity引擎架构和底层原理，精通C#编程语言。</li>
+                                </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/ba8ea98d0e9363fc1HN52tW0E1BT?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
+                            </div>
+
+                            <div class="job-pod pod">
+                                <div class="title-3">游戏数值策划</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>负责公司海外休闲游戏的数值、关卡策略策划；</li>
+                                    <li>跟进产品需求、设计风格制定、研发测试项目推进，协调资源，保证项目进度；</li>
+                                    <li>负责产品数据分析，跟踪用户反馈，提升用户留存及转化率，提出优化方案。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>统招本科及以上学历，通过大学英语四级（425分以上）；</li>
+                                    <li>熟练使用产品需求、流程图、脑图相关软件，独立撰写高可读性需求文档；</li>
+                                    <li>熟练运用漏斗模型、用户分层进行数据分析，具备优秀的沟通表达能力。</li>
+                                </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/3de3f66f363176ee1HBz3ty_ElVY?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
+                            </div>
+
+                            <div class="job-pod pod">
+                                <div class="title-3">游戏策划</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>负责公司海外休闲游戏的数值、关卡策略策划；</li>
+                                    <li>跟进产品需求、设计风格制定、研发测试项目推进，协调资源，保证项目进度；</li>
+                                    <li>负责产品数据分析，跟踪用户反馈，提升产品留存及用户转化率，提出优化方案。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>统招本科及以上学历，通过大学英语四级（425分以上）；</li>
+                                    <li>熟练使用产品需求、流程图、脑图相关软件，独立撰写高可读性需求文档；</li>
+                                    <li>熟练运用漏斗模型、用户分层进行数据分析，具备优秀的沟通表达能力。</li>
+                                </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/f84a7771d4fb265e1HJ_2t-1FVFR?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
+                            </div>
+
+                            <div class="job-pod pod">
+                                <div class="title-3">数据分析师</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>负责公司海外游戏的广告和内购商业化数据分析，数据驱动变现策略与运营；</li>
+                                    <li>与推广和变现团队合作，优化推广和变现策略以实现ROI和营收目标；</li>
+                                    <li>监控广告变现数据，提升内购及运营活动的效率，增强收益。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>本科及以上学历，英语四级以上水平，拥有海外游戏产品运营和商业化变现经验者优先；</li>
+                                    <li>对游戏运营、用户留存优化、数据分析及商业化变现有深入了解，有相关工作经验者优先；</li>
+                                    <li>具备强烈的逻辑思维能力和学习意愿，能够快速适应新环境，具有创新思维和问题解决能力。</li>
+                                </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/8bb6852419b480a51HJ63N25FlNV?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
                             </div>
                             <!---->
                             <!---->
@@ -1676,17 +521,69 @@
                                     <li>[]</li>
                                 </ul>
                             </div> -->
+                            <div class="job-pod pod pod--laptop">
+                                <div class="title-3">游戏UI设计师</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>根据项目策划案，参与游戏UI设计，包括游戏组件、人物和场景等相关设定；</li>
+                                    <li>统筹美术制作流程，协调各职能良好配合游戏UI设计工作；</li>
+                                    <li>根据游戏需求设定脚本和游戏流程；</li>
+                                    <li>熟悉目前流行的游戏美术风格，持续关注并了解业界动态，对游戏行列有热情。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>喜欢玩游戏，绘画功底扎实，创意能力出众，色彩感觉良好，想像力丰富，具有较强的造型设计能力；</li>
+                                    <li>积极，良好的沟通能力和团队合作精神，富于创意；</li>
+                                    <li>工作认真细致，有较强的进取心和责任心，能够主动承受工作压力。</li>
+                                </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/0bbdc0ce2b4daf3d1HF62dy4GVRS?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
+                            </div>
+
+                            <div class="job-pod pod pod--laptop">
+                                <div class="title-3">游戏主美</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>设定游戏的整体视觉风格和艺术方向，制定美术设计的标准和指导原则，确保游戏的视觉一致性；</li>
+                                    <li>管理美术团队，参与项目规划，指导团队成员的工作，确保他们的设计符合艺术方向和项目需求；</li>
+                                    <li>与开发和项目管理团队密切合作，确保设计与游戏玩法和技术实现相协调。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>本科及以上学历，美术、设计等相关专业；5年以上游戏UI设计经验，2年以上团队管理经验；</li>
+                                    <li>熟练掌握Photoshop、Illustrator、Flash等设计软件，具备良好的审美观和创意思维；</li>
+                                    <li>熟悉游戏UI设计流程，具备一定的交互设计能力；有成功上线游戏项目UI设计经验者优先。</li>
+                                </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/8fe9edd4f7bde2791HN709W1FlpX?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
+                            </div>
+
+                            <div class="job-pod pod pod--laptop">
+                                <div class="title-3">Unity开发</div>
+                                <div class="title-4">岗位职责：</div>
+                                <ul>
+                                    <li>使用Unity引擎进行iOS/Android平台手机游戏开发；</li>
+                                    <li>与策划、美术保持良好沟通，实现美术表现需求同时满足功能的保障；</li>
+                                    <li>根据项目需求灵活使用插件，有良好的数据结构及算法基础；</li>
+                                    <li>熟悉XML、Json等数据结构配置信息的读取与存储功能。</li>
+                                </ul>
+                                <div class="title-4">任职要求：</div>
+                                <ul>
+                                    <li>本科及以上计算机相关专业学历，有Unity客户端底层架构经验者优先；</li>
+                                    <li>有Unity开发经验，了解Unity扩展工具包、引擎应用组件；</li>
+                                    <li>具有强烈的责任心，良好的分析及解决问题和沟通协调能力。</li>
+                                </ul>
+                                <a href="https://m.zhipin.com/mpa/html/weijd/weijd-job/81612a3a786e54151HBz39q9F1JV?date8=20240801&sid=tosee_jd_98dbb2dffca889471nR_2t-9EFZX&fromSource=2" class="job-link" target="_blank">>>> 查看更多</a>
+                            </div>
                         </div>
                     </div>
                     <!-- The following arrow_bar is used when adding new jobs into the page -->
-                    <!-- <div class="arrow_bar">
+                    <div class="arrow_bar">
                         <button class="btn clickable" onclick="lr_carousel('left', 3)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
                         </button>
                         <button class="btn clickable" onclick="lr_carousel('right', 3)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                         </button>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -1721,8 +618,8 @@
     <footer id="footer">
         <div class="left">
             <a onclick="soft_scroll('banner')" aria-current="page" style="display: flex; align-items: center; gap: 5px;">
-                <img src="../src/img/icon/Auroramob-logo.png" class="opengame-logo link" height="25">
-                <img src="../src/img/icon/Auroramob-title-black.png" class="opengame-logo link" height="20">
+                <img src="../src/img/icon/Auroramob-logo.png" class="Auroramob-logo link" height="30">
+                <img src="../src/img/icon/Auroramob-title-black.png" class="Auroramob-logo link" height="20">
             </a>
             <div class="slogan">点亮你的数字世界</div>
             <div class="icons">
