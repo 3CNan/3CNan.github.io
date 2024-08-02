@@ -125,42 +125,21 @@ function job_bar_init() {
     var pod_length = pod_objs.length;
 
     const is_mobile = window.matchMedia("(max-width: 767px)").matches;   // Use a media query to check for media size
+    // const is_1023 = window.matchMedia("(max-width: 1023px)").matches;   // Use a media query to check for media size
 
-    if (default_width == 928) {
+    if (!is_mobile) {
         bar_obj.style.width = parseInt((default_width  - 2 * gap_width) / 3) * pod_length + gap_width * (pod_length - 1) + "px";  // ([df-block width] + [# of pods - 3] * (([df-block width] - [gap] * 2) / 3 + [gap]))
-    } else if (is_mobile) {
-        bar_obj.style.width = "calc((100vw - 80px) * " + (pod_length - 3) + " + 15px * " + (pod_length - 3 - 1) + ")";  // 767px:   (100vw - 80px) * [# of pods] + 15px * [# of pods - 1]
     } else {
-        bar_obj.style.width = parseInt((default_width  - 2 * gap_width) / 3) * pod_length + gap_width * (pod_length - 1) + "px";  // 1023px:    -48px for dft-blk's margin * 2 
+        bar_obj.style.width = "calc((100vw - 80px) * " + (pod_length - 3) + " + " + gap_width + "px * " + (pod_length - 3 - 1) + ")";  // 767px:   (100vw - 80px) * [# of pods] + 15px * [# of pods - 1]
     }
 }
 // 
 // 
 // 
-// set join-us bar transform value, keep the displayed pod in its original place
+// set join-us bar transform value in order to keep the carousel still work when window resize
 function set_joinus_resize_carousel() {  
     var bar_obj = document.getElementsByClassName("job-bar")[0];
-    var pod_objs = document.getElementsByClassName("job-pod");
-    var pod_width = pod_objs[0].getBoundingClientRect().width;
-    var gap_width = parseFloat(document.defaultView.getComputedStyle(bar_obj, null).gap);
-    gap_width = (gap_width) ? gap_width : 0; // if there's no gap between pods, make it 0 to avoid null error
-
-    var move_width = pod_width + gap_width;
-
-    var original_posX = document.defaultView.getComputedStyle(bar_obj, null).transform.split("(")[1].split(")")[0].split(",")[4];  // receiving transform value: matrix(a, b, c, d, posX, f);
-    var current_page = Math.round(original_posX / -move_width);  // receiving 0 to n, round makes it stable when window either compress or stretch
-
-    bar_obj.parentNode.scrollLeft = 0;
-    bar_obj.style.transform = "translateX(" + (-move_width * current_page) + "px)";
-
-    // var nearest_posX = 10000;
-    // for (var i = 0; i < pod_objs.length; i++) {
-    //     if (Math.abs(pod_objs[i].getBoundingClientRect().x - original_posX) < Math.abs(pod_objs[i].getBoundingClientRect().x - nearest_posX)) {
-    //         nearest_posX = parseInt(pod_objs[i].getBoundingClientRect().x);
-    //     }
-    //     console.log(pod_objs[i].getBoundingClientRect());
-    // }
-    // bar_obj.style.transform = "translateX(" + (-nearest_posX) + "px)";
+    bar_obj.style.transform = "translateX(0)";
 }
 // 
 // 
@@ -216,13 +195,19 @@ function window_jump_to(obj) {
 // 
 // 
 // Initialize the scroll position of bars to its center
-function bar_scroll_init() {
+function bar_scroll_init(status) {  // receving 0 and 1, 1 means init, 0 means recover to original
     var ab_bar_obj = document.getElementsByClassName("ab-bar")[0];
     var ab_bar_width = ab_bar_obj.getBoundingClientRect().width;
     var job_bar_obj = document.getElementsByClassName("job-bar")[0];
     var job_bar_width = job_bar_obj.getBoundingClientRect().width;
-    ab_bar_obj.parentNode.scrollLeft = ab_bar_width / 2;
-    job_bar_obj.parentNode.scrollLeft = job_bar_width / 2;
+
+    if (status) {
+        ab_bar_obj.parentNode.scrollLeft = ab_bar_width / 2;
+        job_bar_obj.parentNode.scrollLeft = job_bar_width / 2;
+    } else {
+        ab_bar_obj.parentNode.scrollLeft = 0;
+        job_bar_obj.parentNode.scrollLeft = 0;
+    }
 }
 // 
 // 
@@ -257,17 +242,18 @@ function check_is_mobile() {
 
     if (is_mobile && !class_is_toggled) {
         toggle_class_for_mobile(1);
-        bar_scroll_init();
+        bar_scroll_init(1);
     } else if (!is_mobile && class_is_toggled) {
         toggle_class_for_mobile(0);
+        bar_scroll_init(0);
     }
 }
 window.addEventListener("load", function() {
-    check_is_mobile();
     job_bar_init();
+    check_is_mobile();
 });
 window.addEventListener("resize", function() {
-    check_is_mobile();
     job_bar_init();
     set_joinus_resize_carousel();
+    check_is_mobile();
 });
